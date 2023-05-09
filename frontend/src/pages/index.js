@@ -7,7 +7,9 @@ import Hero from "../../components/hero";
 import Sixgrid from "../../components/sixgrid";
 import Rightleftright from "../../components/rightleftright";
 import Carousel from "../../components/caroucel";
-import { groq } from "next-sanity";
+import Quoteslider from "../../components/quoteslider";
+import Homelocation from "../../components/homelocation";
+import Footer from "../../components/footer";
 
 export default function Home({ data }) {
   console.log(`data`, data);
@@ -29,7 +31,10 @@ export default function Home({ data }) {
         <Sixgrid />
         <Rightleftright />
         <Carousel />
+        <Quoteslider />
+        <Homelocation />
       </main>
+      <Footer />
     </div>
   );
 }
