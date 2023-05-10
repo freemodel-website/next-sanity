@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import Ctabutton from "./atoms/ctabutton";
 
-export default function Hero({ hero }) {
+/**
+ * A function that adds two numbers.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The sum of the two numbers.
+ */
+export default function Hero({ hero, buttontext }) {
   console.log(`hero`, hero);
 
   return (
@@ -18,7 +25,7 @@ export default function Hero({ hero }) {
               {hero.title}
             </h2>
 
-            <Ctabutton href="javascript:void(0)" text="Let's Talk" />
+            <Ctabutton href="javascript:void(0)" text={buttontext} />
           </div>
         </div>
       </div>
