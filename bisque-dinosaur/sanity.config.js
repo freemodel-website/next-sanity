@@ -1,6 +1,7 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
+import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemas'
 import {myStructure} from './deskStructure'
 
@@ -16,6 +17,7 @@ export default defineConfig({
       structure: myStructure,
     }),
     visionTool(),
+    media(),
   ],
 
   schema: {

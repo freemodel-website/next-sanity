@@ -5,7 +5,7 @@ export default function rightleftright() {
   return (
     <div className="bg-FM-blue py-16 mx-auto lg:py-20">
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-3xl md:mb-12">
-        <h2 className="mb-10 text-5xl font-bold leading-none tracking-tight text-white sm:text-5xl md:mx-auto">
+        <h2 className="mb-10 text-5xl font-bold leading-none tracking-tight mx-auto text-center text-white sm:text-5xl">
           Why Freemodel?
         </h2>
       </div>
@@ -86,7 +86,7 @@ export default function rightleftright() {
           </div>
         </div>
         <div className="flex justify-center mt-10">
-          <Ctabutton />
+          <Ctabutton href="/lets-talk" text="Let's Talk" />
         </div>
       </section>
     </div>

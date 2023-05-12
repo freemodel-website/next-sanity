@@ -1,13 +1,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default () => {
   const [state, setState] = useState(false);
 
+  const { asPath } = useRouter();
+
   // Replace javascript:void(0) paths with your paths
   const navigation = [
-    { title: "How It Works", path: "javascript:void(0)" },
+    { title: "How It Works", path: "/how-it-works" },
     { title: "For Agents", path: "javascript:void(0)" },
     { title: "Projects", path: "javascript:void(0)" },
     { title: "Locations", path: "javascript:void(0)" },
@@ -71,10 +74,15 @@ export default () => {
           <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => {
               return (
-                <li key={idx} className="text-gray-700 hover:text-indigo-600">
-                  <a href={item.path} className="block">
+                <li key={idx} className="text-black hover:text-FM-orange">
+                  <Link
+                    href={item.path}
+                    className={
+                      asPath == item.path && "font-bold text-FM-orange"
+                    }
+                  >
                     {item.title}
-                  </a>
+                  </Link>
                 </li>
               );
             })}

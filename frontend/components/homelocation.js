@@ -5,7 +5,7 @@ export default function Homelocation() {
   return (
     <div className="py-16 mx-auto lg:py-20">
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-3xl md:mb-12">
-        <h2 className="mb-10 text-5xl font-bold leading-none tracking-tight text-black sm:text-5xl md:mx-auto">
+        <h2 className="mb-10 text-5xl font-bold leading-none tracking-tight text-center text-black sm:text-5xl md:mx-auto">
           Why Freemodel?
         </h2>
       </div>
@@ -20,7 +20,7 @@ export default function Homelocation() {
                 className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
               />
               <div className="p-4">
-                <h3 className="text-lg underline underline-offset-4 decoration-1 font-bold sm:text-3xl text-FM-orange group-hover:text-orange-600">
+                <h3 className="text-3xl underline underline-offset-4 decoration-1 font-bold sm:text-3xl text-FM-orange group-hover:text-orange-600">
                   California
                 </h3>
               </div>
@@ -30,7 +30,7 @@ export default function Homelocation() {
       </div>
       {/*  */}
       <div className="flex justify-center mt-14">
-        <Ctabutton />
+        <Ctabutton href="/lets-talk" text="Let's Talk" />
       </div>
     </div>
   );

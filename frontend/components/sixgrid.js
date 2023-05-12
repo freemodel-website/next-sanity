@@ -4,7 +4,7 @@ export default function Sixgrid() {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="max-w-xl mb-10 px-10 sm:px-0 md:mx-auto text-center lg:max-w-3xl md:mb-12">
-        <h2 className="mb-10 text-3xl sm:text-5xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        <h2 className="mb-10 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
           We remove the barriers to pre-sale renovations. Your clients’ homes
           sell faster—and for more.
         </h2>
@@ -18,7 +18,7 @@ export default function Sixgrid() {
           <h6 className="text-2xl mb-2 font-semibold leading-5">
             We do it all
           </h6>
-          <p className="max-w-sm mb-3 text-sm text-gray-900 sm:mx-auto">
+          <p className="max-w-sm mb-3 text-base text-gray-900 sm:mx-auto">
             We design, manage, and pay for remodels and pre-sales prep
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function Sixgrid() {
           <h6 className="text-2xl mb-2 font-semibold leading-5">
             Local management
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
+          <p className="max-w-md mb-3 text-base text-gray-900 sm:mx-auto">
             Our project directors live in the area and know local taste
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function Sixgrid() {
           <h6 className="text-2xl mb-2 font-semibold leading-5">
             No work required
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
+          <p className="max-w-md mb-3 text-base text-gray-900 sm:mx-auto">
             Our concierge service means you and your clients do nothing
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function Sixgrid() {
           <h6 className="text-2xl mb-2 font-semibold leading-5">
             Sellers love us
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
+          <p className="max-w-md mb-3 text-base text-gray-900 sm:mx-auto">
             We help their properties sell faster and for more
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function Sixgrid() {
           <h6 className="text-2xl mb-2 font-semibold leading-5">
             Agents love us, too
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
+          <p className="max-w-md mb-3 text-base text-gray-900 sm:mx-auto">
             Your clients are happy, so you look like a hero
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function Sixgrid() {
           <h6 className="text-2xl mb-2 font-semibold leading-5">
             No cash up front
           </h6>
-          <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
+          <p className="max-w-md mb-3 text-base text-gray-900 sm:mx-auto">
             Homeowners pay out of escrow when their home sells
           </p>
         </div>

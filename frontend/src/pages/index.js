@@ -25,7 +25,7 @@ export default function Home({ data }) {
       <Navbar />
 
       <main>
-        <Hero hero={data} buttontext={"Let's Tal"} />
+        <Hero hero={data} buttontext={"Let's Talk"} />
         <Sixgrid />
         <Rightleftright />
         <Carousel />
