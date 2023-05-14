@@ -16,6 +16,7 @@
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
     "google-fonts-plugin": "^5.0.2",
+    "keen-slider": "^6.8.5",
     "next": "13.3.4",
     "next-sanity": "^4.3.2",
     "postcss": "8.4.23",

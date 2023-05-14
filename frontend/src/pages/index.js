@@ -7,12 +7,13 @@ import Hero from "../../components/hero";
 import Sixgrid from "../../components/sixgrid";
 import Rightleftright from "../../components/rightleftright";
 import Carousel from "../../components/caroucel";
-import Quoteslider from "../../components/quoteslider";
+import Quoteslider from "../../components/quoteslider/quoteslider";
 import Homelocation from "../../components/homelocation";
 import Footer from "../../components/footer";
+import "keen-slider/keen-slider.min.css";
 
 export default function Home({ data }) {
-  console.log(`data`, data);
+  //console.log(`data`, data);
 
   return (
     <div>
