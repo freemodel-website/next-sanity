@@ -30,6 +30,7 @@ export default function Home({ data }) {
         <Sixgrid />
         <Rightleftright />
         <Carousel />
+
         <Quoteslider />
         <Homelocation />
       </main>

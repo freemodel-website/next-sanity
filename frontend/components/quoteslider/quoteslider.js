@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Projectcard from "../atoms/projectcard";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 import Testimonial from "../atoms/testimonial";
 
 export default function Guoteslider() {
@@ -21,16 +24,26 @@ export default function Guoteslider() {
 
   return (
     <>
-      <div className="navigation-wrapper relative">
+      <div className="navigation-wrapper relative bg-FM-blue py-20">
         <div ref={sliderRef} className="keen-slider">
           <div className="keen-slider__slide number-slide1">
             <Testimonial />
           </div>
-          <div className="keen-slider__slide number-slide2">2</div>
-          <div className="keen-slider__slide number-slide3">3</div>
-          <div className="keen-slider__slide number-slide4">4</div>
-          <div className="keen-slider__slide number-slide5">5</div>
-          <div className="keen-slider__slide number-slide6">6</div>
+          <div className="keen-slider__slide number-slide2">
+            <Testimonial />
+          </div>
+          <div className="keen-slider__slide number-slide3">
+            <Testimonial />
+          </div>
+          <div className="keen-slider__slide number-slide4">
+            <Testimonial />
+          </div>
+          <div className="keen-slider__slide number-slide5">
+            <Testimonial />
+          </div>
+          <div className="keen-slider__slide number-slide6">
+            <Testimonial />
+          </div>
         </div>
         {loaded && instanceRef.current && (
           <>
@@ -69,14 +82,14 @@ function Arrow(props) {
       viewBox="0 0 24 24"
     >
       {props.left && (
-        <FaArrowAltCircleLeft
-          className="w-8 h-8 text-FM-orange"
+        <BsFillArrowLeftCircleFill
+          className="w-10 h-10 text-FM-orange bg-white rounded-full"
           aria-hidden="true"
         />
       )}
       {!props.left && (
-        <FaArrowAltCircleRight
-          className="w-8 h-8 text-FM-orange"
+        <BsFillArrowRightCircleFill
+          className="w-10 h-10 text-FM-orange bg-white rounded-full"
           aria-hidden="true"
         />
       )}

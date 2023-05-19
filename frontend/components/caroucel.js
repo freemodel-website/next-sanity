@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 import Projectcard from "./atoms/projectcard";
 
 export default () => {
@@ -89,14 +92,14 @@ function Arrow(props) {
       viewBox="0 0 24 24"
     >
       {props.left && (
-        <FaArrowAltCircleLeft
-          className="w-10 h-10 text-FM-orange opacity-75"
+        <BsFillArrowLeftCircleFill
+          className="w-10 h-10 text-FM-orange bg-white rounded-full opacity-75"
           aria-hidden="true"
         />
       )}
       {!props.left && (
-        <FaArrowAltCircleRight
-          className="w-10 h-10 text-FM-orange opacity-75"
+        <BsFillArrowRightCircleFill
+          className="w-10 h-10 text-FM-orange bg-white rounded-full opacity-75"
           aria-hidden="true"
         />
       )}
