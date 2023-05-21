@@ -11,7 +11,7 @@ export default () => {
   // Replace javascript:void(0) paths with your paths
   const navigation = [
     { title: "How It Works", path: "/how-it-works" },
-    { title: "For Agents", path: "javascript:void(0)" },
+    { title: "For Agents", path: "/for-agents" },
     { title: "Projects", path: "javascript:void(0)" },
     { title: "Locations", path: "javascript:void(0)" },
     { title: "Our Team", path: "javascript:void(0)" },
@@ -90,7 +90,7 @@ export default () => {
             <div className="space-y-3 items-center gap-x-6 md:flex md:space-y-0">
               <li>
                 <a
-                  href="javascript:void(0)"
+                  href="/lets-talk"
                   className="block py-3 px-4 font-medium text-center text-white bg-FM-orange hover:bg-orange-600 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
                 >
                   Let's Talk

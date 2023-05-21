@@ -32,7 +32,10 @@ export default () => {
   });
 
   return (
-    <div className="text-center my-60">
+    <div className="text-center my-40">
+      <h1 className="text-5xl text-center text-black font-bold mb-20">
+        Why Agents Love Us
+      </h1>
       <div className="navigation-wrapper relative">
         <div ref={sliderRef} className="keen-slider">
           <div className="keen-slider__slide number-slide1">

@@ -33,6 +33,20 @@ export default function Home({ data }) {
 
         <Quoteslider />
         <Homelocation />
+
+        <div className="px-4 py-16 bg-FM-blue md:px-24 lg:px-8 lg:py-20">
+          <div className="grid gap-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:grid-cols-2">
+            <div className="lg:pr-10 md: my-auto">
+              <h5 className="mb-4 text-4xl text-white font-extrabold leading-none">
+                Not in your City?
+              </h5>
+              <p className="mb-6 text-white">
+                We will let you know when we are!
+              </p>
+            </div>
+            <div></div>
+          </div>
+        </div>
       </main>
       <Footer />
     </div>

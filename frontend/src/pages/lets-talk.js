@@ -1,6 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
+import Hero from "../../components/hero";
+import Footer from "../../components/footer";
 
 export default function LetsTalk() {
   return (
@@ -12,6 +14,16 @@ export default function LetsTalk() {
       </Head>
 
       <Navbar />
+
+      <main>
+        <Hero hero={{ title: "Let's Talk" }} />
+
+        <div className="bg-stone-500 h-96 flex items-center justify-center">
+          add form here
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

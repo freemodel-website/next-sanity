@@ -1,6 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
+import Hero from "../../components/hero";
+import Bluebar from "../../components/bluebar";
+import Threesegment from "../../components/for-agents/threesegment";
+import Ourprocess from "../../components/for-agents/ourprocess";
+import Footer from "../../components/footer";
 
 export default function ForAgents() {
   return (
@@ -12,6 +17,21 @@ export default function ForAgents() {
       </Head>
 
       <Navbar />
+
+      <main className="mb-20">
+        <Hero
+          hero={{ title: "We're your trusted partner." }}
+          buttontext="Let's Talk"
+        />
+
+        <Bluebar theme={"leftimg"} />
+
+        <Threesegment />
+
+        <Ourprocess />
+      </main>
+
+      <Footer />
     </div>
   );
 }

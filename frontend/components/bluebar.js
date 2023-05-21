@@ -31,7 +31,7 @@ export default function Bluebar({ theme }) {
         <section className="bg-FM-blue py-14">
           <div className="max-w-screen-xl mx-auto md:px-8">
             <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
-              <div className="flex-1 sm:hidden lg:block">
+              <div className=" ">
                 <img
                   src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                   className="md:max-w-lg sm:rounded-lg"

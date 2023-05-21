@@ -25,6 +25,9 @@ export default function Guoteslider() {
   return (
     <>
       <div className="navigation-wrapper relative bg-FM-blue py-20">
+        <h1 className="text-5xl text-center text-white font-bold mb-20">
+          Why Agents Love Us
+        </h1>
         <div ref={sliderRef} className="keen-slider">
           <div className="keen-slider__slide number-slide1">
             <Testimonial />

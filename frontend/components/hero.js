@@ -24,8 +24,7 @@ export default function Hero({ hero, buttontext }) {
             <h2 className="text-center m-auto mb-16 text-5xl font-bold tracking-tight text-white sm:text-8xl sm:leading-none ">
               {hero.title}
             </h2>
-
-            <Ctabutton href="/lets-talk" text={buttontext} />
+            {buttontext && <Ctabutton buttontext={buttontext} />}
           </div>
         </div>
       </div>
