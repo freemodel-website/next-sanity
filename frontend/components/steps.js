@@ -10,7 +10,7 @@ export default function Steps() {
       </div>
 
       {/* ---------- Block 1 ---------- */}
-      <div class="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
+      <div className="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
         <div>
           <div className="sm:text-center">
             <div className="flex items-center justify-center w-10 h-10 mb-4 text-2xl font-extrabold rounded-full text-white bg-FM-orange mx-auto">
@@ -23,7 +23,7 @@ export default function Steps() {
             </p>
           </div>
         </div>
-        <div class="order-last sm:order-none">
+        <div className="order-last sm:order-none">
           <div className="sm:text-center sm:mt-32">
             <div>
               <img
@@ -47,7 +47,7 @@ export default function Steps() {
         </div>
       </div>
       {/* ---------- Block 2 ---------- */}
-      <div class="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
+      <div className="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
         <div>
           <div className="sm:text-center">
             <div className="flex items-center justify-center w-10 h-10 mb-4 text-2xl font-extrabold rounded-full text-white bg-FM-orange mx-auto">
@@ -60,7 +60,7 @@ export default function Steps() {
             </p>
           </div>
         </div>
-        <div class="order-last sm:order-none">
+        <div className="order-last sm:order-none">
           <div className="sm:text-center sm:mt-32">
             <div>
               <img
@@ -84,7 +84,7 @@ export default function Steps() {
         </div>
       </div>
       {/* ---------- Block 3 ---------- */}
-      <div class="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
+      <div className="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
         <div>
           <div className="sm:text-center">
             <div className="flex items-center justify-center w-10 h-10 mb-4 text-2xl font-extrabold rounded-full text-white bg-FM-orange mx-auto">
@@ -97,7 +97,7 @@ export default function Steps() {
             </p>
           </div>
         </div>
-        <div class="order-last sm:order-none">
+        <div className="order-last sm:order-none">
           <div className="sm:text-center sm:mt-32">
             <div>
               <img
@@ -121,7 +121,7 @@ export default function Steps() {
         </div>
       </div>
       {/* ---------- Block 4 ---------- */}
-      <div class="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
+      <div className="flex justify-between flex-col gap-8 mb-20 sm:flex-row">
         <div>
           <div className="sm:text-center">
             <div className="flex items-center justify-center w-10 h-10 mb-4 text-2xl font-extrabold rounded-full text-white bg-FM-orange mx-auto">
@@ -134,7 +134,7 @@ export default function Steps() {
             </p>
           </div>
         </div>
-        <div class="order-last sm:order-none">
+        <div className="order-last sm:order-none">
           <div className="sm:text-center sm:mt-32">
             <div>
               <img

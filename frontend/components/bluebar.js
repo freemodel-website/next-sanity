@@ -5,7 +5,7 @@ import React from "react";
  * @param theme - titletext, leftimg
  * @returns
  */
-export default function Bluebar({ theme }) {
+export default function Bluebar({ theme, body }) {
   let text;
   switch (theme) {
     case "titletext":
@@ -57,8 +57,8 @@ export default function Bluebar({ theme }) {
       text = (
         <div className="bg-gray-800">
           <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-            <h2 className="text-5xl font-extrabold text-white sm:text-4xl">
-              We Believe
+            <h2 className="text-5xl font-extrabold text-white mx-auto sm:text-4xl sm:max-w-4xl">
+              {body}
             </h2>
           </div>
         </div>

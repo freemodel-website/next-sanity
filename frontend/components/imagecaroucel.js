@@ -7,7 +7,7 @@ import {
 } from "react-icons/bs";
 import Projectcard from "./atoms/projectcard";
 
-export default ({ projects }) => {
+export default () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -32,20 +32,30 @@ export default ({ projects }) => {
   });
 
   return (
-    <div className="text-center">
+    <div className="text-center my-40">
+      <h1 className="text-5xl text-center text-black font-bold mb-20">
+        Why Agents Love Us
+      </h1>
       <div className="navigation-wrapper relative">
         <div ref={sliderRef} className="keen-slider">
-          {projects.map((project, index) => (
-            <div className="keen-slider__slide" key={index}>
-              <Projectcard
-                title={project.title}
-                image={project.image}
-                beds={project.beds}
-                baths={project.baths}
-                duration={project.duration}
-              />
-            </div>
-          ))}
+          <div className="keen-slider__slide number-slide1">
+            <Projectcard />
+          </div>
+          <div className="keen-slider__slide number-slide2">
+            <Projectcard />
+          </div>
+          <div className="keen-slider__slide number-slide3">
+            <Projectcard />
+          </div>
+          <div className="keen-slider__slide number-slide4">
+            <Projectcard />
+          </div>
+          <div className="keen-slider__slide number-slide5">
+            <Projectcard />
+          </div>
+          <div className="keen-slider__slide number-slide6">
+            <Projectcard />
+          </div>
         </div>
         {loaded && instanceRef.current && (
           <>
@@ -79,7 +89,7 @@ function Arrow(props) {
     <div
       onClick={props.onClick}
       className={`arrow absolute top-[40%] translate-y-2/4 ${
-        props.left ? "arrow--left left-1" : "arrow--right left-auto right-1"
+        props.left ? "arrow--left left-8" : "arrow--right left-auto right-8"
       } ${disabeld}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"

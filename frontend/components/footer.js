@@ -2,8 +2,22 @@ import React from "react";
 import { BsInstagram, BsLinkedin, BsFacebook, BsTwitter } from "react-icons/bs";
 
 export default function Footer() {
+  const leftItems = [
+    { title: "Blog", link: "/blog" },
+    { title: "Design Services", link: "/design-services" },
+    { title: "FAQ", link: "/faq" },
+    { title: "Media", link: "/media" },
+  ];
+
+  const rightItems = [
+    { title: "About Us", link: "/about-us" },
+    { title: "Careers", link: "/careers" },
+    { title: "For Contractors", link: "/for-contractors" },
+    { title: "Privacy Policy", link: "/privacy-policy" },
+  ];
+
   return (
-    <footer aria-label="Site Footer" class="bg-FM-orange">
+    <footer aria-label="Site Footer" className="bg-FM-orange">
       <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
@@ -38,28 +52,24 @@ export default function Footer() {
             </div>
           </div>
           <div className="space-y-2 text-sm">
-            <p className="text-base text-white font-bold tracking-wide">Blog</p>
-            <p className="text-base text-white font-bold tracking-wide">
-              Design Services
-            </p>
-            <p className="text-base text-white font-bold tracking-wide">FAQ</p>
-            <p className="text-base text-white font-bold tracking-wide">
-              Media
-            </p>
+            {leftItems.map((item, index) => (
+              <p
+                key={index}
+                className="text-base text-white font-bold tracking-wide"
+              >
+                <a href={item.link}>{item.title}</a>
+              </p>
+            ))}
           </div>
           <div className="space-y-2 text-sm">
-            <p className="text-base text-white font-bold tracking-wide">
-              About Us
-            </p>
-            <p className="text-base text-white font-bold tracking-wide">
-              Careers
-            </p>
-            <p className="text-base text-white font-bold tracking-wide">
-              For Contractors
-            </p>
-            <p className="text-base text-white font-bold tracking-wide">
-              Privacy Policy
-            </p>
+            {rightItems.map((item, index) => (
+              <p
+                key={index}
+                className="text-base text-white font-bold tracking-wide"
+              >
+                <a href={item.link}>{item.title}</a>
+              </p>
+            ))}
           </div>
           {/*  */}
         </div>

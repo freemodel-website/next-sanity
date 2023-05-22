@@ -13,7 +13,50 @@ import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
 
 export default function Home({ data }) {
-  //console.log(`data`, data);
+  const projects = [
+    {
+      title: "Lake Top Majesty",
+      image: "/testhouse.jpg",
+      beds: "2",
+      baths: "1",
+      duration: "4 months",
+    },
+    {
+      title: "Mountain Top Majesty",
+      image: "/testhouse.jpg",
+      beds: "2",
+      baths: "1",
+      duration: "4 months",
+    },
+    {
+      title: "Tree Top Majesty",
+      image: "/testhouse.jpg",
+      beds: "2",
+      baths: "1",
+      duration: "4 months",
+    },
+    {
+      title: "Dessert Top Majesty",
+      image: "/testhouse.jpg",
+      beds: "2",
+      baths: "1",
+      duration: "4 months",
+    },
+    {
+      title: "Beach Top Majesty",
+      image: "/testhouse.jpg",
+      beds: "2",
+      baths: "1",
+      duration: "4 months",
+    },
+    {
+      title: "City Top Majesty",
+      image: "/testhouse.jpg",
+      beds: "2",
+      baths: "1",
+      duration: "4 months",
+    },
+  ];
 
   return (
     <div>
@@ -29,8 +72,13 @@ export default function Home({ data }) {
         <Hero hero={data} buttontext={"Let's Talk"} />
         <Sixgrid />
         <Rightleftright />
-        <Carousel />
 
+        <div className="text-center my-40">
+          <h1 className="text-5xl text-center text-black font-bold mb-20">
+            Why Agents Love Us
+          </h1>
+          <Carousel projects={projects} />
+        </div>
         <Quoteslider />
         <Homelocation />
 
