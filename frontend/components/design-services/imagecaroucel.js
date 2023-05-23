@@ -5,12 +5,12 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import Projectcard from "./atoms/projectcard";
+import Testimonial from "../atoms/testimonial";
+import Image from "next/image";
 
-export default () => {
+export default function ImageCaroucel({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     slideChanged(slider) {
@@ -19,43 +19,28 @@ export default () => {
     created() {
       setLoaded(true);
     },
-    breakpoints: {
-      "(min-width: 400px)": {
-        slides: { perView: 1, spacing: 5 },
-      },
-      "(min-width: 1000px)": {
-        slides: { perView: 3, spacing: 1 },
-      },
-    },
-    slides: { perView: 1 },
     loop: true,
   });
 
   return (
-    <div className="text-center my-40">
-      <h1 className="text-5xl text-center text-black font-bold mb-20">
-        Why Agents Love Us
-      </h1>
-      <div className="navigation-wrapper relative">
+    <>
+      <div className="navigation-wrapper relative py-20">
+        <h1 className="text-5xl text-center text-black font-bold mb-20">
+          Featured Design Boards
+        </h1>
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide number-slide1">
-            <Projectcard />
-          </div>
-          <div className="keen-slider__slide number-slide2">
-            <Projectcard />
-          </div>
-          <div className="keen-slider__slide number-slide3">
-            <Projectcard />
-          </div>
-          <div className="keen-slider__slide number-slide4">
-            <Projectcard />
-          </div>
-          <div className="keen-slider__slide number-slide5">
-            <Projectcard />
-          </div>
-          <div className="keen-slider__slide number-slide6">
-            <Projectcard />
-          </div>
+          {images.map((image, index) => (
+            <div className="keen-slider__slide" key={index}>
+              <div className="relative mx-auto h-[40vw] w-[80vw]">
+                <Image
+                  alt={image.alt}
+                  src={image.href}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          ))}
         </div>
         {loaded && instanceRef.current && (
           <>
@@ -79,16 +64,15 @@ export default () => {
           </>
         )}
       </div>
-    </div>
+    </>
   );
-};
-
+}
 function Arrow(props) {
   const disabeld = props.disabled ? " arrow--disabled" : "";
   return (
     <div
       onClick={props.onClick}
-      className={`arrow absolute top-[40%] translate-y-2/4 ${
+      className={`arrow absolute top-1/2 translate-y-2/4 ${
         props.left ? "arrow--left left-8" : "arrow--right left-auto right-8"
       } ${disabeld}`}
       xmlns="http://www.w3.org/2000/svg"
@@ -96,13 +80,13 @@ function Arrow(props) {
     >
       {props.left && (
         <BsFillArrowLeftCircleFill
-          className="w-10 h-10 text-FM-orange bg-white rounded-full opacity-75"
+          className="w-10 h-10 text-FM-orange bg-white rounded-full"
           aria-hidden="true"
         />
       )}
       {!props.left && (
         <BsFillArrowRightCircleFill
-          className="w-10 h-10 text-FM-orange bg-white rounded-full opacity-75"
+          className="w-10 h-10 text-FM-orange bg-white rounded-full"
           aria-hidden="true"
         />
       )}

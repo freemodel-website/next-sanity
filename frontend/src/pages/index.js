@@ -4,11 +4,11 @@ import Image from "next/image";
 import { client, urlFor } from "../../client";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
-import Sixgrid from "../../components/sixgrid";
-import Rightleftright from "../../components/rightleftright";
+import Sixgrid from "../../components/index/sixgrid";
+import Rightleftright from "../../components/index/rightleftright";
 import Carousel from "../../components/caroucel";
 import Quoteslider from "../../components/quoteslider/quoteslider";
-import Homelocation from "../../components/homelocation";
+import Homelocation from "../../components/index/homelocation";
 import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
 

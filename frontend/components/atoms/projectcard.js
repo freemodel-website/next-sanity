@@ -6,7 +6,7 @@ export default function Projectcard({ title, image, beds, baths, duration }) {
   return (
     <a
       href="#"
-      className="block max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 sm:mx-auto"
+      className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 md:w-[30vw] sm:mx-auto"
     >
       <div className="relative h-72 w-full">
         <Image

@@ -1,8 +1,41 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
+import Hero from "../../components/hero";
+import Bluebar from "../../components/bluebar";
+import Footer from "../../components/footer";
+import MediaList from "../../components/media/medialist";
 
 export default function Media() {
+  const media = [
+    {
+      title:
+        "A Design Expert Tells Us How To Create The Perfect Home Library, featuring Freemodel's Satsha Lopez-Jaimes - House Digest",
+      image: "/testhouse.jpg",
+    },
+    {
+      title:
+        "Contractors & designers say your home could be so much nicer with any of these cheap, clever things, featuring Freemodel's Samantha Black - MIC",
+      image: "/testhouse.jpg",
+    },
+    {
+      title: "Tree Top Majesty",
+      image: "/testhouse.jpg",
+    },
+    {
+      title: "Dessert Top Majesty",
+      image: "/testhouse.jpg",
+    },
+    {
+      title: "Beach Top Majesty",
+      image: "/testhouse.jpg",
+    },
+    {
+      title: "City Top Majesty",
+      image: "/testhouse.jpg",
+    },
+  ];
+
   return (
     <div>
       <Head>
@@ -12,6 +45,20 @@ export default function Media() {
       </Head>
 
       <Navbar />
+
+      <main>
+        <Hero hero={{ title: "In the news." }} />
+
+        <Bluebar
+          body={
+            "For any press inquiries please contact marketing@freemodel.com."
+          }
+        />
+
+        <MediaList media={media} />
+      </main>
+
+      <Footer />
     </div>
   );
 }

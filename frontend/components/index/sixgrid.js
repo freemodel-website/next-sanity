@@ -1,4 +1,4 @@
-import Ctabutton from "./atoms/ctabutton";
+import Ctabutton from "../atoms/ctabutton";
 
 export default function Sixgrid() {
   return (

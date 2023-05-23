@@ -1,8 +1,52 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
+import Hero from "../../components/hero";
+import Bluebar from "../../components/bluebar";
+import AccordianList from "../../components/atoms/accordianlist";
+import Ctabutton from "../../components/atoms/ctabutton";
+import Footer from "../../components/footer";
 
 export default function FAQ() {
+  const faqsList = [
+    {
+      q: "What are some random questions to ask?",
+      a: "That's exactly the reason we created this random question generator. There are hundreds of random questions to choose from so you're able to find the perfect random question.",
+    },
+    {
+      q: "Do you include common questions?",
+      a: "This generator doesn't include most common questions. The thought is that you can come up with common questions on your own so most of the questions in this generator.",
+    },
+    {
+      q: "Can I use this for 21 questions?",
+      a: "Yes! there are two ways that you can use this question generator depending on what you're after. You can indicate that you want 21 questions generated.",
+    },
+    {
+      q: "What are some random questions to ask?",
+      a: "That's exactly the reason we created this random question generator. There are hundreds of random questions to choose from so you're able to find the perfect random question.",
+    },
+    {
+      q: "Do you include common questions?",
+      a: "This generator doesn't include most common questions. The thought is that you can come up with common questions on your own so most of the questions in this generator.",
+    },
+    {
+      q: "Can I use this for 21 questions?",
+      a: "Yes! there are two ways that you can use this question generator depending on what you're after. You can indicate that you want 21 questions generated.",
+    },
+    {
+      q: "What are some random questions to ask?",
+      a: "That's exactly the reason we created this random question generator. There are hundreds of random questions to choose from so you're able to find the perfect random question.",
+    },
+    {
+      q: "Do you include common questions?",
+      a: "This generator doesn't include most common questions. The thought is that you can come up with common questions on your own so most of the questions in this generator.",
+    },
+    {
+      q: "Can I use this for 21 questions?",
+      a: "Yes! there are two ways that you can use this question generator depending on what you're after. You can indicate that you want 21 questions generated.",
+    },
+  ];
+
   return (
     <div>
       <Head>
@@ -12,6 +56,30 @@ export default function FAQ() {
       </Head>
 
       <Navbar />
+
+      <main>
+        <Hero hero={{ title: "A little about us." }} buttontext="Let's Talk" />
+
+        <Bluebar
+          body={
+            "If you have a question that’s not answered below, please fill out the “We’ve Got Answers” form and we’ll get back to you quickly!"
+          }
+        />
+
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-4xl text-center font-bold my-20">
+            Frequently Asked Questions
+          </h1>
+
+          <AccordianList faqsList={faqsList} />
+
+          <div className="my-20">
+            <Ctabutton text="Ask us a Question!" href="/lets-talk" />
+          </div>
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

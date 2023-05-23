@@ -1,5 +1,5 @@
 import React from "react";
-import Ctabutton from "./atoms/ctabutton";
+import Ctabutton from "../atoms/ctabutton";
 
 export default function Homelocation() {
   return (
