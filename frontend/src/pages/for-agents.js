@@ -3,7 +3,7 @@ import Head from "next/head";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
-import Threesegment from "../../components/for-agents/threesegment";
+import Threesegment from "../../components/threesegment";
 import Ourprocess from "../../components/for-agents/ourprocess";
 import Footer from "../../components/footer";
 

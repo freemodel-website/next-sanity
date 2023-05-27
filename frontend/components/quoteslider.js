@@ -5,7 +5,7 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import Testimonial from "../atoms/testimonial";
+import Testimonial from "./atoms/testimonial";
 
 export default function Guoteslider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -24,27 +24,57 @@ export default function Guoteslider() {
   return (
     <>
       <div className="navigation-wrapper relative bg-FM-blue py-20">
-        <h1 className="text-5xl text-center text-white font-bold mb-20">
+        <h1 className="text-4xl sm:text-5xl text-center text-white font-bold mb-20">
           Why Agents Love Us
         </h1>
         <div ref={sliderRef} className="keen-slider">
           <div className="keen-slider__slide number-slide1">
-            <Testimonial />
+            <Testimonial
+              image="/testhouse.jpg"
+              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
+              name="Eddie O'Sullivan"
+              jobtitle="Agent"
+            />
           </div>
           <div className="keen-slider__slide number-slide2">
-            <Testimonial />
+            <Testimonial
+              image="/testhouse.jpg"
+              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
+              name="Eddie O'Sullivan"
+              jobtitle="Agent"
+            />
           </div>
           <div className="keen-slider__slide number-slide3">
-            <Testimonial />
+            <Testimonial
+              image="/testhouse.jpg"
+              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
+              name="Eddie O'Sullivan"
+              jobtitle="Agent"
+            />
           </div>
           <div className="keen-slider__slide number-slide4">
-            <Testimonial />
+            <Testimonial
+              image="/testhouse.jpg"
+              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
+              name="Eddie O'Sullivan"
+              jobtitle="Agent"
+            />
           </div>
           <div className="keen-slider__slide number-slide5">
-            <Testimonial />
+            <Testimonial
+              image="/testhouse.jpg"
+              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
+              name="Eddie O'Sullivan"
+              jobtitle="Agent"
+            />
           </div>
           <div className="keen-slider__slide number-slide6">
-            <Testimonial />
+            <Testimonial
+              image="/testhouse.jpg"
+              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
+              name="Eddie O'Sullivan"
+              jobtitle="Agent"
+            />
           </div>
         </div>
         {loaded && instanceRef.current && (

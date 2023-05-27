@@ -1,6 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
+import Hero from "../../components/hero";
+import Bluebar from "../../components/bluebar";
+import Threesegment from "../../components/threesegment";
+import QuoteSlider from "../../components/quoteslider";
 
 export default function ForContractors() {
   return (
@@ -12,6 +16,44 @@ export default function ForContractors() {
       </Head>
 
       <Navbar />
+
+      <main>
+        <Hero
+          hero={{
+            title: "If your're an A-list contractor, we've got work for you",
+          }}
+          buttontext="Let's Talk"
+        />
+        <Bluebar body="We partner with excellent contractors to remodel sellers’ homes so they fetch top dollar." />
+        {/* Text Block */}
+        <div className="text-lg flex items-center justify-center p-40">
+          <p className="max-w-6xl text-center">
+            The designers who work with Freemodel are a true source of talent.
+            They assist project directors in creating spaces that are beautiful,
+            functional and safe by selecting finish materials, colors, preparing
+            construction documentation, build schematics, dynamic
+            visualizations, and required permit plans for each project. Our
+            designers are essential in completing a holistic design concept for
+            every home. While our local project directors are talented designers
+            and project managers in their own right, they often call on our
+            in-house team of dedicated interior designers to strengthen the
+            forethought and attention to detail that each home deserves. With
+            many years of combined experience, the design professionals who work
+            on Freemodel projects are instrumental to the success of each home
+            sale. Our designers often lend a helping hand to project directors
+            and work with each client to meet their design preferences,
+            functional needs, and bring their unique vision to life. Here at
+            Freemodel, we look for in-house designers who are active in the
+            design community, experienced nimble professionals, and are focused
+            on collaboration!
+          </p>
+        </div>
+        <Bluebar body="We have a steady stream of projects in CA, TX and FL. If you’re the best in your field, we want to work with you!" />
+
+        <Threesegment />
+
+        <QuoteSlider />
+      </main>
     </div>
   );
 }

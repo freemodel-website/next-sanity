@@ -6,6 +6,8 @@ import Bluebar from "../../components/bluebar";
 import Footer from "../../components/footer";
 import FeaturedProjects from "../../components/design-services/featuredprojects";
 import ImageCaroucel from "../../components/design-services/imagecaroucel";
+import MeetTheTeam from "../../components/design-services/meettheteam";
+import Ctabutton from "../../components/atoms/ctabutton";
 
 export default function DesignServices() {
   const images = [
@@ -69,6 +71,16 @@ export default function DesignServices() {
         <FeaturedProjects />
 
         <ImageCaroucel images={images} />
+
+        <MeetTheTeam />
+
+        <div className=" flex flex-col bg-FM-blue items-center justify-center p-40">
+          <h1 className="text-4xl text-center text-white font-bold mb-10">
+            Ready to prepare your clients’ homes for sale? Contact us today!
+          </h1>
+
+          <Ctabutton href="/lets-talk" text="Let's Talk" />
+        </div>
       </main>
 
       <Footer />

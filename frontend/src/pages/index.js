@@ -7,7 +7,7 @@ import Hero from "../../components/hero";
 import Sixgrid from "../../components/index/sixgrid";
 import Rightleftright from "../../components/index/rightleftright";
 import Carousel from "../../components/caroucel";
-import Quoteslider from "../../components/quoteslider/quoteslider";
+import Quoteslider from "../../components/quoteslider";
 import Homelocation from "../../components/index/homelocation";
 import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
