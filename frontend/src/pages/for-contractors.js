@@ -5,6 +5,7 @@ import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Threesegment from "../../components/threesegment";
 import QuoteSlider from "../../components/quoteslider";
+import Footer from "../../components/footer";
 
 export default function ForContractors() {
   return (
@@ -52,8 +53,23 @@ export default function ForContractors() {
 
         <Threesegment />
 
-        <QuoteSlider />
+        <QuoteSlider title="Kudos from Clients" />
+
+        <h1 className="text-4xl text-center font-bold my-20">
+          A Message from our head of operations:
+        </h1>
+        <div className="bg-stone-500 h-96 flex items-center justify-center">
+          add video here
+        </div>
+        <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold my-20">
+          Ready to grow your business? Enter your contact info below and we’ll
+          reach out shortly.
+        </h1>
+        <div className="bg-stone-500 h-96 flex items-center justify-center">
+          add form here
+        </div>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -4,9 +4,8 @@ import Ctabutton from "./atoms/ctabutton";
 /**
  * A function that adds two numbers.
  *
- * @param {number} a - The first number.
- * @param {number} b - The second number.
- * @returns {number} The sum of the two numbers.
+ * @param  hero - object containing a string.
+ * @param  buttontext - string for a button.
  */
 export default function Hero({ hero, buttontext }) {
   console.log(`hero`, hero);

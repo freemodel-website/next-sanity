@@ -7,7 +7,7 @@ import {
 } from "react-icons/bs";
 import Testimonial from "./atoms/testimonial";
 
-export default function Guoteslider() {
+export default function QuoteSlider({ title }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -21,11 +21,13 @@ export default function Guoteslider() {
     loop: true,
   });
 
+  console.log(title, "titleis");
+
   return (
     <>
       <div className="navigation-wrapper relative bg-FM-blue py-20">
         <h1 className="text-4xl sm:text-5xl text-center text-white font-bold mb-20">
-          Why Agents Love Us
+          {title}
         </h1>
         <div ref={sliderRef} className="keen-slider">
           <div className="keen-slider__slide number-slide1">

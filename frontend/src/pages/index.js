@@ -75,11 +75,11 @@ export default function Home({ data }) {
 
         <div className="text-center my-40">
           <h1 className="text-5xl text-center text-black font-bold mb-20">
-            Why Agents Love Us
+            Projects
           </h1>
           <Carousel projects={projects} />
         </div>
-        <Quoteslider />
+        <Quoteslider title="Why Agents Love Us" />
         <Homelocation />
 
         <div className="px-4 py-16 bg-FM-blue md:px-24 lg:px-8 lg:py-20">
