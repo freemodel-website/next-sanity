@@ -57,7 +57,7 @@ export default function Bluebar({ theme, body }) {
       text = (
         <div className="bg-gray-800">
           <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-            <h2 className="text-3xl font-extrabold text-white mx-auto sm:text-4xl sm:max-w-4xl">
+            <h2 className="text-3xl font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-4xl">
               {body}
             </h2>
           </div>

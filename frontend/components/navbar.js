@@ -12,7 +12,7 @@ export default () => {
   const navigation = [
     { title: "How It Works", path: "/how-it-works" },
     { title: "For Agents", path: "/for-agents" },
-    { title: "Projects", path: "javascript:void(0)" },
+    { title: "Projects", path: "/projects" },
     { title: "Locations", path: "javascript:void(0)" },
     { title: "Our Team", path: "javascript:void(0)" },
   ];

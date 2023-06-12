@@ -9,7 +9,7 @@ const noto_serif = Noto_Serif({
 
 const pontano_sans = Pontano_Sans({
   subsets: ["latin"],
-  weight: "300",
+  weight: ["300", "400", "500", "600", "700"], // Add more weight variations here
   variable: "--font-pontano-sans",
 });
 

@@ -28,7 +28,7 @@ export default function ForContractors() {
         <Bluebar body="We partner with excellent contractors to remodel sellers’ homes so they fetch top dollar." />
         {/* Text Block */}
         <div className="text-lg flex items-center justify-center p-40">
-          <p className="max-w-6xl text-center">
+          <p className="max-w-6xl text-center text-xl">
             The designers who work with Freemodel are a true source of talent.
             They assist project directors in creating spaces that are beautiful,
             functional and safe by selecting finish materials, colors, preparing
