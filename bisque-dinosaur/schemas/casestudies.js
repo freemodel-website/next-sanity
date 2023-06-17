@@ -222,5 +222,32 @@ export default {
       title: 'Button Text',
       type: 'string',
     },
+    //Select other case studies
+    {
+      name: 'casestudyselect',
+      title: 'Show More Projects',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'caseStudy'}],
+        },
+      ],
+      validation: (Rule) => Rule.max(3),
+    },
+
+    //home types
+    {
+      title: 'Home Type',
+      name: 'hometype',
+      type: 'reference',
+      to: [{type: 'houseType'}],
+    },
+    {
+      title: 'Architechtural Style',
+      name: 'architechturalstyle',
+      type: 'reference',
+      to: [{type: 'architecturalStyle'}],
+    },
   ], //Top level fields
 }

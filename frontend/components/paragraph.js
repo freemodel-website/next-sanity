@@ -2,9 +2,8 @@ import React from "react";
 import PortableText from "react-portable-text";
 
 export default function Paragraph({ text }) {
-  console.log(text, "text");
   return (
-    <div className="container mx-auto px-8 py-24">
+    <div className="max-w-6xl mx-auto py-24">
       <PortableText
         dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
         projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
@@ -27,7 +26,7 @@ export default function Paragraph({ text }) {
           ),
           ui: (props) => <ul className="ml-6">{props.children}</ul>,
           li: (props) => (
-            <li className="list-disc list-inside my-2 font-medium ">
+            <li className="list-disc list-outside my-2 font-medium ">
               {props.children}
             </li>
           ),

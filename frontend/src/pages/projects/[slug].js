@@ -9,6 +9,9 @@ import { PortableText } from "@portabletext/react";
 import { env } from "process";
 import Paragraph from "../../../components/paragraph";
 import BeforeAfter from "../../../components/case-study/beforeafter";
+import Ctabutton from "../../../components/atoms/ctabutton";
+import Footer from "../../../components/footer";
+import Projectcard from "../../../components/atoms/projectcard";
 
 const ProjectSlug = ({ item }) => {
   console.log(`item`, item);
@@ -23,7 +26,7 @@ const ProjectSlug = ({ item }) => {
       <Navbar />
 
       <main>
-        <div className="relative w-full h-[35vw]">
+        <div className="relative w-full h-96 sm:h-[35vw]">
           <Image
             src={urlFor(item.mainImage).url()}
             alt={item.mainImage.asset.altText}
@@ -47,8 +50,32 @@ const ProjectSlug = ({ item }) => {
         />
 
         <Paragraph text={item.body} />
-        <BeforeAfter />
+        <BeforeAfter
+          beforeimages={item.beforeimages}
+          afterimages={item.afterimages}
+          moreimages={item.moreimages}
+        />
+
+        {/* More case studies */}
+        <div className="flex flex-col items-center my-28">
+          <h2 className="text-4xl font-bold mb-10">More Case Studies</h2>
+          <div className="flex flex-wrap justify-center gap-8">
+            <Projectcard />
+
+            <Projectcard />
+
+            <Projectcard />
+          </div>
+        </div>
+
+        <div className="text-center my-28">
+          <h2 className="text-4xl font-bold mb-10">
+            {item.casestudycalltoaction}
+          </h2>
+          <Ctabutton text={item.casestudybuttontext} href="/lets-talk" />
+        </div>
       </main>
+      <Footer />
     </div>
   );
 };
@@ -86,11 +113,36 @@ export const getServerSideProps = async ({ params }) => {
     durationmonths,
     body,
     casestudytestimonials,
-    beforeimages,
-    afterimages,
+    beforeimages[] {
+        beforeimage {
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            }
+        }
+    },
+    afterimages[] {
+        afterimage {
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            }
+        }
+
+    },
     moreimages,
     casestudycalltoaction,
-    
+    casestudybuttontext,
     }`;
 
   const caseStudy = await client.fetch(query, { slug: slug });

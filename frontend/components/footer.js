@@ -46,9 +46,9 @@ export default function Footer() {
               <a href="/" className="text-2xl text-white">
                 <BsLinkedin className="text-2xl text-white" />
               </a>
-              <a href="/" className="text-2xl text-white">
+              {/* <a href="/" className="text-2xl text-white">
                 <BsTwitter className="text-2xl text-white" />
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="space-y-2 text-sm">

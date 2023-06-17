@@ -6,6 +6,8 @@ import casestudies from './casestudies'
 import states from './states'
 import cities from './cities'
 import testimonials from './testimonials'
+import housetypes from './housetypes'
+import architecturalstyle from './ArchitecturalStyle'
 
 //Single Pages
 import home from './singletons/home'
@@ -20,4 +22,6 @@ export const schemaTypes = [
   states,
   cities,
   testimonials,
+  housetypes,
+  architecturalstyle,
 ]
