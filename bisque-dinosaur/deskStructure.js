@@ -18,11 +18,16 @@ export const myStructure = (S) =>
         .icon(FaFileAlt)
         .child(S.document().schemaType('home').documentId('home')),
 
+      // Project Page
+      S.listItem()
+        .title('Projects')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('projects').documentId('projects')),
+
       ...S.documentTypeListItems().filter(
         (item) =>
           // item.getId() !== 'siteSettingstest' &&
           // item.getId() !== 'aboutpagesingle' &&
-          item.getId() !== 'home' //&&
-        //item.getId() !== 'review'
+          item.getId() !== 'home' && item.getId() !== 'projects'
       ),
     ])

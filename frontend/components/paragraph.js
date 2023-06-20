@@ -3,7 +3,7 @@ import PortableText from "react-portable-text";
 
 export default function Paragraph({ text }) {
   return (
-    <div className="max-w-6xl mx-auto py-24">
+    <div className="md:max-w-6xl px-8 md:mx-auto py-24">
       <PortableText
         dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
         projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
@@ -11,7 +11,7 @@ export default function Paragraph({ text }) {
         className="text-lg"
         serializers={{
           normal: (props) => (
-            <p className="my-4 min-h-[6px]">{props.children}</p>
+            <p className="my-4 min-h-[6px] font-light">{props.children}</p>
           ),
           em: (props) => <em className="italic">{props.children}</em>,
           underline: (props) => <u className=" underline ">{props.children}</u>,
@@ -24,9 +24,9 @@ export default function Paragraph({ text }) {
           h3: (props) => (
             <h3 className="text-lg font-bold">{props.children}</h3>
           ),
-          ui: (props) => <ul className="ml-6">{props.children}</ul>,
+          ul: (props) => <ul className="ml-6">{props.children}</ul>,
           li: (props) => (
-            <li className="list-disc list-outside my-2 font-medium ">
+            <li className="list-disc list-outside my-2 font-light ">
               {props.children}
             </li>
           ),

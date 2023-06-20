@@ -3,9 +3,11 @@ import Head from "next/head";
 import Navbar from "../../../components/navbar";
 import Hero from "../../../components/hero";
 import { client, urlFor } from "../../../client";
+import Projectcard from "../../../components/atoms/projectcard";
 
-export default function Projects({ casestudies }) {
-  console.log(`casestudies`, casestudies);
+export default function Projects({ casestudies, page }) {
+  //console.log(`casestudies`, casestudies);
+  console.log(`page`, page);
 
   return (
     <div>
@@ -17,13 +19,62 @@ export default function Projects({ casestudies }) {
 
       <Navbar />
       <main>
-        <Hero hero={{ title: "Check our work." }} />
+        <Hero hero={{ title: page.title }} />
+
+        {/* Highlight studies */}
+        <div className="flex flex-col items-center py-20 bg-FM-blue">
+          <h2 className="text-4xl font-bold text-center text-white">
+            {page.highlighttitle}
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mt-10">
+            {page.projecthighlight.map((item) => (
+              <Projectcard
+                key={item._id}
+                title={item.title}
+                slug={item.slug.current}
+                image={urlFor(item.mainImage.asset.url).url()}
+                beds={item.beds}
+                baths={item.baths}
+                duration={item.durationmonths}
+              />
+            ))}
+          </div>
+        </div>
       </main>
     </div>
   );
 }
 
 export const getStaticProps = async () => {
+  const pagequery = `*[_type == "projects"][0] {
+    _id,
+    title,
+    mainImage,
+    highlighttitle,
+    projecthighlight []->{
+      _id,
+      title,
+      slug {
+          current
+      },
+      mainImage {
+          asset->{
+              _ref,
+              _type,
+              altText,
+              description,
+              "tags": opt.media.tags[]->name.current,
+              title,
+              url
+          }
+        },
+        beds,
+        baths,
+        durationmonths,
+  },
+    }
+  `;
+
   const query = ` *[_type == "caseStudy"] {
       _id,
       title,
@@ -34,10 +85,12 @@ export const getStaticProps = async () => {
       }`;
 
   const casestudies = await client.fetch(query);
+  const page = await client.fetch(pagequery);
 
   return {
     props: {
       casestudies,
+      page,
     },
 
     revalidate: 10,

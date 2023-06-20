@@ -6,7 +6,7 @@ export default function Projectcard({ title, image, beds, baths, duration }) {
   return (
     <a
       href="#"
-      className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 md:w-[30vw] sm:mx-auto"
+      className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 lg:w-[30vw] sm:mx-auto"
     >
       <div className="relative h-72 w-full">
         <Image
@@ -41,7 +41,7 @@ export default function Projectcard({ title, image, beds, baths, duration }) {
 
           <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
             <FaCalendarAlt className="h-5 w-5 text-FM-orange" />
-            <p className="text-black text-lg">{duration}</p>
+            <p className="text-black text-lg">{duration} months</p>
           </div>
         </div>
       </div>

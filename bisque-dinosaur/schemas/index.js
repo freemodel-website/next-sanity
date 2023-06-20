@@ -11,6 +11,7 @@ import architecturalstyle from './ArchitecturalStyle'
 
 //Single Pages
 import home from './singletons/home'
+import projects from './singletons/projects'
 
 export const schemaTypes = [
   post,
@@ -18,6 +19,7 @@ export const schemaTypes = [
   category,
   blockContent,
   home,
+  projects,
   casestudies,
   states,
   cities,

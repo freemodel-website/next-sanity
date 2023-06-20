@@ -59,12 +59,19 @@ const ProjectSlug = ({ item }) => {
         {/* More case studies */}
         <div className="flex flex-col items-center my-28">
           <h2 className="text-4xl font-bold mb-10">More Case Studies</h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            <Projectcard />
-
-            <Projectcard />
-
-            <Projectcard />
+          <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-8">
+            {/* map through casestudyselect */}
+            {item.casestudyselect.map((item) => (
+              <Projectcard
+                key={item._id}
+                title={item.title}
+                slug={item.slug.current}
+                image={urlFor(item.mainImage.asset.url).url()}
+                beds={item.beds}
+                baths={item.baths}
+                duration={item.durationmonths}
+              />
+            ))}
           </div>
         </div>
 
@@ -143,6 +150,27 @@ export const getServerSideProps = async ({ params }) => {
     moreimages,
     casestudycalltoaction,
     casestudybuttontext,
+    casestudyselect[]->{
+        _id,
+        title,
+        slug {
+            current
+        },
+        mainImage {
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            }
+          },
+          beds,
+          baths,
+          durationmonths,
+    },
     }`;
 
   const caseStudy = await client.fetch(query, { slug: slug });
