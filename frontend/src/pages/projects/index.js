@@ -40,6 +40,9 @@ export default function Projects({ casestudies, page }) {
             ))}
           </div>
         </div>
+        <div className="flex flex-col items-center my-28">
+          <h2 className="text-4xl font-bold mb-10">Customize your search</h2>
+        </div>
 
         <IsotopeReact />
       </main>

@@ -2,11 +2,18 @@ import React from "react";
 import Image from "next/image";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 
-export default function Projectcard({ title, image, beds, baths, duration }) {
+export default function Projectcard({
+  title,
+  image,
+  beds,
+  baths,
+  duration,
+  slug,
+}) {
   return (
     <a
-      href="#"
-      className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 lg:w-[30vw] sm:mx-auto"
+      href={`/projects/${slug}`}
+      className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 lg:w-[30vw] lg:max-w-[26rem] sm:mx-auto"
     >
       <div className="relative h-72 w-full">
         <Image
