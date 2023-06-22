@@ -4,7 +4,7 @@ import Navbar from "../../../components/navbar";
 import Hero from "../../../components/hero";
 import { client, urlFor } from "../../../client";
 import Projectcard from "../../../components/atoms/projectcard";
-
+import IsotopeReact from "../../../components/isotopereact";
 export default function Projects({ casestudies, page }) {
   //console.log(`casestudies`, casestudies);
   console.log(`page`, page);
@@ -26,10 +26,10 @@ export default function Projects({ casestudies, page }) {
           <h2 className="text-4xl font-bold text-center text-white">
             {page.highlighttitle}
           </h2>
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mt-10">
+          <div className="flex flex-col lg:flex-row gap-8 justify-center items-center mt-10">
             {page.projecthighlight.map((item) => (
               <Projectcard
-                key={item._id}
+                key={Math.random() * 100000000000000}
                 title={item.title}
                 slug={item.slug.current}
                 image={urlFor(item.mainImage.asset.url).url()}
@@ -40,6 +40,8 @@ export default function Projects({ casestudies, page }) {
             ))}
           </div>
         </div>
+
+        <IsotopeReact />
       </main>
     </div>
   );
