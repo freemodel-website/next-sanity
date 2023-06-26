@@ -34,7 +34,7 @@ const IsotopeReact = () => {
 
   return (
     <div>
-      <div className="flex max-w-6xl mx-auto">
+      <div className="flex max-w-6xl mx-auto mb-6">
         {/* <button onClick={() => handleFilter("*")}>Show All</button>
         <button onClick={() => handleFilter(".categoryA")}>CategoryA | </button>
         <button onClick={() => handleFilter(".categoryB")}>CategoryB | </button>
