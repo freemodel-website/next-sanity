@@ -4,16 +4,24 @@ import dynamic from "next/dynamic";
 import Select from "./atoms/select";
 const Projectcard = dynamic(() => import("./atoms/projectcard"));
 
-const IsotopeReact = () => {
+const IsotopeReact = ({
+  casestudies,
+  propertytype,
+  spacetype,
+  locationstype,
+}) => {
   const containerRef = useRef();
   const isotopeRef = useRef(null); // Initialize with null instead of undefined
-  const [activeFilters, setActiveFilters] = useState([]);
 
-  const [filter1, setfilter1] = useState([]);
-  const [filter2, setfilter2] = useState([]);
+  const [filter1, setfilter1] = useState("*");
+  const [filter2, setfilter2] = useState("*");
+  const [filter3, setfilter3] = useState("*");
 
   console.log(`filter1`, filter1);
   console.log(`filter2`, filter2);
+  console.log(`filter3`, filter3);
+
+  console.log(`casestudies`, casestudies);
 
   useEffect(() => {
     const loadIsotope = async () => {
@@ -32,93 +40,101 @@ const IsotopeReact = () => {
     loadIsotope();
   }, []);
 
-  const handleFilter = (filterValue) => {
-    console.log("Selected filter value:", filterValue);
-    if (activeFilters.includes(filterValue)) {
-      setActiveFilters(
-        activeFilters.filter((filter) => filter !== filterValue)
-      );
-    } else {
-      setActiveFilters([...activeFilters, filterValue]);
-    }
-  };
-
-  // useEffect(() => {
-  //   if (isotopeRef.current) {
-  //     isotopeRef.current.arrange({ filter: activeFilters.join(",") });
-  //   }
-  // }, [activeFilters]);
-
   useEffect(() => {
     if (isotopeRef.current) {
-      if (filter1 == "*" && filter2 == "*") {
-        isotopeRef.current.arrange({ filter: "*" });
-      } else if (filter1 == "*" && filter2 !== "*") {
-        isotopeRef.current.arrange({ filter: filter2 });
-      } else if (filter1 !== "*" && filter2 == "*") {
-        isotopeRef.current.arrange({ filter: filter1 });
-      } else if (filter1 !== "*" && filter2 !== "*") {
-        isotopeRef.current.arrange({ filter: filter1 + filter2 });
+      switch (true) {
+        case filter1 == "*" && filter2 == "*" && filter3 == "*":
+          isotopeRef.current.arrange({ filter: "*" });
+          break;
+        case filter1 == "*" && filter2 !== "*" && filter3 == "*":
+          isotopeRef.current.arrange({ filter: filter2 });
+          break;
+        case filter1 !== "*" && filter2 == "*" && filter3 == "*":
+          isotopeRef.current.arrange({ filter: filter1 });
+          break;
+        case filter1 !== "*" && filter2 !== "*" && filter3 == "*":
+          isotopeRef.current.arrange({ filter: filter1 + filter2 });
+          break;
+        case filter1 == "*" && filter2 == "*" && filter3 !== "*":
+          isotopeRef.current.arrange({ filter: filter3 });
+          break;
+        case filter1 !== "*" && filter2 == "*" && filter3 !== "*":
+          isotopeRef.current.arrange({ filter: filter1 + filter3 });
+          break;
+        case filter1 == "*" && filter2 !== "*" && filter3 !== "*":
+          isotopeRef.current.arrange({ filter: filter2 + filter3 });
+          break;
+        case filter1 !== "*" && filter2 !== "*" && filter3 !== "*":
+          isotopeRef.current.arrange({ filter: filter1 + filter2 + filter3 });
+          break;
+
+        default:
+          isotopeRef.current.arrange({ filter: "*" });
+          break;
       }
     }
-  }, [filter1, filter2]);
+  }, [filter1, filter2, filter3]);
 
   return (
     <div>
-      <div className="flex max-w-6xl mx-auto mb-6">
-        {/* <Select handleFilter={handleFilter} activeFilters={activeFilters} /> */}
-        <div className="flex items-center max-w-min bg-white border border-gray-300 rounded-md px-5">
-          <label className="mr-2 text-black font-bold">By:</label>
-          <select
-            id="select-input"
-            // onChange={(e) => handleFilter(e.target.value)}
-            onChange={(e) => setfilter1(e.target.value)}
-            className="block px-4 py-2 pr-8 leading-tight bg-white  appearance-none focus:outline-none focus:border-blue-500"
-          >
-            <option value="*">Show All</option>
-            <option value=".cattest">cattest</option>
-            <option value=".categoryA">Category A</option>
-            <option value=".categoryB">Category B</option>
-            <option value=".categoryC">Category C</option>
-            <option value=".categoryD">Category D</option>
-          </select>
-          <label className="pointer-events-none flex items-center px-2 text-gray-600">
-            <BsChevronDown className="h-5 w-5 text-gray-600" />
-          </label>
-        </div>
-
-        <div className="flex items-center max-w-min bg-white border border-gray-300 rounded-md px-5">
-          <label className="mr-2 text-black font-bold">By:</label>
-          <select
-            id="select-input"
-            //onChange={(e) => handleFilter(e.target.value)}
-            onChange={(e) => setfilter2(e.target.value)}
-            className="block px-4 py-2 pr-8 leading-tight bg-white  appearance-none focus:outline-none focus:border-blue-500"
-          >
-            <option value="*">Show All</option>
-            <option value=".cattest">cattest</option>
-            <option value=".categoryA">Category A</option>
-            <option value=".categoryB">Category B</option>
-            <option value=".categoryC">Category C</option>
-          </select>
-          <label className="pointer-events-none flex items-center px-2 text-gray-600">
-            <BsChevronDown className="h-5 w-5 text-gray-600" />
-          </label>
-        </div>
+      <div className="flex max-w-6xl mx-auto mb-6 gap-8">
+        {/* First */}
+        <Select
+          setFilter={setfilter1}
+          label="By:"
+          baseoptiontitle="All Property Types"
+          options={propertytype}
+        />
+        {/* Second */}
+        <Select
+          setFilter={setfilter2}
+          label="By:"
+          baseoptiontitle="All Space Types"
+          options={spacetype}
+        />
+        {/* Third */}
+        <Select
+          setFilter={setfilter3}
+          label="By:"
+          baseoptiontitle="Show All"
+          options={locationstype}
+        />
       </div>
 
+      {/* Container */}
       <div ref={containerRef} className="md:mx-auto">
-        {/* Items */}
-        <div className={`my-item categoryA sm:!static lg:!absolute`}>
+        {casestudies.map((casestudy) => (
+          <div
+            key={casestudy.id}
+            className={`my-item ${casestudy.hometype.slug.current} ${casestudy.spacetype.slug.current} ${casestudy.location.slug.current}`}
+          >
+            <Projectcard
+              title={casestudy.title}
+              slug={casestudy.slug.current}
+              image={casestudy.mainImage.asset.url}
+              baths={casestudy.baths}
+              beds={casestudy.beds}
+              duration={casestudy.durationmonths}
+            />
+          </div>
+        ))}
+
+        {/* Fake Items */}
+        <div className={`my-item bathroom sm:!static lg:!absolute`}>
           <Projectcard
-            title={"title A"}
+            title={"title A bathroom"}
             slug={"slug"}
             image={"/testhouse.jpg"}
+            baths={2}
+            beds={3}
+            duration={4}
           />
         </div>
-        <div className={`my-item categoryB sm:!static lg:!absolute `}>
+        <div
+          className={`my-item categoryB home bathroom sm:!static lg:!absolute `}
+        >
           <Projectcard
-            title={"title B"}
+            title={"title B home bathroom"}
             slug={"slug"}
             image={"/testhouse.jpg"}
           />
@@ -139,7 +155,7 @@ const IsotopeReact = () => {
         </div>
         <div className={`my-item categoryD sm:!static lg:!absolute cattest`}>
           <Projectcard
-            title={"title D cattest"}
+            title={"title D"}
             slug={"slug"}
             image={"/testhouse.jpg"}
           />

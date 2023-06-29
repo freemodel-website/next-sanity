@@ -8,7 +8,7 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'cityname',
+      name: 'name',
       title: 'City/County Name',
       type: 'string',
     },
@@ -21,6 +21,13 @@ export default {
       name: 'image',
       title: 'Image',
       type: 'image',
+    },
+    {
+      name: 'state',
+      title: 'State',
+      type: 'reference',
+      to: [{type: 'states'}],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'description',

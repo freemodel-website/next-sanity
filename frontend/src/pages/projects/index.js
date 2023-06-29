@@ -5,9 +5,19 @@ import Hero from "../../../components/hero";
 import { client, urlFor } from "../../../client";
 import Projectcard from "../../../components/atoms/projectcard";
 import IsotopeReact from "../../../components/isotopereact";
-export default function Projects({ casestudies, page }) {
-  //console.log(`casestudies`, casestudies);
-  console.log(`page`, page);
+
+export default function Projects({
+  casestudies,
+  page,
+  propertytype,
+  spacetype,
+  locationstype,
+}) {
+  // console.log(`casestudies`, casestudies);
+  // console.log(`propertytype`, propertytype);
+  // console.log(`spacetype`, spacetype);
+  //console.log(`locationstype`, locationstype);
+  //console.log(`page`, page);
 
   return (
     <div>
@@ -44,7 +54,12 @@ export default function Projects({ casestudies, page }) {
           <h2 className="text-4xl font-bold ">Customize your search</h2>
         </div>
 
-        <IsotopeReact />
+        <IsotopeReact
+          casestudies={casestudies}
+          propertytype={propertytype}
+          spacetype={spacetype}
+          locationstype={locationstype}
+        />
       </main>
     </div>
   );
@@ -83,19 +98,88 @@ export const getStaticProps = async () => {
   const query = ` *[_type == "caseStudy"] {
       _id,
       title,
-      mainImage,
+      mainImage {
+        asset->{
+          _ref,
+          _type,
+          altText,
+          description,
+          "tags": opt.media.tags[]->name.current,
+          title,
+          url
+        }
+      },
       slug {
         current
-      }
+      },
+      beds,
+      baths,
+      durationmonths,
+      spacetype->{
+        _id,
+        name,
+        mainImage,
+        slug {
+          current
+        }
+      },
+      
+        "location": *[_id == ^.cities._ref][0],
+        
+
+      hometype->{
+        _id,
+        name,
+        mainImage,
+        slug {
+          current
+        }
+      },
       }`;
+
+  const housequery = `*[_type == "houseType"] {
+    _id,
+    name,
+    mainImage,
+    slug {
+      current
+    }
+    }`;
+
+  const spacequery = `*[_type == "spaceType"] {
+        _id,
+        name,
+        mainImage,
+        slug {
+          current
+        }
+        }`;
+
+  const citiestypes = `*[_type == "cities"] {
+          _id,
+          name,
+          image,
+          state,
+          "location": *[_id == ^.state._ref][0],
+          slug {
+            current
+          }
+          }`;
 
   const casestudies = await client.fetch(query);
   const page = await client.fetch(pagequery);
+  //Filter by property type
+  const propertytype = await client.fetch(housequery);
+  const spacetype = await client.fetch(spacequery);
+  const locationstype = await client.fetch(citiestypes);
 
   return {
     props: {
       casestudies,
       page,
+      propertytype,
+      spacetype,
+      locationstype,
     },
 
     revalidate: 10,

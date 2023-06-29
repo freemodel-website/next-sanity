@@ -18,6 +18,7 @@ export default {
       name: 'slug',
       title: 'Slug (URL)',
       type: 'slug',
+      validation: (Rule) => Rule.required(),
     },
     //Hero Image
     {
@@ -84,6 +85,28 @@ export default {
       name: 'durationmonths',
       title: 'Duration (months)',
       type: 'number',
+    },
+    //filter types
+    {
+      title: 'Home Type',
+      name: 'hometype',
+      type: 'reference',
+      to: [{type: 'houseType'}],
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      title: 'Architechtural Style',
+      name: 'architechturalstyle',
+      type: 'reference',
+      to: [{type: 'architecturalStyle'}],
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      title: 'Space Type',
+      name: 'spacetype',
+      type: 'reference',
+      to: [{type: 'spaceType'}],
+      validation: (Rule) => Rule.required(),
     },
     //Body of the page
     {
@@ -234,20 +257,6 @@ export default {
         },
       ],
       validation: (Rule) => Rule.max(3),
-    },
-
-    //home types
-    {
-      title: 'Home Type',
-      name: 'hometype',
-      type: 'reference',
-      to: [{type: 'houseType'}],
-    },
-    {
-      title: 'Architechtural Style',
-      name: 'architechturalstyle',
-      type: 'reference',
-      to: [{type: 'architecturalStyle'}],
     },
   ], //Top level fields
 }

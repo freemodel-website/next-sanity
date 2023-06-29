@@ -8,6 +8,7 @@ import cities from './cities'
 import testimonials from './testimonials'
 import housetypes from './housetypes'
 import architecturalstyle from './ArchitecturalStyle'
+import spaceType from './spaceType'
 
 //Single Pages
 import home from './singletons/home'
@@ -26,4 +27,5 @@ export const schemaTypes = [
   testimonials,
   housetypes,
   architecturalstyle,
+  spaceType,
 ]

@@ -1,6 +1,6 @@
 export default {
-  name: 'houseType',
-  title: 'Property Type',
+  name: 'spaceType',
+  title: 'Space Type',
   type: 'document',
   fields: [
     {
