@@ -77,7 +77,7 @@ const IsotopeReact = ({
 
   return (
     <div>
-      <div className="flex max-w-6xl mx-auto mb-6 gap-8">
+      <div className="flex flex-wrap justify-center max-w-6xl mx-auto mb-6 gap-8">
         {/* First */}
         <Select
           setFilter={setfilter1}
