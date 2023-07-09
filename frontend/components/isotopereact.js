@@ -29,7 +29,6 @@ const IsotopeReact = ({
       isotopeRef.current = new Isotope(containerRef.current, {
         itemSelector: ".my-item",
         masonry: {
-          columnWidth: 200,
           gutter: 20,
           // center in container
           fitWidth: true,
@@ -76,7 +75,7 @@ const IsotopeReact = ({
   }, [filter1, filter2, filter3]);
 
   return (
-    <div>
+    <div className="lg:max-w-[85vw] lg:mx-auto">
       <div className="flex flex-wrap justify-center max-w-6xl mx-auto mb-6 gap-8">
         {/* First */}
         <Select
@@ -102,11 +101,11 @@ const IsotopeReact = ({
       </div>
 
       {/* Container */}
-      <div ref={containerRef} className="md:mx-auto">
+      <div ref={containerRef} className="md:mx-auto ">
         {casestudies.map((casestudy) => (
           <div
             key={casestudy.id}
-            className={`my-item ${casestudy.hometype.slug.current} ${casestudy.spacetype.slug.current} ${casestudy.location.slug.current}`}
+            className={`my-item ${casestudy.hometype.slug.current} ${casestudy.spacetype.slug.current} ${casestudy.location.slug.current} sm:!static lg:!absolute`}
           >
             <Projectcard
               title={casestudy.title}
