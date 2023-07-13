@@ -20,10 +20,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
+      name: 'projectdirector',
+      title: 'Project Director',
       type: 'reference',
-      to: {type: 'author'},
+      to: {type: 'projectdirector'},
     }),
     defineField({
       name: 'mainImage',
@@ -32,12 +32,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
     }),
     defineField({
       name: 'publishedAt',
@@ -54,12 +48,12 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      projectdirector: 'projectdirector.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const {projectdirector} = selection
+      return {...selection, subtitle: projectdirector && `by ${projectdirector}`}
     },
   },
 })

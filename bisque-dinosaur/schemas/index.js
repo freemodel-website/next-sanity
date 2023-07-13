@@ -1,7 +1,6 @@
 import blockContent from './blockContent'
-import category from './category'
 import post from './post'
-import author from './author'
+import projectdirector from './projectdirector'
 import casestudies from './casestudies'
 import states from './states'
 import cities from './cities'
@@ -16,8 +15,7 @@ import projects from './singletons/projects'
 
 export const schemaTypes = [
   post,
-  author,
-  category,
+  projectdirector,
   blockContent,
   home,
   projects,

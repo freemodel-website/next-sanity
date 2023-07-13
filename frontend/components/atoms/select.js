@@ -3,8 +3,8 @@ import { BsChevronDown } from "react-icons/bs";
 
 export default function Select({ setFilter, label, baseoptiontitle, options }) {
   return (
-    <div class="flex items-center max-w-min bg-white border border-gray-300 rounded-md px-1">
-      <label class="mr-2 text-black font-bold">{label}</label>
+    <div className="flex items-center max-w-min bg-white border border-gray-300 rounded-md px-1">
+      <label className="mr-2 text-black font-bold">{label}</label>
       <select
         id="select-input"
         onChange={(e) => setFilter(e.target.value)}

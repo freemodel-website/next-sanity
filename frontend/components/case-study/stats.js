@@ -23,7 +23,7 @@ export default function Stats({
           </div>
         </div>
         {/* </div><div className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-5"> */}
-        <div class="flex flex-col gap-8 md:flex-row flex-wrap ">
+        <div className="flex flex-col gap-8 md:flex-row flex-wrap ">
           <div className="max-w-md text-center flex-grow-0">
             <h6 className="mb-2 font-semibold font-sans text-2xl sm:text-3xl text-white">
               {dollarprofit} Profit

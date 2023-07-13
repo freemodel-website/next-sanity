@@ -18,6 +18,7 @@
     "eslint-config-next": "13.3.4",
     "google-fonts-plugin": "^5.0.2",
     "isotope-layout": "^3.0.6",
+    "jquery": "^3.7.0",
     "keen-slider": "^6.8.5",
     "next": "13.3.4",
     "next-sanity": "^4.3.3",

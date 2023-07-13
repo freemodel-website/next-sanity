@@ -28,7 +28,7 @@ export default function Projectcard({
 
       <div className="mt-2">
         <dl>
-          <div>
+          <div className="projectcardtitle">
             <dt className="sr-only">{title}</dt>
 
             <h2 className="font-bold text-left text-2xl">{title}</h2>

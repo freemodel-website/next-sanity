@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import dynamic from "next/dynamic";
 import Select from "./atoms/select";
+import $ from "jquery";
 const Projectcard = dynamic(() => import("./atoms/projectcard"));
 
 const IsotopeReact = ({
@@ -17,12 +18,9 @@ const IsotopeReact = ({
   const [filter2, setfilter2] = useState("*");
   const [filter3, setfilter3] = useState("*");
 
-  console.log(`filter1`, filter1);
-  console.log(`filter2`, filter2);
-  console.log(`filter3`, filter3);
+  const [qsRegex, setQsRegex] = useState(null);
 
-  console.log(`casestudies`, casestudies);
-
+  // Create Isotope object with configs
   useEffect(() => {
     const loadIsotope = async () => {
       const Isotope = (await import("isotope-layout")).default; // Use .default to access the Isotope constructor
@@ -35,47 +33,34 @@ const IsotopeReact = ({
         },
       });
     };
-
     loadIsotope();
   }, []);
 
+  // Filter with Select
   useEffect(() => {
-    if (isotopeRef.current) {
-      switch (true) {
-        case filter1 == "*" && filter2 == "*" && filter3 == "*":
-          isotopeRef.current.arrange({ filter: "*" });
-          break;
-        case filter1 == "*" && filter2 !== "*" && filter3 == "*":
-          isotopeRef.current.arrange({ filter: filter2 });
-          break;
-        case filter1 !== "*" && filter2 == "*" && filter3 == "*":
-          isotopeRef.current.arrange({ filter: filter1 });
-          break;
-        case filter1 !== "*" && filter2 !== "*" && filter3 == "*":
-          isotopeRef.current.arrange({ filter: filter1 + filter2 });
-          break;
-        case filter1 == "*" && filter2 == "*" && filter3 !== "*":
-          isotopeRef.current.arrange({ filter: filter3 });
-          break;
-        case filter1 !== "*" && filter2 == "*" && filter3 !== "*":
-          isotopeRef.current.arrange({ filter: filter1 + filter3 });
-          break;
-        case filter1 == "*" && filter2 !== "*" && filter3 !== "*":
-          isotopeRef.current.arrange({ filter: filter2 + filter3 });
-          break;
-        case filter1 !== "*" && filter2 !== "*" && filter3 !== "*":
-          isotopeRef.current.arrange({ filter: filter1 + filter2 + filter3 });
-          break;
+    if (!isotopeRef.current) return;
 
-        default:
-          isotopeRef.current.arrange({ filter: "*" });
-          break;
-      }
-    }
+    let filter = "*";
+    if (filter1 !== "*") filter += filter1;
+    if (filter2 !== "*") filter += filter2;
+    if (filter3 !== "*") filter += filter3;
+
+    isotopeRef.current.arrange({ filter });
   }, [filter1, filter2, filter3]);
 
+  // Filter with Quick Search
+  useEffect(() => {
+    if (!isotopeRef.current) return;
+
+    isotopeRef.current.arrange({
+      filter: function (itemElem) {
+        return qsRegex ? $(itemElem).find("h2").text().match(qsRegex) : true;
+      },
+    });
+  }, [qsRegex]);
+
   return (
-    <div className="lg:max-w-[85vw] lg:mx-auto">
+    <div className="lg:max-w-[95vw] lg:mx-auto">
       <div className="flex flex-wrap justify-center max-w-6xl mx-auto mb-6 gap-8">
         {/* First */}
         <Select
@@ -98,6 +83,13 @@ const IsotopeReact = ({
           baseoptiontitle="Show All"
           options={locationstype}
         />
+        <div className="flex items-center max-w-min bg-white border border-gray-300 rounded-md px-1">
+          <input
+            className="quicksearch"
+            type="text"
+            onChange={(e) => setQsRegex(new RegExp(e.target.value, "gi"))}
+          />
+        </div>
       </div>
 
       {/* Container */}
