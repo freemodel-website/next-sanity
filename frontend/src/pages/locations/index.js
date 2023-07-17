@@ -6,6 +6,7 @@ import Hero from "../../../components/hero";
 import Bluebar from "../../../components/bluebar";
 import Image from "next/image";
 import Footer from "../../../components/footer";
+import Link from "next/link";
 
 export default function Locations({ states }) {
   console.log(`page`, states);
@@ -33,7 +34,7 @@ export default function Locations({ states }) {
           .sort((a, b) => a.statename.localeCompare(b.statename))
           .map((state) => (
             <div key={state._id} className="w-full">
-              <a
+              <Link
                 href={"/locations/" + state.slug.current}
                 className="mx-auto w-5/6 md:w-[30vw]"
               >
@@ -49,7 +50,7 @@ export default function Locations({ states }) {
                 <div className="py-4">
                   <h3 className="text-3xl text-FM-orange">{state.statename}</h3>
                 </div>
-              </a>
+              </Link>
             </div>
           ))}
       </div>

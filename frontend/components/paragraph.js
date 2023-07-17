@@ -11,7 +11,9 @@ export default function Paragraph({ text }) {
         className="text-lg"
         serializers={{
           normal: (props) => (
-            <p className="my-4 min-h-[6px] font-light">{props.children}</p>
+            <p className="text-lg my-4 min-h-[6px] font-light">
+              {props.children}
+            </p>
           ),
           em: (props) => <em className="italic">{props.children}</em>,
           underline: (props) => <u className=" underline ">{props.children}</u>,

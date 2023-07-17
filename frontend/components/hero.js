@@ -7,13 +7,17 @@ import Ctabutton from "./atoms/ctabutton";
  * @param  hero - object containing a string.
  * @param  buttontext - string for a button.
  */
-export default function Hero({ hero, buttontext }) {
+export default function Hero({ hero, buttontext, image }) {
   console.log(`hero`, hero);
 
   return (
     <div className="relative">
       <img
-        src="https://images.pexels.com/photos/2988860/pexels-photo-2988860.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+        src={
+          image
+            ? image
+            : "https://images.pexels.com/photos/2988860/pexels-photo-2988860.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+        }
         className="absolute inset-0 object-cover w-full h-full"
         alt=""
       />

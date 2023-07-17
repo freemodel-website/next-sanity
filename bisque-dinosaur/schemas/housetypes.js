@@ -1,7 +1,10 @@
+import {MdHomeWork} from 'react-icons/md'
+
 export default {
   name: 'houseType',
   title: 'Property Type',
   type: 'document',
+  icon: MdHomeWork,
   fields: [
     {
       name: 'name',

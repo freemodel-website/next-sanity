@@ -1,7 +1,10 @@
+import {MdChair} from 'react-icons/md'
+
 export default {
   name: 'spaceType',
   title: 'Space Type',
   type: 'document',
+  icon: MdChair,
   fields: [
     {
       name: 'name',

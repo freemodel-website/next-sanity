@@ -8,13 +8,14 @@ import testimonials from './testimonials'
 import housetypes from './housetypes'
 import architecturalstyle from './ArchitecturalStyle'
 import spaceType from './spaceType'
+import brokerage from './brokerage'
 
 //Single Pages
 import home from './singletons/home'
 import projects from './singletons/projects'
 
 export const schemaTypes = [
-  post,
+  // post,
   projectdirector,
   blockContent,
   home,
@@ -26,4 +27,5 @@ export const schemaTypes = [
   housetypes,
   architecturalstyle,
   spaceType,
+  brokerage,
 ]

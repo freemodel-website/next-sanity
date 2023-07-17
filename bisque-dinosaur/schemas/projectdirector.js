@@ -1,16 +1,18 @@
-import {defineField, defineType} from 'sanity'
+import {FaHardHat} from 'react-icons/fa'
 
-export default defineType({
+export default {
   name: 'projectdirector',
   title: 'Project Directors',
   type: 'document',
+  icon: FaHardHat,
   fields: [
-    defineField({
+    {
       name: 'name',
       title: 'Name',
       type: 'string',
-    }),
-    defineField({
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -18,16 +20,18 @@ export default defineType({
         source: 'name',
         maxLength: 96,
       },
-    }),
-    defineField({
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'bio',
       title: 'Bio',
       type: 'array',
@@ -39,7 +43,7 @@ export default defineType({
           lists: [],
         },
       ],
-    }),
+    },
   ],
   preview: {
     select: {
@@ -47,4 +51,4 @@ export default defineType({
       media: 'image',
     },
   },
-})
+}

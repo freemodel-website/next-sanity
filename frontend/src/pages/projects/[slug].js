@@ -147,7 +147,19 @@ export const getServerSideProps = async ({ params }) => {
         }
 
     },
-    moreimages,
+    moreimages[] {
+        moreimage {
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            }
+        }
+    },
     casestudycalltoaction,
     casestudybuttontext,
     casestudyselect[]->{

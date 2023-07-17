@@ -18,6 +18,10 @@ export default {
       name: 'slug',
       title: 'Slug (URL)',
       type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 50,
+      },
       validation: (Rule) => Rule.required(),
     },
     //Hero Image
@@ -73,18 +77,21 @@ export default {
       name: 'beds',
       title: 'Beds',
       type: 'number',
+      validation: (Rule) => Rule.required(),
     },
     // Baths
     {
       name: 'baths',
       title: 'Baths',
       type: 'number',
+      validation: (Rule) => Rule.required(),
     },
     //Duration
     {
       name: 'durationmonths',
       title: 'Duration (months)',
       type: 'number',
+      validation: (Rule) => Rule.required(),
     },
     //filter types
     {
@@ -126,6 +133,25 @@ export default {
           to: [{type: 'testimonials'}],
         },
       ],
+    },
+    //array of project directors
+    {
+      name: 'projectdirectors',
+      title: 'Project Directors',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'projectdirector'}],
+        },
+      ],
+    },
+    //Brokerage
+    {
+      name: 'brokerage',
+      title: 'Brokerage',
+      type: 'reference',
+      to: [{type: 'brokerage'}],
     },
 
     //Before Image

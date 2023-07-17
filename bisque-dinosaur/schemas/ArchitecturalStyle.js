@@ -1,7 +1,10 @@
+import {MdOutlineArchitecture} from 'react-icons/md'
+
 export default {
   name: 'architecturalStyle',
   title: 'Architectural Style',
   type: 'document',
+  icon: MdOutlineArchitecture,
   fields: [
     {
       name: 'name',

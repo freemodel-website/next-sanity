@@ -11,6 +11,7 @@ export default {
       name: 'statename',
       title: 'State Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'stateabbr',
@@ -27,11 +28,13 @@ export default {
         source: 'statename',
         maxLength: 50,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'description',

@@ -3,8 +3,11 @@ import { useRouter } from "next/router";
 import { client, urlFor } from "../../../../client";
 import Head from "next/head";
 import Navbar from "../../../../components/navbar";
-
+import Image from "next/image";
+import Link from "next/link";
 import Footer from "../../../../components/footer";
+import Hero from "../../../../components/hero";
+import Bluebar from "../../../../components/bluebar";
 
 const ProjectSlug = ({ item }) => {
   console.log(`item`, item);
@@ -18,7 +21,45 @@ const ProjectSlug = ({ item }) => {
 
       <Navbar />
 
-      <main>{item.statename}</main>
+      <main>
+        <Hero
+          hero={{ title: item.statename }}
+          buttontext={"Let's Talk"}
+          image={urlFor(item.image).url()}
+        />
+        <Bluebar
+          theme={"Find your dream home"}
+          body={"Today we support the following cities:"}
+        />
+
+        <div className="flex flex-col sm:grid sm:grid-cols-2 justify-center items-center w-2/3 gap-10 my-28 mx-auto">
+          {item.cities
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((city) => (
+              <div key={city._id} className="w-full">
+                <Link
+                  href={
+                    "/locations/" + item.slug.current + "/" + city.slug.current
+                  }
+                  className="mx-auto w-5/6 md:w-[30vw]"
+                >
+                  <div className="relative h-52 md:h-[20vw]">
+                    <Image
+                      alt={city.image.altText}
+                      src={urlFor(city.image).url()}
+                      fill
+                      className=" rounded-xl object-cover"
+                    />
+                  </div>
+
+                  <div className="py-4">
+                    <h3 className="text-3xl text-FM-blue">{city.name}</h3>
+                  </div>
+                </Link>
+              </div>
+            ))}
+        </div>
+      </main>
       <Footer />
     </div>
   );
@@ -32,26 +73,29 @@ export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "states" && slug.current == $slug][0] {
     _id,
     statename,
+    slug,
+    image,
     "cities": *[_type == "cities" && references(^._id)]{
         _id,
         name,
-        "projects": *[_type == "projects" && references(^._id)]{
-            _id,
-            title,
-            slug,
-            mainImage,
-            dollarprofit,
-            percentreturn,
-            soldfor,
-        }
+        slug,
+        image {
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            }
+          },
     }
     }`;
 
-  const states = await client.fetch(query, { slug: slug });
+  const item = await client.fetch(query, { slug });
 
   return {
-    props: {
-      item: states,
-    },
+    props: { item },
   };
 };
