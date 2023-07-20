@@ -98,6 +98,7 @@ export const getStaticProps = async () => {
         },
         beds,
         baths,
+        bool,
         durationmonths,
   },
     }
