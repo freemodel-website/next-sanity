@@ -7,6 +7,7 @@ export default function Stats({
     asis,
     renovationprice,
     location,
+    locationwritein,
     beds,
     baths,
     durationmonths,
@@ -22,46 +23,59 @@ export default function Stats({
             </h2>
           </div>
         </div>
-        {/* </div><div className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-5"> */}
+
         <div className="flex flex-col gap-8 md:flex-row flex-wrap ">
           <div className="max-w-md text-center flex-grow-0">
-            <h6 className="mb-2 font-semibold font-sans text-2xl sm:text-3xl text-white">
-              {dollarprofit} Profit
-            </h6>
-            <h6 className="mb-2 font-semibold font-sans text-2xl sm:text-3xl text-white">
-              {percentreturn} Return
-            </h6>
+            {dollarprofit && (
+              <h6 className="mb-2 font-semibold font-sans text-2xl sm:text-3xl text-white">
+                {dollarprofit} Profit
+              </h6>
+            )}
+            {percentreturn && (
+              <h6 className="mb-2 font-semibold font-sans text-2xl sm:text-3xl text-white">
+                {percentreturn} Return
+              </h6>
+            )}
           </div>
-          <div className="max-w-md text-center flex-grow">
-            <h6 className="mb-2 font-light font-sans text-2xl text-white">
-              SOLD
-            </h6>
-            <h6 className="mb-2 font-light font-sans text-2xl text-white ">
-              {soldfor}
-            </h6>
-          </div>
-          <div className="max-w-md text-center flex-grow">
-            <h6 className="mb-2 font-light font-sans text-2xl text-white">
-              AS-IS
-            </h6>
-            <h6 className="mb-2 font-light font-sans text-2xl text-white ">
-              {soldfor}
-            </h6>
-          </div>
-          <div className="max-w-md text-center flex-grow">
-            <h6 className="mb-2 font-light font-sans text-2xl text-white">
-              RENOVATION
-            </h6>
-            <h6 className="mb-2 font-light font-sans text-2xl text-white ">
-              {soldfor}
-            </h6>
-          </div>
+          {soldfor && (
+            <div className="max-w-md text-center flex-grow">
+              <h6 className="mb-2 font-light font-sans text-2xl text-white">
+                SOLD
+              </h6>
+              <h6 className="mb-2 font-light font-sans text-2xl text-white ">
+                {soldfor}
+              </h6>
+            </div>
+          )}
+
+          {asis && (
+            <div className="max-w-md text-center flex-grow">
+              <h6 className="mb-2 font-light font-sans text-2xl text-white">
+                AS-IS
+              </h6>
+              <h6 className="mb-2 font-light font-sans text-2xl text-white ">
+                {asis}
+              </h6>
+            </div>
+          )}
+
+          {renovationprice && (
+            <div className="max-w-md text-center flex-grow">
+              <h6 className="mb-2 font-light font-sans text-2xl text-white">
+                RENOVATION
+              </h6>
+              <h6 className="mb-2 font-light font-sans text-2xl text-white ">
+                {renovationprice}
+              </h6>
+            </div>
+          )}
+
           <div className="max-w-md text-center flex-grow">
             <h6 className="mb-2 font-light font-sans text-2xl text-white">
               LOCATION
             </h6>
             <h6 className="mb-2 font-light font-sans text-2xl text-white ">
-              {location.cityname}
+              {locationwritein ? locationwritein : location.name}
             </h6>
           </div>
         </div>

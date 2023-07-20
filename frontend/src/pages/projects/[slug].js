@@ -43,6 +43,7 @@ const ProjectSlug = ({ item }) => {
             asis: item.asis,
             renovationprice: item.renovationprice,
             location: item.location,
+            locationwritein: item.locationwritein,
             beds: item.beds,
             baths: item.baths,
             durationmonths: item.durationmonths,
@@ -70,6 +71,7 @@ const ProjectSlug = ({ item }) => {
                 beds={item.beds}
                 baths={item.baths}
                 duration={item.durationmonths}
+                bool={item.bool}
               />
             ))}
           </div>
@@ -115,6 +117,7 @@ export const getServerSideProps = async ({ params }) => {
     asis,
     renovationprice,
     "location": *[_id == ^.cities._ref][0],
+    locationwritein,
     beds,
     baths,
     durationmonths,
@@ -181,6 +184,7 @@ export const getServerSideProps = async ({ params }) => {
           },
           beds,
           baths,
+          bool,
           durationmonths,
     },
     }`;

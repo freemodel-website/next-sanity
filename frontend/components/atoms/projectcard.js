@@ -9,6 +9,7 @@ export default function Projectcard({
   baths,
   duration,
   slug,
+  bool = false,
 }) {
   return (
     <a
@@ -48,7 +49,9 @@ export default function Projectcard({
 
           <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
             <FaCalendarAlt className="h-5 w-5 text-FM-orange" />
-            <p className="text-black text-lg">{duration} months</p>
+            <p className="text-black text-lg">
+              {duration} {bool ? "Months" : "Weeks"}
+            </p>
           </div>
         </div>
       </div>

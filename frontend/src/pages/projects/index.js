@@ -16,7 +16,7 @@ export default function Projects({
   spacetype,
   locationstype,
 }) {
-  // console.log(`casestudies`, casestudies);
+  //console.log(`casestudies`, casestudies);
   // console.log(`propertytype`, propertytype);
   // console.log(`spacetype`, spacetype);
   //console.log(`locationstype`, locationstype);
@@ -49,6 +49,7 @@ export default function Projects({
                 beds={item.beds}
                 baths={item.baths}
                 duration={item.durationmonths}
+                bool={item.bool}
               />
             ))}
           </div>
@@ -121,15 +122,16 @@ export const getStaticProps = async () => {
       },
       beds,
       baths,
+      bool,
       durationmonths,
-      spacetype->{
-        _id,
+
+      spacetype[]->{
         name,
-        mainImage,
         slug {
           current
-        }
+        },
       },
+      
       
         "location": *[_id == ^.cities._ref][0],
         

@@ -72,6 +72,13 @@ export default {
       to: [{type: 'cities'}],
       validation: (Rule) => Rule.required(),
     },
+    //Location write-in
+    {
+      name: 'locationwritein',
+      title: 'Location (write-in)',
+      description: 'Replaces the location listed above on the case study page.',
+      type: 'string',
+    },
     // Beds
     {
       name: 'beds',
@@ -86,10 +93,19 @@ export default {
       type: 'number',
       validation: (Rule) => Rule.required(),
     },
+    //Bool,
+    {
+      name: 'bool',
+      title: 'Months',
+      description: '(default/off is weeks)',
+      type: 'boolean',
+      initialValue: false,
+      validation: (Rule) => Rule.required(),
+    },
     //Duration
     {
       name: 'durationmonths',
-      title: 'Duration (months)',
+      title: 'Duration (months/weeks)',
       type: 'number',
       validation: (Rule) => Rule.required(),
     },
@@ -109,12 +125,19 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Space Type',
       name: 'spacetype',
-      type: 'reference',
-      to: [{type: 'spaceType'}],
+      title: 'Space Type',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'spaceType'}],
+        },
+      ],
+
       validation: (Rule) => Rule.required(),
     },
+
     //Body of the page
     {
       name: 'body',

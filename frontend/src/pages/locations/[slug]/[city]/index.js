@@ -42,7 +42,7 @@ const ProjectSlug = ({ item }) => {
 
         <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 gap-10 my-28 mx-auto">
           {item.projects
-            .sort((a, b) => a.name.localeCompare(b.name))
+            .filter((project) => project.slug)
             .map((project) => (
               <div key={project._id} className="w-full">
                 <Projectcard
@@ -52,10 +52,11 @@ const ProjectSlug = ({ item }) => {
                   beds={project.beds}
                   baths={project.baths}
                   duration={project.durationmonths}
+                  bool={project.bool}
                 />
               </div>
             ))}
-          <div className="w-full">
+          {/* <div className="w-full">
             <Projectcard
               title={"title C"}
               slug={"slug"}
@@ -69,7 +70,7 @@ const ProjectSlug = ({ item }) => {
               slug={"slug"}
               image={"/testhouse.jpg"}
             />
-          </div>
+          </div> */}
         </div>
         <div className="bg-gray-800">
           <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
@@ -130,6 +131,7 @@ export const getServerSideProps = async ({ params }) => {
       beds,
       baths,
       durationmonths,
+      bool,
     }
   }`;
 

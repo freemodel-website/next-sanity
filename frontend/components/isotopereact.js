@@ -94,21 +94,30 @@ const IsotopeReact = ({
 
       {/* Container */}
       <div ref={containerRef} className="md:mx-auto ">
-        {casestudies.map((casestudy) => (
-          <div
-            key={casestudy.id}
-            className={`my-item ${casestudy.hometype.slug.current} ${casestudy.spacetype.slug.current} ${casestudy.location.slug.current} sm:!static lg:!absolute`}
-          >
-            <Projectcard
-              title={casestudy.title}
-              slug={casestudy.slug.current}
-              image={casestudy.mainImage.asset.url}
-              baths={casestudy.baths}
-              beds={casestudy.beds}
-              duration={casestudy.durationmonths}
-            />
-          </div>
-        ))}
+        {casestudies.map((casestudy) => {
+          // Map through spacetype array and extract the slugs
+          const spacetypeSlugs = casestudy.spacetype
+            .map((space) => space.slug.current)
+            .join(" ");
+
+          return (
+            <div
+              key={casestudy.id}
+              className={`my-item ${casestudy.hometype.slug.current}
+        ${casestudy.location.slug.current} ${spacetypeSlugs} sm:!static lg:!absolute`}
+            >
+              <Projectcard
+                title={casestudy.title}
+                slug={casestudy.slug.current}
+                image={casestudy.mainImage.asset.url}
+                baths={casestudy.baths}
+                beds={casestudy.beds}
+                duration={casestudy.durationmonths}
+                bool={casestudy.bool}
+              />
+            </div>
+          );
+        })}
 
         {/* Fake Items */}
         <div className={`my-item bathroom sm:!static lg:!absolute`}>
