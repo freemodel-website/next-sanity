@@ -120,7 +120,7 @@ const IsotopeReact = ({
         })}
 
         {/* Fake Items */}
-        <div className={`my-item bathroom sm:!static lg:!absolute`}>
+        {/* <div className={`my-item bathroom sm:!static lg:!absolute`}>
           <Projectcard
             title={"title A bathroom"}
             slug={"slug"}
@@ -129,8 +129,8 @@ const IsotopeReact = ({
             beds={3}
             duration={4}
           />
-        </div>
-        <div
+        </div> */}
+        {/* <div
           className={`my-item categoryB home bathroom sm:!static lg:!absolute `}
         >
           <Projectcard
@@ -138,15 +138,15 @@ const IsotopeReact = ({
             slug={"slug"}
             image={"/testhouse.jpg"}
           />
-        </div>
-        <div className={`my-item categoryC sm:!static lg:!absolute`}>
+        </div> */}
+        {/* <div className={`my-item categoryC sm:!static lg:!absolute`}>
           <Projectcard
             title={"title C"}
             slug={"slug"}
             image={"/testhouse.jpg"}
           />
-        </div>
-        <div className={`my-item categoryD sm:!static lg:!absolute `}>
+        </div> */}
+        {/* <div className={`my-item categoryD sm:!static lg:!absolute `}>
           <Projectcard
             title={"title D"}
             slug={"slug"}
@@ -159,7 +159,7 @@ const IsotopeReact = ({
             slug={"slug"}
             image={"/testhouse.jpg"}
           />
-        </div>
+        </div> */}
         {/* END: Items */}
       </div>
     </div>
