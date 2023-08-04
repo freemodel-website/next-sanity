@@ -22,6 +22,12 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    //title
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
     {
       name: 'image',
       title: 'Image',
@@ -41,6 +47,130 @@ export default {
           type: 'block',
           styles: [{title: 'Normal', value: 'normal'}],
           lists: [],
+        },
+      ],
+    },
+
+    //location
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'reference',
+      to: [{type: 'cities'}],
+      validation: (Rule) => Rule.required(),
+    },
+
+    //array of projects
+    {
+      name: 'projects',
+      title: 'Projects',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'caseStudy'}],
+        },
+      ],
+    },
+    //array of media
+    {
+      name: 'media',
+      title: 'Media',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'media'}],
+        },
+      ],
+    },
+    //LinkedIn field title
+    {
+      title: 'LinkedIn',
+      name: 'linkedin',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'link',
+          type: 'url',
+          title: 'Link',
+        },
+      ],
+    },
+    //Instagram
+    {
+      title: 'Instagram',
+      name: 'instagram',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'link',
+          type: 'url',
+          title: 'Link',
+        },
+      ],
+    },
+    //Pinterest
+    {
+      title: 'Pinterest',
+      name: 'pinterest',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'link',
+          type: 'url',
+          title: 'Link',
+        },
+      ],
+    },
+    //Website
+    {
+      title: 'Website',
+      name: 'website',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'link',
+          type: 'url',
+          title: 'Link',
+        },
+      ],
+    },
+    //Email
+    {
+      title: 'Email',
+      name: 'email',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'link',
+          type: 'string',
+          title: 'Email',
         },
       ],
     },

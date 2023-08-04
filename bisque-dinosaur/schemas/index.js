@@ -9,6 +9,7 @@ import housetypes from './housetypes'
 import architecturalstyle from './ArchitecturalStyle'
 import spaceType from './spaceType'
 import brokerage from './brokerage'
+import media from './media'
 
 //Single Pages
 import home from './singletons/home'
@@ -28,4 +29,5 @@ export const schemaTypes = [
   architecturalstyle,
   spaceType,
   brokerage,
+  media,
 ]

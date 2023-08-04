@@ -15,6 +15,7 @@ import Projectcard from "../../../components/atoms/projectcard";
 
 const ProjectSlug = ({ item }) => {
   console.log(`item`, item);
+
   return (
     <div>
       <Head>
@@ -103,15 +104,19 @@ export const getServerSideProps = async ({ params }) => {
         current
     },
     mainImage {
-        asset->{
-            _ref,
-            _type,
-            altText,
-            description,
-            "tags": opt.media.tags[]->name.current,
-            title,
-            url
-        }
+      crop,
+      hotspot,
+      asset->{
+        _ref,
+        _id,
+        _type,
+        altText,
+        description,
+        "tags": opt.media.tags[]->name.current,
+        title,
+        url,
+        crop,
+      }
     },
     dollarprofit,
     percentreturn,
@@ -127,6 +132,8 @@ export const getServerSideProps = async ({ params }) => {
     casestudytestimonials,
     beforeimages[] {
         beforeimage {
+          crop,
+          hotspot,
             asset->{
                 _ref,
                 _type,
@@ -140,6 +147,8 @@ export const getServerSideProps = async ({ params }) => {
     },
     afterimages[] {
         afterimage {
+          crop,
+          hotspot,
             asset->{
                 _ref,
                 _type,
@@ -154,6 +163,8 @@ export const getServerSideProps = async ({ params }) => {
     },
     moreimages[] {
         moreimage {
+          crop,
+          hotspot,
             asset->{
                 _ref,
                 _type,
@@ -174,6 +185,8 @@ export const getServerSideProps = async ({ params }) => {
             current
         },
         mainImage {
+          crop,
+          hotspot,
             asset->{
                 _ref,
                 _type,

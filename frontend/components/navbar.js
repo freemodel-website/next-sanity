@@ -27,6 +27,7 @@ export default () => {
               width={180}
               height={80}
               alt="logo"
+              style={{ width: "auto", height: "auto" }}
             />
           </Link>
           <div className="md:hidden">
@@ -77,9 +78,9 @@ export default () => {
                 <li key={idx} className="text-black hover:text-FM-orange">
                   <Link
                     href={item.path}
-                    className={
-                      asPath == item.path && "font-bold text-FM-orange"
-                    }
+                    className={`${
+                      asPath === item.path ? "text-FM-orange" : ""
+                    }`}
                   >
                     {item.title}
                   </Link>
