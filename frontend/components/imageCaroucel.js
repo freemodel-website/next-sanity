@@ -8,7 +8,88 @@ import {
 } from "react-icons/bs";
 import Image from "next/image";
 
-export default ({ images }) => {
+export default ({ gallery }) => {
+  let imageType = false;
+
+  // If there is no gallery, set a default image
+  if (!gallery) {
+    imageType = true;
+    gallery = [
+      // 1
+      {
+        title: "Living Rooms",
+        image: {
+          asset: {
+            url: "/defaultCarousel/1.png",
+          },
+        },
+      },
+      // 2
+      {
+        title: "Conversions",
+        image: {
+          asset: {
+            url: "/defaultCarousel/2.jpeg",
+          },
+        },
+      },
+      // 3
+      {
+        title: "Kitchens",
+        image: {
+          asset: {
+            url: "/defaultCarousel/3.jpg",
+          },
+        },
+      },
+      // 4
+      {
+        title: "Backyards",
+        image: {
+          asset: {
+            url: "/defaultCarousel/4.jpg",
+          },
+        },
+      },
+      // 5
+      {
+        title: "Dining Rooms",
+        image: {
+          asset: {
+            url: "/defaultCarousel/5.jpg",
+          },
+        },
+      },
+      // 6
+      {
+        title: "Exteriors",
+        image: {
+          asset: {
+            url: "/defaultCarousel/6.jpg",
+          },
+        },
+      },
+      // 7
+      {
+        title: "Family Rooms",
+        image: {
+          asset: {
+            url: "/defaultCarousel/7.jpg",
+          },
+        },
+      },
+      // 8
+      {
+        title: "Bathrooms",
+        image: {
+          asset: {
+            url: "/defaultCarousel/8.png",
+          },
+        },
+      },
+    ];
+  }
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -36,16 +117,29 @@ export default ({ images }) => {
     <div className="text-center">
       <div className="navigation-wrapper relative">
         <div ref={sliderRef} className="keen-slider">
-          {images.map((image, index) => (
+          {gallery.map((gallery, index) => (
             <div className="keen-slider__slide" key={index}>
-              <div className="relative h-96">
-                <Image
-                  src={urlFor(image.asset).url()}
-                  alt={image.alt}
-                  fill
-                  className="object-cover w-full h-full"
-                />
+              <div className="relative h-96 mx-4">
+                {/*  If image is false  */}
+                {!imageType && (
+                  <Image
+                    src={gallery.image.asset}
+                    alt={gallery.title}
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                )}
+                {/*  If image is true  */}
+                {imageType && (
+                  <Image
+                    src={gallery.image.asset.url}
+                    alt={gallery.title}
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                )}
               </div>
+              <h3 className="text-white text-lg mt-4">{gallery.title}</h3>
             </div>
           ))}
         </div>

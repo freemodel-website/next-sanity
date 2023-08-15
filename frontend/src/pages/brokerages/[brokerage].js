@@ -113,11 +113,11 @@ const Brokerage = ({ data }) => {
             </div>
           </div>
         )}
-        <div className="text-center my-40">
-          <h1 className="text-5xl text-center text-black font-bold mb-20">
-            Projects
+        <div className="text-center py-40 bg-FM-blue">
+          <h1 className="text-5xl text-center text-white font-bold mb-20">
+            {brokerage.imageGallaryTitle}
           </h1>
-          <ImageCaroucel images={brokerage.imagesGallery} />
+          <ImageCaroucel gallery={brokerage.imagesGallery} />
         </div>
       </main>
 
@@ -175,14 +175,16 @@ export const getServerSideProps = async (context) => {
     },
     callout,
     imageArray,
+    imageGallaryTitle,
     imagesGallery []{
-      crop,
-      hotspot,
+      title,
+      image{
       asset->{
         _id,
         url
       }
     }
+    },
   }[0]`;
 
   const data = await client.fetch(query, { brokerage });
