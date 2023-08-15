@@ -166,6 +166,7 @@ export default {
           name: 'title',
           type: 'string',
           title: 'Title',
+          description: 'This is the text that will appear on the page',
         },
         {
           name: 'link',

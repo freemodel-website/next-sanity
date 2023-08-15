@@ -48,6 +48,12 @@ export default {
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
     },
+    //HTML form
+    {
+      name: 'htmlform',
+      title: 'HTML Form',
+      type: 'text',
+    },
     {
       name: 'serviceList',
       title: 'Service List',

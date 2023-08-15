@@ -1,0 +1,5 @@
+/* Adjust the width and height to your desired size */
+.sanity-plugin-beforeimages .sanity-default-image-container img {
+  width: 200px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+}

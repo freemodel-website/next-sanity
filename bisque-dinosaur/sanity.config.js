@@ -18,6 +18,10 @@ export default defineConfig({
     }),
     visionTool(),
     media(),
+    {
+      name: 'custom-css',
+      path: '/custom.css',
+    },
   ],
 
   schema: {

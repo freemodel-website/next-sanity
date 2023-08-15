@@ -36,10 +36,28 @@ const ProjectSlug = ({ item }) => {
 
         <Paragraph text={item.description} />
 
+        {/* Form */}
+        {item.htmlform && (
+          <div className="max-w-3xl mx-auto my-20">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: item.htmlform,
+              }}
+            />
+          </div>
+        )}
+
+        {/* CTA */}
+        {!item.htmlform && (
+          <div className="text-center mb-32">
+            <Ctabutton text={item.ctaText} href={"/lets-talk"} />
+          </div>
+        )}
+
         {/* Projects */}
-
-        <h1 className="text-4xl text-center font-bold my-20">Projects</h1>
-
+        {item.projects != 0 && (
+          <h1 className="text-4xl text-center font-bold my-20">Projects</h1>
+        )}
         <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 gap-10 my-28 mx-auto">
           {item.projects
             .filter((project) => project.slug)
@@ -72,19 +90,25 @@ const ProjectSlug = ({ item }) => {
             />
           </div> */}
         </div>
-        <div className="bg-gray-800">
-          <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-            <h2 className="text-3xl font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-4xl">
-              We Service
-            </h2>
-            <p className="mt-3 text-xl mx-auto text-gray-300 sm:mt-4 sm:max-w-4xl">
-              {item.serviceList}
-            </p>
+        {item.serviceList && (
+          <div className="bg-gray-800">
+            <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+              <h2 className="text-3xl font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-4xl">
+                We Service
+              </h2>
+              <p className="mt-3 text-xl mx-auto text-gray-300 sm:mt-4 sm:max-w-4xl">
+                {item.serviceList}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Projects */}
-        <h1 className="text-4xl text-center font-bold my-20">{item.pdtitle}</h1>
+        {item.pdtitle && (
+          <h1 className="text-4xl text-center font-bold my-20">
+            {item.pdtitle}
+          </h1>
+        )}
 
         {/* Projects */}
         <h1 className="text-4xl text-center font-bold my-20">
@@ -114,6 +138,7 @@ export const getServerSideProps = async ({ params }) => {
     pdtitle,
     ctaTitle,
     ctaText,
+    htmlform,
     "projects" : *[_type == "caseStudy" && references(^._id)]{
       title,
       slug,
