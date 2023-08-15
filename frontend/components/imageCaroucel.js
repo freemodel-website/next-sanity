@@ -123,13 +123,14 @@ export default ({ gallery }) => {
                 {/*  If image is false  */}
                 {!imageType && (
                   <Image
-                    src={gallery.image.asset}
+                    src={urlFor(gallery.image).url()}
                     alt={gallery.title}
                     fill
                     className="object-cover w-full h-full"
                   />
                 )}
                 {/*  If image is true  */}
+
                 {imageType && (
                   <Image
                     src={gallery.image.asset.url}
