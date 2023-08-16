@@ -70,7 +70,11 @@ export default function Home({ data }) {
 
       <main>
         <Hero hero={data} buttontext={"Let's Talk"} />
-        <Sixgrid />
+        <Sixgrid
+          title={data.sec1title}
+          imageArray={data.imageArray}
+          buttontext={data.sec1button}
+        />
         <Rightleftright />
 
         <div className="text-center my-40">
@@ -106,7 +110,16 @@ export const getStaticProps = async () => {
     _id,
     title,
     mainImage,
-    overview,
+    sec1title,
+    imageArray,
+    sec1button,
+    sec2title,
+    sec2imageArray,
+    sec2button,
+    sec3title,
+    projects,
+    testimonials,
+    htmlform, 
 }`;
 
   const data = await client.fetch(mainquery);
