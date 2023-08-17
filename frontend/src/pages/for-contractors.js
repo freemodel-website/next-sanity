@@ -53,7 +53,37 @@ export default function ForContractors() {
 
         <Threesegment />
 
-        <QuoteSlider title="Kudos from Clients" />
+        <QuoteSlider
+          title="Kudos from Clients"
+          testimonials={[
+            {
+              testimonialimage: {
+                _type: "image",
+                asset: {
+                  _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
+                  _type: "reference",
+                },
+              },
+              quote:
+                "Freemodel is a great company to work with. They are very professional and have a great team. I would recommend them to anyone looking to remodel their home.",
+              name: "John Doe",
+              title: "CEO, Company",
+            },
+            {
+              testimonialimage: {
+                _type: "image",
+                asset: {
+                  _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
+                  _type: "reference",
+                },
+              },
+              quote:
+                "Freemodel is a great company to work with. They are very professional and have a great team. I would recommend them to anyone looking to remodel their home.",
+              name: "John Doe",
+              title: "CEO, Company",
+            },
+          ]}
+        />
 
         <h1 className="text-4xl text-center font-bold my-20">
           A Message from our head of operations:

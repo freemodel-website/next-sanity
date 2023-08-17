@@ -25,46 +25,59 @@ export default function AboutUs() {
 
   const projects = [
     {
-      title: "Lake Top Majesty",
-      image: "/testhouse.jpg",
+      title: "City Top Majesty",
+      mainImage: {
+        _type: "image",
+        asset: {
+          _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
+          _type: "reference",
+        },
+      },
       beds: "2",
       baths: "1",
       duration: "4 months",
+      slug: {
+        _type: "slug",
+        current: "harmony-in-hercules",
+        _updatedAt: "2023-08-10T15:34:36Z",
+      },
     },
+
     {
-      title: "Mountain Top Majesty",
-      image: "/testhouse.jpg",
+      title: "City Top Majesty",
+      mainImage: {
+        _type: "image",
+        asset: {
+          _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
+          _type: "reference",
+        },
+      },
       beds: "2",
       baths: "1",
       duration: "4 months",
-    },
-    {
-      title: "Tree Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-    {
-      title: "Dessert Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-    {
-      title: "Beach Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
+      slug: {
+        _type: "slug",
+        current: "harmony-in-hercules",
+        _updatedAt: "2023-08-10T15:34:36Z",
+      },
     },
     {
       title: "City Top Majesty",
-      image: "/testhouse.jpg",
+      mainImage: {
+        _type: "image",
+        asset: {
+          _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
+          _type: "reference",
+        },
+      },
       beds: "2",
       baths: "1",
       duration: "4 months",
+      slug: {
+        _type: "slug",
+        current: "harmony-in-hercules",
+        _updatedAt: "2023-08-10T15:34:36Z",
+      },
     },
   ];
 
