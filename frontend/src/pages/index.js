@@ -59,7 +59,7 @@ export default function Home({ data, states }) {
             </div>
             <div>
               {/* html form */}
-              {/* {data.htmlform && (
+              {data.htmlform && (
                 <div className="max-w-3xl mx-auto my-20">
                   <div
                     dangerouslySetInnerHTML={{
@@ -67,7 +67,7 @@ export default function Home({ data, states }) {
                     }}
                   />
                 </div>
-              )} */}
+              )}
             </div>
           </div>
         </div>

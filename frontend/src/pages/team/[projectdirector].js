@@ -13,7 +13,6 @@ import Projectcard from "../../../components/atoms/projectcard";
 import { BsInstagram } from "react-icons/bs";
 
 const ProjectDirector = ({ item }) => {
-  console.log(`item`, item);
   return (
     <div>
       <Head>

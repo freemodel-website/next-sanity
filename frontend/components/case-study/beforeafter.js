@@ -1,10 +1,6 @@
 import Image from "next/image";
 import { client, urlFor } from "../../client";
 export default function BeforeAfter({ beforeimages, afterimages, moreimages }) {
-  console.log(beforeimages, "beforeimages");
-  console.log(afterimages, "afterimages");
-  console.log(moreimages, "moreimages");
-
   return (
     <section className="pt-14 pb-24">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
@@ -26,7 +22,6 @@ export default function BeforeAfter({ beforeimages, afterimages, moreimages }) {
                     }
                   >
                     <div className="relative w-full h-60 sm:h-52 md:h-96">
-                      {console.log(item, "before item")}
                       <Image
                         src={urlFor(item.beforeimage).url()}
                         alt={item.beforeimage.altText}

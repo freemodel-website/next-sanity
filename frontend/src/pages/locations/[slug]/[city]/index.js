@@ -13,7 +13,6 @@ import Projectcard from "../../../../../components/atoms/projectcard";
 import Ctabutton from "../../../../../components/atoms/ctabutton";
 
 const ProjectSlug = ({ item }) => {
-  console.log(`item`, item);
   return (
     <div>
       <Head>

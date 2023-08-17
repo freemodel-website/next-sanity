@@ -8,8 +8,6 @@ import Ctabutton from "./atoms/ctabutton";
  * @param  buttontext - string for a button.
  */
 export default function Hero({ hero, buttontext, image }) {
-  console.log(`hero`, hero);
-
   return (
     <div className="relative">
       <img

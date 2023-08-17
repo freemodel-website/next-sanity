@@ -14,8 +14,6 @@ import Footer from "../../../components/footer";
 import Projectcard from "../../../components/atoms/projectcard";
 
 const ProjectSlug = ({ item }) => {
-  console.log(`item`, item);
-
   return (
     <div>
       <Head>

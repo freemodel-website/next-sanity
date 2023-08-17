@@ -11,7 +11,6 @@ import Image from "next/image";
 import ImageCaroucel from "../../../components/imageCaroucel";
 
 const Brokerage = ({ data }) => {
-  console.log(`data`, data);
   let brokerage = data;
 
   return (

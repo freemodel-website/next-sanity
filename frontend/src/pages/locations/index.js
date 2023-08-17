@@ -9,7 +9,6 @@ import Footer from "../../../components/footer";
 import Link from "next/link";
 
 export default function Locations({ states }) {
-  console.log(`page`, states);
   return (
     <div>
       <Head>

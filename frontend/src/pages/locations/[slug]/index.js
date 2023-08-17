@@ -10,7 +10,6 @@ import Hero from "../../../../components/hero";
 import Bluebar from "../../../../components/bluebar";
 
 const ProjectSlug = ({ item }) => {
-  console.log(`item`, item);
   return (
     <div>
       <Head>

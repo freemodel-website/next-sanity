@@ -16,12 +16,6 @@ export default function Projects({
   spacetype,
   locationstype,
 }) {
-  //console.log(`casestudies`, casestudies);
-  // console.log(`propertytype`, propertytype);
-  // console.log(`spacetype`, spacetype);
-  //console.log(`locationstype`, locationstype);
-  //console.log(`page`, page);
-
   return (
     <div>
       <Head>
