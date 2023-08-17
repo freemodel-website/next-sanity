@@ -13,8 +13,6 @@ import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
 
 export default function Home({ data, states }) {
-  console.log("states", states);
-
   return (
     <div>
       <Head>
@@ -61,11 +59,15 @@ export default function Home({ data, states }) {
             </div>
             <div>
               {/* html form */}
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data.htmlform,
-                }}
-              />
+              {/* {data.htmlform && (
+                <div className="max-w-3xl mx-auto my-20">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.htmlform,
+                    }}
+                  />
+                </div>
+              )} */}
             </div>
           </div>
         </div>
