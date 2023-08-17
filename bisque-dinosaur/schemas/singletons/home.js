@@ -113,7 +113,7 @@ export default defineType({
     {
       name: 'sec3title',
       title: 'Section 3: Title',
-      type: 'text',
+      type: 'string',
     },
     {
       name: 'projects',
@@ -138,7 +138,23 @@ export default defineType({
         },
       ],
     },
-    //html form
+    {
+      name: 'statesbutton',
+      title: 'States Section: Button',
+      type: 'string',
+    },
+    //html
+    {
+      name: 'htmltitle',
+      title: 'HTML Section: Title',
+      type: 'string',
+    },
+    // Section 3
+    {
+      name: 'htmlbody',
+      title: 'HTML Section: Body',
+      type: 'text',
+    },
     {
       name: 'htmlform',
       title: 'HTML Form',

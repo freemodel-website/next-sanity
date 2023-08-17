@@ -6,6 +6,7 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import Projectcard from "./atoms/projectcard";
+import { urlFor } from "../client";
 
 export default ({ projects }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -39,10 +40,12 @@ export default ({ projects }) => {
             <div className="keen-slider__slide" key={index}>
               <Projectcard
                 title={project.title}
-                image={project.image}
+                image={urlFor(project.mainImage).url()}
                 beds={project.beds}
                 baths={project.baths}
                 duration={project.duration}
+                slug={project.slug.current}
+                bool={project.bool}
               />
             </div>
           ))}

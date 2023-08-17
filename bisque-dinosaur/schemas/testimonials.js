@@ -9,7 +9,7 @@ export default {
   fields: [
     {
       name: 'testimonialperson',
-      title: 'Person',
+      title: 'Name',
       type: 'string',
     },
     {
@@ -26,6 +26,13 @@ export default {
       name: 'testimonialposition',
       title: 'Position',
       type: 'string',
+    },
+    //Brokerage
+    {
+      name: 'brokerage',
+      title: 'Brokerage',
+      type: 'reference',
+      to: [{type: 'brokerage'}],
     },
   ],
 }

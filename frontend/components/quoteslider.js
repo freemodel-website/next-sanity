@@ -6,8 +6,9 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import Testimonial from "./atoms/testimonial";
+import { urlFor } from "../client";
 
-export default function QuoteSlider({ title }) {
+export default function QuoteSlider({ title, testimonials }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -21,8 +22,6 @@ export default function QuoteSlider({ title }) {
     loop: true,
   });
 
-  console.log(title, "titleis");
-
   return (
     <>
       <div className="navigation-wrapper relative bg-FM-blue py-20">
@@ -30,54 +29,19 @@ export default function QuoteSlider({ title }) {
           {title}
         </h1>
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide number-slide1">
-            <Testimonial
-              image="/testhouse.jpg"
-              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
-              name="Eddie O'Sullivan"
-              jobtitle="Agent"
-            />
-          </div>
-          <div className="keen-slider__slide number-slide2">
-            <Testimonial
-              image="/testhouse.jpg"
-              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
-              name="Eddie O'Sullivan"
-              jobtitle="Agent"
-            />
-          </div>
-          <div className="keen-slider__slide number-slide3">
-            <Testimonial
-              image="/testhouse.jpg"
-              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
-              name="Eddie O'Sullivan"
-              jobtitle="Agent"
-            />
-          </div>
-          <div className="keen-slider__slide number-slide4">
-            <Testimonial
-              image="/testhouse.jpg"
-              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
-              name="Eddie O'Sullivan"
-              jobtitle="Agent"
-            />
-          </div>
-          <div className="keen-slider__slide number-slide5">
-            <Testimonial
-              image="/testhouse.jpg"
-              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
-              name="Eddie O'Sullivan"
-              jobtitle="Agent"
-            />
-          </div>
-          <div className="keen-slider__slide number-slide6">
-            <Testimonial
-              image="/testhouse.jpg"
-              quote="I appreciate how responsive Freemodel is when I reach out with a potential project. It's great to give them all of the prep work so I can focus on building my business. They work fast and make my listings look great."
-              name="Eddie O'Sullivan"
-              jobtitle="Agent"
-            />
-          </div>
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className={`keen-slider__slide number-slide${index + 1}`}
+            >
+              <Testimonial
+                image={urlFor(testimonial.testimonialimage).url()}
+                quote={testimonial.testimonialquote}
+                name={testimonial.testimonialperson}
+                jobtitle={testimonial.testimonialposition}
+              />
+            </div>
+          ))}
         </div>
         {loaded && instanceRef.current && (
           <>

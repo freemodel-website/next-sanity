@@ -2,6 +2,7 @@ import { urlFor } from "../../client";
 import Ctabutton from "../atoms/ctabutton";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer"; // Import the library
 
 const MotionDiv = motion.div;
 
@@ -16,6 +17,11 @@ export default function Sixgrid({ title, imageArray, buttontext }) {
     visible: { opacity: 1, y: 0 },
   };
 
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Animations will only trigger once when becoming visible
+    threshold: 0.2, // Adjust this threshold as needed
+  });
+
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="max-w-xl mb-10 px-10 sm:px-0 md:mx-auto text-center lg:max-w-3xl md:mb-12">
@@ -24,10 +30,11 @@ export default function Sixgrid({ title, imageArray, buttontext }) {
         </h2>
       </div>
       <MotionDiv
+        ref={ref} // Attach the ref to the MotionDiv
         className="grid gap-12 row-gap-8 lg:grid-cols-3"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={inView ? "visible" : "hidden"} // Animate based on inView status
       >
         {imageArray.map((section, index) => (
           <MotionDiv

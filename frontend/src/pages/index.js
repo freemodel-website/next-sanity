@@ -12,51 +12,8 @@ import Homelocation from "../../components/index/homelocation";
 import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
 
-export default function Home({ data }) {
-  const projects = [
-    {
-      title: "Lake Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-    {
-      title: "Mountain Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-    {
-      title: "Tree Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-    {
-      title: "Dessert Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-    {
-      title: "Beach Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-    {
-      title: "City Top Majesty",
-      image: "/testhouse.jpg",
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-    },
-  ];
+export default function Home({ data, states }) {
+  console.log("states", states);
 
   return (
     <div>
@@ -75,28 +32,41 @@ export default function Home({ data }) {
           imageArray={data.imageArray}
           buttontext={data.sec1button}
         />
-        <Rightleftright />
+        <Rightleftright
+          title={data.sec2title}
+          imageArray={data.sec2imageArray}
+        />
 
         <div className="text-center my-40">
           <h1 className="text-5xl text-center text-black font-bold mb-20">
-            Projects
+            {data.sec3title}
           </h1>
-          <Carousel projects={projects} />
+          <Carousel projects={data.projects} />
         </div>
-        <Quoteslider title="Why Agents Love Us" />
-        <Homelocation />
+
+        <Quoteslider
+          title="Why Agents Love Us"
+          testimonials={data.testimonials}
+        />
+
+        <Homelocation states={states} buttontext={data.statesbutton} />
 
         <div className="px-4 py-16 bg-FM-blue md:px-24 lg:px-8 lg:py-20">
           <div className="grid gap-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:grid-cols-2">
             <div className="lg:pr-10 md: my-auto">
               <h5 className="mb-4 text-4xl text-white font-extrabold leading-none">
-                Not in your City?
+                {data.htmltitle}
               </h5>
-              <p className="mb-6 text-white">
-                We will let you know when we are!
-              </p>
+              <p className="mb-6 text-white">{data.htmlbody}</p>
             </div>
-            <div></div>
+            <div>
+              {/* html form */}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data.htmlform,
+                }}
+              />
+            </div>
           </div>
         </div>
       </main>
@@ -117,16 +87,46 @@ export const getStaticProps = async () => {
     sec2imageArray,
     sec2button,
     sec3title,
-    projects,
-    testimonials,
+    projects []-> {
+      _id,
+      title,
+      mainImage,
+      beds,
+      baths,
+      duration,
+      slug,
+      bool
+    },
+    testimonials[]->{
+      _id,
+      testimonialperson,
+      testimonialquote,
+      testimonialimage,
+      testimonialposition,
+      brokerage,
+    },
+    statesbutton,
+    htmltitle,
+    htmlbody,
     htmlform, 
 }`;
+
+  const states = await client.fetch(`*[_type == "states"]{
+  _id,
+  statename,
+  stateabbr,
+  hero,
+  slug,
+  image
+  
+}`);
 
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data,
+      states,
     },
 
     revalidate: 10,

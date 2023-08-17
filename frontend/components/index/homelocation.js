@@ -1,7 +1,27 @@
 import React from "react";
 import Ctabutton from "../atoms/ctabutton";
+import Image from "next/image";
+import { urlFor } from "../../client";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-export default function Homelocation() {
+const MotionDiv = motion.div;
+export default function Homelocation({ states, buttontext }) {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Animations will only trigger once when becoming visible
+    threshold: 0.2, // Adjust this threshold as needed
+  });
+
   return (
     <div className="py-16 mx-auto lg:py-20">
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-3xl md:mb-12">
@@ -10,27 +30,38 @@ export default function Homelocation() {
         </h2>
       </div>
       {/* grid */}
-      <div className="items-center px-4 max-w-screen-xl mx-auto md:px-8 grid gap-11 sm:grid-cols-3 gap-4">
-        {[...Array(3)].map((_, index) => (
+
+      <MotionDiv
+        ref={ref}
+        className="items-center px-4 max-w-screen-xl mx-auto md:px-8 grid gap-11 sm:grid-cols-3 gap-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"} // Animate based on inView status
+      >
+        {states.map((state, index) => (
           <a key={index + 1} href="javascript:void(0)">
-            <div className="group">
-              <img
-                alt="Lava"
-                src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80"
-                className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
-              />
+            <MotionDiv className="group" key={index} variants={itemVariants}>
+              <div className="relative h-72 w-full">
+                <Image
+                  alt="Lava"
+                  fill
+                  src={urlFor(state.image).url()}
+                  className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
+                />
+              </div>
               <div className="p-4">
                 <h3 className="text-3xl underline underline-offset-4 decoration-1 font-bold sm:text-3xl text-FM-orange group-hover:text-orange-600">
-                  California
+                  {state.statename}
                 </h3>
               </div>
-            </div>
+            </MotionDiv>
           </a>
         ))}
-      </div>
+      </MotionDiv>
+
       {/*  */}
       <div className="flex justify-center mt-14">
-        <Ctabutton href="/lets-talk" text="Let's Talk" />
+        <Ctabutton href="/lets-talk" text={buttontext} />
       </div>
     </div>
   );
