@@ -34,5 +34,19 @@ export default {
       type: 'reference',
       to: [{type: 'brokerage'}],
     },
+    //Project Director
+    {
+      name: 'projectdirector',
+      title: 'Project Director',
+      type: 'reference',
+      to: [{type: 'projectdirector'}],
+    },
+    //Property Type
+    {
+      name: 'propertytype',
+      title: 'Property Type',
+      type: 'reference',
+      to: [{type: 'houseType'}],
+    },
   ],
 }

@@ -1,16 +1,15 @@
 import React from "react";
-import { useRouter } from "next/router";
 import { client, urlFor } from "../../../../../client";
 import Head from "next/head";
 import Navbar from "../../../../../components/navbar";
-import Image from "next/image";
-import Link from "next/link";
 import Hero from "../../../../../components/hero";
 import Bluebar from "../../../../../components/bluebar";
 import Footer from "../../../../../components/footer";
 import Paragraph from "../../../../../components/paragraph";
 import Projectcard from "../../../../../components/atoms/projectcard";
 import Ctabutton from "../../../../../components/atoms/ctabutton";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const ProjectSlug = ({ item }) => {
   return (
@@ -38,11 +37,11 @@ const ProjectSlug = ({ item }) => {
         {/* Form */}
         {item.htmlform && (
           <div className="max-w-3xl mx-auto my-20">
-            <div
+            {/* <div
               dangerouslySetInnerHTML={{
                 __html: item.htmlform,
               }}
-            />
+            /> */}
           </div>
         )}
 
@@ -73,21 +72,6 @@ const ProjectSlug = ({ item }) => {
                 />
               </div>
             ))}
-          {/* <div className="w-full">
-            <Projectcard
-              title={"title C"}
-              slug={"slug"}
-              image={"/testhouse.jpg"}
-            />
-          </div>
-
-          <div className="w-full">
-            <Projectcard
-              title={"title C"}
-              slug={"slug"}
-              image={"/testhouse.jpg"}
-            />
-          </div> */}
         </div>
         {item.serviceList && (
           <div className="bg-gray-800">

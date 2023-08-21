@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Ctabutton from "./atoms/ctabutton";
-
+import Image from "next/image";
 /**
  * A function that adds two numbers.
  *
@@ -10,13 +10,10 @@ import Ctabutton from "./atoms/ctabutton";
 export default function Hero({ hero, buttontext, image }) {
   return (
     <div className="relative">
-      <img
-        src={
-          image
-            ? image
-            : "https://images.pexels.com/photos/2988860/pexels-photo-2988860.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-        }
+      <Image
+        src={image ? image : "/testhouse.jpg"}
         className="absolute inset-0 object-cover w-full h-full"
+        fill
         alt=""
       />
       <div className="relative bg-gray-900 bg-opacity-75">

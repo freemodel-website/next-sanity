@@ -36,7 +36,7 @@ const ProjectSlug = ({ item }) => {
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((city) => (
               <div key={city._id} className="w-full">
-                <Link
+                <a
                   href={
                     "/locations/" + item.slug.current + "/" + city.slug.current
                   }
@@ -54,7 +54,7 @@ const ProjectSlug = ({ item }) => {
                   <div className="py-4">
                     <h3 className="text-3xl text-FM-blue">{city.name}</h3>
                   </div>
-                </Link>
+                </a>
               </div>
             ))}
         </div>
