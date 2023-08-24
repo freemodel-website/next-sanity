@@ -10,8 +10,10 @@ import Projectcard from "../../../../../components/atoms/projectcard";
 import Ctabutton from "../../../../../components/atoms/ctabutton";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import TeamList from "../../../../../components/team/teamlist";
 
 const ProjectSlug = ({ item }) => {
+  console.log("item", item);
   return (
     <div>
       <Head>
@@ -37,11 +39,11 @@ const ProjectSlug = ({ item }) => {
         {/* Form */}
         {item.htmlform && (
           <div className="max-w-3xl mx-auto my-20">
-            {/* <div
+            <div
               dangerouslySetInnerHTML={{
                 __html: item.htmlform,
               }}
-            /> */}
+            />
           </div>
         )}
 
@@ -86,11 +88,9 @@ const ProjectSlug = ({ item }) => {
           </div>
         )}
 
-        {/* Projects */}
+        {/* Project Directors */}
         {item.pdtitle && (
-          <h1 className="text-4xl text-center font-bold my-20">
-            {item.pdtitle}
-          </h1>
+          <TeamList title={item.pdtitle} team={item.projectdirector} />
         )}
 
         {/* Projects */}
@@ -140,7 +140,13 @@ export const getServerSideProps = async ({ params }) => {
       baths,
       durationmonths,
       bool,
-    }
+    },
+    "projectdirector" : *[_type == "projectdirector" && references(^._id)]{
+      name,
+      slug,
+      image,
+      position,
+    },
   }`;
 
   const item = await client.fetch(query, { city });

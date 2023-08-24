@@ -14,6 +14,9 @@ import media from './media'
 //Single Pages
 import home from './singletons/home'
 import projects from './singletons/projects'
+import designservices from './singletons/design-services'
+import faqpage from './singletons/faq'
+import mediapage from './singletons/mediapage'
 
 export const schemaTypes = [
   // post,
@@ -30,4 +33,7 @@ export const schemaTypes = [
   spaceType,
   brokerage,
   media,
+  designservices,
+  faqpage,
+  mediapage,
 ]

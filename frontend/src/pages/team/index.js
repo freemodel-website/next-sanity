@@ -5,8 +5,11 @@ import Hero from "../../../components/hero";
 import { client, urlFor } from "../../../client";
 import TeamList from "../../../components/team/teamlist";
 import { MdLocationCity } from "react-icons/md";
+import Footer from "../../../components/footer";
 
 export default function Team({ team, statesList }) {
+  console.log("team", team);
+
   return (
     <div>
       <Head>
@@ -94,6 +97,7 @@ export default function Team({ team, statesList }) {
           return null;
         })}
       </main>
+      <Footer />
     </div>
   );
 }
@@ -116,6 +120,7 @@ export const getStaticProps = async () => {
     },
     title,
     bio,
+    bool,
     location->{
         name,
         slug

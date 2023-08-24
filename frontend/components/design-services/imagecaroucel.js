@@ -7,6 +7,7 @@ import {
 } from "react-icons/bs";
 import Testimonial from "../atoms/testimonial";
 import Image from "next/image";
+import { urlFor } from "../../client";
 
 export default function ImageCaroucel({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,9 +35,9 @@ export default function ImageCaroucel({ images }) {
               <div className="relative mx-auto h-[40vw] w-[80vw]">
                 <Image
                   alt={image.alt}
-                  src={image.href}
+                  src={urlFor(image).url()}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>

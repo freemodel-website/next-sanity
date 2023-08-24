@@ -1,33 +1,36 @@
 import React from "react";
 import Head from "next/head";
+import { client, urlFor } from "../../client";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Footer from "../../components/footer";
-import FeaturedProjects from "../../components/design-services/featuredprojects";
+import Projectcard from "../../components/atoms/projectcard";
 import ImageCaroucel from "../../components/design-services/imagecaroucel";
 import MeetTheTeam from "../../components/design-services/meettheteam";
 import Ctabutton from "../../components/atoms/ctabutton";
+import Paragraph from "../../components/paragraph";
+import TeamList from "../../components/team/teamlist";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer"; // Import the library
 
-export default function DesignServices() {
-  const images = [
-    {
-      href: "/testhouse.jpg",
-      alt: "Lake Top Majesty",
-    },
-    {
-      href: "/testhouse.jpg",
-      alt: "Lake Top Majesty",
-    },
-    {
-      href: "/testhouse.jpg",
-      alt: "Lake Top Majesty",
-    },
-    {
-      href: "/testhouse.jpg",
-      alt: "Lake Top Majesty",
-    },
-  ];
+const MotionDiv = motion.div;
+
+export default function DesignServices({ data }) {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Animations will only trigger once when becoming visible
+    threshold: 0.2, // Adjust this threshold as needed
+  });
   return (
     <div>
       <Head>
@@ -39,47 +42,64 @@ export default function DesignServices() {
       <Navbar />
 
       <main>
-        <Hero hero={{ title: "A little about us." }} buttontext="Let's Talk" />
+        <Hero
+          hero={{ title: data.title }}
+          buttontext={data.titlebutton}
+          image={urlFor(data.mainImage).url()}
+        />
 
-        <Bluebar body="Making the world more beautiful, one space at a time." />
+        <Bluebar body={data.bluetitle} />
 
         {/* Text Block */}
-        <div className="text-lg flex items-center justify-center p-40">
-          <p className="max-w-6xl text-center">
-            The designers who work with Freemodel are a true source of talent.
-            They assist project directors in creating spaces that are beautiful,
-            functional and safe by selecting finish materials, colors, preparing
-            construction documentation, build schematics, dynamic
-            visualizations, and required permit plans for each project. Our
-            designers are essential in completing a holistic design concept for
-            every home. While our local project directors are talented designers
-            and project managers in their own right, they often call on our
-            in-house team of dedicated interior designers to strengthen the
-            forethought and attention to detail that each home deserves. With
-            many years of combined experience, the design professionals who work
-            on Freemodel projects are instrumental to the success of each home
-            sale. Our designers often lend a helping hand to project directors
-            and work with each client to meet their design preferences,
-            functional needs, and bring their unique vision to life. Here at
-            Freemodel, we look for in-house designers who are active in the
-            design community, experienced nimble professionals, and are focused
-            on collaboration!
-          </p>
-        </div>
+
+        <Paragraph text={data.body} />
 
         {/* Featured Project */}
-        <FeaturedProjects />
+        {/* Highlight studies */}
+        <div className="flex flex-col items-center py-20 bg-FM-blue">
+          <h2 className="text-4xl font-bold text-center text-white">
+            Featured Projects
+          </h2>
+          <div className="flex flex-col lg:flex-row gap-8 justify-center items-center mt-10">
+            <MotionDiv
+              ref={ref} // Attach the ref to the MotionDiv
+              className="grid gap-12 row-gap-8 lg:grid-cols-3"
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"} // Animate based on inView status
+            >
+              {data.projects.map((item, index) => (
+                <MotionDiv
+                  className="text-center px-14"
+                  key={index}
+                  variants={itemVariants}
+                >
+                  <Projectcard
+                    key={Math.random() * 100000000000000}
+                    title={item.title}
+                    slug={item.slug.current}
+                    image={urlFor(item.mainImage).url()}
+                    beds={item.beds}
+                    baths={item.baths}
+                    duration={item.durationmonths}
+                    bool={item.bool}
+                  />
+                </MotionDiv>
+              ))}
+            </MotionDiv>
+          </div>
+        </div>
 
-        <ImageCaroucel images={images} />
+        <ImageCaroucel images={data.imagesGallery} />
 
-        <MeetTheTeam />
+        <TeamList title="Meet the Team" team={data.projectdirectors} />
 
-        <div className=" flex flex-col bg-FM-blue items-center justify-center p-40">
-          <h1 className="text-4xl text-center text-white font-bold mb-10">
-            Ready to prepare your clients’ homes for sale? Contact us today!
+        <div className=" flex flex-col bg-FM-blue items-center justify-center py-40">
+          <h1 className="text-4xl text-center max-w-6xl text-white font-bold mb-10">
+            {data.ctatitle}
           </h1>
 
-          <Ctabutton href="/lets-talk" text="Let's Talk" />
+          <Ctabutton href="/lets-talk" text={data.ctabutton} />
         </div>
       </main>
 
@@ -87,3 +107,66 @@ export default function DesignServices() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const mainquery = `*[_type == "designservices"][0]{
+    title,
+    mainImage {
+      crop {
+        _type,
+        top,
+        bottom,
+        left,
+        right
+      },
+      hotspot {
+        _type,
+        x,
+        y,
+        height,
+        width
+      },
+      asset-> {
+        _id,
+        url
+      }
+    },
+    titlebutton,
+    bluetitle,
+    body,
+    projects []-> {
+      _id,
+      title,
+      mainImage,
+      beds,
+      baths,
+      durationmonths,
+      bool,
+      slug {
+        current
+      }
+    },
+    imagesGallery,
+    ctabutton,
+    ctatitle,
+    projectdirectors[]-> {
+      _id,
+      name,
+      image,
+      slug {
+        current
+      }
+    }
+
+  }`;
+
+  const data = await client.fetch(mainquery);
+
+  return {
+    props: {
+      data,
+    },
+
+    revalidate: 10,
+  };
+};

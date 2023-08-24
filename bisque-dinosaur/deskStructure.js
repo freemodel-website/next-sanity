@@ -16,7 +16,11 @@ export const myStructure = (S) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           // item.getId() !== 'siteSettings' &&
-          item.getId() !== 'home' && item.getId() !== 'projects'
+          item.getId() !== 'home' &&
+          item.getId() !== 'projects' &&
+          item.getId() !== 'designservices' &&
+          item.getId() !== 'faqpage' &&
+          item.getId() !== 'mediapage'
       ),
 
       // Home Page
@@ -29,6 +33,21 @@ export const myStructure = (S) =>
         .title('Projects')
         .icon(FaFileAlt)
         .child(S.document().schemaType('projects').documentId('projects')),
+      // Design Services
+      S.listItem()
+        .title('Design Services')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('designservices').documentId('designservices')),
+      // FAQ
+      S.listItem()
+        .title('FAQ')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('faqpage').documentId('faqpage')),
+      // Media
+      S.listItem()
+        .title('Media Page')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('mediapage').documentId('mediapage')),
 
       //END
     ])

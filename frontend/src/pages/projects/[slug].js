@@ -67,7 +67,7 @@ const ProjectSlug = ({ item }) => {
                   key={item._id}
                   title={item.title}
                   slug={item.slug.current}
-                  image={urlFor(item.mainImage.asset.url).url()}
+                  image={urlFor(item.mainImage).url()}
                   beds={item.beds}
                   baths={item.baths}
                   duration={item.durationmonths}

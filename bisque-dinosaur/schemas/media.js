@@ -2,7 +2,7 @@ import {FaNewspaper} from 'react-icons/fa'
 
 export default {
   name: 'media',
-  title: 'In The Media',
+  title: 'Press',
   type: 'document',
   icon: FaNewspaper,
   fields: [

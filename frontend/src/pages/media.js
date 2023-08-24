@@ -5,37 +5,9 @@ import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Footer from "../../components/footer";
 import MediaList from "../../components/media/medialist";
+import { client, urlFor } from "../../client";
 
-export default function Media() {
-  const media = [
-    {
-      title:
-        "A Design Expert Tells Us How To Create The Perfect Home Library, featuring Freemodel's Satsha Lopez-Jaimes - House Digest",
-      image: "/testhouse.jpg",
-    },
-    {
-      title:
-        "Contractors & designers say your home could be so much nicer with any of these cheap, clever things, featuring Freemodel's Samantha Black - MIC",
-      image: "/testhouse.jpg",
-    },
-    {
-      title: "Tree Top Majesty",
-      image: "/testhouse.jpg",
-    },
-    {
-      title: "Dessert Top Majesty",
-      image: "/testhouse.jpg",
-    },
-    {
-      title: "Beach Top Majesty",
-      image: "/testhouse.jpg",
-    },
-    {
-      title: "City Top Majesty",
-      image: "/testhouse.jpg",
-    },
-  ];
-
+export default function Media({ data, mediadata }) {
   return (
     <div>
       <Head>
@@ -47,7 +19,11 @@ export default function Media() {
       <Navbar />
 
       <main>
-        <Hero hero={{ title: "In the news." }} />
+        <Hero
+          hero={{ title: mediadata.title }}
+          buttontext={mediadata.titlebutton}
+          image={urlFor(mediadata.mainImage).url()}
+        />
 
         <Bluebar
           body={
@@ -55,10 +31,64 @@ export default function Media() {
           }
         />
 
-        <MediaList media={media} />
+        <MediaList media={data} />
       </main>
 
       <Footer />
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const mainquery = `*[_type == "media"]{
+    name,
+    url,
+    image {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    }
+  }`;
+
+  const mediapage = `*[_type == "mediapage"][0]{
+    title,
+    mainImage {
+      crop {
+        _type,
+        top,
+        bottom,
+        left,
+        right
+      },
+      hotspot {
+        _type,
+        x,
+        y,
+        height,
+        width
+      },
+      asset-> {
+        _id,
+        url
+      }
+    },
+    titlebutton,
+    bluetitle,
+  }
+  `;
+
+  const data = await client.fetch(mainquery);
+  const mediadata = await client.fetch(mediapage);
+
+  return {
+    props: {
+      data: data,
+      mediadata: mediadata,
+    },
+
+    revalidate: 10,
+  };
+};

@@ -22,6 +22,15 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    //Toggle with default true
+    {
+      name: 'bool',
+      title: 'Show Link',
+      description: '(default/on link will show)',
+      type: 'boolean',
+      initialValue: true,
+    },
+
     //title
     {
       name: 'title',
