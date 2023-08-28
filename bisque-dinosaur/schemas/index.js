@@ -17,6 +17,7 @@ import projects from './singletons/projects'
 import designservices from './singletons/design-services'
 import faqpage from './singletons/faq'
 import mediapage from './singletons/mediapage'
+import aboutus from './singletons/aboutus'
 
 export const schemaTypes = [
   // post,
@@ -36,4 +37,5 @@ export const schemaTypes = [
   designservices,
   faqpage,
   mediapage,
+  aboutus,
 ]

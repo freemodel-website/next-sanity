@@ -6,80 +6,11 @@ import Bluebar from "../../components/bluebar";
 import Footer from "../../components/footer";
 import LearnSection from "../../components/about-us/learnsection";
 import Carousel from "../../components/caroucel";
+import { client, urlFor } from "../../client";
+import ImageCaroucel from "../../components/imageCaroucel";
 
-export default function AboutUs() {
-  const faqsList = [
-    {
-      q: "What are some random questions to ask?",
-      a: "That's exactly the reason we created this random question generator. There are hundreds of random questions to choose from so you're able to find the perfect random question.",
-    },
-    {
-      q: "Do you include common questions?",
-      a: "This generator doesn't include most common questions. The thought is that you can come up with common questions on your own so most of the questions in this generator.",
-    },
-    {
-      q: "Can I use this for 21 questions?",
-      a: "Yes! there are two ways that you can use this question generator depending on what you're after. You can indicate that you want 21 questions generated.",
-    },
-  ];
-
-  const projects = [
-    {
-      title: "City Top Majesty",
-      mainImage: {
-        _type: "image",
-        asset: {
-          _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
-          _type: "reference",
-        },
-      },
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-      slug: {
-        _type: "slug",
-        current: "harmony-in-hercules",
-        _updatedAt: "2023-08-10T15:34:36Z",
-      },
-    },
-
-    {
-      title: "City Top Majesty",
-      mainImage: {
-        _type: "image",
-        asset: {
-          _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
-          _type: "reference",
-        },
-      },
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-      slug: {
-        _type: "slug",
-        current: "harmony-in-hercules",
-        _updatedAt: "2023-08-10T15:34:36Z",
-      },
-    },
-    {
-      title: "City Top Majesty",
-      mainImage: {
-        _type: "image",
-        asset: {
-          _ref: "image-b7dd0a53f69350407b2d378df0ee264bc6e5bf26-2000x1500-jpg",
-          _type: "reference",
-        },
-      },
-      beds: "2",
-      baths: "1",
-      duration: "4 months",
-      slug: {
-        _type: "slug",
-        current: "harmony-in-hercules",
-        _updatedAt: "2023-08-10T15:34:36Z",
-      },
-    },
-  ];
+export default function AboutUs({ data }) {
+  console.log(data);
 
   return (
     <div>
@@ -92,14 +23,18 @@ export default function AboutUs() {
       <Navbar />
 
       <main>
-        <Hero hero={{ title: "A little about us." }} buttontext="Let's Talk" />
+        <Hero
+          hero={{ title: data.title }}
+          buttontext={data.titlebutton}
+          image={urlFor(data.mainImage).url()}
+        />
 
-        <Bluebar body="Our founding team has deep experience in both the residential real estate and software industries." />
+        <Bluebar body={data.bluetitle} />
 
-        <LearnSection faqsList={faqsList} />
+        <LearnSection faqsList={data.questionsanswers} />
 
-        <div className="text-center py-32 bg-FM-blue">
-          <Carousel projects={projects} />
+        <div className="text-center py-40 bg-FM-blue">
+          <ImageCaroucel gallery={data.imagesGallery} />
         </div>
       </main>
 
@@ -107,3 +42,43 @@ export default function AboutUs() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const mainquery = `*[_type == "aboutus"][0]{
+    title,
+    mainImage {
+      crop {
+        _type,
+        top,
+        bottom,
+        left,
+        right
+      },
+      hotspot {
+        _type,
+        x,
+        y,
+        height,
+        width
+      },
+      asset-> {
+        _id,
+        url
+      }
+    },
+    titlebutton,
+    bluetitle,
+    questionsanswers,
+    imagesGallery,
+  }`;
+
+  const data = await client.fetch(mainquery);
+
+  return {
+    props: {
+      data,
+    },
+
+    revalidate: 10,
+  };
+};

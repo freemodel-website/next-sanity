@@ -20,7 +20,8 @@ export const myStructure = (S) =>
           item.getId() !== 'projects' &&
           item.getId() !== 'designservices' &&
           item.getId() !== 'faqpage' &&
-          item.getId() !== 'mediapage'
+          item.getId() !== 'mediapage' &&
+          item.getId() !== 'aboutus'
       ),
 
       // Home Page
@@ -48,6 +49,11 @@ export const myStructure = (S) =>
         .title('Media Page')
         .icon(FaFileAlt)
         .child(S.document().schemaType('mediapage').documentId('mediapage')),
+      // About Us
+      S.listItem()
+        .title('About Us')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('aboutus').documentId('aboutus')),
 
       //END
     ])
