@@ -73,12 +73,21 @@ export const getServerSideProps = async ({ params }) => {
     _id,
     statename,
     slug,
-    image,
+    image {
+      crop,
+      hotspot,
+      asset->{
+        _id,
+        url
+      },
+    },
     "cities": *[_type == "cities" && references(^._id)]{
         _id,
         name,
         slug,
         image {
+          crop, 
+      hotspot,
             asset->{
                 _ref,
                 _type,

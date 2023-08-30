@@ -1,11 +1,21 @@
-import React from "react";
+import React, { use, useEffect } from "react";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Footer from "../../components/footer";
 import ThreeSection from "../../components/careers/threesection";
+import { client } from "../../client";
+import WorkableEmbed from "../../components/careers/workableEmbed";
 
-export default function Career() {
+export default function Career({ data }) {
+  console.log(data);
+
+  let test;
+
+  useEffect(() => {
+    let test = data.scriptform;
+  }, []);
+
   return (
     <div>
       <Head>
@@ -22,8 +32,8 @@ export default function Career() {
         <ThreeSection />
 
         <h1 className="text-4xl text-center font-bold my-20">We're Hiring!</h1>
-        <div className="bg-stone-500 h-96 flex items-center justify-center">
-          add jobs here
+        <div className="bg-white flex md:ml-16 overflow-auto">
+          <WorkableEmbed />
         </div>
       </main>
 
@@ -31,3 +41,22 @@ export default function Career() {
     </div>
   );
 }
+export const getStaticProps = async () => {
+  const mainquery = `*[_type == "careers"]{
+    title,
+    mainImage,
+    titlebutton,
+    imageArray,
+    scriptform
+  }[0]`;
+
+  const data = await client.fetch(mainquery);
+
+  return {
+    props: {
+      data,
+    },
+
+    revalidate: 10,
+  };
+};

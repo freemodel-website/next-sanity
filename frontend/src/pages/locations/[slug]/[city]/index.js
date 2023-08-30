@@ -114,7 +114,19 @@ export const getServerSideProps = async ({ params }) => {
   const query = `*[_type == "cities" && slug.current == $city][0] {
     name,
     slug,
-    image,
+    image {
+      crop, 
+      hotspot,
+      asset->{
+        _ref,
+        _type,
+        altText,
+        description,
+        "tags": opt.media.tags[]->name.current,
+        title,
+        url
+      }
+    },
     bluebartext,
     description,
     serviceList,
@@ -126,6 +138,8 @@ export const getServerSideProps = async ({ params }) => {
       title,
       slug,
       mainImage {
+        crop, 
+      hotspot,
         asset->{
             _ref,
             _type,
@@ -144,7 +158,19 @@ export const getServerSideProps = async ({ params }) => {
     "projectdirector" : *[_type == "projectdirector" && references(^._id)]{
       name,
       slug,
-      image,
+      image {
+        crop,
+        hotspot,
+        asset->{
+          _ref,
+          _type,
+          altText,
+          description,
+          "tags": opt.media.tags[]->name.current,
+          title,
+          url
+        }
+      },
       position,
     },
   }`;

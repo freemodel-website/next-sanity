@@ -118,49 +118,6 @@ const IsotopeReact = ({
             </div>
           );
         })}
-
-        {/* Fake Items */}
-        {/* <div className={`my-item bathroom sm:!static lg:!absolute`}>
-          <Projectcard
-            title={"title A bathroom"}
-            slug={"slug"}
-            image={"/testhouse.jpg"}
-            baths={2}
-            beds={3}
-            duration={4}
-          />
-        </div> */}
-        {/* <div
-          className={`my-item categoryB home bathroom sm:!static lg:!absolute `}
-        >
-          <Projectcard
-            title={"title B home bathroom"}
-            slug={"slug"}
-            image={"/testhouse.jpg"}
-          />
-        </div> */}
-        {/* <div className={`my-item categoryC sm:!static lg:!absolute`}>
-          <Projectcard
-            title={"title C"}
-            slug={"slug"}
-            image={"/testhouse.jpg"}
-          />
-        </div> */}
-        {/* <div className={`my-item categoryD sm:!static lg:!absolute `}>
-          <Projectcard
-            title={"title D"}
-            slug={"slug"}
-            image={"/testhouse.jpg"}
-          />
-        </div>
-        <div className={`my-item categoryD sm:!static lg:!absolute cattest`}>
-          <Projectcard
-            title={"title D"}
-            slug={"slug"}
-            image={"/testhouse.jpg"}
-          />
-        </div> */}
-        {/* END: Items */}
       </div>
     </div>
   );

@@ -3,6 +3,9 @@ import { client, urlFor } from "../../client";
 import Link from "next/link";
 
 export default function TeamList({ title, team }) {
+  // Sort the team array based on a sorting criteria (e.g., name)
+  const sortedTeam = team.slice().sort((a, b) => a.name.localeCompare(b.name));
+
   return (
     <section className="py-14">
       <div className="max-w-screen-xl mx-auto px-4 text-center md:px-8">
@@ -13,11 +16,11 @@ export default function TeamList({ title, team }) {
         </div>
         <div className="mt-12">
           <ul className="grid gap-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {team.map((item, idx) => (
+            {sortedTeam.map((item, idx) => (
               <li key={idx}>
                 {item.bool === false ? (
                   <div>
-                    <div className="relative w-20 h-20 mx-auto">
+                    <div className="relative w-28 h-28 md:w-24 md:h-24 mx-auto">
                       <Image
                         src={urlFor(item.image).url()}
                         className="w-full h-full rounded-full object-cover object-center shadow-md"
@@ -39,7 +42,7 @@ export default function TeamList({ title, team }) {
                   </div>
                 ) : (
                   <Link href={`/team/${item.slug.current}`} className="group">
-                    <div className="relative w-20 h-20 mx-auto">
+                    <div className="relative w-28 h-28 md:w-24 md:h-24 mx-auto">
                       <Image
                         src={urlFor(item.image).url()}
                         className="w-full h-full rounded-full object-cover object-center shadow-md"

@@ -4,15 +4,6 @@ export const myStructure = (S) =>
   S.list()
     .title('Base')
     .items([
-      // Site Settings
-      //   S.listItem()
-      //     .title('Site Settings')
-      //     .child(S.document().schemaType('siteSettingstest').documentId('siteSettingstest')),
-      // About Page
-      //   S.listItem()
-      //     .title('About Page')
-      //     .child(S.document().schemaType('aboutpagesingle').documentId('aboutpagesingle')),
-
       ...S.documentTypeListItems().filter(
         (item) =>
           // item.getId() !== 'siteSettings' &&
@@ -21,7 +12,8 @@ export const myStructure = (S) =>
           item.getId() !== 'designservices' &&
           item.getId() !== 'faqpage' &&
           item.getId() !== 'mediapage' &&
-          item.getId() !== 'aboutus'
+          item.getId() !== 'aboutus' &&
+          item.getId() !== 'careers'
       ),
 
       // Home Page
@@ -54,6 +46,11 @@ export const myStructure = (S) =>
         .title('About Us')
         .icon(FaFileAlt)
         .child(S.document().schemaType('aboutus').documentId('aboutus')),
+      // Careers
+      S.listItem()
+        .title('Careers')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('careers').documentId('careers')),
 
       //END
     ])

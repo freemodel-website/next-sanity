@@ -178,6 +178,8 @@ export const getServerSideProps = async (context) => {
     imagesGallery []{
       title,
       image{
+        crop, 
+      hotspot,
       asset->{
         _id,
         url

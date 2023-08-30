@@ -71,7 +71,19 @@ export const getStaticProps = async () => {
   const pagequery = `*[_type == "projects"][0] {
     _id,
     title,
-    mainImage,
+    mainImage {
+      crop, 
+      hotspot,
+      asset->{
+        _ref,
+        _type,
+        altText,
+        description,
+        "tags": opt.media.tags[]->name.current,
+        title,
+        url
+      }
+    },
     highlighttitle,
     projecthighlight []->{
       _id,
@@ -80,6 +92,8 @@ export const getStaticProps = async () => {
           current
       },
       mainImage {
+        crop, 
+      hotspot,
           asset->{
               _ref,
               _type,
@@ -102,6 +116,8 @@ export const getStaticProps = async () => {
       _id,
       title,
       mainImage {
+        crop, 
+      hotspot,
         asset->{
           _ref,
           _type,
@@ -134,7 +150,10 @@ export const getStaticProps = async () => {
       hometype->{
         _id,
         name,
-        mainImage,
+        mainImage{
+          crop, 
+      hotspot,
+        },
         slug {
           current
         }
@@ -144,7 +163,10 @@ export const getStaticProps = async () => {
   const housequery = `*[_type == "houseType"] {
     _id,
     name,
-    mainImage,
+    mainImage{
+      crop, 
+      hotspot,
+    },
     slug {
       current
     }
@@ -153,7 +175,10 @@ export const getStaticProps = async () => {
   const spacequery = `*[_type == "spaceType"] {
         _id,
         name,
-        mainImage,
+        mainImage{
+          crop, 
+      hotspot,
+        },
         slug {
           current
         }
@@ -162,7 +187,10 @@ export const getStaticProps = async () => {
   const citiestypes = `*[_type == "cities"] {
           _id,
           name,
-          image,
+          image{
+            crop, 
+      hotspot,
+          },
           state,
           "location": *[_id == ^.state._ref][0],
           slug {

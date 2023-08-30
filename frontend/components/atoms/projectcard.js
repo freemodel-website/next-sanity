@@ -50,7 +50,9 @@ export default function Projectcard({
         <dl>
           <div className="projectcardtitle">
             <dt className="sr-only">{title}</dt>
-            <h2 className="font-bold text-left text-2xl">{title}</h2>
+            <h2 className="font-bold text-left text-2xl min-h-[65px] line-clamp-2">
+              {title}
+            </h2>
           </div>
         </dl>
 

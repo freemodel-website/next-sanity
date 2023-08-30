@@ -65,7 +65,14 @@ export async function getStaticProps() {
     stateabbr,
     hero,
     slug,
-    image
+    image{
+      crop, 
+      hotspot,
+      asset->{
+        _id,
+        url
+      },
+    },
     
   }`);
 

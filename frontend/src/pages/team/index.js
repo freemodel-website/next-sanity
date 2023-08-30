@@ -10,6 +10,11 @@ import Footer from "../../../components/footer";
 export default function Team({ team, statesList }) {
   console.log("team", team);
 
+  // First, sort the statesList alphabetically based on the statename
+  const sortedStatesList = statesList
+    .slice()
+    .sort((a, b) => a.statename.localeCompare(b.statename));
+
   return (
     <div>
       <Head>
@@ -78,14 +83,14 @@ export default function Team({ team, statesList }) {
 
       <main>
         <Hero hero={{ title: "Meet the team." }} />
-
         {/* Sort project directors by state */}
-        {statesList.map((state, idx) => {
+        {sortedStatesList.map((state, idx) => {
           // get all project directors in this state
           const filteredTeam = team.filter(
             (item) => item.state[0].location.state.statename === state.statename
           );
-          //   check if there are any project directors in this state
+
+          // check if there are any project directors in this state
           if (filteredTeam.length > 0) {
             return (
               <div key={idx}>
@@ -108,6 +113,8 @@ export const getStaticProps = async () => {
     name,
     slug,
     image {
+      hotspot,
+      crop,
         asset->{
             _ref,
             _type,

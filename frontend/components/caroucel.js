@@ -43,7 +43,7 @@ export default ({ projects }) => {
                 image={urlFor(project.mainImage).url()}
                 beds={project.beds}
                 baths={project.baths}
-                duration={project.duration}
+                duration={project.durationmonths}
                 slug={project.slug.current}
                 bool={project.bool}
               />

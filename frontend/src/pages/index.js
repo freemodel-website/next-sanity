@@ -95,7 +95,7 @@ export const getStaticProps = async () => {
       mainImage,
       beds,
       baths,
-      duration,
+      durationmonths,
       slug,
       bool
     },
