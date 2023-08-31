@@ -31,13 +31,15 @@ export default function TeamList({ title, team }) {
                     </div>
                     <div className="mt-2">
                       <h4 className="font-semibold sm:text-lg">{item.name}</h4>
-                      {item.title && <p className="text-black">{item.title}</p>}
+                      {/* {item.title && <p className="text-black">{item.title}</p>} */}
 
-                      {item.location?.name && (
-                        <p className="text-slate-600 text-lg">
-                          {item.location?.name}
-                        </p>
-                      )}
+                      {item.location?.name &&
+                        item.location?.name != "Partnerships" &&
+                        item.location?.name != "In-House Design Team" && (
+                          <p className="text-slate-600 text-lg">
+                            {item.location?.name}
+                          </p>
+                        )}
                     </div>
                   </div>
                 ) : (
@@ -55,13 +57,15 @@ export default function TeamList({ title, team }) {
                       <h4 className="text-black font-semibold sm:text-lg group-hover:underline">
                         {item.name}
                       </h4>
-                      {item.title && <p className="text-black">{item.title}</p>}
+                      {/* {item.title && <p className="text-black">{item.title}</p>} */}
 
-                      {item.location?.name && (
-                        <p className="text-slate-600 text-lg">
-                          {item.location?.name}
-                        </p>
-                      )}
+                      {item.location?.name &&
+                        item.location?.name != "Partnerships" &&
+                        item.location?.name != "In-House Design Team" && (
+                          <p className="text-slate-600 text-lg">
+                            {item.location?.name}
+                          </p>
+                        )}
                     </div>
                   </Link>
                 )}

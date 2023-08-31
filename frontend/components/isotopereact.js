@@ -20,6 +20,8 @@ const IsotopeReact = ({
 
   const [qsRegex, setQsRegex] = useState(null);
 
+  const [areOtherFiltersActive, setAreOtherFiltersActive] = useState(false);
+
   // Create Isotope object with configs
   useEffect(() => {
     const loadIsotope = async () => {
@@ -38,7 +40,10 @@ const IsotopeReact = ({
 
   // Filter with Select
   useEffect(() => {
+    setAreOtherFiltersActive(true);
+
     if (!isotopeRef.current) return;
+    $("#quickSearchInput").val("");
 
     let filter = "*";
     if (filter1 !== "*") filter += filter1;
@@ -52,12 +57,17 @@ const IsotopeReact = ({
   useEffect(() => {
     if (!isotopeRef.current) return;
 
+    if (areOtherFiltersActive) {
+      setQsRegex(null); // Reset quick search
+      setAreOtherFiltersActive(false); // Reset the flag
+    }
+
     isotopeRef.current.arrange({
       filter: function (itemElem) {
         return qsRegex ? $(itemElem).find("h2").text().match(qsRegex) : true;
       },
     });
-  }, [qsRegex]);
+  }, [qsRegex, areOtherFiltersActive]);
 
   return (
     <div className="lg:max-w-[95vw] lg:mx-auto">
@@ -67,26 +77,32 @@ const IsotopeReact = ({
           setFilter={setfilter1}
           label="By:"
           baseoptiontitle="All Property Types"
-          options={propertytype}
+          options={propertytype.sort((a, b) => a.name.localeCompare(b.name))}
         />
         {/* Second */}
         <Select
           setFilter={setfilter2}
           label="By:"
           baseoptiontitle="All Space Types"
-          options={spacetype}
+          options={spacetype.sort((a, b) => a.name.localeCompare(b.name))}
         />
         {/* Third */}
         <Select
           setFilter={setfilter3}
           label="By:"
           baseoptiontitle="Show All"
-          options={locationstype}
+          // sort and filter locations alphabetically, excluding "citya"
+          options={locationstype
+            .filter((location) => location.name != "In-House Design Team")
+            .sort((a, b) => a.name.localeCompare(b.name))}
         />
+
         <div className="flex items-center max-w-min bg-white border border-gray-300 rounded-md px-1">
           <input
+            id="quickSearchInput"
             className="quicksearch"
             type="text"
+            placeholder="Search"
             onChange={(e) => setQsRegex(new RegExp(e.target.value, "gi"))}
           />
         </div>

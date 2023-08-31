@@ -90,17 +90,54 @@ export default function Team({ team, statesList }) {
             (item) => item.state[0].location.state.statename === state.statename
           );
 
+          // Exclude Partnerships and In-House Design Team
+          const filteredAndExcludedTeam = filteredTeam.filter(
+            (item) =>
+              item.location?.name != "Partnerships" &&
+              item.location?.name != "In-House Design Team"
+          );
+
           // check if there are any project directors in this state
-          if (filteredTeam.length > 0) {
+          if (filteredAndExcludedTeam.length > 0) {
             return (
               <div key={idx}>
-                <TeamList title={state.statename} team={filteredTeam} />
+                <TeamList
+                  title={state.statename}
+                  team={filteredAndExcludedTeam}
+                />
               </div>
             );
           }
 
           return null;
         })}
+
+        {/* Sort by Partnerships */}
+        {team
+          .filter(
+            (item) => item.state[0].location.state.statename === "Partnerships"
+          )
+          .map((item, idx) => {
+            return (
+              <div key={idx}>
+                <TeamList title={"Partnerships"} team={[item]} />
+              </div>
+            );
+          })}
+
+        {/* Sort by Partnerships */}
+        {team
+          .filter(
+            (item) =>
+              item.state[0].location.state.statename === "In-House Design Team"
+          )
+          .map((item, idx) => {
+            return (
+              <div key={idx}>
+                <TeamList title={"In-House Design Team"} team={[item]} />
+              </div>
+            );
+          })}
       </main>
       <Footer />
     </div>

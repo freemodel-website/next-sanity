@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Footer from "../../components/footer";
 import ThreeSection from "../../components/careers/threesection";
-import { client } from "../../client";
+import { client, urlFor } from "../../client";
 import WorkableEmbed from "../../components/careers/workableEmbed";
 
 export default function Career({ data }) {
@@ -27,9 +27,13 @@ export default function Career({ data }) {
       <Navbar />
 
       <main>
-        <Hero hero={{ title: "A little about us." }} buttontext="Let's Talk" />
+        <Hero
+          hero={{ title: data.title }}
+          buttontext={data.titlebutton}
+          image={urlFor(data.mainImage).url()}
+        />
 
-        <ThreeSection />
+        <ThreeSection imageArray={data.imageArray} />
 
         <h1 className="text-4xl text-center font-bold my-20">We're Hiring!</h1>
         <div className="bg-white flex md:ml-16 overflow-auto">
@@ -44,9 +48,27 @@ export default function Career({ data }) {
 export const getStaticProps = async () => {
   const mainquery = `*[_type == "careers"]{
     title,
-    mainImage,
+    mainImage {
+      crop,
+      hotspot,
+      asset-> {
+        _id,
+        url
+      }
+    },
     titlebutton,
-    imageArray,
+    imageArray []{
+      image {
+        crop,
+        hotspot,
+        asset-> {
+          _id,
+          url
+        }
+      },
+      title,
+      text
+    },
     scriptform
   }[0]`;
 

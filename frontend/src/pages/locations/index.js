@@ -30,6 +30,11 @@ export default function Locations({ states }) {
       </main>
       <div className="flex flex-col sm:grid sm:grid-cols-2 justify-center items-center w-2/3 gap-10 my-28 mx-auto">
         {states
+          .filter(
+            (state) =>
+              state.statename != "Partnerships" &&
+              state.statename != "In-House Design Team"
+          )
           .sort((a, b) => a.statename.localeCompare(b.statename))
           .map((state) => (
             <div key={state._id} className="w-full">
@@ -42,10 +47,9 @@ export default function Locations({ states }) {
                     alt="Lava"
                     src={urlFor(state.image).url()}
                     fill
-                    className=" rounded-xl object-cover"
+                    className="rounded-xl object-cover"
                   />
                 </div>
-
                 <div className="py-4">
                   <h3 className="text-3xl text-FM-orange">{state.statename}</h3>
                 </div>

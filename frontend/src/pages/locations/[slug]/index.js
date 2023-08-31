@@ -33,6 +33,11 @@ const ProjectSlug = ({ item }) => {
 
         <div className="flex flex-col sm:grid sm:grid-cols-2 justify-center items-center w-2/3 gap-10 my-28 mx-auto">
           {item.cities
+            .filter(
+              (city) =>
+                city.name != "Partnerships" &&
+                city.name != "In-House Design Team"
+            )
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((city) => (
               <div key={city._id} className="w-full">
@@ -47,10 +52,9 @@ const ProjectSlug = ({ item }) => {
                       alt={city.image.altText}
                       src={urlFor(city.image).url()}
                       fill
-                      className=" rounded-xl object-cover"
+                      className="rounded-xl object-cover"
                     />
                   </div>
-
                   <div className="py-4">
                     <h3 className="text-3xl text-FM-blue">{city.name}</h3>
                   </div>

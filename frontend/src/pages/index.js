@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { client, urlFor } from "../../client";
@@ -13,6 +14,14 @@ import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
 
 export default function Home({ data, states }) {
+  let [form, setForm] = useState(<script></script>);
+
+  useEffect(() => {
+    setForm(data.htmlform);
+  }, []);
+
+  console.log(form);
+
   return (
     <div>
       <Head>

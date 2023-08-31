@@ -13,7 +13,8 @@ export const myStructure = (S) =>
           item.getId() !== 'faqpage' &&
           item.getId() !== 'mediapage' &&
           item.getId() !== 'aboutus' &&
-          item.getId() !== 'careers'
+          item.getId() !== 'careers' &&
+          item.getId() !== 'privacypolicy'
       ),
 
       // Home Page
@@ -51,6 +52,11 @@ export const myStructure = (S) =>
         .title('Careers')
         .icon(FaFileAlt)
         .child(S.document().schemaType('careers').documentId('careers')),
+      // Privacy Policy
+      S.listItem()
+        .title('Privacy Policy')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('privacypolicy').documentId('privacypolicy')),
 
       //END
     ])

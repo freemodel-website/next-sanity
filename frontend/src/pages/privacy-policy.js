@@ -3,8 +3,11 @@ import Head from "next/head";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Footer from "../../components/footer";
+import { client } from "../../client";
+import Paragraph from "../../components/paragraph";
 
-export default function PrivacyPolicy() {
+export default function PrivacyPolicy({ data }) {
+  console.log(data);
   return (
     <div>
       <Head>
@@ -18,31 +21,35 @@ export default function PrivacyPolicy() {
       <main>
         <Hero hero={{ title: "Privacy Policy" }} />
 
-        <div className="text-lg flex items-center justify-center p-40">
-          <p className="max-w-6xl text-left">
-            Protecting your private information the designers who work with
-            Freemodel are a true source of talent. They assist project directors
-            in creating spaces that are beautiful, functional and safe by
-            selecting finish materials, colors, preparing construction
-            documentation, build schematics, dynamic visualizations, and
-            required permit plans for each project. Our designers are essential
-            in completing a holistic design concept for every home. While our
-            local project directors are talented designers and project managers
-            in their own right, they often call on our in-house team of
-            dedicated interior designers to strengthen the forethought and
-            attention to detail that each home deserves. With many years of
-            combined experience, the design professionals who work on Freemodel
-            projects are instrumental to the success of each home sale. Our
-            designers often lend a helping hand to project directors and work
-            with each client to meet their design preferences, functional needs,
-            and bring their unique vision to life. Here at Freemodel, we look
-            for in-house designers who are active in the design community,
-            experienced nimble professionals, and are focused on collaboration!
-          </p>
-        </div>
+        <Paragraph text={data.body} />
       </main>
 
       <Footer />
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const mainquery = `*[_type == "privacypolicy"]{
+    body,
+    title,
+    mainImage {
+      crop,
+      hotspot,
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }[0]`;
+
+  const data = await client.fetch(mainquery);
+
+  return {
+    props: {
+      data,
+    },
+
+    revalidate: 10,
+  };
+};

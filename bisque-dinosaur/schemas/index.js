@@ -19,6 +19,7 @@ import faqpage from './singletons/faq'
 import mediapage from './singletons/mediapage'
 import aboutus from './singletons/aboutus'
 import careers from './singletons/careers'
+import privacypolicy from './singletons/privacypolicy'
 
 export const schemaTypes = [
   // post,
@@ -40,4 +41,5 @@ export const schemaTypes = [
   mediapage,
   aboutus,
   careers,
+  privacypolicy,
 ]

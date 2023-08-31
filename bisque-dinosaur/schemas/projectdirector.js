@@ -59,7 +59,11 @@ export default {
         },
       ],
     },
-
+    {
+      name: 'quote',
+      title: 'Quote',
+      type: 'text',
+    },
     //location
     {
       name: 'location',

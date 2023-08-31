@@ -1,8 +1,8 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'careers',
-  title: 'Careers',
+  name: 'privacypolicy',
+  title: 'Privacy Policy',
   type: 'document',
 
   // Uncomment below to have edits publish automatically as you type
@@ -15,7 +15,6 @@ export default defineType({
       type: 'string',
       validation: (rule) => rule.required(),
     },
-
     {
       name: 'mainImage',
       title: 'Main image',
@@ -24,43 +23,15 @@ export default defineType({
         hotspot: true,
       },
     },
-
     {
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
     },
     {
-      name: 'imageArray',
-      title: 'Layer Section',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            {
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
-            },
-            {
-              name: 'title',
-              title: 'Title',
-              type: 'string',
-            },
-            {
-              name: 'text',
-              title: 'Text',
-              type: 'blockContent',
-            },
-          ],
-        },
-      ],
-      validation: (rule) => rule.required(),
-      validation: (Rule) => Rule.max(3),
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
     },
 
     //END
