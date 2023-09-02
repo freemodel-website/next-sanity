@@ -42,6 +42,7 @@ export default function Projectcard({
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
           placeholder="blur"
           className="rounded-lg object-cover h-20"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 30vw, 26rem"
         />
       </div>
 

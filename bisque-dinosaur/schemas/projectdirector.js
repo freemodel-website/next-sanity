@@ -67,7 +67,8 @@ export default {
     //location
     {
       name: 'location',
-      title: 'Location',
+      title: 'Location/Team',
+      description: 'You can also select Partnerships and In-House Design Team here',
       type: 'reference',
       to: [{type: 'cities'}],
       validation: (Rule) => Rule.required(),

@@ -16,6 +16,11 @@ export default function Projects({
   spacetype,
   locationstype,
 }) {
+    //get all the cities from locationstype with more than 0 case studies
+    const cities = locationstype.filter((item) => item.caseStudies.length > 0);
+
+
+  console.log(locationstype);
   return (
     <div>
       <Head>
@@ -39,7 +44,7 @@ export default function Projects({
                 key={Math.random() * 100000000000000}
                 title={item.title}
                 slug={item.slug.current}
-                image={urlFor(item.mainImage.asset.url).url()}
+                image={urlFor(item.mainImage).url()}
                 beds={item.beds}
                 baths={item.baths}
                 duration={item.durationmonths}
@@ -52,11 +57,14 @@ export default function Projects({
           <h2 className="text-4xl font-bold ">Customize your search</h2>
         </div>
 
+
+        
+
         <IsotopeReact
           casestudies={casestudies}
           propertytype={propertytype}
           spacetype={spacetype}
-          locationstype={locationstype}
+          locationstype={cities}
         />
 
         <div className="mb-56"></div>
@@ -151,8 +159,17 @@ export const getStaticProps = async () => {
         _id,
         name,
         mainImage{
-          crop, 
-      hotspot,
+          crop,
+          hotspot,
+          asset->{
+            _ref,
+            _type,
+            altText,
+            description,
+            "tags": opt.media.tags[]->name.current,
+            title,
+            url
+          }
         },
         slug {
           current
@@ -192,11 +209,18 @@ export const getStaticProps = async () => {
       hotspot,
           },
           state,
+          "caseStudies": *[_type == "caseStudy" && references(^._id)]{
+            _id,
+            title,
+          },
           "location": *[_id == ^.state._ref][0],
           slug {
             current
           }
-          }`;
+          }
+          `;
+
+
 
   const casestudies = await client.fetch(query);
   const page = await client.fetch(pagequery);

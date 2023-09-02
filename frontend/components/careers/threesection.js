@@ -49,7 +49,7 @@ export default function ThreeSection({ imageArray }) {
                   <div className="">
                     <h2
                       className={`text-3xl font-bold ${
-                        index % 2 === 0 ? "font-black" : "font-white"
+                        index % 2 === 0 ? "text-white" : "text-black"
                       } underline-offset-4 sm:text-4xl`}
                     >
                       {section.title}
@@ -124,7 +124,7 @@ export default function ThreeSection({ imageArray }) {
                 <div className="">
                   <h2
                     className={`text-3xl font-bold ${
-                      index % 2 === 0 ? "font-black" : "font-white"
+                      index % 2 === 0 ? "text-white" : "text-black"
                     } underline-offset-4 sm:text-4xl`}
                   >
                     {section.title}

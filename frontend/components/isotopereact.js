@@ -3,6 +3,7 @@ import { BsChevronDown } from "react-icons/bs";
 import dynamic from "next/dynamic";
 import Select from "./atoms/select";
 import $ from "jquery";
+import { urlFor } from "../client";
 const Projectcard = dynamic(() => import("./atoms/projectcard"));
 
 const IsotopeReact = ({
@@ -94,6 +95,7 @@ const IsotopeReact = ({
           // sort and filter locations alphabetically, excluding "citya"
           options={locationstype
             .filter((location) => location.name != "In-House Design Team")
+            .filter((location) => location.name != "Partnerships")
             .sort((a, b) => a.name.localeCompare(b.name))}
         />
 
@@ -125,7 +127,7 @@ const IsotopeReact = ({
               <Projectcard
                 title={casestudy.title}
                 slug={casestudy.slug.current}
-                image={casestudy.mainImage.asset.url}
+                image={urlFor(casestudy.mainImage).url()}
                 baths={casestudy.baths}
                 beds={casestudy.beds}
                 duration={casestudy.durationmonths}
