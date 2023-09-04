@@ -49,7 +49,8 @@ export default function ForAgents() {
 
         <Bluebar theme={"leftimg"} />
 
-        <Threesegment />
+        {/* Temp, Re-add with Sanity data */}
+        {/* <Threesegment /> */}
 
         <Ourprocess faqsList={faqsList} />
       </main>
