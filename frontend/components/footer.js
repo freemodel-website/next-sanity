@@ -75,14 +75,15 @@ export default function Footer() {
         </div>
         <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
           <p className="text-sm text-white">
-            © {new Date().getFullYear()} Freemodel Inc. All rights reserved
-            <a
+            © {new Date().getFullYear()} Freemodel Inc. All rights reserved.
+            {/* <a
               href="https://www.nickcancode.com"
-              className="text-white ml-1"
+              target="_blank"
+              className="text-white ml-1 hover:underline"
               rel="noopener noreferrer"
             >
-              .
-            </a>
+              Build with <span className="text-sm">❤</span> in NYC
+            </a> */}
           </p>
         </div>
       </div>

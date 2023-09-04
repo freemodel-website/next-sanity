@@ -33,7 +33,7 @@ export default function Home({ data, states }) {
       <Navbar />
 
       <main>
-        <Hero hero={data} buttontext={"Let's Talk"} />
+        <Hero hero={data} buttontext={"Let's Talk"} pomp={true} />
         <Sixgrid
           title={data.sec1title}
           imageArray={data.imageArray}

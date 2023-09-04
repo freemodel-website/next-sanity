@@ -14,7 +14,8 @@ export const myStructure = (S) =>
           item.getId() !== 'mediapage' &&
           item.getId() !== 'aboutus' &&
           item.getId() !== 'careers' &&
-          item.getId() !== 'privacypolicy'
+          item.getId() !== 'privacypolicy' &&
+          item.getId() !== 'forcontractors'
       ),
 
       // Home Page
@@ -57,6 +58,11 @@ export const myStructure = (S) =>
         .title('Privacy Policy')
         .icon(FaFileAlt)
         .child(S.document().schemaType('privacypolicy').documentId('privacypolicy')),
+      // For Contractors
+      S.listItem()
+        .title('For Contractors')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('forcontractors').documentId('forcontractors')),
 
       //END
     ])

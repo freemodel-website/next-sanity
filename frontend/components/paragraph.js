@@ -1,6 +1,12 @@
 import React from "react";
 import PortableText from "react-portable-text";
 
+/**
+ * Paragraph component renders a paragraph of text using PortableText from an array of strings.
+ *
+ * @param {string} text - The text content to be rendered.
+ * @returns {JSX.Element} - Rendered Paragraph component.
+ */
 export default function Paragraph({ text }) {
   return (
     <div className="md:max-w-6xl px-8 md:mx-auto py-24">
