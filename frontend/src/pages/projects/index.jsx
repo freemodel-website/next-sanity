@@ -18,9 +18,6 @@ export default function Projects({
 }) {
     //get all the cities from locationstype with more than 0 case studies
     const cities = locationstype.filter((item) => item.caseStudies.length > 0);
-
-
-  console.log(locationstype);
   return (
     <div>
       <Head>
@@ -75,9 +72,9 @@ export default function Projects({
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const pagequery = `*[_type == "projects"][0] {
-    _id,
+
     title,
     mainImage {
       crop, 
@@ -119,7 +116,6 @@ export const getStaticProps = async () => {
   },
     }
   `;
-
   const query = ` *[_type == "caseStudy"] {
       _id,
       title,
@@ -220,8 +216,6 @@ export const getStaticProps = async () => {
           }
           `;
 
-
-
   const casestudies = await client.fetch(query);
   const page = await client.fetch(pagequery);
   //Filter by property type
@@ -237,7 +231,174 @@ export const getStaticProps = async () => {
       spacetype,
       locationstype,
     },
-
-    revalidate: 10,
   };
 };
+
+
+
+// export const getStaticProps = async () => {
+//   const pagequery = `*[_type == "projects"][0] {
+//     _id,
+//     title,
+//     mainImage {
+//       crop, 
+//       hotspot,
+//       asset->{
+//         _ref,
+//         _type,
+//         altText,
+//         description,
+//         "tags": opt.media.tags[]->name.current,
+//         title,
+//         url
+//       }
+//     },
+//     highlighttitle,
+//     projecthighlight []->{
+//       _id,
+//       title,
+//       slug {
+//           current
+//       },
+//       mainImage {
+//         crop, 
+//       hotspot,
+//           asset->{
+//               _ref,
+//               _type,
+//               altText,
+//               description,
+//               "tags": opt.media.tags[]->name.current,
+//               title,
+//               url
+//           }
+//         },
+//         beds,
+//         baths,
+//         bool,
+//         durationmonths,
+//   },
+//     }
+//   `;
+
+//   const query = ` *[_type == "caseStudy"] {
+//       _id,
+//       title,
+//       mainImage {
+//         crop, 
+//       hotspot,
+//         asset->{
+//           _ref,
+//           _type,
+//           altText,
+//           description,
+//           "tags": opt.media.tags[]->name.current,
+//           title,
+//           url
+//         }
+//       },
+//       slug {
+//         current
+//       },
+//       beds,
+//       baths,
+//       bool,
+//       durationmonths,
+
+//       spacetype[]->{
+//         name,
+//         slug {
+//           current
+//         },
+//       },
+      
+      
+//         "location": *[_id == ^.cities._ref][0],
+        
+
+//       hometype->{
+//         _id,
+//         name,
+//         mainImage{
+//           crop,
+//           hotspot,
+//           asset->{
+//             _ref,
+//             _type,
+//             altText,
+//             description,
+//             "tags": opt.media.tags[]->name.current,
+//             title,
+//             url
+//           }
+//         },
+//         slug {
+//           current
+//         }
+//       },
+//       }`;
+
+//   const housequery = `*[_type == "houseType"] {
+//     _id,
+//     name,
+//     mainImage{
+//       crop, 
+//       hotspot,
+//     },
+//     slug {
+//       current
+//     }
+//     }`;
+
+//   const spacequery = `*[_type == "spaceType"] {
+//         _id,
+//         name,
+//         mainImage{
+//           crop, 
+//       hotspot,
+//         },
+//         slug {
+//           current
+//         }
+//         }`;
+
+//   const citiestypes = `*[_type == "cities"] {
+//           _id,
+//           name,
+//           image{
+//             crop, 
+//       hotspot,
+//           },
+//           state,
+//           "caseStudies": *[_type == "caseStudy" && references(^._id)]{
+//             _id,
+//             title,
+//           },
+//           "location": *[_id == ^.state._ref][0],
+//           slug {
+//             current
+//           }
+//           }
+//           `;
+
+
+
+//   const casestudies = await client.fetch(query);
+//   const page = await client.fetch(pagequery);
+//   //Filter by property type
+//   const propertytype = await client.fetch(housequery);
+//   const spacetype = await client.fetch(spacequery);
+//   const locationstype = await client.fetch(citiestypes);
+
+//   return {
+//     props: {
+//       casestudies,
+//       page,
+//       propertytype,
+//       spacetype,
+//       locationstype,
+//     },
+
+//     revalidate: 10,
+//   };
+// };

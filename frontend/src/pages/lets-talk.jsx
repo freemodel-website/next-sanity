@@ -32,7 +32,7 @@ export default function LetsTalk() {
         <div className="px-4 md:px-8">
           <ul
             role="tablist"
-            className="max-w-screen-xl mx-auto px-2.5 items-center gap-x-3 overflow-x-auto text-sm bg-gray-50 rounded-lg sm:flex"
+            className="max-w-screen-xl mx-auto px-2.5 items-center gap-x-3 overflow-x-auto text-sm bg-gray-100 rounded-lg sm:flex"
           >
             {tabItems.map((item, idx) => (
               <li key={idx} className="py-2">
@@ -40,9 +40,9 @@ export default function LetsTalk() {
                   role="tab"
                   aria-selected={selectedItem === idx}
                   aria-controls={`tabpanel-${idx + 1}`}
-                  className={`py-2.5 px-4 rounded-lg duration-150 hover:text-indigo-600 hover:bg-white active:bg-white/50 font-medium ${
+                  className={`py-2.5 px-4 rounded-lg duration-150 hover:text-FM-orange hover:bg-white active:bg-white/50 font-medium ${
                     selectedItem === idx
-                      ? "bg-white text-indigo-600 shadow-sm"
+                      ? "bg-white text-FM-orange shadow-sm"
                       : "text-gray-500"
                   }`}
                   onClick={() => setSelectedItem(idx)}

@@ -21,6 +21,7 @@ import aboutus from './singletons/aboutus'
 import careers from './singletons/careers'
 import privacypolicy from './singletons/privacypolicy'
 import forcontractors from './singletons/for-contractors'
+import letstalk from './singletons/lets-talk'
 
 export const schemaTypes = [
   // post,
@@ -44,4 +45,5 @@ export const schemaTypes = [
   careers,
   privacypolicy,
   forcontractors,
+  letstalk,
 ]
