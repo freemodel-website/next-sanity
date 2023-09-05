@@ -6,8 +6,10 @@ import Bluebar from "../../components/bluebar";
 import Threesegment from "../../components/threesegment";
 import Ourprocess from "../../components/for-agents/ourprocess";
 import Footer from "../../components/footer";
+import { client } from "../../client";
 
-export default function ForAgents() {
+export default function ForAgents({ data}) {
+  console.log(data);
   const faqsList = [
     {
       q: "What are some random questions to ask?",
@@ -42,10 +44,11 @@ export default function ForAgents() {
       <Navbar />
 
       <main className="mb-20">
-        <Hero
-          hero={{ title: "We're your trusted partner." }}
-          buttontext="Let's Talk"
-        />
+      {/* <Hero
+          hero={{ title: data.title }}
+          buttontext={data.titlebutton}
+          image={urlFor(data.mainImage).url()}
+        /> */}
 
         <Bluebar theme={"leftimg"} />
 
@@ -59,3 +62,22 @@ export default function ForAgents() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const mainquery = `*[_type == "foragents"][0]{
+    title,
+    mainImage,
+    titlebutton,
+    testimonials,
+  }`;
+
+  const data = await client.fetch(mainquery);
+
+  return {
+    props: {
+      data,
+    },
+
+    revalidate: 10,
+  };
+};

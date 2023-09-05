@@ -16,7 +16,8 @@ export const myStructure = (S) =>
           item.getId() !== 'careers' &&
           item.getId() !== 'privacypolicy' &&
           item.getId() !== 'forcontractors' &&
-          item.getId() !== 'letstalk'
+          item.getId() !== 'letstalk' &&
+          item.getId() !== 'foragents'
       ),
 
       // Home Page
@@ -69,6 +70,11 @@ export const myStructure = (S) =>
         .title("Let's Talk")
         .icon(FaFileAlt)
         .child(S.document().schemaType('letstalk').documentId('letstalk')),
+      // For Agents
+      S.listItem()
+        .title('For Agents')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('foragents').documentId('foragents')),
 
       //END
     ])

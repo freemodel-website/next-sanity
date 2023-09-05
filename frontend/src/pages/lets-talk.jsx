@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { client } from "../../client";
 
 export default function LetsTalk({data}) {
-  const tabItems = ["Overview", "Billing"];
+  const tabItems = ["I am an Agent", "I am a Homeowner"];
   const [selectedItem, setSelectedItem] = useState(0);
 
   console.log(data);
@@ -14,19 +14,23 @@ export default function LetsTalk({data}) {
   const tabContent = [
     <div key={0} className={selectedItem === 0 ? "block" : "hidden"}>
       {/* Content for Overview */}
+      <div className="max-w-6xl mx-auto">
       <div
         dangerouslySetInnerHTML={{
           __html: data.html1,
           }}
       />
+      </div>
     </div>,
     <div key={1} className={selectedItem === 1 ? "block" : "hidden"}>
       {/* Content for Billing */}
+      <div className="max-w-6xl mx-auto">
       <div
         dangerouslySetInnerHTML={{
           __html: data.html2,
           }}
       />
+      </div>
     </div>,
     <div key={2} className={selectedItem === 2 ? "block" : "hidden"}>
       {/* Content for Transactions */}
@@ -48,10 +52,11 @@ export default function LetsTalk({data}) {
       <main>
         <Hero hero={{ title: "Let's Talk" }} />
 
-        <div className="px-4 md:px-8">
-          <ul
-            role="tablist"
-            className="max-w-screen-xl mx-auto px-2.5 items-center gap-x-3 overflow-x-auto text-sm bg-gray-100 rounded-lg sm:flex"
+        <div className="px-4 mx-auto md:px-8 md: py-10">
+        <ul
+  role="tablist"
+  className="hidden w-80 mx-auto px-2.5 items-center gap-x-3 overflow-x-auto text-sm bg-gray-100 rounded-lg sm:flex"
+  style={{ justifyContent: "center" }}
           >
             {tabItems.map((item, idx) => (
               <li key={idx} className="py-2">
@@ -71,6 +76,7 @@ export default function LetsTalk({data}) {
               </li>
             ))}
           </ul>
+
           <div className="relative text-gray-500 sm:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,8 +100,9 @@ export default function LetsTalk({data}) {
           </div>
         </div>
 
+        <div className="pb-24">
         {tabContent}
-
+        </div>
       </main>
 
       <Footer />
