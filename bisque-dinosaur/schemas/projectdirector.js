@@ -134,6 +134,24 @@ export default {
         },
       ],
     },
+    //Facebook
+    {
+      title: 'Facebook',
+      name: 'facebook',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title',
+        },
+        {
+          name: 'link',
+          type: 'url',
+          title: 'Link',
+        },
+      ],
+    },
     //Pinterest
     {
       title: 'Pinterest',

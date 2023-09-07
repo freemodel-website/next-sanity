@@ -75,6 +75,11 @@ export const myStructure = (S) =>
         .title('For Agents')
         .icon(FaFileAlt)
         .child(S.document().schemaType('foragents').documentId('foragents')),
+      // Footer Settings
+      S.listItem()
+        .title('Footer Settings')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('footersettings').documentId('footersettings')),
 
       //END
     ])

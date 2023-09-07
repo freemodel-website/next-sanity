@@ -60,9 +60,12 @@ export default function Sixgrid({ title, imageArray, buttontext }) {
           </MotionDiv>
         ))}
       </MotionDiv>
-      <div className="max-w-xl text-center mt-20 md:mx-auto sm:text-center lg:max-w-3xl md:mb-12">
-        <Ctabutton href="javascript:void(0)" text={buttontext} />
-      </div>
+
+      {buttontext && (
+        <div className="max-w-xl text-center mt-20 md:mx-auto sm:text-center lg:max-w-3xl md:mb-12">
+          <Ctabutton href="javascript:void(0)" text={buttontext} />
+        </div>
+      )}
     </div>
   );
 }

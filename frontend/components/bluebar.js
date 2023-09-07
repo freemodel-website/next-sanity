@@ -1,11 +1,13 @@
+import Image from "next/image";
 import React from "react";
+import { client, urlFor } from "../client";
 
 /**
  *
  * @param theme - titletext, leftimg
  * @returns
  */
-export default function Bluebar({ theme, body }) {
+export default function Bluebar({ theme, body, img }) {
   let text;
   switch (theme) {
     case "titletext":
@@ -31,11 +33,12 @@ export default function Bluebar({ theme, body }) {
         <section className="bg-FM-blue py-14">
           <div className="max-w-screen-xl mx-auto md:px-8">
             <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
-              <div className=" ">
-                <img
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                  className="md:max-w-lg sm:rounded-lg"
-                  alt=""
+              <div className="relative mx-auto w-80 h-48">
+                <Image
+                  src={urlFor(img).url()}
+                  fill
+                  alt={img.alt}
+                  className="object-contain"
                 />
               </div>
               <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">

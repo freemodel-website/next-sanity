@@ -2,6 +2,7 @@ import { urlFor } from "../../client";
 import {
   BsLinkedin,
   BsInstagram,
+  BsFacebook,
   BsPinterest,
   BsEnvelope,
 } from "react-icons/bs";
@@ -66,6 +67,24 @@ export const TeamHeader = ({ item }) => {
                 </a>
               </li>
             )}
+            {/* Facebook */}
+            {item.facebook && (
+              <li className="mr-6">
+                <a
+                  href={item.facebook.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {/* same line */}
+                  <span className="flex items-center">
+                    <BsFacebook className="h-6 w-6 text-white" />
+                    <span className="ml-2 text-white text-xl">
+                      {item.facebook.title}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            )}
             {/* Pintrest */}
             {item.pinterest && (
               <li className="mr-6">
@@ -122,6 +141,12 @@ export const TeamHeader = ({ item }) => {
             )}
           </ul>
         </div>
+      </div>
+      {/* Quote section */}
+      <div className="max-w-screen-lg text-center mx-auto mt-8">
+        <blockquote className="text-3xl text-white font-medium italic font-serif mb-8">
+          {item.quote}
+        </blockquote>
       </div>
     </div>
   );

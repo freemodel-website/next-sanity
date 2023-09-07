@@ -3,10 +3,10 @@ import Head from "next/head";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
-import Threesegment from "../../components/threesegment";
 import Ourprocess from "../../components/for-agents/ourprocess";
 import Footer from "../../components/footer";
-import { client } from "../../client";
+import { client,urlFor } from "../../client";
+import Sixgrid from "../../components/index/sixgrid";
 
 export default function ForAgents({ data}) {
   console.log(data);
@@ -44,18 +44,29 @@ export default function ForAgents({ data}) {
       <Navbar />
 
       <main className="mb-20">
-      {/* <Hero
+      <Hero
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
-        /> */}
+        />
 
-        <Bluebar theme={"leftimg"} />
+        <Bluebar theme={"leftimg"}
+          body={data.bluebartext}
+          img={data.bluebarimage}
+         />
 
         {/* Temp, Re-add with Sanity data */}
-        {/* <Threesegment /> */}
+        <Sixgrid
+          title={data.title1}
+          imageArray={data.imageArray}
+         
+        />
 
-        <Ourprocess faqsList={faqsList} />
+        <Ourprocess
+          image={data.questionimage}
+         faqsList={data.questionsanswers}
+          buttontitle={data.buttontitle}
+          />
       </main>
 
       <Footer />
@@ -66,9 +77,38 @@ export default function ForAgents({ data}) {
 export const getStaticProps = async () => {
   const mainquery = `*[_type == "foragents"][0]{
     title,
-    mainImage,
+    mainImage {
+      crop,
+      hotspot,
+      asset -> {
+        _id,
+        url
+      }
+    },
     titlebutton,
-    testimonials,
+    bluebartext,
+    bluebarimage {
+      crop,
+      hotspot,
+      asset -> {
+        _id,
+        alt,
+        url
+      }
+    },
+    title1,
+    imageArray,
+    questionimage {
+      crop,
+      hotspot,
+      asset -> {
+        _id,
+        alt,
+        url
+      }
+    },
+    questionsanswers,
+    buttontitle
   }`;
 
   const data = await client.fetch(mainquery);

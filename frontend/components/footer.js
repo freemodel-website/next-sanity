@@ -1,7 +1,10 @@
 import React from "react";
 import { BsInstagram, BsLinkedin, BsFacebook, BsTwitter } from "react-icons/bs";
+import { client } from "../client";
 
-export default function Footer() {
+export default function Footer({}) {
+  //console.log(footerSettings);
+
   const leftItems = [
     { title: "Blog", link: "/blog" },
     { title: "Design Services", link: "/design-services" },
@@ -73,20 +76,49 @@ export default function Footer() {
           </div>
           {/*  */}
         </div>
-        <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
+        <div className="border-t pt-5 pb-10 lg:flex lg:flex-row lg:justify-between flex-col-reverse">
           <p className="text-sm text-white">
-            © {new Date().getFullYear()} Freemodel Inc. All rights reserved.
-            {/* <a
+            <a
               href="https://www.nickcancode.com"
               target="_blank"
-              className="text-white ml-1 hover:underline"
               rel="noopener noreferrer"
+              className="text-white hover:underline"
             >
-              Build with <span className="text-sm">❤</span> in NYC
-            </a> */}
+              © {new Date().getFullYear()} Freemodel Inc. All rights reserved.
+            </a>
           </p>
+
+          {/* <a
+            href="https://www.nickcancode.com"
+            target="_blank"
+            className="text-white hover:underline float-right"
+          >
+            <img
+              src="/nickcancode.svg"
+              alt="Nick Can Code"
+              className="w-6 inline-block ml-1"
+            />
+          </a> */}
         </div>
       </div>
     </footer>
   );
 }
+
+// export const getStaticProps = async () => {
+//   const mainquery = `*[_type == "footersettings"]{
+//     footerimage,
+//     pagetype[]->{
+//       ...,
+//       "slug": slug.current
+//     }
+//   }`;
+
+//   const footerSettings = await client.fetch(mainquery);
+
+//   return {
+//     props: {
+//       footerSettings,
+//     },
+//   };
+// };

@@ -101,8 +101,10 @@ export const getServerSideProps = async ({ params }) => {
     `*[_type == "projectdirector" && slug.current == $projectdirector] {
     name,
     slug,
+    quote,
     linkedin,
     instagram,
+    facebook,
     pinterest,
     website,
     email,

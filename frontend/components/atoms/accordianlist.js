@@ -11,6 +11,8 @@ const Accordianlist = ({ faqsList }) => {
     setAnswerH(`${answerElH + 20}px`);
   };
 
+  const lines = faqsList.a.split("\n");
+
   return (
     <div
       className="space-y-3 mt-5 overflow-hidden border-b"
@@ -57,7 +59,9 @@ const Accordianlist = ({ faqsList }) => {
         style={state ? { height: answerH } : { height: "0px" }}
       >
         <div>
-          <p className="text-gray-500">{faqsList.a}</p>
+          {lines.map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
         </div>
       </div>
     </div>
