@@ -13,7 +13,7 @@ import Ctabutton from "../../../components/atoms/ctabutton";
 import Footer from "../../../components/footer";
 import Projectcard from "../../../components/atoms/projectcard";
 
-const ProjectSlug = ({ item }) => {
+const ProjectSlug = ({ item, footer }) => {
   return (
     <div>
       <Head>
@@ -85,7 +85,7 @@ const ProjectSlug = ({ item }) => {
           <Ctabutton text={item.casestudybuttontext} href="/lets-talk" />
         </div>
       </main>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 };
@@ -202,11 +202,25 @@ export const getServerSideProps = async ({ params }) => {
     },
     }`;
 
+    const footer = await client.fetch(`*[_type == "footersettings"][0]{
+      footerimage {
+        hotspot,
+        crop,
+        asset->{
+          _id,
+          url
+        }
+      },
+      leftItems,
+      rightItems,
+    }`);
+
   const caseStudy = await client.fetch(query, { slug: slug });
 
   return {
     props: {
       item: caseStudy,
+      footer,
     },
   };
 };

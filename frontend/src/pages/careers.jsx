@@ -7,8 +7,7 @@ import ThreeSection from "../../components/careers/threesection";
 import { client, urlFor } from "../../client";
 import WorkableEmbed from "../../components/careers/workableEmbed";
 
-export default function Career({ data }) {
-  console.log(data);
+export default function Career({ data, footer }) {
 
   let test;
 
@@ -41,7 +40,7 @@ export default function Career({ data }) {
         </div>
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -72,11 +71,25 @@ export const getStaticProps = async () => {
     scriptform
   }[0]`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data,
+      footer,
     },
 
     revalidate: 10,

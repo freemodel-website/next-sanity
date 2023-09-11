@@ -1,8 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
+import { client } from "../../client";
 
-export default function Blog() {
+export default function Blog({ footer}) {
   return (
     <div>
       <Head>
@@ -12,6 +14,37 @@ export default function Blog() {
       </Head>
 
       <Navbar />
+      <main>
+        <h1 className="text-4xl text-center font-bold my-20">
+          Blog
+        </h1>
+      </main>
+
+      <Footer data={footer} />
     </div>
   );
 }
+
+ export const getStaticProps = async () => {
+
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
+  return {
+    props: {
+      footer,
+    },
+
+    revalidate: 10,
+  };
+};

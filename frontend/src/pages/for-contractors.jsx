@@ -12,7 +12,7 @@ import Sixgrid from "../../components/index/sixgrid";
 import ThreeSegment from "../../components/threesegment";
 
 
-export default function ForContractors({ data}) {
+export default function ForContractors({ data, footer}) {
   console.log(data);
   return (
     <div>
@@ -79,7 +79,7 @@ export default function ForContractors({ data}) {
                   />
         </div>
       </main>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -109,11 +109,25 @@ export const getStaticProps = async () => {
     
   }`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data,
+      footer,
     },
 
     revalidate: 10,

@@ -7,7 +7,7 @@ import Footer from "../../components/footer";
 import MediaList from "../../components/media/medialist";
 import { client, urlFor } from "../../client";
 
-export default function Media({ data, mediadata }) {
+export default function Media({ data, mediadata, footer }) {
   return (
     <div>
       <Head>
@@ -34,7 +34,7 @@ export default function Media({ data, mediadata }) {
         <MediaList media={data} />
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -52,6 +52,18 @@ export const getStaticProps = async () => {
       }
     }
   }`;
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
 
   const mediapage = `*[_type == "mediapage"][0]{
     title,
@@ -87,6 +99,7 @@ export const getStaticProps = async () => {
     props: {
       data: data,
       mediadata: mediadata,
+      footer: footer,
     },
 
     revalidate: 10,

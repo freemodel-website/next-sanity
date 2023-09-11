@@ -6,7 +6,7 @@ import Footer from "../../components/footer";
 import { client } from "../../client";
 import Paragraph from "../../components/paragraph";
 
-export default function PrivacyPolicy({ data }) {
+export default function PrivacyPolicy({ data, footer }) {
   console.log(data);
   return (
     <div>
@@ -24,7 +24,7 @@ export default function PrivacyPolicy({ data }) {
         <Paragraph text={data.body} />
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -43,11 +43,25 @@ export const getStaticProps = async () => {
     }
   }[0]`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data,
+      footer,
     },
 
     revalidate: 10,

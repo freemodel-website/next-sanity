@@ -11,8 +11,9 @@ import Paragraph from "../../../components/paragraph";
 import Projects from "../projects/index";
 import Projectcard from "../../../components/atoms/projectcard";
 import { BsInstagram } from "react-icons/bs";
+import QuoteSlider from "../../../components/quoteslider";
 
-const ProjectDirector = ({ item }) => {
+const ProjectDirector = ({ item, footer }) => {
   return (
     <div>
       <Head>
@@ -27,6 +28,7 @@ const ProjectDirector = ({ item }) => {
         <TeamHeader item={item[0]} />
 
         {item[0].bio && <Paragraph text={item[0].bio} />}
+
 
         {/* Projects */}
         {item[0].projects && (
@@ -86,8 +88,16 @@ const ProjectDirector = ({ item }) => {
             </div>
           </div>
         )}
+
+        {/* Testimonials */}
+        {item[0].testimonials && (
+        
+        <QuoteSlider
+          testimonials={item[0].testimonials}
+        />
+        )}
       </main>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 };
@@ -124,6 +134,14 @@ export const getServerSideProps = async ({ params }) => {
     location->{
         name,
         slug
+    },
+    testimonials[]->{
+      _id,
+      testimonialperson,
+      testimonialquote,
+      testimonialimage,
+      testimonialposition,
+      brokerage,
     },
     projects[]->{
         _id,
@@ -167,7 +185,24 @@ export const getServerSideProps = async ({ params }) => {
     { projectdirector }
   );
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   return {
-    props: { item },
+    props: { 
+      item,
+      footer
+     },
+
   };
 };

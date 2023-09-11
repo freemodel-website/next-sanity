@@ -9,7 +9,7 @@ import Footer from "../../../../components/footer";
 import Hero from "../../../../components/hero";
 import Bluebar from "../../../../components/bluebar";
 
-const ProjectSlug = ({ item }) => {
+const ProjectSlug = ({ item, footer }) => {
   return (
     <div>
       <Head>
@@ -63,7 +63,7 @@ const ProjectSlug = ({ item }) => {
             ))}
         </div>
       </main>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 };
@@ -105,9 +105,25 @@ export const getServerSideProps = async ({ params }) => {
     }
     }`;
 
+    const footer = await client.fetch(`*[_type == "footersettings"][0]{
+      footerimage {
+        hotspot,
+        crop,
+        asset->{
+          _id,
+          url
+        }
+      },
+      leftItems,
+      rightItems,
+    }`);
+
   const item = await client.fetch(query, { slug });
 
   return {
-    props: { item },
+    props: { 
+      item,
+    footer,
+      },
   };
 };

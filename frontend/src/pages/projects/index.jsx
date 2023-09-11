@@ -15,6 +15,7 @@ export default function Projects({
   propertytype,
   spacetype,
   locationstype,
+  footer,
 }) {
     //get all the cities from locationstype with more than 0 case studies
     const cities = locationstype.filter((item) => item.caseStudies.length > 0);
@@ -66,7 +67,7 @@ export default function Projects({
 
         <div className="mb-56"></div>
 
-        <Footer />
+        <Footer data={footer} />
       </main>
     </div>
   );
@@ -216,6 +217,19 @@ export const getServerSideProps = async () => {
           }
           `;
 
+          const footer = await client.fetch(`*[_type == "footersettings"][0]{
+            footerimage {
+              hotspot,
+              crop,
+              asset->{
+                _id,
+                url
+              }
+            },
+            leftItems,
+            rightItems,
+          }`);
+
   const casestudies = await client.fetch(query);
   const page = await client.fetch(pagequery);
   //Filter by property type
@@ -230,6 +244,7 @@ export const getServerSideProps = async () => {
       propertytype,
       spacetype,
       locationstype,
+      footer,
     },
   };
 };

@@ -10,7 +10,7 @@ import Projectcard from "../../../components/atoms/projectcard";
 import Image from "next/image";
 import ImageCaroucel from "../../../components/imageCaroucel";
 
-const Brokerage = ({ data }) => {
+const Brokerage = ({ data, footer }) => {
   let brokerage = data;
 
   return (
@@ -120,7 +120,7 @@ const Brokerage = ({ data }) => {
         </div>
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 };
@@ -188,6 +188,19 @@ export const getServerSideProps = async (context) => {
     },
   }[0]`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(query, { brokerage });
 
   //get the case studies for this brokerage
@@ -195,6 +208,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       data,
+      footer,
     },
   };
 };

@@ -9,7 +9,7 @@ import Carousel from "../../components/caroucel";
 import { client, urlFor } from "../../client";
 import ImageCaroucel from "../../components/imageCaroucel";
 
-export default function AboutUs({ data }) {
+export default function AboutUs({ data, footer }) {
   console.log(data);
 
   return (
@@ -38,7 +38,7 @@ export default function AboutUs({ data }) {
         </div>
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -72,11 +72,25 @@ export const getStaticProps = async () => {
     imagesGallery,
   }`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data,
+      footer,
     },
 
     revalidate: 10,

@@ -16,7 +16,7 @@ import { useInView } from "react-intersection-observer"; // Import the library
 
 const MotionDiv = motion.div;
 
-export default function DesignServices({ data }) {
+export default function DesignServices({ data, footer }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -103,7 +103,7 @@ export default function DesignServices({ data }) {
         </div>
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -160,11 +160,25 @@ export const getStaticProps = async () => {
 
   }`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data,
+      footer,
     },
 
     revalidate: 10,

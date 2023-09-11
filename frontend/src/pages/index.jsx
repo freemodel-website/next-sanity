@@ -13,14 +13,14 @@ import Homelocation from "../../components/index/homelocation";
 import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
 
-export default function Home({ data, states }) {
+export default function Home({ data, states,footer }) {
   let [form, setForm] = useState(<script></script>);
 
   useEffect(() => {
     setForm(data.htmlform);
   }, []);
 
-  console.log(form);
+  console.log("footer", footer);
 
   return (
     <div>
@@ -81,7 +81,7 @@ export default function Home({ data, states }) {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -132,12 +132,26 @@ export const getStaticProps = async () => {
   
 }`);
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data,
       states,
+      footer,
     },
 
     revalidate: 10,

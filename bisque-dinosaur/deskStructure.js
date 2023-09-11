@@ -17,7 +17,8 @@ export const myStructure = (S) =>
           item.getId() !== 'privacypolicy' &&
           item.getId() !== 'forcontractors' &&
           item.getId() !== 'letstalk' &&
-          item.getId() !== 'foragents'
+          item.getId() !== 'foragents' &&
+          item.getId() !== 'footersettings'
       ),
 
       // Home Page

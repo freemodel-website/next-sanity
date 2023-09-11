@@ -1,23 +1,9 @@
 import React from "react";
 import { BsInstagram, BsLinkedin, BsFacebook, BsTwitter } from "react-icons/bs";
-import { client } from "../client";
+import { client, urlFor } from "../client";
 
-export default function Footer({}) {
+export default function Footer({ data }) {
   //console.log(footerSettings);
-
-  const leftItems = [
-    { title: "Blog", link: "/blog" },
-    { title: "Design Services", link: "/design-services" },
-    { title: "FAQ", link: "/faq" },
-    { title: "Media", link: "/media" },
-  ];
-
-  const rightItems = [
-    { title: "About Us", link: "/about-us" },
-    { title: "Careers", link: "/careers" },
-    { title: "For Contractors", link: "/for-contractors" },
-    { title: "Privacy Policy", link: "/privacy-policy" },
-  ];
 
   return (
     <footer aria-label="Site Footer" className="bg-FM-orange">
@@ -31,11 +17,13 @@ export default function Footer({}) {
               className="inline-flex items-center"
             >
               <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                <img
-                  src="/Freemodel-logo-White@2x.png"
-                  alt="Company Logo"
-                  className="w-48"
-                />
+                {data && (
+                  <img
+                    src={urlFor(data.footerimage).url()}
+                    alt="Company Logo"
+                    className="w-48"
+                  />
+                )}
               </span>
             </a>
             <div className="pt-8 flex gap-6 max-w-xs items-center lg:max-w-sm">
@@ -55,7 +43,7 @@ export default function Footer({}) {
             </div>
           </div>
           <div className="space-y-2 text-sm">
-            {leftItems.map((item, index) => (
+            {data.leftItems.map((item, index) => (
               <p
                 key={index}
                 className="text-base text-white font-bold tracking-wide"
@@ -65,7 +53,7 @@ export default function Footer({}) {
             ))}
           </div>
           <div className="space-y-2 text-sm">
-            {rightItems.map((item, index) => (
+            {data.rightItems.map((item, index) => (
               <p
                 key={index}
                 className="text-base text-white font-bold tracking-wide"
@@ -104,21 +92,3 @@ export default function Footer({}) {
     </footer>
   );
 }
-
-// export const getStaticProps = async () => {
-//   const mainquery = `*[_type == "footersettings"]{
-//     footerimage,
-//     pagetype[]->{
-//       ...,
-//       "slug": slug.current
-//     }
-//   }`;
-
-//   const footerSettings = await client.fetch(mainquery);
-
-//   return {
-//     props: {
-//       footerSettings,
-//     },
-//   };
-// };

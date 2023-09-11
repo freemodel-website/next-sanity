@@ -73,6 +73,18 @@ export default {
       to: [{type: 'cities'}],
       validation: (Rule) => Rule.required(),
     },
+    //Testimonials
+    {
+      name: 'testimonials',
+      title: 'Testimonials',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'testimonials'}],
+        },
+      ],
+    },
 
     //array of projects
     {

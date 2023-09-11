@@ -7,8 +7,8 @@ import TeamList from "../../../components/team/teamlist";
 import { MdLocationCity } from "react-icons/md";
 import Footer from "../../../components/footer";
 
-export default function Team({ team, statesList }) {
-  console.log("team", team);
+export default function Team({ team, statesList, footer }) {
+
 
   // First, sort the statesList alphabetically based on the statename
   const sortedStatesList = statesList
@@ -139,7 +139,7 @@ export default function Team({ team, statesList }) {
             );
           })}
       </main>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -190,6 +190,19 @@ export const getStaticProps = async () => {
     slug,
 }`;
 
+const footer = await client.fetch(`*[_type == "footersettings"][0]{
+  footerimage {
+    hotspot,
+    crop,
+    asset->{
+      _id,
+      url
+    }
+  },
+  leftItems,
+  rightItems,
+}`);
+
   const team = await client.fetch(query);
   const statesList = await client.fetch(states);
 
@@ -197,6 +210,7 @@ export const getStaticProps = async () => {
     props: {
       team,
       statesList,
+      footer,
     },
 
     revalidate: 10,

@@ -5,11 +5,10 @@ import Footer from "../../components/footer";
 import React, { useState } from "react";
 import { client } from "../../client";
 
-export default function LetsTalk({data}) {
+export default function LetsTalk({data, footer}) {
   const tabItems = ["I am an Agent", "I am a Homeowner"];
   const [selectedItem, setSelectedItem] = useState(0);
 
-  console.log(data);
 
   const tabContent = [
     <div key={0} className={selectedItem === 0 ? "block" : "hidden"}>
@@ -105,7 +104,7 @@ export default function LetsTalk({data}) {
         </div>
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -119,11 +118,25 @@ const mainquery = `*[_type == "letstalk"][0] {
   html2,
 }`;
 
+const footer = await client.fetch(`*[_type == "footersettings"][0]{
+  footerimage {
+    hotspot,
+    crop,
+    asset->{
+      _id,
+      url
+    }
+  },
+  leftItems,
+  rightItems,
+}`);
+
 const data = await client.fetch(mainquery);
 
 return {
   props: {
     data,
+    footer,
   },
 
   revalidate: 10,

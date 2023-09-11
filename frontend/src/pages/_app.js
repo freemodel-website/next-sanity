@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Noto_Serif, Pontano_Sans } from "next/font/google";
+import { LayoutPageRenderer } from "next-page-layout";
 
 const noto_serif = Noto_Serif({
   subsets: ["latin"],
@@ -33,7 +34,8 @@ export default function App({ Component, pageProps }) {
           font-family: ${pontano_sans.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      {/* <Component {...pageProps} /> */}
+      <LayoutPageRenderer page={Component} initialProps={pageProps} />
     </main>
   );
 }

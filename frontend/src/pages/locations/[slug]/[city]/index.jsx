@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import TeamList from "../../../../../components/team/teamlist";
 
-const ProjectSlug = ({ item }) => {
+const ProjectSlug = ({ item, footer }) => {
   console.log("item", item);
   return (
     <div>
@@ -101,7 +101,7 @@ const ProjectSlug = ({ item }) => {
           <Ctabutton text={item.ctaText} href={"/lets-talk"} />
         </div>
       </main>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 };
@@ -175,9 +175,25 @@ export const getServerSideProps = async ({ params }) => {
     },
   }`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const item = await client.fetch(query, { city });
 
   return {
-    props: { item },
+    props: { 
+      item, 
+    footer,
+    },
   };
 };

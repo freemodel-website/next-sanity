@@ -20,6 +20,7 @@
     "jquery": "^3.7.0",
     "keen-slider": "^6.8.5",
     "next": "13.3.4",
+    "next-page-layout": "^1.0.3",
     "next-sanity": "^4.3.3",
     "postcss": "8.4.23",
     "react": "18.2.0",

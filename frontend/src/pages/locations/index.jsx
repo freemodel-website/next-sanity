@@ -8,7 +8,7 @@ import Image from "next/image";
 import Footer from "../../../components/footer";
 import Link from "next/link";
 
-export default function Locations({ states }) {
+export default function Locations({ states, footer }) {
   return (
     <div>
       <Head>
@@ -57,7 +57,7 @@ export default function Locations({ states }) {
             </div>
           ))}
       </div>
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -79,10 +79,23 @@ export async function getStaticProps() {
     },
     
   }`);
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
 
   return {
     props: {
       states,
+      footer,
     },
   };
 }

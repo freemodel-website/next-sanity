@@ -8,7 +8,7 @@ import Ctabutton from "../../components/atoms/ctabutton";
 import Footer from "../../components/footer";
 import { client, urlFor } from "../../client";
 
-export default function FAQ({ data }) {
+export default function FAQ({ data, footer }) {
   return (
     <div>
       <Head>
@@ -39,7 +39,7 @@ export default function FAQ({ data }) {
         </div>
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
@@ -62,11 +62,25 @@ export const getStaticProps = async () => {
     ctabutton
   }`;
 
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
   const data = await client.fetch(mainquery);
 
   return {
     props: {
       data: data[0],
+      footer,
     },
 
     revalidate: 10,

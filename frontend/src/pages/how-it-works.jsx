@@ -5,8 +5,9 @@ import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Steps from "../../components/steps";
 import Footer from "../../components/footer";
+import { client } from "../../client";
 
-export default function HowItWorks() {
+export default function HowItWorks({ footer}) {
   let data = {
     title: "Let us take care of everything.",
     mainImage: {
@@ -15,6 +16,7 @@ export default function HowItWorks() {
       },
     },
   };
+
 
   return (
     <div>
@@ -32,7 +34,30 @@ export default function HowItWorks() {
         <Steps />
       </main>
 
-      <Footer />
+      <Footer data={footer} />
     </div>
   );
 }
+
+ export const getStaticProps = async () => {
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
+    footerimage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    leftItems,
+    rightItems,
+  }`);
+
+  return {
+    props: {
+      footer,
+    },
+
+    revalidate: 10,
+  };
+};
