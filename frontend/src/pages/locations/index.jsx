@@ -88,6 +88,10 @@ export async function getStaticProps() {
         url
       }
     },
+    linkedin,
+    instagram,
+    facebook,
+    pinterest,
     leftItems,
     rightItems,
   }`);

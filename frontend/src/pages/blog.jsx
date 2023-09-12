@@ -36,6 +36,10 @@ export default function Blog({ footer}) {
         url
       }
     },
+    linkedin,
+      instagram,
+      facebook,
+      pinterest,
     leftItems,
     rightItems,
   }`);

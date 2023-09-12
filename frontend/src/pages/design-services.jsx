@@ -169,6 +169,10 @@ export const getStaticProps = async () => {
         url
       }
     },
+    linkedin,
+    instagram,
+    facebook,
+    pinterest,
     leftItems,
     rightItems,
   }`);

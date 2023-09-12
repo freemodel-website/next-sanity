@@ -25,11 +25,6 @@ export default defineType({
       type: 'object',
       fields: [
         {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
-        },
-        {
           name: 'link',
           type: 'url',
           title: 'Link',
@@ -42,11 +37,6 @@ export default defineType({
       name: 'instagram',
       type: 'object',
       fields: [
-        {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
-        },
         {
           name: 'link',
           type: 'url',
@@ -61,11 +51,6 @@ export default defineType({
       type: 'object',
       fields: [
         {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
-        },
-        {
           name: 'link',
           type: 'url',
           title: 'Link',
@@ -78,11 +63,6 @@ export default defineType({
       name: 'pinterest',
       type: 'object',
       fields: [
-        {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
-        },
         {
           name: 'link',
           type: 'url',

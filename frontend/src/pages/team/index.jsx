@@ -199,6 +199,10 @@ const footer = await client.fetch(`*[_type == "footersettings"][0]{
       url
     }
   },
+  linkedin,
+  instagram,
+  facebook,
+  pinterest,
   leftItems,
   rightItems,
 }`);

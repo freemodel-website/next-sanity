@@ -49,6 +49,10 @@ export default function HowItWorks({ footer}) {
         url
       }
     },
+    linkedin,
+    instagram,
+    facebook,
+    pinterest,
     leftItems,
     rightItems,
   }`);

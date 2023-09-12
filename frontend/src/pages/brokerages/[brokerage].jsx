@@ -197,6 +197,10 @@ export const getServerSideProps = async (context) => {
         url
       }
     },
+    linkedin,
+    instagram,
+    facebook,
+    pinterest,
     leftItems,
     rightItems,
   }`);

@@ -1,9 +1,14 @@
 import React from "react";
-import { BsInstagram, BsLinkedin, BsFacebook, BsTwitter } from "react-icons/bs";
+import {
+  BsInstagram,
+  BsLinkedin,
+  BsFacebook,
+  BsPinterest,
+} from "react-icons/bs";
 import { client, urlFor } from "../client";
 
 export default function Footer({ data }) {
-  //console.log(footerSettings);
+  console.log(data);
 
   return (
     <footer aria-label="Site Footer" className="bg-FM-orange">
@@ -28,18 +33,44 @@ export default function Footer({ data }) {
             </a>
             <div className="pt-8 flex gap-6 max-w-xs items-center lg:max-w-sm">
               {/* instagram facebook linkedin twitter */}
-              <a href="/" className="text-2xl text-white">
-                <BsInstagram className="text-2xl text-white" />
-              </a>
-              <a href="/" className="text-2xl text-white">
-                <BsFacebook className="text-2xl text-white" />
-              </a>
-              <a href="/" className="text-2xl text-white">
-                <BsLinkedin className="text-2xl text-white" />
-              </a>
-              {/* <a href="/" className="text-2xl text-white">
-                <BsTwitter className="text-2xl text-white" />
-              </a> */}
+              {data.instagram?.link && (
+                <a
+                  href={data.instagram?.link}
+                  target="_blank"
+                  className="text-2xl text-white"
+                >
+                  <BsInstagram className="text-2xl text-white" />
+                </a>
+              )}
+
+              {data.facebook?.link && (
+                <a
+                  href={data.facebook?.link}
+                  target="_blank"
+                  className="text-2xl text-white"
+                >
+                  <BsFacebook className="text-2xl text-white" />
+                </a>
+              )}
+
+              {data.linkedin?.link && (
+                <a
+                  href={data.linkedin?.link}
+                  target="_blank"
+                  className="text-2xl text-white"
+                >
+                  <BsLinkedin className="text-2xl text-white" />
+                </a>
+              )}
+              {data.pinterest?.link && (
+                <a
+                  href={data.pinterest?.link}
+                  target="_blank"
+                  className="text-2xl text-white"
+                >
+                  <BsPinterest className="text-2xl text-white" />
+                </a>
+              )}
             </div>
           </div>
           <div className="space-y-2 text-sm">
