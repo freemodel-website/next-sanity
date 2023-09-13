@@ -8,7 +8,7 @@ import Image from "next/image";
 import Footer from "../../../components/footer";
 import Link from "next/link";
 
-export default function Locations({ states, footer }) {
+export default function Locations({data, states, footer }) {
   return (
     <div>
       <Head>
@@ -20,7 +20,11 @@ export default function Locations({ states, footer }) {
       <Navbar />
 
       <main>
-        <Hero hero={{ title: "Locations" }} />
+      <Hero
+          hero={{ title: data.title }}
+          buttontext={data.titlebutton}
+          image={urlFor(data.mainImage).url()}
+        />
         <Bluebar
           theme={"Find your dream home"}
           body={
@@ -63,6 +67,21 @@ export default function Locations({ states, footer }) {
 }
 
 export async function getStaticProps() {
+
+  const mainquery = await client.fetch(`*[_type == "locationspage"][0]{
+    title,
+    mainImage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    bluetitle,
+  }`);
+
+
   const states = await client.fetch(`*[_type == "states"]{
     _id,
     statename,
@@ -100,6 +119,7 @@ export async function getStaticProps() {
     props: {
       states,
       footer,
+      data: mainquery,
     },
   };
 }

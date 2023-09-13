@@ -25,6 +25,7 @@ import letstalk from './singletons/lets-talk'
 import foragents from './singletons/for-agents'
 import footersettings from './singletons/footersettings'
 import howitworks from './singletons/how-it-works'
+import locationspage from './singletons/locationspage'
 
 export const schemaTypes = [
   // post,
@@ -52,4 +53,5 @@ export const schemaTypes = [
   foragents,
   footersettings,
   howitworks,
+  locationspage,
 ]
