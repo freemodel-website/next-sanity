@@ -24,6 +24,7 @@ import forcontractors from './singletons/for-contractors'
 import letstalk from './singletons/lets-talk'
 import foragents from './singletons/for-agents'
 import footersettings from './singletons/footersettings'
+import howitworks from './singletons/how-it-works'
 
 export const schemaTypes = [
   // post,
@@ -50,4 +51,5 @@ export const schemaTypes = [
   letstalk,
   foragents,
   footersettings,
+  howitworks,
 ]

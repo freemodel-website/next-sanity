@@ -5,17 +5,10 @@ import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Steps from "../../components/steps";
 import Footer from "../../components/footer";
-import { client } from "../../client";
+import { client,urlFor } from "../../client";
 
-export default function HowItWorks({ footer}) {
-  let data = {
-    title: "Let us take care of everything.",
-    mainImage: {
-      asset: {
-        url: "/images/hero.jpg",
-      },
-    },
-  };
+export default function HowItWorks({data, footer}) {
+
 
 
   return (
@@ -29,9 +22,19 @@ export default function HowItWorks({ footer}) {
       <Navbar />
 
       <main>
-        <Hero hero={data} buttontext={"Let's Talk"} />
-        <Bluebar theme={"titletext"} />
-        <Steps />
+      <Hero
+          hero={{ title: data.title }}
+          buttontext={data.titlebutton}
+          image={urlFor(data.mainImage).url()}
+        />
+        <Bluebar theme={"titletext"}
+        title={data.bluebartitle}
+        body={data.bluebarbody}        
+        />
+        <Steps 
+        title={data.threesectiontitle}
+        data={data.threeSecArray}
+         />
       </main>
 
       <Footer data={footer} />
@@ -40,6 +43,25 @@ export default function HowItWorks({ footer}) {
 }
 
  export const getStaticProps = async () => {
+
+  const mainquery = await client.fetch(`*[_type == "howitworks"][0]{
+    title,
+    mainImage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    bluebartitle,
+    bluebarbody,
+    threesectiontitle,
+    threeSecArray
+  }`);
+
+
+
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
     footerimage {
       hotspot,
@@ -59,6 +81,7 @@ export default function HowItWorks({ footer}) {
 
   return {
     props: {
+      data: mainquery,
       footer,
     },
 

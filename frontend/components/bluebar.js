@@ -7,7 +7,7 @@ import { client, urlFor } from "../client";
  * @param theme - titletext, leftimg
  * @returns
  */
-export default function Bluebar({ theme, body, img }) {
+export default function Bluebar({ theme, title, body, img }) {
   let text;
   switch (theme) {
     case "titletext":
@@ -15,14 +15,9 @@ export default function Bluebar({ theme, body, img }) {
         <div className="bg-gray-800">
           <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
             <h2 className="text-4xl font-extrabold text-white sm:text-4xl">
-              We Believe
+              {title}
             </h2>
-            <p className="text-2xl mt-4 max-w-4xl mx-auto text-white">
-              There’s a world where everyone involved in a real estate
-              transaction can win. Freemodel takes the burden off the agent and
-              seller to prepare a home for sale, and the buyer gets a move-in
-              ready home!
-            </p>
+            <p className="text-2xl mt-4 max-w-4xl mx-auto text-white">{body}</p>
           </div>
         </div>
       );

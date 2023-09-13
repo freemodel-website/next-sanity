@@ -18,7 +18,8 @@ export const myStructure = (S) =>
           item.getId() !== 'forcontractors' &&
           item.getId() !== 'letstalk' &&
           item.getId() !== 'foragents' &&
-          item.getId() !== 'footersettings'
+          item.getId() !== 'footersettings' &&
+          item.getId() !== 'howitworks'
       ),
 
       // Home Page
@@ -76,6 +77,12 @@ export const myStructure = (S) =>
         .title('For Agents')
         .icon(FaFileAlt)
         .child(S.document().schemaType('foragents').documentId('foragents')),
+      // How It Works
+      S.listItem()
+        .title('How It Works')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('howitworks').documentId('howitworks')),
+
       // Footer Settings
       S.listItem()
         .title('Footer Settings')

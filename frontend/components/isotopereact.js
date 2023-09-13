@@ -58,10 +58,10 @@ const IsotopeReact = ({
   useEffect(() => {
     if (!isotopeRef.current) return;
 
-    if (areOtherFiltersActive) {
-      setQsRegex(null); // Reset quick search
-      setAreOtherFiltersActive(false); // Reset the flag
-    }
+    // if (areOtherFiltersActive) {
+    //   setQsRegex(null); // Reset quick search
+    //   setAreOtherFiltersActive(false); // Reset the flag
+    // }
 
     isotopeRef.current.arrange({
       filter: function (itemElem) {
