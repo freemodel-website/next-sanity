@@ -51,7 +51,7 @@ export default function BeforeAfter({ beforeimages, afterimages, moreimages }) {
                   >
                     <div className="relative w-full h-60 sm:h-52 md:h-96">
                       <Image
-                        src={item.afterimage.asset.url}
+                        src={urlFor(item.afterimage).url()}
                         alt={item.afterimage.altText}
                         className="w-full h-full object-cover object-center shadow-md rounded-xl"
                         fill
