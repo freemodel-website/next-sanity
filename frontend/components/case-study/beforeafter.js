@@ -79,7 +79,7 @@ export default function BeforeAfter({ beforeimages, afterimages, moreimages }) {
               {moreimages.map((item, idx) => (
                 <div key={idx} className="relative w-full h-60 sm:h-52 md:h-96">
                   <Image
-                    src={item.moreimage.asset.url}
+                    src={urlFor(item.moreimage).url()}
                     alt={item.moreimage.altText}
                     className="w-full h-full object-cover object-center shadow-md rounded-xl"
                     fill
