@@ -1,5 +1,6 @@
 import React from "react";
 import PortableText from "react-portable-text";
+import { urlFor } from "../client";
 
 /**
  * Paragraph component renders a paragraph of text using PortableText from an array of strings.
@@ -45,6 +46,16 @@ export default function Paragraph({ text }) {
             <a href={href} className="text-FM-orange">
               {children}
             </a>
+          ),
+          image: (props) => (
+            console.log("props", props),
+            (
+              <img
+                src={urlFor(props)}
+                alt={props.node}
+                className="mx-auto px-10"
+              />
+            )
           ),
         }}
       />

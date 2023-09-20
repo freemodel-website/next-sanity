@@ -8,12 +8,18 @@ import { MdLocationCity } from "react-icons/md";
 import Footer from "../../../components/footer";
 
 export default function Team({ team, statesList, footer }) {
-
-
   // First, sort the statesList alphabetically based on the statename
   const sortedStatesList = statesList
     .slice()
     .sort((a, b) => a.statename.localeCompare(b.statename));
+
+  const partnershipsTeam = team.filter(
+    (item) => item.state[0].location.state.statename === "Partnerships"
+  );
+
+  const inHouseTeam = team.filter(
+    (item) => item.state[0].location.state.statename === "In-House Design Team"
+  );
 
   return (
     <div>
@@ -113,31 +119,19 @@ export default function Team({ team, statesList, footer }) {
         })}
 
         {/* Sort by Partnerships */}
-        {team
-          .filter(
-            (item) => item.state[0].location.state.statename === "Partnerships"
-          )
-          .map((item, idx) => {
-            return (
-              <div key={idx}>
-                <TeamList title={"Partnerships"} team={[item]} />
-              </div>
-            );
-          })}
+        {partnershipsTeam && (
+          <div>
+            <TeamList title={"Partnerships"} team={partnershipsTeam} />
+          </div>
+        )}
 
-        {/* Sort by Partnerships */}
-        {team
-          .filter(
-            (item) =>
-              item.state[0].location.state.statename === "In-House Design Team"
-          )
-          .map((item, idx) => {
-            return (
-              <div key={idx}>
-                <TeamList title={"In-House Design Team"} team={[item]} />
-              </div>
-            );
-          })}
+        {/* Sort by In-House */}
+
+        {inHouseTeam && (
+          <div className="mb-44">
+            <TeamList title={"In-House Design Team"} team={inHouseTeam} />
+          </div>
+        )}
       </main>
       <Footer data={footer} />
     </div>
@@ -190,7 +184,7 @@ export const getStaticProps = async () => {
     slug,
 }`;
 
-const footer = await client.fetch(`*[_type == "footersettings"][0]{
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
   footerimage {
     hotspot,
     crop,

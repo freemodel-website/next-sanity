@@ -28,7 +28,7 @@ import howitworks from './singletons/how-it-works'
 import locationspage from './singletons/locationspage'
 
 export const schemaTypes = [
-  // post,
+  post,
   projectdirector,
   blockContent,
   home,
