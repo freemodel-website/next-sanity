@@ -3,27 +3,6 @@ import Image from "next/image";
 import PortableText from "react-portable-text";
 
 export default function ThreeSection({ imageArray }) {
-  const sections = [
-    {
-      textColor: "text-white",
-      heading: "We’re local.",
-      content:
-        "Our local project directors are based in your region. They visit your site often and remain the trusted point of contact throughout the project.",
-    },
-    {
-      textColor: "text-black",
-      heading: "What Makes Us Unique",
-      content:
-        "Our local project directors are based in your region. They visit your site often and remain the trusted point of contact throughout the project.",
-    },
-    {
-      textColor: "text-white",
-      heading: "Our Team",
-      content:
-        "Our local project directors are based in your region. They visit your site often and remain the trusted point of contact throughout the project.",
-    },
-  ];
-
   return (
     <div className="mx-auto">
       <section>
@@ -134,10 +113,10 @@ export default function ThreeSection({ imageArray }) {
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
                     projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
                     content={section.text}
-                    className="text-lg text-white"
+                    className="text-lg text-black"
                     serializers={{
                       normal: (props) => (
-                        <p className="text-lg text-white my-4 min-h-[6px] font-light">
+                        <p className="text-lg text-black my-4 min-h-[6px] font-light">
                           {props.children}
                         </p>
                       ),
@@ -148,17 +127,17 @@ export default function ThreeSection({ imageArray }) {
                         <u className=" underline ">{props.children}</u>
                       ),
                       h1: (props) => (
-                        <h1 className="text-2xl font-bold text-white">
+                        <h1 className="text-2xl font-bold text-black">
                           {props.children}
                         </h1>
                       ),
                       h2: (props) => (
-                        <h2 className="text-xl font-bold text-white">
+                        <h2 className="text-xl font-bold text-black">
                           {props.children}
                         </h2>
                       ),
                       h3: (props) => (
-                        <h3 className="text-lg font-bold text-white">
+                        <h3 className="text-lg font-bold text-black">
                           {props.children}
                         </h3>
                       ),
@@ -169,7 +148,7 @@ export default function ThreeSection({ imageArray }) {
                         </li>
                       ),
                       strong: (props) => (
-                        <strong className="font-black text-white">
+                        <strong className="font-black text-black">
                           {props.children}
                         </strong>
                       ),
