@@ -35,7 +35,8 @@ export default function TeamList({ title, team }) {
 
                       {item.location?.name &&
                         item.location?.name != "Partnerships" &&
-                        item.location?.name != "In-House Design Team" && (
+                        item.location?.name != "In-House Design Team" &&
+                        item.location?.name != "Author" && (
                           <p className="text-slate-600 text-lg">
                             {item.location?.name}
                           </p>
@@ -61,7 +62,8 @@ export default function TeamList({ title, team }) {
 
                       {item.location?.name &&
                         item.location?.name != "Partnerships" &&
-                        item.location?.name != "In-House Design Team" && (
+                        item.location?.name != "In-House Design Team" &&
+                        item.location?.name != "Author" && (
                           <p className="text-slate-600 text-lg">
                             {item.location?.name}
                           </p>

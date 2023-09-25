@@ -7,6 +7,7 @@ import Paragraph from "../../../components/paragraph";
 import Image from "next/image";
 
 const Blog = ({ data, footer }) => {
+  console.log(data);
   // Create a Date object from the input string
   var dateObj = new Date(data.publishedAt);
   // Define an array for month names
@@ -46,15 +47,21 @@ const Blog = ({ data, footer }) => {
         {/* Title Header Section */}
         <section className="bg-gray-800 py-14">
           <div className="max-w-screen-xl mx-auto px-4  gap-x-12 justify-between md:flex md:px-8">
-            <div className="max-w-xl">
-              <h3 className="text-white text-3xl font-semibold sm:text-4xl">
+            <div className="max-w-6xl">
+              <h3 className="text-white text-3xl font-semibold sm:text-5xl">
                 {data.title}
               </h3>
               <p className="mt-3 text-gray-300">{result}</p>
               {data.projectdirector && (
-                <p className="mt-3 text-gray-300">
-                  Written By: {data.projectdirector}
-                </p>
+                <div className="text-white font-bold">
+                  Written By: &nbsp;
+                  <a
+                    href={`/team/${data.projectdirector.slug.current}`}
+                    className="text-white hover:underline"
+                  >
+                    {data.projectdirector.name}
+                  </a>
+                </div>
               )}
             </div>
           </div>
@@ -74,6 +81,36 @@ const Blog = ({ data, footer }) => {
         </section>
 
         <Paragraph text={data.body} />
+
+        {/* More blog posts */}
+        <div className="flex flex-col items-center mb-40">
+          <h2 className="text-4xl font-bold mb-10">More Posts</h2>
+          <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-10">
+            {/* map through relatedPosts */}
+            {data.relatedPosts.map((item, key) => (
+              <div
+                className="relative w-full mx-auto group px-8 sm:max-w-lg"
+                key={key}
+              >
+                <a href={item.slug.current}>
+                  <div className="relative h-80 w-full">
+                    <Image
+                      src={urlFor(item.mainImage).url()}
+                      alt={item.title}
+                      fill
+                      className="w-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="mt-3 space-y-2">
+                    <h3 className="text-2xl text-gray-800 duration-150 group-hover:underline font-semibold">
+                      {item.title}
+                    </h3>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
       </main>
 
       <Footer data={footer} />
@@ -92,8 +129,23 @@ export const getServerSideProps = async (context) => {
         body,
         mainImage,
         publishedAt,
-        projectdirector,
-
+        projectdirector->{
+            name,
+            slug,
+            image,
+            },
+        relatedPosts[]->{
+            title,
+            slug,
+            mainImage,
+            publishedAt,
+            projectdirector->{
+                name,
+                slug,
+                image,
+                },
+            },
+        
     }`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

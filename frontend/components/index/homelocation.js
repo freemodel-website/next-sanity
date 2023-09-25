@@ -38,25 +38,33 @@ export default function Homelocation({ states, buttontext }) {
         initial="hidden"
         animate={inView ? "visible" : "hidden"} // Animate based on inView status
       >
-        {states.map((state, index) => (
-          <a key={index + 1} href="javascript:void(0)">
-            <MotionDiv className="group" key={index} variants={itemVariants}>
-              <div className="relative h-72 w-full">
-                <Image
-                  alt="Lava"
-                  fill
-                  src={urlFor(state.image).url()}
-                  className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-3xl underline underline-offset-4 decoration-1 font-bold sm:text-3xl text-FM-orange group-hover:text-orange-600">
-                  {state.statename}
-                </h3>
-              </div>
-            </MotionDiv>
-          </a>
-        ))}
+        {states
+          .filter(
+            (state) =>
+              state.statename != "Partnerships" &&
+              state.statename != "In-House Design Team" &&
+              state.statename != "Author"
+          )
+          .sort((a, b) => a.statename.localeCompare(b.statename))
+          .map((state, index) => (
+            <a key={index + 1} href="javascript:void(0)">
+              <MotionDiv className="group" key={index} variants={itemVariants}>
+                <div className="relative h-72 w-full">
+                  <Image
+                    alt="Lava"
+                    fill
+                    src={urlFor(state.image).url()}
+                    className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-3xl underline underline-offset-4 decoration-1 font-bold sm:text-3xl text-FM-orange group-hover:text-orange-600">
+                    {state.statename}
+                  </h3>
+                </div>
+              </MotionDiv>
+            </a>
+          ))}
       </MotionDiv>
 
       {/*  */}

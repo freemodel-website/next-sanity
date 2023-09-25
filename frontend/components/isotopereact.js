@@ -96,6 +96,7 @@ const IsotopeReact = ({
           options={locationstype
             .filter((location) => location.name != "In-House Design Team")
             .filter((location) => location.name != "Partnerships")
+            .filter((location) => location.name != "Author")
             .sort((a, b) => a.name.localeCompare(b.name))}
         />
 

@@ -100,7 +100,8 @@ export default function Team({ team, statesList, footer }) {
           const filteredAndExcludedTeam = filteredTeam.filter(
             (item) =>
               item.location?.name != "Partnerships" &&
-              item.location?.name != "In-House Design Team"
+              item.location?.name != "In-House Design Team" &&
+              item.location?.name != "Author"
           );
 
           // check if there are any project directors in this state

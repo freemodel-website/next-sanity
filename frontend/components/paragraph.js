@@ -48,14 +48,13 @@ export default function Paragraph({ text }) {
             </a>
           ),
           image: (props) => (
-            console.log("props", props),
-            (
-              <img
-                src={urlFor(props)}
-                alt={props.node}
-                className="mx-auto px-10"
-              />
-            )
+            <img
+              src={urlFor(props)}
+              alt={props.node}
+              className="mx-auto 
+              max-h-[500px]
+               md:px-10"
+            />
           ),
         }}
       />

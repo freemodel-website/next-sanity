@@ -8,7 +8,7 @@ import Image from "next/image";
 import Footer from "../../../components/footer";
 import Link from "next/link";
 
-export default function Locations({data, states, footer }) {
+export default function Locations({ data, states, footer }) {
   return (
     <div>
       <Head>
@@ -20,7 +20,7 @@ export default function Locations({data, states, footer }) {
       <Navbar />
 
       <main>
-      <Hero
+        <Hero
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
@@ -37,7 +37,8 @@ export default function Locations({data, states, footer }) {
           .filter(
             (state) =>
               state.statename != "Partnerships" &&
-              state.statename != "In-House Design Team"
+              state.statename != "In-House Design Team" &&
+              state.statename != "Author"
           )
           .sort((a, b) => a.statename.localeCompare(b.statename))
           .map((state) => (
@@ -67,7 +68,6 @@ export default function Locations({data, states, footer }) {
 }
 
 export async function getStaticProps() {
-
   const mainquery = await client.fetch(`*[_type == "locationspage"][0]{
     title,
     mainImage {
@@ -80,7 +80,6 @@ export async function getStaticProps() {
     },
     bluetitle,
   }`);
-
 
   const states = await client.fetch(`*[_type == "states"]{
     _id,

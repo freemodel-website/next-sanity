@@ -36,7 +36,8 @@ const ProjectSlug = ({ item, footer }) => {
             .filter(
               (city) =>
                 city.name != "Partnerships" &&
-                city.name != "In-House Design Team"
+                city.name != "In-House Design Team" &&
+                city.name != "Author"
             )
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((city) => (
@@ -105,7 +106,7 @@ export const getServerSideProps = async ({ params }) => {
     }
     }`;
 
-    const footer = await client.fetch(`*[_type == "footersettings"][0]{
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
       footerimage {
         hotspot,
         crop,
@@ -125,9 +126,9 @@ export const getServerSideProps = async ({ params }) => {
   const item = await client.fetch(query, { slug });
 
   return {
-    props: { 
+    props: {
       item,
-    footer,
-      },
+      footer,
+    },
   };
 };

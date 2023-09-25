@@ -1,8 +1,9 @@
 import {defineField, defineType} from 'sanity'
-
+import {BiEdit} from 'react-icons/bi'
 export default defineType({
   name: 'post',
   title: 'Post',
+  icon: BiEdit,
   type: 'document',
   fields: [
     defineField({
@@ -54,6 +55,14 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
+    }),
+    // Array of posts
+    defineField({
+      name: 'relatedPosts',
+      title: 'Related posts',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'post'}}],
+      validation: (Rule) => Rule.max(3),
     }),
   ],
 
