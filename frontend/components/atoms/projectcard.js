@@ -34,14 +34,15 @@ export default function Projectcard({
       className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 lg:w-[30vw] lg:max-w-[26rem] sm:mx-auto"
     >
       {/* Project Image */}
-      <div className="relative h-72 w-full">
+      <div className="relative h-72 w-full object-cover">
         <Image
           alt={title}
           src={image}
-          fill
+          height={288}
+          width={380}
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
           placeholder="blur"
-          className="rounded-lg object-cover h-20"
+          className="rounded-lg object-cover h-72"
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 30vw, 26rem"
         />
       </div>
