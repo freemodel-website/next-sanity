@@ -2,7 +2,7 @@ import {defineField, defineType} from 'sanity'
 import {BiEdit} from 'react-icons/bi'
 export default defineType({
   name: 'post',
-  title: 'Post',
+  title: 'Blog',
   icon: BiEdit,
   type: 'document',
   fields: [
