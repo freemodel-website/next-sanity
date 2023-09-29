@@ -103,7 +103,7 @@ export const myStructure = (S) =>
 
       // Footer Settings
       S.listItem()
-        .title('Footer Settings')
+        .title('NavBar/Footer Settings')
         .icon(FaFileAlt)
         .child(S.document().schemaType('footersettings').documentId('footersettings')),
 

@@ -11,8 +11,7 @@ import Paragraph from "../../components/paragraph";
 import Sixgrid from "../../components/index/sixgrid";
 import ThreeSegment from "../../components/threesegment";
 
-
-export default function ForContractors({ data, footer}) {
+export default function ForContractors({ data, footer }) {
   console.log(data);
   return (
     <div>
@@ -25,7 +24,7 @@ export default function ForContractors({ data, footer}) {
       <Navbar />
 
       <main>
-      <Hero
+        <Hero
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
@@ -35,17 +34,14 @@ export default function ForContractors({ data, footer}) {
         {/* Text Block */}
 
         <Paragraph text={data.body} />
-        
+
         <Bluebar body={data.bluebar2} />
 
         {/* <Threesegment /> */}
 
-        <Sixgrid
-          title={data.sec2title}
-          imageArray={data.sec2imageArray}
-        />
+        <Sixgrid title={data.sec2title} imageArray={data.sec2imageArray} />
 
-{/* <Quoteslider
+        {/* <Quoteslider
           title="Kudos from clients"
           testimonials={data.testimonials}
         /> */}
@@ -61,22 +57,21 @@ export default function ForContractors({ data, footer}) {
         <div className="bg-stone-500 h-96 flex items-center justify-center">
           {/* add form here */}
           <div
-                    dangerouslySetInnerHTML={{
-                      __html: data.sec3html,
-                    }}
-                  />
+            dangerouslySetInnerHTML={{
+              __html: data.sec3html,
+            }}
+          />
         </div>
         <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold my-20">
           {data.sec4title}
         </h1>
         <div className="flex items-center justify-center overflow-auto">
-          
-        <div
-        className="pb-10 overflow-auto"
-                    dangerouslySetInnerHTML={{
-                      __html: data.sec4html,
-                    }}
-                  />
+          <div
+            className="pb-10 overflow-auto"
+            dangerouslySetInnerHTML={{
+              __html: data.sec4html,
+            }}
+          />
         </div>
       </main>
       <Footer data={footer} />
@@ -124,6 +119,7 @@ export const getStaticProps = async () => {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   const data = await client.fetch(mainquery);

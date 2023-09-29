@@ -270,6 +270,7 @@ export const getServerSideProps = async () => {
             pinterest,
             leftItems,
             rightItems,
+            navbar
           }`);
 
   const casestudies = await client.fetch(query);

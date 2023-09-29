@@ -186,14 +186,15 @@ export const getServerSideProps = async ({ params }) => {
     },
     leftItems,
     rightItems,
+    navbar
   }`);
 
   const item = await client.fetch(query, { city });
 
   return {
-    props: { 
-      item, 
-    footer,
+    props: {
+      item,
+      footer,
     },
   };
 };

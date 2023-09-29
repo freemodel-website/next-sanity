@@ -121,6 +121,7 @@ export const getServerSideProps = async ({ params }) => {
       pinterest,
       leftItems,
       rightItems,
+      navbar
     }`);
 
   const item = await client.fetch(query, { slug });

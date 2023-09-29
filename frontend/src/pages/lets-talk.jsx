@@ -5,30 +5,29 @@ import Footer from "../../components/footer";
 import React, { useState } from "react";
 import { client } from "../../client";
 
-export default function LetsTalk({data, footer}) {
+export default function LetsTalk({ data, footer }) {
   const tabItems = ["I am an Agent", "I am a Homeowner"];
   const [selectedItem, setSelectedItem] = useState(0);
-
 
   const tabContent = [
     <div key={0} className={selectedItem === 0 ? "block" : "hidden"}>
       {/* Content for Overview */}
       <div className="max-w-6xl mx-auto">
-      <div
-        dangerouslySetInnerHTML={{
-          __html: data.html1,
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.html1,
           }}
-      />
+        />
       </div>
     </div>,
     <div key={1} className={selectedItem === 1 ? "block" : "hidden"}>
       {/* Content for Billing */}
       <div className="max-w-6xl mx-auto">
-      <div
-        dangerouslySetInnerHTML={{
-          __html: data.html2,
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.html2,
           }}
-      />
+        />
       </div>
     </div>,
     <div key={2} className={selectedItem === 2 ? "block" : "hidden"}>
@@ -47,15 +46,14 @@ export default function LetsTalk({data, footer}) {
 
       <Navbar />
 
-
       <main>
         <Hero hero={{ title: "Let's Talk" }} />
 
         <div className="px-4 mx-auto md:px-8 md: py-10">
-        <ul
-  role="tablist"
-  className="hidden w-80 mx-auto px-2.5 items-center gap-x-3 overflow-x-auto text-sm bg-gray-100 rounded-lg sm:flex"
-  style={{ justifyContent: "center" }}
+          <ul
+            role="tablist"
+            className="hidden w-80 mx-auto px-2.5 items-center gap-x-3 overflow-x-auto text-sm bg-gray-100 rounded-lg sm:flex"
+            style={{ justifyContent: "center" }}
           >
             {tabItems.map((item, idx) => (
               <li key={idx} className="py-2">
@@ -88,7 +86,9 @@ export default function LetsTalk({data, footer}) {
             <select
               value={tabItems[selectedItem]}
               className="p-3 w-full bg-transparent appearance-none outline-none border rounded-lg shadow-sm focus:border-indigo-600"
-              onChange={(e) => setSelectedItem(tabItems.indexOf(e.target.value))}
+              onChange={(e) =>
+                setSelectedItem(tabItems.indexOf(e.target.value))
+              }
             >
               {tabItems.map((item, idx) => (
                 <option key={idx} value={item}>
@@ -99,9 +99,7 @@ export default function LetsTalk({data, footer}) {
           </div>
         </div>
 
-        <div className="pb-24">
-        {tabContent}
-        </div>
+        <div className="pb-24">{tabContent}</div>
       </main>
 
       <Footer data={footer} />
@@ -110,7 +108,7 @@ export default function LetsTalk({data, footer}) {
 }
 
 export const getStaticProps = async () => {
-const mainquery = `*[_type == "letstalk"][0] {
+  const mainquery = `*[_type == "letstalk"][0] {
   title,
   mainImage,
   titlebutton,
@@ -118,7 +116,7 @@ const mainquery = `*[_type == "letstalk"][0] {
   html2,
 }`;
 
-const footer = await client.fetch(`*[_type == "footersettings"][0]{
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
   footerimage {
     hotspot,
     crop,
@@ -133,16 +131,17 @@ const footer = await client.fetch(`*[_type == "footersettings"][0]{
   pinterest,
   leftItems,
   rightItems,
+  navbar
 }`);
 
-const data = await client.fetch(mainquery);
+  const data = await client.fetch(mainquery);
 
-return {
-  props: {
-    data,
-    footer,
-  },
+  return {
+    props: {
+      data,
+      footer,
+    },
 
-  revalidate: 10,
-};
+    revalidate: 10,
+  };
 };

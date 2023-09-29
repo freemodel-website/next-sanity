@@ -200,6 +200,7 @@ export const getStaticProps = async () => {
   pinterest,
   leftItems,
   rightItems,
+  navbar
 }`);
 
   const team = await client.fetch(query);

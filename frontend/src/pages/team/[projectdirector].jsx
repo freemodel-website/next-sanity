@@ -29,7 +29,6 @@ const ProjectDirector = ({ item, footer }) => {
 
         {item[0].bio && <Paragraph text={item[0].bio} />}
 
-
         {/* Projects */}
         {item[0].projects && (
           <div className="flex flex-col items-center mx-auto mx-12 my-28">
@@ -91,10 +90,7 @@ const ProjectDirector = ({ item, footer }) => {
 
         {/* Testimonials */}
         {item[0].testimonials && (
-        
-        <QuoteSlider
-          testimonials={item[0].testimonials}
-        />
+          <QuoteSlider testimonials={item[0].testimonials} />
         )}
       </main>
       <Footer data={footer} />
@@ -200,13 +196,13 @@ export const getServerSideProps = async ({ params }) => {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   return {
-    props: { 
+    props: {
       item,
-      footer
-     },
-
+      footer,
+    },
   };
 };

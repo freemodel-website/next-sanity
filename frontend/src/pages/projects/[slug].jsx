@@ -202,7 +202,7 @@ export const getServerSideProps = async ({ params }) => {
     },
     }`;
 
-    const footer = await client.fetch(`*[_type == "footersettings"][0]{
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
       footerimage {
         hotspot,
         crop,
@@ -217,6 +217,7 @@ export const getServerSideProps = async ({ params }) => {
       pinterest,
       leftItems,
       rightItems,
+      navbar
     }`);
 
   const caseStudy = await client.fetch(query, { slug: slug });

@@ -137,6 +137,7 @@ export const getStaticProps = async () => {
       pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   return {

@@ -5,11 +5,10 @@ import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Ourprocess from "../../components/for-agents/ourprocess";
 import Footer from "../../components/footer";
-import { client,urlFor } from "../../client";
+import { client, urlFor } from "../../client";
 import Sixgrid from "../../components/index/sixgrid";
 
-export default function ForAgents({ data, footer}) {
-
+export default function ForAgents({ data, footer }) {
   return (
     <div>
       <Head>
@@ -21,29 +20,26 @@ export default function ForAgents({ data, footer}) {
       <Navbar />
 
       <main className="mb-20">
-      <Hero
+        <Hero
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
         />
 
-        <Bluebar theme={"leftimg"}
+        <Bluebar
+          theme={"leftimg"}
           body={data.bluebartext}
           img={data.bluebarimage}
-         />
+        />
 
         {/* Temp, Re-add with Sanity data */}
-        <Sixgrid
-          title={data.title1}
-          imageArray={data.imageArray}
-         
-        />
+        <Sixgrid title={data.title1} imageArray={data.imageArray} />
 
         <Ourprocess
           image={data.questionimage}
-         faqsList={data.questionsanswers}
+          faqsList={data.questionsanswers}
           buttontitle={data.buttontitle}
-          />
+        />
       </main>
 
       <Footer data={footer} />
@@ -103,8 +99,8 @@ export const getStaticProps = async () => {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
-
 
   const data = await client.fetch(mainquery);
 

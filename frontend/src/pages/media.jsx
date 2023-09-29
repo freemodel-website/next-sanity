@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
       }
     }
   }`;
-  
+
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
     footerimage {
       hotspot,
@@ -68,6 +68,7 @@ export const getStaticProps = async () => {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   const mediapage = `*[_type == "mediapage"][0]{

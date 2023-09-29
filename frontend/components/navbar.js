@@ -1,14 +1,12 @@
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-export default () => {
+export default ({ data }) => {
   const [state, setState] = useState(false);
 
   const { asPath } = useRouter();
 
-  // Replace javascript:void(0) paths with your paths
   const navigation = [
     { title: "How It Works", path: "/how-it-works" },
     { title: "For Agents", path: "/for-agents" },
@@ -21,7 +19,7 @@ export default () => {
     <nav className="bg-white border-b w-full sticky top-0 md:sticky z-50 md:text-sm md:border-none">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <Link href="/">
+          <a href="/">
             <Image
               src="/Freemodel-logo.png"
               width={180}
@@ -29,7 +27,7 @@ export default () => {
               alt="logo"
               style={{ width: "auto", height: "auto" }}
             />
-          </Link>
+          </a>
           <div className="md:hidden">
             <button
               className="text-gray-500 hover:text-gray-800"
@@ -76,14 +74,14 @@ export default () => {
             {navigation.map((item, idx) => {
               return (
                 <li key={idx} className="text-black hover:text-FM-orange">
-                  <Link
+                  <a
                     href={item.path}
                     className={`${
                       asPath === item.path ? "text-FM-orange" : ""
                     }`}
                   >
                     {item.title}
-                  </Link>
+                  </a>
                 </li>
               );
             })}

@@ -112,6 +112,7 @@ export async function getStaticProps() {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   return {

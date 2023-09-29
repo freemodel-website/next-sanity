@@ -5,12 +5,9 @@ import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Steps from "../../components/steps";
 import Footer from "../../components/footer";
-import { client,urlFor } from "../../client";
+import { client, urlFor } from "../../client";
 
-export default function HowItWorks({data, footer}) {
-
-
-
+export default function HowItWorks({ data, footer }) {
   return (
     <div>
       <Head>
@@ -22,19 +19,17 @@ export default function HowItWorks({data, footer}) {
       <Navbar />
 
       <main>
-      <Hero
+        <Hero
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
         />
-        <Bluebar theme={"titletext"}
-        title={data.bluebartitle}
-        body={data.bluebarbody}        
+        <Bluebar
+          theme={"titletext"}
+          title={data.bluebartitle}
+          body={data.bluebarbody}
         />
-        <Steps 
-        title={data.threesectiontitle}
-        data={data.threeSecArray}
-         />
+        <Steps title={data.threesectiontitle} data={data.threeSecArray} />
       </main>
 
       <Footer data={footer} />
@@ -42,8 +37,7 @@ export default function HowItWorks({data, footer}) {
   );
 }
 
- export const getStaticProps = async () => {
-
+export const getStaticProps = async () => {
   const mainquery = await client.fetch(`*[_type == "howitworks"][0]{
     title,
     mainImage {
@@ -60,8 +54,6 @@ export default function HowItWorks({data, footer}) {
     threeSecArray
   }`);
 
-
-
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
     footerimage {
       hotspot,
@@ -77,6 +69,7 @@ export default function HowItWorks({data, footer}) {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   return {

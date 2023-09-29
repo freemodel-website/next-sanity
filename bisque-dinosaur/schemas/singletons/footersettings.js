@@ -2,12 +2,41 @@ import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'footersettings',
-  title: 'Footer Settings',
+  title: 'NavBar/Footer Settings',
   type: 'document',
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
   fields: [
+    //NavBar
+    {
+      name: 'navbar',
+      title: 'NavBar Items',
+      description:
+        'Add, edit, and reorder items for the navbar. Max 5 items. Example url format: /about',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'path',
+              title: 'Link',
+              type: 'string',
+            },
+          ],
+        },
+        //List of all pages
+      ],
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.min(1).max(5),
+    },
+
     //START
     {
       name: 'footerimage',

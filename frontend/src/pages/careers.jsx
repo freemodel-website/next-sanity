@@ -8,7 +8,6 @@ import { client, urlFor } from "../../client";
 import WorkableEmbed from "../../components/careers/workableEmbed";
 
 export default function Career({ data, footer }) {
-
   let test;
 
   useEffect(() => {
@@ -86,6 +85,7 @@ export const getStaticProps = async () => {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   const data = await client.fetch(mainquery);

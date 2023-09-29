@@ -203,6 +203,7 @@ export const getServerSideProps = async (context) => {
     pinterest,
     leftItems,
     rightItems,
+    navbar
   }`);
 
   const data = await client.fetch(query, { brokerage });
