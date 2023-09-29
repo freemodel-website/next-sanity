@@ -21,7 +21,8 @@ export const myStructure = (S) =>
           item.getId() !== 'footersettings' &&
           item.getId() !== 'howitworks' &&
           item.getId() !== 'locationspage' &&
-          item.getId() !== 'thankyous'
+          item.getId() !== 'thankyous' &&
+          item.getId() !== 'blogpage'
       ),
 
       // Home Page
@@ -89,6 +90,11 @@ export const myStructure = (S) =>
         .title('Locations Page')
         .icon(FaFileAlt)
         .child(S.document().schemaType('locationspage').documentId('locationspage')),
+      // Blog Page
+      S.listItem()
+        .title('Blog Page')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('blogpage').documentId('blogpage')),
       // Thank Yous
       S.listItem()
         .title('Thank Yous')

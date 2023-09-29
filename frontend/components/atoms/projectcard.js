@@ -40,6 +40,7 @@ export default function Projectcard({
           src={image}
           height={288}
           width={380}
+          loading="lazy"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
           placeholder="blur"
           className="rounded-lg object-cover h-72"
