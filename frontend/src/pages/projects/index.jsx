@@ -17,8 +17,8 @@ export default function Projects({
   locationstype,
   footer,
 }) {
-    //get all the cities from locationstype with more than 0 case studies
-    const cities = locationstype.filter((item) => item.caseStudies.length > 0);
+  //get all the cities from locationstype with more than 0 case studies
+  const cities = locationstype.filter((item) => item.caseStudies.length > 0);
   return (
     <div>
       <Head>
@@ -52,11 +52,10 @@ export default function Projects({
           </div>
         </div>
         <div className="flex flex-col items-center my-28">
-          <h2 className="text-4xl font-bold ">Customize your search</h2>
+          <h2 id="searchSection" className="text-4xl font-bold ">
+            Customize your search
+          </h2>
         </div>
-
-
-        
 
         <IsotopeReact
           casestudies={casestudies}
@@ -217,7 +216,7 @@ export const getServerSideProps = async () => {
           }
           `;
 
-          const footer = await client.fetch(`*[_type == "footersettings"][0]{
+  const footer = await client.fetch(`*[_type == "footersettings"][0]{
             footerimage {
               hotspot,
               crop,
@@ -253,14 +252,12 @@ export const getServerSideProps = async () => {
   };
 };
 
-
-
 // export const getStaticProps = async () => {
 //   const pagequery = `*[_type == "projects"][0] {
 //     _id,
 //     title,
 //     mainImage {
-//       crop, 
+//       crop,
 //       hotspot,
 //       asset->{
 //         _ref,
@@ -280,7 +277,7 @@ export const getServerSideProps = async () => {
 //           current
 //       },
 //       mainImage {
-//         crop, 
+//         crop,
 //       hotspot,
 //           asset->{
 //               _ref,
@@ -304,7 +301,7 @@ export const getServerSideProps = async () => {
 //       _id,
 //       title,
 //       mainImage {
-//         crop, 
+//         crop,
 //       hotspot,
 //         asset->{
 //           _ref,
@@ -330,10 +327,8 @@ export const getServerSideProps = async () => {
 //           current
 //         },
 //       },
-      
-      
+
 //         "location": *[_id == ^.cities._ref][0],
-        
 
 //       hometype->{
 //         _id,
@@ -361,7 +356,7 @@ export const getServerSideProps = async () => {
 //     _id,
 //     name,
 //     mainImage{
-//       crop, 
+//       crop,
 //       hotspot,
 //     },
 //     slug {
@@ -373,7 +368,7 @@ export const getServerSideProps = async () => {
 //         _id,
 //         name,
 //         mainImage{
-//           crop, 
+//           crop,
 //       hotspot,
 //         },
 //         slug {
@@ -385,7 +380,7 @@ export const getServerSideProps = async () => {
 //           _id,
 //           name,
 //           image{
-//             crop, 
+//             crop,
 //       hotspot,
 //           },
 //           state,
@@ -399,8 +394,6 @@ export const getServerSideProps = async () => {
 //           }
 //           }
 //           `;
-
-
 
 //   const casestudies = await client.fetch(query);
 //   const page = await client.fetch(pagequery);

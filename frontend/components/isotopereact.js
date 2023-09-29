@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Select from "./atoms/select";
 import $ from "jquery";
 import { urlFor } from "../client";
+import Image from "next/image";
 const Projectcard = dynamic(() => import("./atoms/projectcard"));
 
 const IsotopeReact = ({
@@ -52,6 +53,19 @@ const IsotopeReact = ({
     if (filter3 !== "*") filter += filter3;
 
     isotopeRef.current.arrange({ filter });
+
+    console.log("isotopeRef.current", isotopeRef.current.filteredItems.length);
+
+    // isotopeRef.current.filteredItems.length == 0 &&
+    //   $("#noresults").removeClass("hidden");
+
+    if (isotopeRef.current.filteredItems.length > 0) {
+      $("#noresults").addClass("hidden");
+    } else {
+      $("#noresults").removeClass("hidden");
+    }
+
+    //isotopeRef.current.filteredItems.length
   }, [filter1, filter2, filter3]);
 
   // Filter with Quick Search
@@ -137,6 +151,26 @@ const IsotopeReact = ({
             </div>
           );
         })}
+      </div>
+      <div
+        id="noresults"
+        className="hidden text-center text-gray-800 mx-auto mt-12"
+      >
+        <Image
+          src="/nofilterresults.jpg"
+          className="mx-auto object-cover rounded-md border-2 border-stone-100 mb-8"
+          width={400}
+          height={350}
+        />
+
+        <h2 className="text-3xl font-bold">No results found</h2>
+
+        <a
+          href="/projects/#searchSection"
+          className="block mt-4 text-blue-800 hover:text-blue-500"
+        >
+          Reset filters
+        </a>
       </div>
     </div>
   );
