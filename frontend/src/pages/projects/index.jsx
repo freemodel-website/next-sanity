@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Navbar from "../../../components/navbar";
 import Hero from "../../../components/hero";
 import { client, urlFor } from "../../../client";
 import Projectcard from "../../../components/atoms/projectcard";
+import { FaArrowUp } from "react-icons/fa";
 const IsotopeReact = dynamic(() => import("../../../components/isotopereact"));
 
 import Footer from "../../../components/footer";
@@ -17,8 +18,38 @@ export default function Projects({
   locationstype,
   footer,
 }) {
+  const [scrolling, setScrolling] = useState(false);
+  const divIdToScroll = "searchSection"; // Replace 'yourDivId' with the ID of the div to use as the threshold
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const targetDiv = document.getElementById(divIdToScroll);
+      if (targetDiv && window.scrollY > targetDiv.offsetTop) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [divIdToScroll]);
+
+  const scrollToDiv = () => {
+    const targetDiv = document.getElementById(divIdToScroll);
+    if (targetDiv) {
+      window.scrollTo({
+        top: targetDiv.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
   //get all the cities from locationstype with more than 0 case studies
   const cities = locationstype.filter((item) => item.caseStudies.length > 0);
+
   return (
     <div>
       <Head>
@@ -67,6 +98,14 @@ export default function Projects({
         <div className="mb-56"></div>
 
         <Footer data={footer} />
+        {scrolling && (
+          <button
+            className="fixed bottom-10 right-10 p-3 bg-FM-orange text-white rounded-full cursor-pointer"
+            onClick={scrollToDiv}
+          >
+            <FaArrowUp />
+          </button>
+        )}
       </main>
     </div>
   );
@@ -251,166 +290,3 @@ export const getServerSideProps = async () => {
     },
   };
 };
-
-// export const getStaticProps = async () => {
-//   const pagequery = `*[_type == "projects"][0] {
-//     _id,
-//     title,
-//     mainImage {
-//       crop,
-//       hotspot,
-//       asset->{
-//         _ref,
-//         _type,
-//         altText,
-//         description,
-//         "tags": opt.media.tags[]->name.current,
-//         title,
-//         url
-//       }
-//     },
-//     highlighttitle,
-//     projecthighlight []->{
-//       _id,
-//       title,
-//       slug {
-//           current
-//       },
-//       mainImage {
-//         crop,
-//       hotspot,
-//           asset->{
-//               _ref,
-//               _type,
-//               altText,
-//               description,
-//               "tags": opt.media.tags[]->name.current,
-//               title,
-//               url
-//           }
-//         },
-//         beds,
-//         baths,
-//         bool,
-//         durationmonths,
-//   },
-//     }
-//   `;
-
-//   const query = ` *[_type == "caseStudy"] {
-//       _id,
-//       title,
-//       mainImage {
-//         crop,
-//       hotspot,
-//         asset->{
-//           _ref,
-//           _type,
-//           altText,
-//           description,
-//           "tags": opt.media.tags[]->name.current,
-//           title,
-//           url
-//         }
-//       },
-//       slug {
-//         current
-//       },
-//       beds,
-//       baths,
-//       bool,
-//       durationmonths,
-
-//       spacetype[]->{
-//         name,
-//         slug {
-//           current
-//         },
-//       },
-
-//         "location": *[_id == ^.cities._ref][0],
-
-//       hometype->{
-//         _id,
-//         name,
-//         mainImage{
-//           crop,
-//           hotspot,
-//           asset->{
-//             _ref,
-//             _type,
-//             altText,
-//             description,
-//             "tags": opt.media.tags[]->name.current,
-//             title,
-//             url
-//           }
-//         },
-//         slug {
-//           current
-//         }
-//       },
-//       }`;
-
-//   const housequery = `*[_type == "houseType"] {
-//     _id,
-//     name,
-//     mainImage{
-//       crop,
-//       hotspot,
-//     },
-//     slug {
-//       current
-//     }
-//     }`;
-
-//   const spacequery = `*[_type == "spaceType"] {
-//         _id,
-//         name,
-//         mainImage{
-//           crop,
-//       hotspot,
-//         },
-//         slug {
-//           current
-//         }
-//         }`;
-
-//   const citiestypes = `*[_type == "cities"] {
-//           _id,
-//           name,
-//           image{
-//             crop,
-//       hotspot,
-//           },
-//           state,
-//           "caseStudies": *[_type == "caseStudy" && references(^._id)]{
-//             _id,
-//             title,
-//           },
-//           "location": *[_id == ^.state._ref][0],
-//           slug {
-//             current
-//           }
-//           }
-//           `;
-
-//   const casestudies = await client.fetch(query);
-//   const page = await client.fetch(pagequery);
-//   //Filter by property type
-//   const propertytype = await client.fetch(housequery);
-//   const spacetype = await client.fetch(spacequery);
-//   const locationstype = await client.fetch(citiestypes);
-
-//   return {
-//     props: {
-//       casestudies,
-//       page,
-//       propertytype,
-//       spacetype,
-//       locationstype,
-//     },
-
-//     revalidate: 10,
-//   };
-// };
