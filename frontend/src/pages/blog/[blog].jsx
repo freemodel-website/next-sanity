@@ -83,34 +83,36 @@ const Blog = ({ data, footer }) => {
         <Paragraph text={data.body} />
 
         {/* More blog posts */}
-        <div className="flex flex-col items-center mb-40">
-          <h2 className="text-4xl font-bold mb-10">More Posts</h2>
-          <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-10">
-            {/* map through relatedPosts */}
-            {data.relatedPosts.map((item, key) => (
-              <div
-                className="relative w-full mx-auto group px-8 sm:max-w-lg"
-                key={key}
-              >
-                <a href={item.slug.current}>
-                  <div className="relative h-80 w-full">
-                    <Image
-                      src={urlFor(item.mainImage).url()}
-                      alt={item.title}
-                      fill
-                      className="w-full object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="mt-3 space-y-2">
-                    <h3 className="text-2xl text-gray-800 duration-150 group-hover:underline font-semibold">
-                      {item.title}
-                    </h3>
-                  </div>
-                </a>
-              </div>
-            ))}
+        {data.relatedPosts && (
+          <div className="flex flex-col items-center mb-40">
+            <h2 className="text-4xl font-bold mb-10">More Posts</h2>
+            <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-10">
+              {/* map through relatedPosts */}
+              {data.relatedPosts.map((item, key) => (
+                <div
+                  className="relative w-full mx-auto group px-8 sm:max-w-lg"
+                  key={key}
+                >
+                  <a href={item.slug.current}>
+                    <div className="relative h-80 w-full">
+                      <Image
+                        src={urlFor(item.mainImage).url()}
+                        alt={item.title}
+                        fill
+                        className="w-full object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="mt-3 space-y-2">
+                      <h3 className="text-2xl text-gray-800 duration-150 group-hover:underline font-semibold">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </main>
 
       <Footer data={footer} />

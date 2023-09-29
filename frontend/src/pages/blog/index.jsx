@@ -4,7 +4,8 @@ import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 import { client } from "../../../client";
 
-export default function Blog({ footer}) {
+export default function Blog({ data, footer }) {
+  console.log("data", data);
   return (
     <div>
       <Head>
@@ -15,9 +16,7 @@ export default function Blog({ footer}) {
 
       <Navbar />
       <main>
-        <h1 className="text-4xl text-center font-bold my-20">
-          Blog
-        </h1>
+        <h1 className="text-4xl text-center font-bold my-20">Blog</h1>
       </main>
 
       <Footer data={footer} />
@@ -25,7 +24,26 @@ export default function Blog({ footer}) {
   );
 }
 
- export const getStaticProps = async () => {
+export const getStaticProps = async () => {
+  const mainquery = await client.fetch(`*[_type == "post"]{
+    title,
+    slug,
+    publishedAt,
+    projectdirector->{
+      name,
+      slug
+    },
+    mainImage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    body,
+    excerpt,
+  }`);
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
     footerimage {
@@ -46,6 +64,7 @@ export default function Blog({ footer}) {
 
   return {
     props: {
+      data: mainquery,
       footer,
     },
 
