@@ -20,8 +20,6 @@ export default function Home({ data, states, footer }) {
     setForm(data.htmlform);
   }, []);
 
-  console.log("footer", footer);
-
   return (
     <div>
       <Head>
@@ -30,7 +28,7 @@ export default function Home({ data, states, footer }) {
         <link rel="icon" href="/ENicon.svg" /> */}
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
 
       <main>
         <Hero hero={data} buttontext={"Let's Talk"} pomp={true} />

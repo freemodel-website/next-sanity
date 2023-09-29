@@ -22,7 +22,7 @@ const ProjectDirector = ({ item, footer }) => {
         <link rel="icon" href="/ENicon.svg" /> */}
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
 
       <main>
         <TeamHeader item={item[0]} />
@@ -31,7 +31,7 @@ const ProjectDirector = ({ item, footer }) => {
 
         {/* Projects */}
         {item[0].projects && (
-          <div className="flex flex-col items-center mx-auto mx-12 my-28">
+          <div className="flex flex-col items-center mx-auto my-28">
             <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
             <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap gap-8">

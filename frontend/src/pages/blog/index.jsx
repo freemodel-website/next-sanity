@@ -28,7 +28,7 @@ export default function Blog({ data, blogpage, footer }) {
         <title>Freemodel</title>
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
       <main>
         <Hero
           hero={{ title: blogpage.title }}

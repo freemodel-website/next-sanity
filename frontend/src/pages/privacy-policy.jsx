@@ -16,7 +16,7 @@ export default function PrivacyPolicy({ data, footer }) {
         <link rel="icon" href="/ENicon.svg" /> */}
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
 
       <main>
         <Hero hero={{ title: "Privacy Policy" }} />

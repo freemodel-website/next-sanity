@@ -15,7 +15,7 @@ export default function FAQ({ data, footer }) {
         <title>Freemodel</title>
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
 
       <main>
         <Hero

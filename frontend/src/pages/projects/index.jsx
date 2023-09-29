@@ -58,7 +58,9 @@ export default function Projects({
         <link rel="icon" href="/ENicon.svg" /> */}
       </Head>
       <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-      <Navbar />
+
+      <Navbar data={footer.navbar} />
+
       <main>
         <Hero hero={{ title: page.title }} />
 

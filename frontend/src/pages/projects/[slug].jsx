@@ -22,7 +22,7 @@ const ProjectSlug = ({ item, footer }) => {
         <link rel="icon" href="/ENicon.svg" /> */}
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
 
       <main>
         <div className="relative w-full h-96 sm:h-[35vw]">

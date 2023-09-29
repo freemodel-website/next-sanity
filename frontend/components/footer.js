@@ -8,8 +8,6 @@ import {
 import { client, urlFor } from "../client";
 
 export default function Footer({ data }) {
-  console.log(data);
-
   return (
     <footer aria-label="Site Footer" className="bg-FM-orange">
       <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">

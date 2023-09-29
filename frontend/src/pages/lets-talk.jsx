@@ -44,7 +44,7 @@ export default function LetsTalk({ data, footer }) {
         <link rel="icon" href="/ENicon.svg" /> */}
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
 
       <main>
         <Hero hero={{ title: "Let's Talk" }} />

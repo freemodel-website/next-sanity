@@ -16,7 +16,7 @@ export default function HowItWorks({ data, footer }) {
         <link rel="icon" href="/ENicon.svg" /> */}
       </Head>
 
-      <Navbar />
+      <Navbar data={footer.navbar} />
 
       <main>
         <Hero

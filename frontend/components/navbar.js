@@ -3,17 +3,21 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default ({ data }) => {
+  console.log(data);
+
   const [state, setState] = useState(false);
 
   const { asPath } = useRouter();
 
-  const navigation = [
-    { title: "How It Works", path: "/how-it-works" },
-    { title: "For Agents", path: "/for-agents" },
-    { title: "Projects", path: "/projects" },
-    { title: "Locations", path: "/locations" },
-    { title: "Our Team", path: "/team" },
-  ];
+  const navigation = data;
+
+  // const navigation = [
+  //   { title: "How It Works", path: "/how-it-works" },
+  //   { title: "For Agents", path: "/for-agents" },
+  //   { title: "Projects", path: "/projects" },
+  //   { title: "Locations", path: "/locations" },
+  //   { title: "Our Team", path: "/team" },
+  // ];
 
   return (
     <nav className="bg-white border-b w-full sticky top-0 md:sticky z-50 md:text-sm md:border-none">
