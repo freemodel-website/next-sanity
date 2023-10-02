@@ -23,7 +23,7 @@ const Hero = ({ hero, buttontext, image, pomp = false }) => {
         animate={{ opacity: 1 }}
         transition={pomp ? { duration: 1 } : { duration: 0.4 }}
       >
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-36">
+        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl max md:px-24 lg:px-8 lg:py-28 2xl:py-36">
           <motion.div
             className="text-center m-auto"
             variants={fadeInUp}
