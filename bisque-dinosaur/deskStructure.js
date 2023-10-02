@@ -22,7 +22,8 @@ export const myStructure = (S) =>
           item.getId() !== 'howitworks' &&
           item.getId() !== 'locationspage' &&
           item.getId() !== 'thankyous' &&
-          item.getId() !== 'blogpage'
+          item.getId() !== 'blogpage' &&
+          item.getId() !== 'support'
       ),
 
       // Home Page
@@ -100,6 +101,11 @@ export const myStructure = (S) =>
         .title('Thank Yous')
         .icon(FaFileAlt)
         .child(S.document().schemaType('thankyous').documentId('thankyous')),
+      // Support
+      S.listItem()
+        .title('Support')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('supportpage').documentId('supportpage')),
 
       // Footer Settings
       S.listItem()
