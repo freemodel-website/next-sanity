@@ -31,7 +31,12 @@ export default function Home({ data, states, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero hero={data} buttontext={"Let's Talk"} pomp={true} />
+        <Hero
+          hero={data}
+          buttontext={data.titlebutton}
+          image={urlFor(data.mainImage).url()}
+          pomp={true}
+        />
         <Sixgrid
           title={data.sec1title}
           imageArray={data.imageArray}
@@ -88,7 +93,14 @@ export const getStaticProps = async () => {
   const mainquery = `*[_type == "home"][0] {
     _id,
     title,
-    mainImage,
+    mainImage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
     sec1title,
     imageArray,
     sec1button,

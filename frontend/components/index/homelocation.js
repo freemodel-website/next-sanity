@@ -26,7 +26,7 @@ export default function Homelocation({ states, buttontext }) {
     <div className="py-16 mx-auto lg:py-20">
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-3xl md:mb-12">
         <h2 className="mb-10 text-5xl font-bold leading-none tracking-tight text-center text-black sm:text-5xl md:mx-auto">
-          Why Freemodel?
+          Locations
         </h2>
       </div>
       {/* grid */}

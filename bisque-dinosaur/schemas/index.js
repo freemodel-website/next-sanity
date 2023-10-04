@@ -29,6 +29,7 @@ import locationspage from './singletons/locationspage'
 import thankyous from './singletons/thank-yous'
 import blogpage from './singletons/blogpage'
 import supportpage from './singletons/supportpage'
+import forhomeowners from './singletons/forhomeowners'
 export const schemaTypes = [
   post,
   projectdirector,
@@ -59,4 +60,5 @@ export const schemaTypes = [
   thankyous,
   blogpage,
   supportpage,
+  forhomeowners,
 ]

@@ -23,7 +23,8 @@ export const myStructure = (S) =>
           item.getId() !== 'locationspage' &&
           item.getId() !== 'thankyous' &&
           item.getId() !== 'blogpage' &&
-          item.getId() !== 'support'
+          item.getId() !== 'supportpage' &&
+          item.getId() !== 'forhomeowners'
       ),
 
       // Home Page
@@ -81,6 +82,11 @@ export const myStructure = (S) =>
         .title('For Agents')
         .icon(FaFileAlt)
         .child(S.document().schemaType('foragents').documentId('foragents')),
+      // For Homeowners
+      S.listItem()
+        .title('For Homeowners')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('forhomeowners').documentId('forhomeowners')),
       // How It Works
       S.listItem()
         .title('How It Works')
