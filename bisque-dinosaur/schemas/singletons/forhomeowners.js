@@ -33,14 +33,9 @@ export default defineType({
       validation: (rule) => rule.required(),
     },
     {
-      name: 'bluebartitle',
-      title: 'BlueBar: Title',
-      type: 'string',
-    },
-    {
       name: 'bluebarbody',
       title: 'BlueBar: Body',
-      type: 'string',
+      type: 'text',
     },
 
     //END

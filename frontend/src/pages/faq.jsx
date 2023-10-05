@@ -27,7 +27,7 @@ export default function FAQ({ data, footer }) {
         <Bluebar body={data.bluetitle} />
 
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl text-center font-bold my-20">
+          <h1 className="text-4xl text-center font-bold sm:text-5xl my-20">
             Frequently Asked Questions
           </h1>
 

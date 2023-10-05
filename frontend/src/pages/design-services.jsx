@@ -57,7 +57,7 @@ export default function DesignServices({ data, footer }) {
         {/* Featured Project */}
         {/* Highlight studies */}
         <div className="flex flex-col items-center py-20 bg-FM-blue">
-          <h2 className="text-4xl font-bold text-center text-white">
+          <h2 className="text-4xl font-bold text-center sm:text-5xl text-white">
             Featured Projects
           </h2>
           <div className="flex flex-col lg:flex-row gap-8 justify-center items-center mt-10">

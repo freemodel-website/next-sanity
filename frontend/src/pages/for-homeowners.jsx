@@ -19,16 +19,12 @@ export default function ForHomeowners({ data, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        {/* <Hero
+        <Hero
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
-        /> */}
-        {/* <Bluebar
-          theme={"titletext"}
-          title={data.bluebartitle}
-          body={data.bluebarbody}
-        /> */}
+        />
+        <Bluebar body={data.bluebarbody} />
       </main>
 
       <Footer data={footer} />
@@ -37,21 +33,21 @@ export default function ForHomeowners({ data, footer }) {
 }
 
 export const getStaticProps = async () => {
-  //   const mainquery = await client.fetch(`*[_type == "howitworks"][0]{
-  //     title,
-  //     mainImage {
-  //       hotspot,
-  //       crop,
-  //       asset->{
-  //         _id,
-  //         url
-  //       }
-  //     },
-  //     bluebartitle,
-  //     bluebarbody,
-  //     threesectiontitle,
-  //     threeSecArray
-  //   }`);
+  const mainquery = await client.fetch(`*[_type == "forhomeowners"][0]{
+      title,
+      mainImage {
+        hotspot,
+        crop,
+        asset->{
+          _id,
+          url
+        }
+      },
+      titlebutton,
+      bluebarbody,
+      threesectiontitle,
+      threeSecArray
+    }`);
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
     footerimage {
@@ -73,7 +69,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      //data: mainquery,
+      data: mainquery,
       footer,
     },
 

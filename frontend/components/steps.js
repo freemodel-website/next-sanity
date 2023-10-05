@@ -7,7 +7,7 @@ export default function Steps({ data, title }) {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="max-w-xl mb-10 mx-auto text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-6  text-4xl font-bold leading-none tracking-tight text-gray-900 pb-8 mx-auto sm:text-4xl">
+        <h2 className="max-w-lg mb-6  text-4xl font-bold leading-none tracking-tight text-gray-900 pb-8 mx-auto sm:text-5xl">
           {title}
         </h2>
       </div>

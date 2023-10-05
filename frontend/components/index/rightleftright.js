@@ -39,7 +39,7 @@ function Section({ section, index }) {
   return (
     <section ref={ref}>
       <MotionDiv
-        className="mx-auto max-w-screen-lg px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8"
+        className="mx-auto max-w-screen-lg px-4 py-8 sm:py-12 sm:px-6 lg:py-10 lg:px-8"
         variants={sectionVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}

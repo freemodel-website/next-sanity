@@ -33,7 +33,9 @@ export default function Career({ data, footer }) {
 
         <ThreeSection imageArray={data.imageArray} />
 
-        <h1 className="text-4xl text-center font-bold my-20">We're Hiring!</h1>
+        <h1 className="text-4xl text-center font-bold sm:text-5xl my-20">
+          We're Hiring!
+        </h1>
         <div className="bg-white flex md:ml-16 overflow-auto">
           <WorkableEmbed />
         </div>
