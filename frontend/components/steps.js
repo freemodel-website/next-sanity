@@ -27,7 +27,7 @@ export default function Steps({ data, title }) {
           </div>
           <div className="order-last sm:order-none">
             <div className="sm:text-center sm:mt-32">
-              <div className="relative h-64 object-contain rounded mx-auto sm:w-96">
+              <div className="relative h-64 object-contain rounded mx-auto sm:w-72">
                 <Image
                   fill
                   src={urlFor(item.image).url()}

@@ -115,6 +115,8 @@ export const getServerSideProps = async ({ params }) => {
     website,
     email,
     image {
+        crop,
+        hotspot,
         asset->{
             _ref,
             _type,

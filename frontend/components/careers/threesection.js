@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import PortableText from "react-portable-text";
+import { urlFor } from "../../client";
 
 export default function ThreeSection({ imageArray }) {
   return (
@@ -18,9 +19,9 @@ export default function ThreeSection({ imageArray }) {
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-7xl mx-auto lg:gap-16">
                   <div className="relative object-contain rounded-lg overflow-hidden mx-auto w-[90vw] h-[90vw] md:w-[30vw] md:h-[30vw] lg:order-last">
                     <Image
-                      alt="Party"
+                      alt={section.title}
                       fill
-                      src="/testhouse.jpg"
+                      src={urlFor(section.image).url()}
                       className="object-cover rounded-lg"
                     />
                   </div>
@@ -93,9 +94,9 @@ export default function ThreeSection({ imageArray }) {
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-7xl mx-auto lg:gap-16">
                 <div className="relative object-contain rounded-lg overflow-hidden mx-auto w-[90vw] h-[90vw] md:w-[30vw] md:h-[30vw]">
                   <Image
-                    alt="Party"
+                    alt={section.title}
                     fill
-                    src="/testhouse.jpg"
+                    src={urlFor(section.image).url()}
                     className="object-cover rounded-lg"
                   />
                 </div>

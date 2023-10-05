@@ -18,7 +18,7 @@ const Hero = ({ hero, buttontext, image, pomp = false }) => {
         alt=""
       />
       <motion.div
-        className="relative bg-gray-900 bg-opacity-75"
+        className="relative bg-gray-900 bg-opacity-50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={pomp ? { duration: 1 } : { duration: 0.4 }}

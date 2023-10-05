@@ -15,7 +15,7 @@ export const TeamHeader = ({ item }) => {
           <img
             className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
             src={urlFor(item.image).url()}
-            alt=""
+            alt={item.name}
           />
         </div>
 
