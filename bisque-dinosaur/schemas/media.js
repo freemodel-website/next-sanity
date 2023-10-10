@@ -29,5 +29,11 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'orderRank',
+      title: 'Order Rank',
+      type: 'string', // Use 'string' as the type for ordering
+      description: 'When adding a new post, type a zero, otherwise ignore this field',
+    },
   ],
 }

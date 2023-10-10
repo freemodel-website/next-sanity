@@ -10,7 +10,7 @@ import { urlFor } from "../client";
  */
 export default function Paragraph({ text }) {
   return (
-    <div className="md:max-w-6xl px-8 md:mx-auto py-24">
+    <div className="md:max-w-6xl px-8 md:mx-auto pb-16 pt-8">
       <PortableText
         dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
         projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}

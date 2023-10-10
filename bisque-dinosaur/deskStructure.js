@@ -1,9 +1,31 @@
 import {FaFileAlt} from 'react-icons/fa'
+import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 
-export const myStructure = (S) =>
+export const myStructure = (S, context) =>
   S.list()
     .title('Base')
     .items([
+      // Minimum required configuration
+      //orderableDocumentListDeskItem({type: 'post', S, context}),
+      orderableDocumentListDeskItem({
+        type: 'post',
+        title: 'Blog Post',
+        S,
+        context,
+        options: {
+          order: 'publishedAt desc',
+        },
+      }),
+      orderableDocumentListDeskItem({
+        type: 'media',
+        title: 'Press',
+        S,
+        context,
+        options: {
+          order: 'publishedAt desc',
+        },
+      }),
+
       ...S.documentTypeListItems().filter(
         (item) =>
           // item.getId() !== 'siteSettings' &&
@@ -24,7 +46,9 @@ export const myStructure = (S) =>
           item.getId() !== 'thankyous' &&
           item.getId() !== 'blogpage' &&
           item.getId() !== 'supportpage' &&
-          item.getId() !== 'forhomeowners'
+          item.getId() !== 'forhomeowners' &&
+          item.getId() !== 'post' &&
+          item.getId() !== 'media'
       ),
 
       // Home Page

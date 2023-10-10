@@ -154,6 +154,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
       validation: (Rule) => Rule.min(1).max(4),
     },
+    //Description
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
 
     //END
   ],

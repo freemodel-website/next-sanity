@@ -89,7 +89,7 @@ export default function Blog({ data, blogpage, footer }) {
 }
 
 export const getStaticProps = async () => {
-  const mainquery = await client.fetch(`*[_type == "post"]{
+  const mainquery = await client.fetch(`*[_type == "post"]|order(orderRank){
     title,
     slug,
     publishedAt,

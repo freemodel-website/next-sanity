@@ -70,7 +70,7 @@ export default function DesignServices({ data, footer }) {
             >
               {data.projects.map((item, index) => (
                 <MotionDiv
-                  className="text-center px-14"
+                  className="text-center px-4"
                   key={index}
                   variants={itemVariants}
                 >

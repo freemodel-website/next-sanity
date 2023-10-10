@@ -4,6 +4,7 @@ import {visionTool} from '@sanity/vision'
 import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemas'
 import {myStructure} from './deskStructure'
+import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 
 export default defineConfig({
   name: 'default',
@@ -15,6 +16,7 @@ export default defineConfig({
   plugins: [
     deskTool({
       structure: myStructure,
+      orderableDocumentListDeskItem,
     }),
     visionTool(),
     media(),

@@ -1,10 +1,12 @@
 import {defineField, defineType} from 'sanity'
 import {BiEdit} from 'react-icons/bi'
+import {orderRankField, orderRankOrdering} from '@sanity/orderable-document-list'
 export default defineType({
   name: 'post',
   title: 'Blog',
   icon: BiEdit,
   type: 'document',
+
   fields: [
     defineField({
       name: 'title',
@@ -64,6 +66,12 @@ export default defineType({
       of: [{type: 'reference', to: {type: 'post'}}],
       validation: (Rule) => Rule.max(3),
     }),
+    {
+      name: 'orderRank',
+      title: 'Order Rank',
+      type: 'string', // Use 'string' as the type for ordering
+      description: 'When adding a new post, type a zero, otherwise ignore this field',
+    },
   ],
 
   preview: {

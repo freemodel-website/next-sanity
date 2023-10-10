@@ -4,24 +4,25 @@ import { urlFor } from "../../client";
 
 export default function ArticleCard({ image, title, body, url }) {
   return (
-    <a href={url} target="_blank" className="mx-auto w-5/6 md:w-[30vw]">
-      <div className="relative h-52 md:h-[20vw]">
-        <Image
-          alt="Lava"
-          src={urlFor(image).url()}
-          fill
-          className=" rounded-xl object-cover"
-        />
-      </div>
-
-      <div className="py-4">
-        <h3 className="text-xl text-gray-900">{title}</h3>
-        {body && (
-          <p className="mt-2 line-clamp-3 text-base/relaxed text-black">
-            {body}
-          </p>
-        )}
-      </div>
-    </a>
+    <div className="relative w-full mx-auto group px-4 pb-10 sm:max-w-lg">
+      <a href={url}>
+        <div className="relative h-80 w-full">
+          <Image
+            src={urlFor(image).url()}
+            alt={title}
+            fill
+            className="w-full object-cover rounded-lg"
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
+          />
+        </div>
+        <div className="mt-3 space-y-2">
+          <h3 className="text-2xl text-gray-800 duration-150 group-hover:underline font-semibold">
+            {title}
+          </h3>
+        </div>
+      </a>
+    </div>
   );
 }
