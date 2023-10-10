@@ -17,13 +17,13 @@ import "keen-slider/keen-slider.min.css";
 export default function Home({ data, states, footer }) {
   let [form, setForm] = useState(<script></script>);
 
-  // Get the current URL
-  const router = useRouter();
-  const currentURL = router.asPath;
-
   useEffect(() => {
     setForm(data.htmlform);
   }, []);
+
+  // Get the current URL
+  const router = useRouter();
+  const currentURL = router.asPath;
 
   return (
     <div>

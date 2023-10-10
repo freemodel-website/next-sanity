@@ -5,6 +5,7 @@ import Footer from "../../../components/footer";
 import { client, urlFor } from "../../../client";
 import Image from "next/image";
 import Hero from "../../../components/hero";
+import { useRouter } from "next/router";
 
 export default function Blog({ data, blogpage, footer }) {
   console.log("data", data);
@@ -22,10 +23,26 @@ export default function Blog({ data, blogpage, footer }) {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+  // Get the current URL
+  const router = useRouter();
+  const currentURL = router.asPath;
+
   return (
     <div>
       <Head>
         <title>Freemodel</title>
+        <meta name="description" content={footer.description} />
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph meta tags for social media sharing */}
+        <meta property="og:title" content="Freemodel" />
+        <meta property="og:description" content={footer.description} />
+        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta
+          property="og:url"
+          content={`https://freemodel.com${currentURL}`}
+        />
+        <meta property="og:type" content="website" />
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -132,10 +149,11 @@ export const getStaticProps = async () => {
       }
     },
     linkedin,
-      instagram,
-      facebook,
-      pinterest,
+    instagram,
+    facebook,
+    pinterest,
     leftItems,
+    description,
     rightItems,
     navbar
   }`);

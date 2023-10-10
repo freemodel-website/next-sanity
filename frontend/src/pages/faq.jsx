@@ -7,12 +7,29 @@ import AccordianList from "../../components/atoms/accordianlist";
 import Ctabutton from "../../components/atoms/ctabutton";
 import Footer from "../../components/footer";
 import { client, urlFor } from "../../client";
+import { useRouter } from "next/router";
 
 export default function FAQ({ data, footer }) {
+  // Get the current URL
+  const router = useRouter();
+  const currentURL = router.asPath;
+
   return (
     <div>
       <Head>
         <title>Freemodel</title>
+        <meta name="description" content={footer.description} />
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph meta tags for social media sharing */}
+        <meta property="og:title" content="Freemodel" />
+        <meta property="og:description" content={footer.description} />
+        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta
+          property="og:url"
+          content={`https://freemodel.com${currentURL}`}
+        />
+        <meta property="og:type" content="website" />
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -76,6 +93,7 @@ export const getStaticProps = async () => {
     facebook,
     pinterest,
     leftItems,
+    description,
     rightItems,
     navbar
   }`);

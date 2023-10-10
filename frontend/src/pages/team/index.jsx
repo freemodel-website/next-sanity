@@ -6,6 +6,7 @@ import { client, urlFor } from "../../../client";
 import TeamList from "../../../components/team/teamlist";
 import { MdLocationCity } from "react-icons/md";
 import Footer from "../../../components/footer";
+import { useRouter } from "next/router";
 
 export default function Team({ team, statesList, footer }) {
   // First, sort the statesList alphabetically based on the statename
@@ -21,68 +22,26 @@ export default function Team({ team, statesList, footer }) {
     (item) => item.state[0].location.state.statename === "In-House Design Team"
   );
 
+  // Get the current URL
+  const router = useRouter();
+  const currentURL = router.asPath;
+
   return (
     <div>
       <Head>
         <title>Freemodel</title>
-        <meta
-          name="description"
-          content="Freemodel specializes in home renovations, helping agents increase the home sales price for sellers. In-person project directors are assigned to each project and work with agents directly. No upfront payments, Freemodel is paid when the home sells."
-        />
-        <meta name="keywords" content="Freemodel" />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Freemodel" />
-        <meta
-          property="og:description"
-          content="Freemodel specializes in home renovations, helping agents increase the home sales price for sellers. In-person project directors are assigned to each project and work with agents directly. No upfront payments, Freemodel is paid when the home sells."
-        />
-        <meta property="og:url" content="https://freemodel.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://freemodel.com/ogimage.jpg" />
-        <meta property="og:image:alt" content="Freemodel" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@freemodel" />
-        <meta name="twitter:creator" content="@freemodel" />
-        <meta name="twitter:title" content="Freemodel" />
-        <meta
-          name="twitter:description"
-          content="Freemodel specializes in home renovations, helping agents increase the home sales price for sellers. In-person project directors are assigned to each project and work with agents directly. No upfront payments, Freemodel is paid when the home sells."
-        />
-        <meta
-          name="twitter:image"
-          content="https://freemodel.com/ogimage.jpg"
-        />
-        <meta name="twitter:image:alt" content="Freemodel" />
-        <meta name="twitter:image:width" content="1200" />
-        <meta name="twitter:image:height" content="630" />
-        <meta itemProp="name" content="Freemodel" />
-        <meta
-          itemProp="description"
-          content="Freemodel specializes in home renovations, helping agents increase the home sales price for sellers. In-person project directors are assigned to each project and work with agents directly. No upfront payments, Freemodel is paid when the home sells."
-        />
-        <meta itemProp="image" content="https://freemodel.com/ogimage.jpg" />
-        <meta property="og:site_name" content="Freemodel" />
-        <meta name="pinterest" content="nopin" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-title" content="Freemodel" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="application-name" content="Freemodel" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="HandheldFriendly" content="true" />
-        <meta name="MobileOptimized" content="320" />
-        <meta name="robots" content="index, follow" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="google" content="notranslate" />
-        <meta name="google" content="nositelinkssearchbox" />
+        <meta name="description" content={footer.description} />
+        <link rel="icon" href="/favicon.ico" />
 
-        <link rel="icon" href="/ENicon.svg" />
+        {/* Open Graph meta tags for social media sharing */}
+        <meta property="og:title" content="Freemodel" />
+        <meta property="og:description" content={footer.description} />
+        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta
+          property="og:url"
+          content={`https://freemodel.com${currentURL}`}
+        />
+        <meta property="og:type" content="website" />
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -200,6 +159,7 @@ export const getStaticProps = async () => {
   facebook,
   pinterest,
   leftItems,
+  description,
   rightItems,
   navbar
 }`);

@@ -59,6 +59,12 @@ export default defineType({
       type: 'array',
       of: [{type: 'image'}],
     },
+    //Project Director title
+    {
+      name: 'projectdirectortitle',
+      title: 'Project Director Title',
+      type: 'string',
+    },
     //Poject Directors
     {
       name: 'projectdirectors',
