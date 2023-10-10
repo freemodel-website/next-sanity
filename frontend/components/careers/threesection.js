@@ -15,7 +15,7 @@ export default function ThreeSection({ imageArray }) {
             } sm:py-12 sm:px-6 lg:py-16 lg:px-8`}
           >
             {index % 2 === 0 ? (
-              <div className="mx-auto px-4 py-8 bg-FM-blue sm:py-12 sm:px-6 lg:py-16 lg:px-8">
+              <div className="mx-auto px-4 py-8 bg-FM-blue sm:py-12 sm:px-6 lg:py-8 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-7xl mx-auto lg:gap-16">
                   <div className="relative object-contain rounded-lg overflow-hidden mx-auto w-[90vw] h-[90vw] md:w-[30vw] md:h-[30vw] lg:order-last">
                     <Image
@@ -91,7 +91,7 @@ export default function ThreeSection({ imageArray }) {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-7xl mx-auto lg:gap-16">
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-7xl mx-auto lg:py-8 lg:gap-16">
                 <div className="relative object-contain rounded-lg overflow-hidden mx-auto w-[90vw] h-[90vw] md:w-[30vw] md:h-[30vw]">
                   <Image
                     alt={section.title}

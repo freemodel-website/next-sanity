@@ -47,7 +47,7 @@ export default function ForContractors({ data, footer }) {
         /> */}
 
         <ThreeSegment
-          title="Kudos from clients"
+          title={data.testimonialstitle}
           testimonials={data.testimonials}
         />
 
@@ -91,6 +91,7 @@ export const getStaticProps = async () => {
     bluebar2,
     sec2title,
     sec2imageArray,
+    testimonialstitle,
     testimonials[]->{
       _id,
       testimonialperson,

@@ -21,10 +21,10 @@ export default function ThreeSegment({ title, testimonials }) {
     },
     breakpoints: {
       "(min-width: 500px)": {
-        slides: { perView: 2, spacing: 5 },
+        slides: { perView: 2, spacing: 1 },
       },
       "(min-width: 1000px)": {
-        slides: { perView: 2, spacing: 5 },
+        slides: { perView: 2, spacing: 1 },
       },
     },
     loop: true,
@@ -32,11 +32,11 @@ export default function ThreeSegment({ title, testimonials }) {
 
   return (
     <>
-      <div className="navigation-wrapper relative bg-FM-blue py-20">
-        <h1 className="text-4xl sm:text-5xl text-center text-white font-bold mb-20">
+      <div className="navigation-wrapper relative bg-FM-blue pt-20 pb-8">
+        <h1 className="text-4xl sm:text-5xl text-center text-white font-bold mb-10">
           {title}
         </h1>
-        <div ref={sliderRef} className="keen-slider">
+        <div ref={sliderRef} className="keen-slider !w-3/4 mx-auto">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
@@ -44,10 +44,10 @@ export default function ThreeSegment({ title, testimonials }) {
                 index + 1
               } flex justify-center items-center`}
             >
-              <div className="flex items-center justify-center py-5 ">
+              <div className="flex items-center py-5 ">
                 <div className=" max-w-2xl pt-5 pb-10 mx-auto text-gray-800">
                   <div className="w-full mb-10">
-                    <p className="px-5 text-xl max-w-xs sm:max-w-none sm:text-4xl text-center text-gray-600 dark:text-gray-100">
+                    <p className="px-5 text-xl max-w-xs sm:max-w-none sm:text-2xl text-center text-white">
                       {testimonial.testimonialquote}
                     </p>
                   </div>

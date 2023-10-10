@@ -83,6 +83,13 @@ export default defineType({
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(3),
     },
+    //Testimonial title
+    {
+      name: 'testimonialstitle',
+      title: 'Testimonials: Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
     {
       name: 'testimonials',
       title: 'Testimonials',

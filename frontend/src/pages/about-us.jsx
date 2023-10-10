@@ -33,7 +33,7 @@ export default function AboutUs({ data, footer }) {
 
         <LearnSection faqsList={data.questionsanswers} />
 
-        <div className="text-center py-40 bg-FM-blue">
+        <div className="text-center py-20 bg-FM-blue">
           <ImageCaroucel gallery={data.imagesGallery} />
         </div>
       </main>

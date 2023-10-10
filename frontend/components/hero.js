@@ -31,7 +31,9 @@ const Hero = ({ hero, buttontext, image, pomp = false }) => {
             animate="animate"
           >
             <motion.h2
-              className="text-center m-auto mb-16 text-5xl font-bold tracking-tight text-white sm:text-8xl sm:leading-none"
+              className={`text-center m-auto
+                ${pomp ? "my-10" : "my-6"}
+                text-5xl font-bold tracking-tight text-white sm:text-8xl sm:leading-none`}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={pomp ? { delay: 0.5, duration: 1 } : null}

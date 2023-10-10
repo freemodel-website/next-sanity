@@ -3,7 +3,7 @@ import React from "react";
 export default function Testimonial({ image, quote, name, jobtitle }) {
   return (
     <div className="flex items-center justify-center px-5 py-5 ">
-      <div className="w-full max-w-3xl px-5 pt-5 pb-10 mx-auto text-gray-800">
+      <div className="w-full max-w-4xl px-5 pt-5 pb-10 mx-auto text-gray-800">
         <div className="w-full pt-1 pb-5 mx-auto  text-center">
           <a href="#" className="relative block">
             <img
@@ -14,7 +14,7 @@ export default function Testimonial({ image, quote, name, jobtitle }) {
           </a>
         </div>
         <div className="w-full mb-10">
-          <p className="px-5 text-xl max-w-xs sm:max-w-none sm:text-4xl text-center text-gray-600 dark:text-gray-100">
+          <p className="px-5 text-xl max-w-xs sm:max-w-none sm:text-2xl text-center text-white">
             {quote}
           </p>
         </div>

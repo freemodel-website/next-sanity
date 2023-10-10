@@ -126,6 +126,13 @@ export default defineType({
         },
       ],
     },
+    //Testimonial title
+    {
+      name: 'testimonialstitle',
+      title: 'Testimonials Section: Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
     //testimonials
     {
       name: 'testimonials',

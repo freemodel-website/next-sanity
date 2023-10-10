@@ -47,15 +47,15 @@ export default function Home({ data, states, footer }) {
           imageArray={data.sec2imageArray}
         />
 
-        <div className="text-center my-40">
-          <h1 className="text-5xl text-center text-black font-bold mb-20">
+        <div className="text-center mt-20 mb-40">
+          <h1 className="text-5xl text-center text-black font-bold mb-14">
             {data.sec3title}
           </h1>
           <Carousel projects={data.projects} />
         </div>
 
         <Quoteslider
-          title="Why Agents Love Us"
+          title={data.testimonialstitle}
           testimonials={data.testimonials}
         />
 
@@ -118,6 +118,7 @@ export const getStaticProps = async () => {
       slug,
       bool
     },
+    testimonialstitle,
     testimonials[]->{
       _id,
       testimonialperson,

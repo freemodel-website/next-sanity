@@ -9,7 +9,7 @@ import Hero from "../../../components/hero";
 export default function Blog({ data, blogpage, footer }) {
   console.log("data", data);
 
-  const itemsPerPage = 6; // Number of items per page
+  const itemsPerPage = 18; // Number of items per page
   const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * itemsPerPage;

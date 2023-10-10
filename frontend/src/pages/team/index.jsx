@@ -89,6 +89,7 @@ export default function Team({ team, statesList, footer }) {
 
       <main>
         <Hero hero={{ title: "Meet the team." }} />
+        <div className="mb-6"></div>
         {/* Sort project directors by state */}
         {sortedStatesList.map((state, idx) => {
           // get all project directors in this state

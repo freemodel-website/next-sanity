@@ -140,7 +140,7 @@ export default ({ gallery }) => {
                   />
                 )}
               </div>
-              <h3 className="text-white text-lg mt-4">{gallery.title}</h3>
+              <h3 className="text-white text-2xl mt-4">{gallery.title}</h3>
             </div>
           ))}
         </div>

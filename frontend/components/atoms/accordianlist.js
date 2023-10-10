@@ -15,16 +15,21 @@ const Accordianlist = ({ faqsList }) => {
 
   return (
     <div
-      className="space-y-3 mt-5 overflow-hidden border-b"
+      className="space-y-3 mt-5 overflow-hidden border-b "
       key={faqsList.q}
       onClick={handleOpenAnswer}
     >
-      <h4 className="cursor-pointer pb-5 flex items-center justify-between text-lg text-gray-700 font-medium">
+      <h4
+        className={`cursor-pointer pb-5 flex items-center justify-between text-lg 
+      ${
+        state ? "text-FM-orange" : "text-black"
+      } font-bold hover:text-FM-orange`}
+      >
         {faqsList.q}
         {state ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-gray-500 ml-2"
+            className="h-5 w-5 text-gray-500 hover:text-FM-orange ml-2"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -39,7 +44,7 @@ const Accordianlist = ({ faqsList }) => {
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-gray-500 ml-2"
+            className="h-5 w-5 text-gray-500 ml-2 hover:text-FM-orange"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

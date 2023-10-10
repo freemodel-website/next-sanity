@@ -24,8 +24,8 @@ export default function QuoteSlider({ title, testimonials }) {
 
   return (
     <>
-      <div className="navigation-wrapper relative bg-FM-blue py-20">
-        <h1 className="text-4xl sm:text-5xl text-center text-white font-bold mb-20">
+      <div className="navigation-wrapper relative bg-FM-blue pt-20">
+        <h1 className="text-4xl sm:text-5xl text-center text-white font-bold mb-4">
           {title}
         </h1>
         <div ref={sliderRef} className="keen-slider">

@@ -83,10 +83,10 @@ export const myStructure = (S) =>
         .icon(FaFileAlt)
         .child(S.document().schemaType('foragents').documentId('foragents')),
       // For Homeowners
-      S.listItem()
-        .title('For Homeowners')
-        .icon(FaFileAlt)
-        .child(S.document().schemaType('forhomeowners').documentId('forhomeowners')),
+      // S.listItem()
+      //   .title('For Homeowners')
+      //   .icon(FaFileAlt)
+      //   .child(S.document().schemaType('forhomeowners').documentId('forhomeowners')),
       // How It Works
       S.listItem()
         .title('How It Works')
