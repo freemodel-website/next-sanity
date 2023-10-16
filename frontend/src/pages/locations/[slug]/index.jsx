@@ -14,6 +14,8 @@ const ProjectSlug = ({ item, footer }) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
+  console.log("location", item);
+
   return (
     <div>
       <Head>

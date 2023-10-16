@@ -5,6 +5,28 @@ export const myStructure = (S, context) =>
   S.list()
     .title('Base')
     .items([
+      //Filtered Projects
+      S.listItem()
+        .title('Filtered Projects')
+        .child(
+          S.list()
+            .title('Filters')
+            .items([
+              S.listItem()
+                .title('Projects By City')
+                .child(
+                  S.documentTypeList('cities')
+                    .title('By City')
+                    .child((citiesId) => {
+                      return S.documentList()
+                        .title('caseStudy')
+                        .filter('_type == "caseStudy" && cities._ref == $citiesId ')
+                        .params({citiesId})
+                    })
+                ),
+            ])
+        ),
+
       // Minimum required configuration
       //orderableDocumentListDeskItem({type: 'post', S, context}),
       orderableDocumentListDeskItem({

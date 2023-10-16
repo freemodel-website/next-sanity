@@ -17,6 +17,8 @@ const ProjectSlug = ({ item, footer }) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
+  console.log("city", item);
+
   return (
     <div>
       <Head>
@@ -186,6 +188,7 @@ export const getServerSideProps = async ({ params }) => {
       },
       position,
     },
+    state,
   }`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
