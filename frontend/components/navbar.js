@@ -97,7 +97,7 @@ export default ({ data }) => {
               <li>
                 <a
                   href="/lets-talk"
-                  className="block py-3 px-4 font-medium text-center text-white bg-FM-orange hover:bg-orange-600 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                  className="block py-3 px-4 w-32 mx-auto font-medium text-center text-white bg-FM-orange hover:bg-orange-600 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
                 >
                   Let's Talk
                 </a>

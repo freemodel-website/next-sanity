@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { client, urlFor } from "../../../../../client";
 import Head from "next/head";
 import Navbar from "../../../../../components/navbar";
@@ -17,7 +17,14 @@ const ProjectSlug = ({ item, footer }) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
-  console.log("city", item);
+  //Slice up projects
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const toggleShowProjects = () => {
+    setShowAllProjects(!showAllProjects);
+  };
+  const visibleProjects = showAllProjects
+    ? item.projects
+    : item.projects.slice(0, 6);
 
   return (
     <div>
@@ -73,26 +80,39 @@ const ProjectSlug = ({ item, footer }) => {
         <div className="border-b-2 border-gray-300 w-1/2 mx-auto mb-24"></div>
 
         {/* Projects */}
-        {item.projects != 0 && (
-          <h1 className="text-5xl text-center font-bold my-20">Projects</h1>
-        )}
-        <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 my-28 mx-auto">
-          {item.projects
-            .filter((project) => project.slug)
-            .map((project) => (
-              <div key={project._id} className="w-full">
-                <Projectcard
-                  title={project.title}
-                  image={urlFor(project.mainImage).url()}
-                  slug={project.slug.current}
-                  beds={project.beds}
-                  baths={project.baths}
-                  duration={project.durationmonths}
-                  bool={project.bool}
-                />
+        {item.projects && item.projects.length > 0 && (
+          <div>
+            <h1 className="text-5xl text-center font-bold my-20">Projects</h1>
+            <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 mt-28 mx-auto">
+              {visibleProjects
+                .filter((project) => project.slug)
+                .map((project) => (
+                  <div key={project._id} className="w-full">
+                    <Projectcard
+                      title={project.title}
+                      image={urlFor(project.mainImage).url()}
+                      slug={project.slug.current}
+                      beds={project.beds}
+                      baths={project.baths}
+                      duration={project.durationmonths}
+                      bool={project.bool}
+                    />
+                  </div>
+                ))}
+            </div>
+            {item.projects.length > 6 && (
+              <div className="text-center mt-16 mb-24">
+                <button
+                  className="bg-FM-orange text-white font-semibold px-4 py-2 rounded-lg"
+                  onClick={toggleShowProjects}
+                >
+                  {showAllProjects ? "Show Less" : "Show More"}
+                </button>
               </div>
-            ))}
-        </div>
+            )}
+          </div>
+        )}
+
         {item.serviceList && (
           <div className="bg-gray-800">
             <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
@@ -110,6 +130,9 @@ const ProjectSlug = ({ item, footer }) => {
         {item.pdtitle && (
           <TeamList title={item.pdtitle} team={item.projectdirector} />
         )}
+
+        {/* Divider line */}
+        <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-16 mb-36"></div>
 
         {/* Projects */}
         <h1 className="text-4xl text-center font-bold my-20">

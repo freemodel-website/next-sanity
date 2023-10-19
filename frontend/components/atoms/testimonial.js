@@ -14,7 +14,7 @@ export default function Testimonial({ image, quote, name, jobtitle }) {
           </a>
         </div>
         <div className="w-full mb-10">
-          <p className="px-5 text-xl max-w-xs sm:max-w-none sm:text-2xl text-center text-white">
+          <p className="px-10 text-lg  sm:max-w-none sm:text-2xl text-center text-white">
             {quote}
           </p>
         </div>

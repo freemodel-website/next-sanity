@@ -16,11 +16,11 @@ export default function Bluebar({ theme, title, body, img }) {
       text = (
         <div className="bg-gray-800">
           <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-            <h2 className="text-4xl font-extrabold text-white sm:text-4xl">
+            <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
               {title}
             </h2>
 
-            <div className="text-3xl mt-4 max-w-4xl mx-auto text-white">
+            <div className="text-3xl mt-4 max-w-5xl mx-auto text-white">
               {body}
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function Bluebar({ theme, title, body, img }) {
             {lines.map((line, index) => (
               <h2
                 key={index}
-                className="text-3xl font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-4xl"
+                className="text-3xl font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-5xl"
               >
                 {line}
               </h2>
