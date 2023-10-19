@@ -69,11 +69,14 @@ const ProjectSlug = ({ item, footer }) => {
           </div>
         )}
 
+        {/* Divider line */}
+        <div className="border-b-2 border-gray-300 w-1/2 mx-auto mb-24"></div>
+
         {/* Projects */}
         {item.projects != 0 && (
-          <h1 className="text-4xl text-center font-bold my-20">Projects</h1>
+          <h1 className="text-5xl text-center font-bold my-20">Projects</h1>
         )}
-        <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 gap-10 my-28 mx-auto">
+        <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 my-28 mx-auto">
           {item.projects
             .filter((project) => project.slug)
             .map((project) => (
