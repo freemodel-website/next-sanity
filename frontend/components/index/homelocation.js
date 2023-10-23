@@ -47,7 +47,7 @@ export default function Homelocation({ states, buttontext }) {
           )
           .sort((a, b) => a.statename.localeCompare(b.statename))
           .map((state, index) => (
-            <a key={index + 1} href="javascript:void(0)">
+            <a key={index + 1} href={`/locations/${state.slug.current}`}>
               <MotionDiv className="group" key={index} variants={itemVariants}>
                 <div className="relative h-72 w-full">
                   <Image

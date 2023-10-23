@@ -22,6 +22,7 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+      description: 'www.freemodel.com/blog/[slug]',
       validation: (Rule) => Rule.required(),
     }),
 

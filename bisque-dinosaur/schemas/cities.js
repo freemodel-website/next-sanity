@@ -17,10 +17,12 @@ export default {
       name: 'slug',
       title: 'Slug (URL)',
       type: 'slug',
+      description: 'www.freemodel.com/locations/[state]/[slug]',
       options: {
         source: 'name',
         maxLength: 50,
       },
+
       validation: (Rule) => Rule.required(),
     },
     {
