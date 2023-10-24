@@ -17,6 +17,13 @@ export default function Team({ team, statesList, footer }) {
   const partnershipsTeam = team.filter(
     (item) => item.state[0].location.state.statename === "Partnerships"
   );
+  const sortedPartnershipsTeam = partnershipsTeam
+    .slice()
+    .sort((a, b) =>
+      a.state[0].location.state.statename.localeCompare(
+        b.state[0].location.state.statename
+      )
+    );
 
   const inHouseTeam = team.filter(
     (item) => item.state[0].location.state.statename === "In-House Design Team"
@@ -82,7 +89,7 @@ export default function Team({ team, statesList, footer }) {
         {/* Sort by Partnerships */}
         {partnershipsTeam && (
           <div>
-            <TeamList title={"Partnerships"} team={partnershipsTeam} />
+            <TeamList title={"Partnerships"} team={sortedPartnershipsTeam} />
           </div>
         )}
 

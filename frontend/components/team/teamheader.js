@@ -9,7 +9,7 @@ import {
 import { CgWebsite } from "react-icons/cg";
 export const TeamHeader = ({ item }) => {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-x bg-FM-blue md:max-w-full  md:px-24 lg:px-8 lg:py-20">
+    <div className="px-4 py-16 mx-auto sm:max-w-x bg-FM-blue md:max-w-full  md:px-24 lg:px-8 lg:pt-20 lg:pb-5">
       <div className="grid gap-10 lg:grid-cols-2 lg:max-w-screen-lg lg:mx-auto">
         <div>
           <img

@@ -12,6 +12,7 @@ import Projects from "../projects/index";
 import Projectcard from "../../../components/atoms/projectcard";
 import { BsInstagram } from "react-icons/bs";
 import QuoteSlider from "../../../components/quoteslider";
+import Ctabutton from "../../../components/atoms/ctabutton";
 
 const ProjectDirector = ({ item, footer }) => {
   // Get the current URL
@@ -45,7 +46,7 @@ const ProjectDirector = ({ item, footer }) => {
 
         {/* Projects */}
         {item[0].projects && (
-          <div className="flex flex-col items-center mx-auto my-28">
+          <div className="flex flex-col items-center mx-auto my-12">
             <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
             <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap gap-8">
@@ -106,6 +107,14 @@ const ProjectDirector = ({ item, footer }) => {
         {item[0].testimonials && (
           <QuoteSlider testimonials={item[0].testimonials} />
         )}
+
+        <div className=" flex flex-col items-center justify-center py-20">
+          <h1 className="text-4xl text-center max-w-6xl text-black font-bold mb-10">
+            {"Ready to prepare your clients’ homes for sale? Contact us today!"}
+          </h1>
+
+          <Ctabutton href="/lets-talk" text={"Let's Talk"} />
+        </div>
       </main>
       <Footer data={footer} />
     </div>

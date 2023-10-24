@@ -22,9 +22,11 @@ const ProjectSlug = ({ item, footer }) => {
   const toggleShowProjects = () => {
     setShowAllProjects(!showAllProjects);
   };
+  //sort alphabetically
+
   const visibleProjects = showAllProjects
-    ? item.projects
-    : item.projects.slice(0, 6);
+    ? item.projects.sort((a, b) => a.title.localeCompare(b.title))
+    : item.projects.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 6);
 
   return (
     <div>
@@ -77,7 +79,9 @@ const ProjectSlug = ({ item, footer }) => {
         )}
 
         {/* Divider line */}
-        <div className="border-b-2 border-gray-300 w-1/2 mx-auto mb-24"></div>
+        {item.projects && item.projects.length > 0 && (
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-16 mb-24"></div>
+        )}
 
         {/* Projects */}
         {item.projects && item.projects.length > 0 && (
@@ -85,6 +89,7 @@ const ProjectSlug = ({ item, footer }) => {
             <h1 className="text-5xl text-center font-bold my-20">Projects</h1>
             <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 mt-28 mx-auto">
               {visibleProjects
+                // .sort((a, b) => a.title.localeCompare(b.title))
                 .filter((project) => project.slug)
                 .map((project) => (
                   <div key={project._id} className="w-full">
@@ -132,7 +137,9 @@ const ProjectSlug = ({ item, footer }) => {
         )}
 
         {/* Divider line */}
-        <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-16 mb-36"></div>
+        {item.pdtitle && item.pdtitle.length > 0 && (
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-16 mb-24"></div>
+        )}
 
         {/* Projects */}
         <h1 className="text-4xl text-center font-bold my-20">

@@ -99,7 +99,7 @@ export default function Projects({
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center my-20">
+        <div className="flex flex-col items-center mt-20 mb-10">
           <h2 id="searchSection" className="text-4xl font-bold ">
             Customize your search
           </h2>

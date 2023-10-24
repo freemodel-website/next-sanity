@@ -114,10 +114,10 @@ const IsotopeReact = ({
             .sort((a, b) => a.name.localeCompare(b.name))}
         />
 
-        <div className="flex items-center max-w-min bg-white border border-gray-300 rounded-md px-1">
+        <div className="flex items-center max-w-min bg-white border border-gray-300 rounded-md py-1 sm:px-1">
           <input
             id="quickSearchInput"
-            className="quicksearch"
+            className="quicksearch w-72 sm:w-52 border-none focus:ring-0 text-lg focus:outline-none px-4 rounded-md"
             type="text"
             placeholder="Search"
             onChange={(e) => setQsRegex(new RegExp(e.target.value, "gi"))}

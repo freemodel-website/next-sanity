@@ -6,23 +6,31 @@ export default function Testimonial({ image, quote, name, jobtitle }) {
       <div className="w-full max-w-4xl px-5 pt-5 pb-10 mx-auto text-gray-800">
         <div className="w-full pt-1 pb-5 mx-auto  text-center">
           <a href="#" className="relative block">
-            <img
-              alt="profil"
-              src={image}
-              className="mx-auto object-cover rounded-full h-36 w-36"
-            />
+            {image && (
+              <img
+                alt="profil"
+                src={image}
+                className="mx-auto object-cover rounded-full h-36 w-36"
+              />
+            )}
           </a>
         </div>
         <div className="w-full mb-10">
-          <p className="px-10 text-lg  sm:max-w-none sm:text-2xl text-center text-white">
-            {quote}
-          </p>
+          {quote && (
+            <p className="px-10 text-lg  sm:max-w-none sm:text-2xl text-center text-white">
+              {quote}
+            </p>
+          )}
         </div>
         <div className="w-full">
-          <p className="font-bold text-center text-white text-lg sm:text-xl">
-            {name}
-          </p>
-          <p className="text-center text-gray-500 text-lg">{jobtitle}</p>
+          {name && (
+            <p className="font-bold text-center text-white text-lg sm:text-xl">
+              {name}
+            </p>
+          )}
+          {jobtitle && (
+            <p className="text-center text-gray-500 text-lg">{jobtitle}</p>
+          )}
         </div>
       </div>
     </div>

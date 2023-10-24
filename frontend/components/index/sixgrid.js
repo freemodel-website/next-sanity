@@ -24,7 +24,7 @@ export default function Sixgrid({ title, imageArray, buttontext }) {
 
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className="max-w-xl mb-10 px-10 sm:px-0 md:mx-auto text-center lg:max-w-3xl md:mb-12">
+      <div className="max-w-xl mb-10 px-10 sm:px-0 md:mx-auto text-center lg:max-w-5xl md:mb-12">
         <h2 className="mb-10 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl md:mx-auto">
           {title}
         </h2>
