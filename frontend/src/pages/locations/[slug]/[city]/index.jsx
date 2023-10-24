@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import TeamList from "../../../../../components/team/teamlist";
 
 const ProjectSlug = ({ item, footer }) => {
+  console.log(item);
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
@@ -104,6 +105,26 @@ const ProjectSlug = ({ item, footer }) => {
                     />
                   </div>
                 ))}
+              {item.caseStudies && item.caseStudies.length > 0 && (
+                <>
+                  {item.caseStudies
+                    // .sort((a, b) => a.title.localeCompare(b.title))
+                    .filter((project) => project.slug)
+                    .map((project) => (
+                      <div key={project._id} className="w-full">
+                        <Projectcard
+                          title={project.title}
+                          image={urlFor(project.mainImage).url()}
+                          slug={project.slug.current}
+                          beds={project.beds}
+                          baths={project.baths}
+                          duration={project.durationmonths}
+                          bool={project.bool}
+                        />
+                      </div>
+                    ))}
+                </>
+              )}
             </div>
             {item.projects.length > 6 && (
               <div className="text-center mt-16 mb-24">
@@ -222,6 +243,30 @@ export const getServerSideProps = async ({ params }) => {
       position,
     },
     state,
+    caseStudies []->{
+      _id,
+      title,
+      slug {
+          current
+      },
+      mainImage {
+        crop, 
+      hotspot,
+          asset->{
+              _ref,
+              _type,
+              altText,
+              description,
+              "tags": opt.media.tags[]->name.current,
+              title,
+              url
+          }
+        },
+        beds,
+        baths,
+        bool,
+        durationmonths,
+  },
   }`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

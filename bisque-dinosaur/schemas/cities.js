@@ -77,5 +77,12 @@ export default {
       title: 'CTA Button Text',
       type: 'string',
     },
+    //Case Studies
+    {
+      name: 'caseStudies',
+      title: 'Case Studies',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'caseStudy'}]}],
+    },
   ],
 }
