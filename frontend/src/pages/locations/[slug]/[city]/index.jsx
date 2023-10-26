@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import TeamList from "../../../../../components/team/teamlist";
 
 const ProjectSlug = ({ item, footer }) => {
-  console.log(item);
+  console.log("item", item);
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
@@ -85,59 +85,60 @@ const ProjectSlug = ({ item, footer }) => {
         )}
 
         {/* Projects */}
-        {item.projects && item.projects.length > 0 && (
-          <div>
-            <h1 className="text-5xl text-center font-bold my-20">Projects</h1>
-            <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 mt-28 mx-auto">
-              {visibleProjects
-                // .sort((a, b) => a.title.localeCompare(b.title))
-                .filter((project) => project.slug)
-                .map((project) => (
-                  <div key={project._id} className="w-full">
-                    <Projectcard
-                      title={project.title}
-                      image={urlFor(project.mainImage).url()}
-                      slug={project.slug.current}
-                      beds={project.beds}
-                      baths={project.baths}
-                      duration={project.durationmonths}
-                      bool={project.bool}
-                    />
-                  </div>
-                ))}
-              {item.caseStudies && item.caseStudies.length > 0 && (
-                <>
-                  {item.caseStudies
-                    // .sort((a, b) => a.title.localeCompare(b.title))
-                    .filter((project) => project.slug)
-                    .map((project) => (
-                      <div key={project._id} className="w-full">
-                        <Projectcard
-                          title={project.title}
-                          image={urlFor(project.mainImage).url()}
-                          slug={project.slug.current}
-                          beds={project.beds}
-                          baths={project.baths}
-                          duration={project.durationmonths}
-                          bool={project.bool}
-                        />
-                      </div>
-                    ))}
-                </>
+        {(item.projects && item.projects.length > 0) ||
+          (item.caseStudies && item.caseStudies.length > 0 && (
+            <div>
+              <h1 className="text-5xl text-center font-bold my-20">Projects</h1>
+              <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 mt-28 mx-auto">
+                {visibleProjects
+                  // .sort((a, b) => a.title.localeCompare(b.title))
+                  .filter((project) => project.slug)
+                  .map((project) => (
+                    <div key={project._id} className="w-full">
+                      <Projectcard
+                        title={project.title}
+                        image={urlFor(project.mainImage).url()}
+                        slug={project.slug.current}
+                        beds={project.beds}
+                        baths={project.baths}
+                        duration={project.durationmonths}
+                        bool={project.bool}
+                      />
+                    </div>
+                  ))}
+                {item.caseStudies && item.caseStudies.length > 0 && (
+                  <>
+                    {item.caseStudies
+                      // .sort((a, b) => a.title.localeCompare(b.title))
+                      .filter((project) => project.slug)
+                      .map((project) => (
+                        <div key={project._id} className="w-full">
+                          <Projectcard
+                            title={project.title}
+                            image={urlFor(project.mainImage).url()}
+                            slug={project.slug.current}
+                            beds={project.beds}
+                            baths={project.baths}
+                            duration={project.durationmonths}
+                            bool={project.bool}
+                          />
+                        </div>
+                      ))}
+                  </>
+                )}
+              </div>
+              {item.projects.length > 6 && (
+                <div className="text-center mt-16 mb-24">
+                  <button
+                    className="bg-FM-orange text-white font-semibold px-4 py-2 rounded-lg"
+                    onClick={toggleShowProjects}
+                  >
+                    {showAllProjects ? "Show Less" : "Show More"}
+                  </button>
+                </div>
               )}
             </div>
-            {item.projects.length > 6 && (
-              <div className="text-center mt-16 mb-24">
-                <button
-                  className="bg-FM-orange text-white font-semibold px-4 py-2 rounded-lg"
-                  onClick={toggleShowProjects}
-                >
-                  {showAllProjects ? "Show Less" : "Show More"}
-                </button>
-              </div>
-            )}
-          </div>
-        )}
+          ))}
 
         {item.serviceList && (
           <div className="bg-gray-800">
