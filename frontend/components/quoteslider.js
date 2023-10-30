@@ -34,7 +34,7 @@ export default function QuoteSlider({ title, testimonials }) {
               key={index}
               className={`keen-slider__slide number-slide${index + 1}`}
             >
-              {testimonial.image ? (
+              {testimonial.testimonialimage ? (
                 <Testimonial
                   image={urlFor(testimonial.testimonialimage).url()}
                   quote={testimonial.testimonialquote}

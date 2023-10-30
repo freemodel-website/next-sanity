@@ -242,6 +242,7 @@ export const getServerSideProps = async ({ params }) => {
         }
       },
       position,
+      bool,
     },
     state,
     caseStudies []->{
