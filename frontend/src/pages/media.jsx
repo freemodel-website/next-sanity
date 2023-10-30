@@ -55,7 +55,7 @@ export default function Media({ data, mediadata, footer }) {
 }
 
 export const getStaticProps = async () => {
-  const mainquery = `*[_type == "media"]{
+  const mainquery = `*[_type == "media"]|order(orderRank){
     name,
     url,
     image {
