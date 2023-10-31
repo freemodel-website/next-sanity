@@ -137,5 +137,7 @@ export async function getStaticProps() {
       footer,
       data: mainquery,
     },
+
+    revalidate: 10,
   };
 }

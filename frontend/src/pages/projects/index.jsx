@@ -128,7 +128,7 @@ export default function Projects({
   );
 }
 
-export const getServerSideProps = async () => {
+export async function getStaticProps() {
   const pagequery = `*[_type == "projects"][0] {
 
     title,
@@ -307,5 +307,7 @@ export const getServerSideProps = async () => {
       locationstype,
       footer,
     },
+
+    revalidate: 10,
   };
-};
+}
