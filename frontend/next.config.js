@@ -199,11 +199,11 @@ const nextConfig = {
         destination: "https://get.freemodel.com/for-homeowners",
         permanent: true,
       },
-      {
-        source: "/design-services",
-        destination: "https://get.freemodel.com/design-services",
-        permanent: true,
-      },
+      // {
+      //   source: "/design-services",
+      //   destination: "/design-services",
+      //   permanent: true,
+      // },
       {
         source: "/renovation-services",
         destination: "https://get.freemodel.com/renovation-services",

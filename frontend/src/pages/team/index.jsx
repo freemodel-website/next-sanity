@@ -8,7 +8,7 @@ import { MdLocationCity } from "react-icons/md";
 import Footer from "../../../components/footer";
 import { useRouter } from "next/router";
 
-export default function Team({ team, statesList, footer }) {
+export default function Team({ team, teampage, statesList, footer }) {
   // First, sort the statesList alphabetically based on the statename
   const sortedStatesList = statesList
     .slice()
@@ -54,7 +54,10 @@ export default function Team({ team, statesList, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero hero={{ title: "Meet the team." }} />
+        <Hero
+          hero={{ title: teampage.title }}
+          image={urlFor(teampage.mainImage).url()}
+        />
         <div className="mb-6"></div>
         {/* Sort project directors by state */}
         {sortedStatesList.map((state, idx) => {
@@ -85,16 +88,13 @@ export default function Team({ team, statesList, footer }) {
 
           return null;
         })}
-
         {/* Sort by Partnerships */}
         {partnershipsTeam && (
           <div>
             <TeamList title={"Partnerships"} team={sortedPartnershipsTeam} />
           </div>
         )}
-
         {/* Sort by In-House */}
-
         {inHouseTeam && (
           <div className="mb-44">
             <TeamList title={"In-House Design Team"} team={inHouseTeam} />
@@ -144,6 +144,21 @@ export const getStaticProps = async () => {
 }
 `;
 
+  //get meettheteam
+  const teamquery = `*[_type == "meettheteam"][0] {
+    _id,
+    title,
+    mainImage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    titlebutton,
+  }`;
+
   //get states
   const states = `*[_type == "states"] {
     _id,
@@ -173,10 +188,12 @@ export const getStaticProps = async () => {
 
   const team = await client.fetch(query);
   const statesList = await client.fetch(states);
+  const teampage = await client.fetch(teamquery);
 
   return {
     props: {
       team,
+      teampage,
       statesList,
       footer,
     },

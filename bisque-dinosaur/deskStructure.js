@@ -70,7 +70,8 @@ export const myStructure = (S, context) =>
           item.getId() !== 'supportpage' &&
           item.getId() !== 'forhomeowners' &&
           item.getId() !== 'post' &&
-          item.getId() !== 'media'
+          item.getId() !== 'media' &&
+          item.getId() !== 'meettheteam'
       ),
 
       // Home Page
@@ -103,6 +104,11 @@ export const myStructure = (S, context) =>
         .title('About Us')
         .icon(FaFileAlt)
         .child(S.document().schemaType('aboutus').documentId('aboutus')),
+      // Meet the Team
+      S.listItem()
+        .title('Meet the Team')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('meettheteam').documentId('meettheteam')),
       // Careers
       S.listItem()
         .title('Careers')
