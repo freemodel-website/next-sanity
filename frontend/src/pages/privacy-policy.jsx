@@ -34,7 +34,10 @@ export default function PrivacyPolicy({ data, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero hero={{ title: "Privacy Policy" }} />
+        <Hero
+          hero={{ title: "Privacy Policy" }}
+          image={urlFor(data.mainImage).url()}
+        />
 
         <Paragraph text={data.body} />
       </main>

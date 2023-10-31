@@ -77,7 +77,10 @@ export default function Projects({
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero hero={{ title: page.title }} />
+        <Hero
+          hero={{ title: page.title }}
+          image={urlFor(page.mainImage).url()}
+        />
 
         {/* Highlight studies */}
         <div className="flex flex-col items-center py-20 bg-FM-blue">

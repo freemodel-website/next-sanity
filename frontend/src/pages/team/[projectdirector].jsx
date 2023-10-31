@@ -44,6 +44,11 @@ const ProjectDirector = ({ item, footer }) => {
 
         {item[0].bio && <Paragraph text={item[0].bio} />}
 
+        {/* divider line*/}
+        {item[0].bio && (
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-10 mb-24"></div>
+        )}
+
         {/* Projects */}
         {item[0].projects && (
           <div className="flex flex-col items-center mx-auto my-12">
