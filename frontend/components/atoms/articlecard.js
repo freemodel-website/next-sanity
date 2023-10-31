@@ -5,7 +5,7 @@ import { urlFor } from "../../client";
 export default function ArticleCard({ image, title, body, url }) {
   return (
     <div className="relative w-full mx-auto group px-4 pb-10 sm:max-w-lg">
-      <a href={url}>
+      <a href={url} target="_blank">
         <div className="relative h-80 w-full">
           <Image
             src={urlFor(image).url()}
