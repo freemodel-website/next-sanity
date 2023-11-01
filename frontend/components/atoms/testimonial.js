@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Testimonial({ image, quote, name, jobtitle }) {
   return (
@@ -7,10 +8,16 @@ export default function Testimonial({ image, quote, name, jobtitle }) {
         <div className="w-full pt-1 pb-5 mx-auto  text-center">
           <a href="#" className="relative block">
             {image && (
-              <img
-                alt="profil"
+              // <img
+              //   alt="profil"
+              //   src={image}
+              //   className="mx-auto object-cover rounded-full h-36 w-36"
+              // />
+              <Image
                 src={image}
                 className="mx-auto object-cover rounded-full h-36 w-36"
+                width={144}
+                height={144}
               />
             )}
           </a>
