@@ -18,6 +18,8 @@ export default function Testimonial({ image, quote, name, jobtitle }) {
                 className="mx-auto object-cover rounded-full h-36 w-36"
                 width={144}
                 height={144}
+                loading="lazy"
+                alt={name}
               />
             )}
           </a>

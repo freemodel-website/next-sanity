@@ -15,7 +15,8 @@ const Hero = ({ hero, buttontext, image, pomp = false }) => {
         src={image ? image : "/testhouse.jpg"}
         className="absolute inset-0 object-cover w-full h-full"
         fill
-        alt=""
+        alt="hero"
+        loading="eager"
       />
       <motion.div
         className="relative bg-gray-900 bg-opacity-50"
