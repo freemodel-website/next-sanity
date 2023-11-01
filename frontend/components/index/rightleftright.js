@@ -49,7 +49,8 @@ function Section({ section, index }) {
             <div className="absolute inset-0 object-cover">
               <Image
                 src={urlFor(section.image).url()}
-                fill
+                height={448}
+                width={392}
                 alt={section.title}
                 className="w-full h-full object-cover"
               />
