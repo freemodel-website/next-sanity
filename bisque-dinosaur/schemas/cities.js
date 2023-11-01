@@ -84,5 +84,11 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'caseStudy'}]}],
     },
+    //show bool
+    {
+      name: 'hide',
+      title: 'Hide',
+      type: 'boolean',
+    },
   ],
 }

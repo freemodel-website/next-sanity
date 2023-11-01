@@ -14,6 +14,13 @@ const ProjectSlug = ({ item, footer }) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
+  let description;
+  if (item.description) {
+    description = item.description;
+  } else {
+    description = "Find your dream home";
+  }
+
   console.log("location", item);
 
   return (
@@ -42,10 +49,7 @@ const ProjectSlug = ({ item, footer }) => {
           buttontext={"Let's Talk"}
           image={urlFor(item.image).url()}
         />
-        <Bluebar
-          theme={"Find your dream home"}
-          body={"Today we support the following cities:"}
-        />
+        <Bluebar theme={"Find your dream home"} body={description} />
 
         <div className="flex flex-col sm:grid sm:grid-cols-2 justify-center items-center w-2/3 gap-10 my-28 mx-auto">
           {item.cities
@@ -57,26 +61,33 @@ const ProjectSlug = ({ item, footer }) => {
             )
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((city) => (
-              <div key={city._id} className="w-full">
-                <a
-                  href={
-                    "/locations/" + item.slug.current + "/" + city.slug.current
-                  }
-                  className="mx-auto w-5/6 md:w-[30vw]"
-                >
-                  <div className="relative h-52 md:h-[20vw]">
-                    <Image
-                      alt={city.image.altText}
-                      src={urlFor(city.image).url()}
-                      fill
-                      className="rounded-xl object-cover"
-                    />
+              <>
+                {!city?.hide && (
+                  <div key={city._id} className="w-full">
+                    <a
+                      href={
+                        "/locations/" +
+                        item.slug.current +
+                        "/" +
+                        city.slug.current
+                      }
+                      className="mx-auto w-5/6 md:w-[30vw]"
+                    >
+                      <div className="relative h-52 md:h-[20vw]">
+                        <Image
+                          alt={city.image.altText}
+                          src={urlFor(city.image).url()}
+                          fill
+                          className="rounded-xl object-cover"
+                        />
+                      </div>
+                      <div className="py-4">
+                        <h3 className="text-3xl text-FM-blue">{city.name}</h3>
+                      </div>
+                    </a>
                   </div>
-                  <div className="py-4">
-                    <h3 className="text-3xl text-FM-blue">{city.name}</h3>
-                  </div>
-                </a>
-              </div>
+                )}
+              </>
             ))}
         </div>
       </main>
@@ -94,6 +105,7 @@ export const getServerSideProps = async ({ params }) => {
     _id,
     statename,
     slug,
+    description,
     image {
       crop,
       hotspot,
@@ -106,6 +118,7 @@ export const getServerSideProps = async ({ params }) => {
         _id,
         name,
         slug,
+        hide,
         image {
           crop, 
       hotspot,

@@ -40,11 +40,7 @@ export default function Media({ data, mediadata, footer }) {
           image={urlFor(mediadata.mainImage).url()}
         />
 
-        <Bluebar
-          body={
-            "For any press inquiries please contact marketing@freemodel.com."
-          }
-        />
+        <Bluebar body={mediadata.bluetitle} />
 
         <MediaList media={data} />
       </main>

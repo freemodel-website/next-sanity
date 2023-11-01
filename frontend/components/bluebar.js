@@ -59,7 +59,27 @@ export default function Bluebar({ theme, title, body, img }) {
                 key={index}
                 className="text-3xl font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-5xl"
               >
-                {line}
+                {line.match(/\S+@\S+/) ? (
+                  <span>
+                    {line.split(/\s/).map((word, i) => {
+                      if (word.match(/\S+@\S+/)) {
+                        return (
+                          <a
+                            key={i}
+                            href={`mailto:${word}`}
+                            className="text-FM-orange brightness-125 hover:underline"
+                          >
+                            {word}
+                          </a>
+                        );
+                      } else {
+                        return word + " ";
+                      }
+                    })}
+                  </span>
+                ) : (
+                  line
+                )}
               </h2>
             ))}
           </div>
