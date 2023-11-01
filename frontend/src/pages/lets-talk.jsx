@@ -62,7 +62,10 @@ export default function LetsTalk({ data, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero hero={{ title: "Let's Talk" }} />
+        <Hero
+          hero={{ title: "Let's Talk" }}
+          image={urlFor(data.mainImage).url()}
+        />
 
         <div className="px-4 mx-auto md:px-8 md: py-10">
           <ul
