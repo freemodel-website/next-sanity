@@ -21,8 +21,6 @@ const ProjectSlug = ({ item, footer }) => {
     description = "Find your dream home";
   }
 
-  console.log("location", item);
-
   return (
     <div>
       <Head>

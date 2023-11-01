@@ -46,7 +46,7 @@ const ProjectDirector = ({ item, footer }) => {
 
         {/* divider line*/}
         {item[0].bio && (
-          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-10 mb-24"></div>
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-10 mb-16"></div>
         )}
 
         {/* Projects */}
@@ -113,7 +113,7 @@ const ProjectDirector = ({ item, footer }) => {
           <QuoteSlider testimonials={item[0].testimonials} />
         )}
 
-        <div className=" flex flex-col items-center justify-center py-20">
+        <div className=" flex flex-col items-center justify-center pt-10 pb-20">
           <h1 className="text-4xl text-center max-w-6xl text-black font-bold mb-10">
             {"Ready to prepare your clients’ homes for sale? Contact us today!"}
           </h1>

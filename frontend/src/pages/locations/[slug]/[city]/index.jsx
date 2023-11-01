@@ -71,6 +71,8 @@ const ProjectSlug = ({ item, footer }) => {
           </div>
         )}
 
+        <div className="border-b-2 border-gray-300 w-1/2 mx-auto mb-16"></div>
+
         {/* CTA */}
         {!item.htmlform && (
           <div className="text-center mb-32">
