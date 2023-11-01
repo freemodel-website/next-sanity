@@ -54,8 +54,6 @@ const IsotopeReact = ({
 
     isotopeRef.current.arrange({ filter });
 
-    console.log("isotopeRef.current", isotopeRef.current.filteredItems.length);
-
     // isotopeRef.current.filteredItems.length == 0 &&
     //   $("#noresults").removeClass("hidden");
 

@@ -118,24 +118,19 @@ const ProjectSlug = ({ item, footer }) => {
                 {item.caseStudies
                   // .sort((a, b) => a.title.localeCompare(b.title))
                   //.filter((project) => project.slug)
-                  .map(
-                    (proj) => (
-                      console.log("proj"),
-                      (
-                        <div key={proj._id} className="w-full">
-                          <Projectcard
-                            title={proj.title}
-                            image={urlFor(proj.mainImage).url()}
-                            slug={proj.slug.current}
-                            beds={proj.beds}
-                            baths={proj.baths}
-                            duration={proj.durationmonths}
-                            bool={proj.bool}
-                          />
-                        </div>
-                      )
-                    )
-                  )}
+                  .map((proj) => (
+                    <div key={proj._id} className="w-full">
+                      <Projectcard
+                        title={proj.title}
+                        image={urlFor(proj.mainImage).url()}
+                        slug={proj.slug.current}
+                        beds={proj.beds}
+                        baths={proj.baths}
+                        duration={proj.durationmonths}
+                        bool={proj.bool}
+                      />
+                    </div>
+                  ))}
               </>
             )}
           </div>

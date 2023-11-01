@@ -11,8 +11,6 @@ import ImageCaroucel from "../../components/imageCaroucel";
 import { useRouter } from "next/router";
 
 export default function AboutUs({ data, footer }) {
-  console.log(data);
-
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;

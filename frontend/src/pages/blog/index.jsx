@@ -8,8 +8,6 @@ import Hero from "../../../components/hero";
 import { useRouter } from "next/router";
 
 export default function Blog({ data, blogpage, footer }) {
-  console.log("data", data);
-
   const itemsPerPage = 18; // Number of items per page
   const [currentPage, setCurrentPage] = useState(1);
 

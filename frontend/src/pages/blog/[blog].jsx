@@ -8,7 +8,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 const Blog = ({ data, footer }) => {
-  console.log(data);
   // Create a Date object from the input string
   var dateObj = new Date(data.publishedAt);
   // Define an array for month names

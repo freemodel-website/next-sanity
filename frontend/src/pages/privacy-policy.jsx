@@ -8,7 +8,6 @@ import Paragraph from "../../components/paragraph";
 import { useRouter } from "next/router";
 
 export default function PrivacyPolicy({ data, footer }) {
-  console.log(data);
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;

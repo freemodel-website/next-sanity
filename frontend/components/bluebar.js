@@ -10,7 +10,7 @@ import { client, urlFor } from "../client";
 export default function Bluebar({ theme, title, body, img }) {
   let text;
   const lines = body.split("\n");
-  console.log(lines);
+
   switch (theme) {
     case "titletext":
       text = (

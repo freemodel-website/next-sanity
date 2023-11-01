@@ -3,8 +3,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default ({ data }) => {
-  console.log(data);
-
   const [state, setState] = useState(false);
 
   const { asPath } = useRouter();
