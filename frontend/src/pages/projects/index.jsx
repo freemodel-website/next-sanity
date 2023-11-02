@@ -7,7 +7,10 @@ import { client, urlFor } from "../../../client";
 import Projectcard from "../../../components/atoms/projectcard";
 import { FaArrowUp } from "react-icons/fa";
 import { useRouter } from "next/router";
-const IsotopeReact = dynamic(() => import("../../../components/isotopereact"));
+const IsotopeReact = dynamic(() => import("../../../components/isotopereact"), {
+  loading: () => <p>Loading...</p>,
+  ssr: false, // Set this to false to avoid server-side rendering for this component
+});
 
 import Footer from "../../../components/footer";
 
