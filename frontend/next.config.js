@@ -53,7 +53,9 @@ const nextConfig = {
         destination: "/projects/:slug*",
         permanent: true, // Set this to true if it's a permanent redirect (301)
       },
-
+      //
+      //------Redirects to get.freemodel.com--------
+      //
       {
         source: "/fairtraderealestate",
         destination: "https://get.freemodel.com/fairtraderealestate",

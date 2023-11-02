@@ -17,6 +17,7 @@ const Hero = ({ hero, buttontext, image, pomp = false }) => {
         fill
         alt="hero"
         loading="eager"
+        priority={true}
       />
       <motion.div
         className="relative bg-gray-900 bg-opacity-50"

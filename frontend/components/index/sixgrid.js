@@ -47,6 +47,7 @@ export default function Sixgrid({ title, imageArray, buttontext }) {
                 <Image
                   src={urlFor(section.image).url()}
                   fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 33vw, 25vw"
                   alt={section.title}
                 />
               </div>

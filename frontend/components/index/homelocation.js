@@ -51,8 +51,9 @@ export default function Homelocation({ states, buttontext }) {
               <MotionDiv className="group" key={index} variants={itemVariants}>
                 <div className="relative h-72 w-full">
                   <Image
-                    alt="Lava"
+                    alt={state.statename}
                     fill
+                    sizes="(max-width: 640px) 100vw, 640px"
                     src={urlFor(state.image).url()}
                     className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
                   />
