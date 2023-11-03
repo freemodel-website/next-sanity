@@ -61,7 +61,7 @@ const ProjectDirector = ({ item, footer }) => {
                   <Projectcard
                     title={item.title}
                     slug={item.slug.current}
-                    image={urlFor(item.mainImage.asset.url).url()}
+                    image={urlFor(item.mainImage).url()}
                     beds={item.beds}
                     baths={item.baths}
                     duration={item.durationmonths}
@@ -177,6 +177,8 @@ export const getServerSideProps = async ({ params }) => {
         baths,
         durationmonths,
         mainImage {
+            crop,
+            hotspot,
             asset->{
                 _ref,
                 _type,
