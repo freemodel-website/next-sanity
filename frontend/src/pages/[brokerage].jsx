@@ -1,14 +1,14 @@
 import React from "react";
-import { client, urlFor } from "../../../client";
+import { client, urlFor } from "../../client";
 import Head from "next/head";
-import Navbar from "../../../components/navbar";
-import Footer from "../../../components/footer";
-import Hero from "../../../components/hero";
-import Bluebar from "../../../components/bluebar";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
+import Hero from "../../components/hero";
+import Bluebar from "../../components/bluebar";
 import PortableText from "@sanity/block-content-to-react";
-import Projectcard from "../../../components/atoms/projectcard";
+import Projectcard from "../../components/atoms/projectcard";
 import Image from "next/image";
-import ImageCaroucel from "../../../components/imageCaroucel";
+import ImageCaroucel from "../../components/imageCaroucel";
 import { useRouter } from "next/router";
 
 const Brokerage = ({ data, footer }) => {
