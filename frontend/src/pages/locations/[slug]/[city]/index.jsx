@@ -28,6 +28,8 @@ const ProjectSlug = ({ item, footer }) => {
     ? item.projects.sort((a, b) => a.title.localeCompare(b.title))
     : item.projects.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 6);
 
+  console.log("item", item.projects);
+
   return (
     <div>
       <Head>
@@ -81,18 +83,19 @@ const ProjectSlug = ({ item, footer }) => {
         )}
 
         {/* Divider line */}
-        {item.projects && item.projects.length > 0 && (
+        {/* {(item.projects || item.caseStudies) && (
           <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-16 mb-24"></div>
-        )}
+        )} */}
 
         {/* Projects */}
 
         <div>
-          {(item?.caseStudies.length > 0 || visibleProjects.length > 0) && (
-            <h1 className="text-5xl text-center font-bold my-20">Projects</h1>
+          {(item.projects || item.caseStudies) && (
+            <h1 className="text-5xl text-center font-bold  mt-28">Projects</h1>
           )}
-          <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 mt-28 mx-auto">
-            {visibleProjects.length === 0 && (
+
+          <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-3 justify-center items-center sm:w-3/4 md:w-[90vw] 2xl:w-4/5 gap-10 mt-14 mx-auto">
+            {item.projects && (
               <>
                 {visibleProjects
                   // .sort((a, b) => a.title.localeCompare(b.title))
@@ -113,11 +116,11 @@ const ProjectSlug = ({ item, footer }) => {
               </>
             )}
 
-            {item?.caseStudies.length > 0 && (
+            {item.caseStudies && (
               <>
                 {item.caseStudies
-                  // .sort((a, b) => a.title.localeCompare(b.title))
-                  //.filter((project) => project.slug)
+                  //.sort((a, b) => a.title.localeCompare(b.title))
+                  //.filter((proj) => proj.slug)
                   .map((proj) => (
                     <div key={proj._id} className="w-full">
                       <Projectcard
