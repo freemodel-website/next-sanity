@@ -53,6 +53,16 @@ const nextConfig = {
         destination: "/projects/:slug*",
         permanent: true, // Set this to true if it's a permanent redirect (301)
       },
+
+      //------Redirects to freemodel.com--------
+
+      //meet-the-team
+      {
+        source: "/meet-the-team",
+        destination: "/team",
+        permanent: true, // Set this to true if it's a permanent redirect (301)
+      },
+
       //
       //------Redirects to get.freemodel.com--------
       //
