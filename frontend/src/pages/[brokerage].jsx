@@ -112,7 +112,11 @@ const Brokerage = ({ data, footer }) => {
                     </div>
 
                     <div>
-                      <h2 className="text-xl text-black font-semibold mt-3 group-hover:underline">
+                      <h2
+                        className={`text-xl text-black font-semibold mt-3
+                      ${item.link ? "group-hover:underline" : ""}
+                       `}
+                      >
                         {item.title}
                       </h2>
                       {item.text && (

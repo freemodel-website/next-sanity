@@ -17,6 +17,7 @@
 /** documentation here */
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 
 export default function Projectcard({
@@ -29,7 +30,7 @@ export default function Projectcard({
   bool = false,
 }) {
   return (
-    <a
+    <Link
       href={`/projects/${slug}`}
       className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 lg:w-[30vw] lg:max-w-[26rem] sm:mx-auto"
     >
@@ -82,6 +83,6 @@ export default function Projectcard({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
