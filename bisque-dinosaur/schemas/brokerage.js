@@ -105,6 +105,13 @@ export default {
       title: 'Image Gallary Title',
       type: 'string',
     },
+    //Image Gallary body
+    {
+      name: 'imageGallaryBody',
+      title: 'Image Gallary Body',
+      type: 'blockContent',
+    },
+
     {
       name: 'imagesGallery',
       title: 'Images gallery',

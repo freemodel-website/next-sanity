@@ -57,7 +57,7 @@ export default function Bluebar({ theme, title, body, img }) {
             {lines.map((line, index) => (
               <h2
                 key={index}
-                className="text-3xl font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-5xl"
+                className="text-3xl leading-[3rem] font-extrabold text-white mx-auto sm:text-[38px] sm:max-w-5xl"
               >
                 {line.match(/\S+@\S+/) ? (
                   <span>

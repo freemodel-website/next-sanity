@@ -10,6 +10,7 @@ import Projectcard from "../../components/atoms/projectcard";
 import Image from "next/image";
 import ImageCaroucel from "../../components/imageCaroucel";
 import { useRouter } from "next/router";
+import Paragraph from "../../components/paragraph";
 
 const Brokerage = ({ data, footer }) => {
   let brokerage = data;
@@ -47,8 +48,10 @@ const Brokerage = ({ data, footer }) => {
         {brokerage.text && <Bluebar body={brokerage.text} />}
 
         {/* Title */}
-        <h1 className={`text-4xl font-bold text-center my-20 `}>
-          {brokerage.title}
+        <h1
+          className={`text-5xl font-bold text-center my-20 max-w-5xl mx-auto`}
+        >
+          {brokerage.bodyTitle}
         </h1>
 
         {/* Body */}
@@ -89,7 +92,7 @@ const Brokerage = ({ data, footer }) => {
         {brokerage.imageArray && (
           <div className="max-w-7xl mx-auto my-20">
             {brokerage.sectionhead && (
-              <h2 className="text-4xl font-bold text-center my-20">
+              <h2 className="text-5xl font-bold text-center my-20">
                 {brokerage.sectionhead}
               </h2>
             )}
@@ -131,10 +134,24 @@ const Brokerage = ({ data, footer }) => {
             </div>
           </div>
         )}
-        <div className="text-center py-40 bg-FM-blue">
-          <h1 className="text-5xl text-center text-white font-bold mb-20">
+        {/* Image Gallery */}
+        <div className="text-center py-20 bg-FM-blue">
+          <h1 className="text-5xl text-center text-white font-bold">
             {brokerage.imageGallaryTitle}
           </h1>
+          {brokerage.imageGallaryBody && (
+            <div className="max-w-3xl mx-auto !text-3xl text-white">
+              <style>
+                {`
+                  p {
+                    font-size: 24px !important;
+                  }
+                `}
+              </style>
+              <Paragraph text={brokerage.imageGallaryBody} />
+            </div>
+          )}
+
           <ImageCaroucel gallery={brokerage.imagesGallery} />
         </div>
       </main>
@@ -169,6 +186,7 @@ export const getServerSideProps = async (context) => {
         }
     },
     body,
+    bodyTitle,
     "projects" : *[_type == "caseStudy" && references(^._id)]{
       _id,
       title,
@@ -194,6 +212,7 @@ export const getServerSideProps = async (context) => {
     callout,
     imageArray,
     imageGallaryTitle,
+    imageGallaryBody,
     imagesGallery []{
       title,
       image{

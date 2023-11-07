@@ -17,6 +17,18 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      //Designer to Team
+      {
+        source: "/designer/:slug*",
+        destination: "/team/:slug*",
+        permanent: true, // Set this to true if it's a permanent redirect (301)
+      },
+      //project-director to Team
+      {
+        source: "/project-director/:slug*",
+        destination: "/team/:slug*",
+        permanent: true, // Set this to true if it's a permanent redirect (301)
+      },
       //Northern California
       {
         source: "/projects/california/norcal/:slug*",
