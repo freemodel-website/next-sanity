@@ -110,10 +110,12 @@ const ProjectDirector = ({ item, footer }) => {
 
         {/* Testimonials */}
         {item[0].testimonials && (
-          <QuoteSlider testimonials={item[0].testimonials} />
+          <div className=" mb-12">
+            <QuoteSlider testimonials={item[0].testimonials} />
+          </div>
         )}
 
-        <div className=" flex flex-col items-center justify-center pt-10 pb-20">
+        <div className=" flex flex-col items-center justify-center pt-10 pb-24">
           <h1 className="text-4xl text-center max-w-6xl text-black font-bold mb-10">
             {"Ready to prepare your clients’ homes for sale? Contact us today!"}
           </h1>
