@@ -19,6 +19,7 @@ const ProjectDirector = ({ item, footer }) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
+  console.log("boi", item[0].bio.length);
   return (
     <div>
       <Head>
@@ -45,8 +46,8 @@ const ProjectDirector = ({ item, footer }) => {
         {item[0].bio && <Paragraph text={item[0].bio} />}
 
         {/* divider line*/}
-        {item[0].projects && (
-          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-10 mb-16"></div>
+        {item[0].bio.length > 1 && (
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-10 mb-16 jj"></div>
         )}
 
         {/* Projects */}

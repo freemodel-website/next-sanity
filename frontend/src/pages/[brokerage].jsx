@@ -143,7 +143,7 @@ const Brokerage = ({ data, footer }) => {
             <div className="max-w-3xl mx-auto !text-3xl text-white">
               <style>
                 {`
-                  p {
+                  .custom-styling-broker {
                     font-size: 24px !important;
                   }
                 `}

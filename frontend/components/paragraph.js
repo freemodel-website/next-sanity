@@ -18,7 +18,7 @@ export default function Paragraph({ text }) {
         className="text-lg"
         serializers={{
           normal: (props) => (
-            <p className="text-lg my-4 min-h-[6px] font-light">
+            <p className="text-lg my-4 min-h-[6px] font-light custom-styling-broker">
               {props.children}
             </p>
           ),
