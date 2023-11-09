@@ -75,7 +75,7 @@ export default function DesignServices({ data, footer }) {
           <h2 className="text-4xl font-bold text-center sm:text-5xl text-white">
             Featured Projects
           </h2>
-          <div className="flex flex-col lg:flex-row gap-8 justify-center items-center mt-10">
+          <div className="flex flex-col lg:flex-row max-w-full gap-8 justify-center items-center mt-10">
             <MotionDiv
               ref={ref} // Attach the ref to the MotionDiv
               className="grid gap-12 row-gap-8 lg:grid-cols-3"
@@ -85,7 +85,7 @@ export default function DesignServices({ data, footer }) {
             >
               {data.projects.map((item, index) => (
                 <MotionDiv
-                  className="text-center px-4"
+                  className="text-center "
                   key={index}
                   variants={itemVariants}
                 >
