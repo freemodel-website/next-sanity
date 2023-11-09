@@ -1,4 +1,4 @@
-import { urlFor } from "../../client";
+import { urlFor, client } from "../../client";
 import {
   BsLinkedin,
   BsInstagram,
@@ -7,14 +7,20 @@ import {
   BsEnvelope,
 } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
+import Image from "next/image";
 export const TeamHeader = ({ item }) => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-x bg-FM-blue md:max-w-full  md:px-24 lg:px-8 lg:pt-20 lg:pb-5">
       <div className="grid gap-10 lg:grid-cols-2 lg:max-w-screen-lg lg:mx-auto">
         <div>
-          <img
+          <Image
             className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
             src={urlFor(item.image).url()}
+            width={500}
+            height={500}
+            loading="lazy"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
+            placeholder="blur"
             alt={item.name}
           />
         </div>

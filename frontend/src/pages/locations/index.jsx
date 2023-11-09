@@ -40,12 +40,7 @@ export default function Locations({ data, states, footer }) {
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
         />
-        <Bluebar
-          theme={"Find your dream home"}
-          body={
-            "We have a wide range of properties in the most sought-after locations in the city. Find your dream home today."
-          }
-        />
+        <Bluebar theme={"Find your dream home"} body={data.bluetitle} />
       </main>
       <div className="flex flex-col sm:grid sm:grid-cols-2 justify-center items-center w-2/3 gap-10 my-28 mx-auto">
         {states
