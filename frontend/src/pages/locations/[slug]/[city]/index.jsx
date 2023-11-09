@@ -73,13 +73,15 @@ const ProjectSlug = ({ item, footer }) => {
           </div>
         )}
 
-        <div className="border-b-2 border-gray-300 w-1/2 mx-auto mb-16"></div>
-
         {/* CTA */}
         {!item.htmlform && (
           <div className="text-center mb-32">
             <Ctabutton text={item.ctaText} href={"/lets-talk"} />
           </div>
+        )}
+
+        {!item.htmlform && (
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-16 mb-24"></div>
         )}
 
         {/* Divider line */}

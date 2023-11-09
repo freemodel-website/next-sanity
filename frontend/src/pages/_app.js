@@ -35,6 +35,54 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        {/* Facebook Pixel */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+             fbq('init', '491975082291134');
+            fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=491975082291134&ev=PageView&noscript=1"
+          />
+        </noscript>
+        {/* End Facebook Pixel */}
+
+        {/* Hubspot */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/6664059.js"
+        ></script>
+        {/* End Hubspot */}
+
+        {/* GetAmbassador */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = '14b33be1-0fb5-4bdf-8f14-12e12f329861'; u[r].m = ['identify', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://cdn.getambassador.com', 'mbsy', true); 
+          `,
+          }}
+        />
+        {/* End GetAmbassador */}
+
+        {/* Google Analytics */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -48,6 +96,7 @@ export default function App({ Component, pageProps }) {
             `,
           }}
         />
+        {/* End Google Analytics */}
       </Head>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
