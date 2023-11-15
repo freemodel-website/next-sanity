@@ -67,7 +67,7 @@ const Brokerage = ({ data, footer }) => {
             {/* <h2 className="text-4xl font-bold text-center my-20">
               {brokerage.title} Projects
             </h2> */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8">
               {brokerage.projects.map((project) => (
                 <div key={project._id}>
                   <Projectcard
@@ -96,41 +96,43 @@ const Brokerage = ({ data, footer }) => {
                 {brokerage.sectionhead}
               </h2>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {brokerage.imageArray.map((item) => (
-                <a
-                  key={item._id}
-                  href={item.link}
-                  target="_blank"
-                  className="group mx-auto max-w-full"
-                >
-                  <div className="flex flex-col max-w-md p-6 dark:text-gray-100">
-                    <div className="relative h-64 sm:h-64 sm:w-96">
-                      <Image
-                        src={urlFor(item.image).url()}
-                        alt={item.title}
-                        fill
-                        className="flex-shrink-0 object-cover rounded-lg aspect-square"
-                      />
-                    </div>
+            <div className="flex justify-center items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8">
+                {brokerage.imageArray.map((item) => (
+                  <a
+                    key={item._id}
+                    href={item.link}
+                    target="_blank"
+                    className="group mx-auto w-full flex items-center"
+                  >
+                    <div className="flex flex-col w-full dark:text-gray-100">
+                      <div className="relative h-64 sm:h-64 sm:w-96 w-full">
+                        <Image
+                          src={urlFor(item.image).url()}
+                          alt={item.title}
+                          fill
+                          className="flex-shrink-0 object-cover rounded-lg aspect-square w-full"
+                        />
+                      </div>
 
-                    <div>
-                      <h2
-                        className={`text-xl text-black font-semibold mt-3
-                      ${item.link ? "group-hover:underline" : ""}
-                       `}
-                      >
-                        {item.title}
-                      </h2>
-                      {item.text && (
-                        <p className="mt-2 line-clamp-3 text-base/relaxed text-black">
-                          {item.text}
-                        </p>
-                      )}
+                      <div className="w-full">
+                        <h2
+                          className={`text-xl text-black font-semibold mt-3
+                ${item.link ? "group-hover:underline" : ""}
+              `}
+                        >
+                          {item.title}
+                        </h2>
+                        {item.text && (
+                          <p className="mt-2 line-clamp-3 text-base/relaxed text-black">
+                            {item.text}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         )}

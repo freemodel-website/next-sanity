@@ -46,14 +46,14 @@ const ProjectDirector = ({ item, footer }) => {
         {item[0].bio && <Paragraph text={item[0].bio} />}
 
         {/* divider line*/}
-        {item[0].bio.length > 1 && (
+        {/* {item[0].bio.length > 1 && (
           <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-10 mb-16 jj"></div>
-        )}
+        )} */}
 
         {/* Projects */}
         {item[0].projects && (
           <div className="flex flex-col items-center mx-auto my-12">
-            <h2 className="text-4xl font-bold mb-10">Projects</h2>
+            <h2 className="text-5xl font-bold mb-10 mt-10">Projects</h2>
 
             <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap gap-8">
               {/* map through casestudyselect */}
@@ -75,14 +75,14 @@ const ProjectDirector = ({ item, footer }) => {
         )}
 
         {/* divider line*/}
-        {item[0].media && (
+        {/* {item[0].media && (
           <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-20 "></div>
-        )}
+        )} */}
 
         {/* Media */}
         {item[0].media && (
           <div className="flex flex-col mx-auto items-center max-w-[85vw] my-28">
-            <h2 className="text-4xl font-bold mb-10">Media</h2>
+            <h2 className="text-5xl font-bold mb-10 mt-10">Media</h2>
             <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-8">
               {/* map through casestudyselect */}
               {item[0].media.map((item) => (
@@ -90,7 +90,7 @@ const ProjectDirector = ({ item, footer }) => {
                   key={item._id}
                   href={item.url}
                   target="_blank"
-                  className="group mx-auto"
+                  className="group"
                 >
                   <div className="flex flex-col max-w-md p-6 dark:text-gray-100">
                     <div className="relative h-64 sm:h-64">
