@@ -11,13 +11,81 @@ import Image from "next/image";
 import ImageCaroucel from "../../components/imageCaroucel";
 import { useRouter } from "next/router";
 import Paragraph from "../../components/paragraph";
+import { useState, useEffect } from "react";
 
 const Brokerage = ({ data, footer }) => {
   let brokerage = data;
+  const [imageType, setImageType] = useState(false);
 
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
+
+  // If there is no gallery, set a default image
+
+  useEffect(() => {
+    // If there is no gallery, set a default image
+    if (!brokerage.imageArray) {
+      setImageType(true);
+
+      brokerage.imageArray = [
+        //1
+        {
+          text: "A local project director to design, plan, and manage renovations.",
+          image: {
+            asset: {
+              url: "/defaultSixGrid/six-1.webp",
+            },
+          },
+        },
+        //2
+        {
+          text: "Designers selecting top selling design trends.",
+          image: {
+            asset: {
+              url: "/defaultSixGrid/six-2.webp",
+            },
+          },
+        },
+        //3
+        {
+          text: "Licensed contractors to ensure project quality.",
+          image: {
+            asset: {
+              url: "/defaultSixGrid/six-3.webp",
+            },
+          },
+        },
+        //4
+        {
+          text: "No upfront cost, no interest, saving $ for everyone.",
+          image: {
+            asset: {
+              url: "/defaultSixGrid/six-4.webp",
+            },
+          },
+        },
+        //5
+        {
+          text: "Any renovation size from single-rooms to full home transformations.",
+          image: {
+            asset: {
+              url: "/defaultSixGrid/six-5.webp",
+            },
+          },
+        },
+        //6
+        {
+          text: "An easy approval process; no credit or background checks.",
+          image: {
+            asset: {
+              url: "/defaultSixGrid/six-6.webp",
+            },
+          },
+        },
+      ];
+    }
+  }, [brokerage.imageArray]);
 
   return (
     <div>
@@ -91,11 +159,10 @@ const Brokerage = ({ data, footer }) => {
         {/* Image Array */}
         {brokerage.imageArray && (
           <div className="max-w-7xl mx-auto my-20">
-            {brokerage.sectionhead && (
-              <h2 className="text-5xl font-bold text-center my-20">
-                {brokerage.sectionhead}
-              </h2>
-            )}
+            <h2 className="text-5xl font-bold text-center my-20">
+              {brokerage.sectionhead ? brokerage.sectionhead : "Why Freemodel?"}
+            </h2>
+
             <div className="flex justify-center items-center">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8">
                 {brokerage.imageArray.map((item) => (
@@ -107,12 +174,22 @@ const Brokerage = ({ data, footer }) => {
                   >
                     <div className="flex flex-col w-full dark:text-gray-100">
                       <div className="relative h-64 sm:h-64 sm:w-96 w-full">
-                        <Image
-                          src={urlFor(item.image).url()}
-                          alt={item.title}
-                          fill
-                          className="flex-shrink-0 object-cover rounded-lg aspect-square w-full"
-                        />
+                        {!imageType && (
+                          <Image
+                            src={urlFor(item.image).url()}
+                            alt={item.title}
+                            fill
+                            className="flex-shrink-0 object-cover rounded-lg aspect-square w-full"
+                          />
+                        )}
+                        {imageType && (
+                          <Image
+                            src={item.image.asset.url}
+                            alt={item.title}
+                            fill
+                            className="flex-shrink-0 object-cover rounded-lg aspect-square w-full"
+                          />
+                        )}
                       </div>
 
                       <div className="w-full">
@@ -124,7 +201,7 @@ const Brokerage = ({ data, footer }) => {
                           {item.title}
                         </h2>
                         {item.text && (
-                          <p className="mt-2 line-clamp-3 text-base/relaxed text-black">
+                          <p className="mt-2 line-clamp-3 text-base/relaxed text-black min-h-[52px]">
                             {item.text}
                           </p>
                         )}

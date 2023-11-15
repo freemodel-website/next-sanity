@@ -15,75 +15,75 @@ export default ({ gallery }) => {
   if (!gallery) {
     imageType = true;
     gallery = [
-      // 1
-      {
-        title: "Living Rooms",
-        image: {
-          asset: {
-            url: "/defaultCarousel/1.png",
-          },
-        },
-      },
-      // 2
-      {
-        title: "Conversions",
-        image: {
-          asset: {
-            url: "/defaultCarousel/2.jpeg",
-          },
-        },
-      },
-      // 3
-      {
-        title: "Kitchens",
-        image: {
-          asset: {
-            url: "/defaultCarousel/3.jpg",
-          },
-        },
-      },
-      // 4
-      {
-        title: "Backyards",
-        image: {
-          asset: {
-            url: "/defaultCarousel/4.jpg",
-          },
-        },
-      },
-      // 5
+      //1
       {
         title: "Dining Rooms",
         image: {
           asset: {
-            url: "/defaultCarousel/5.jpg",
+            url: "/defaultCarousel/new-diningroom.webp",
           },
         },
       },
-      // 6
+      //2
       {
-        title: "Exteriors",
+        title: "Kitchens",
         image: {
           asset: {
-            url: "/defaultCarousel/6.jpg",
+            url: "/defaultCarousel/new-kitchen-default.webp",
           },
         },
       },
-      // 7
+      //3
       {
-        title: "Family Rooms",
+        title: "Living Rooms",
         image: {
           asset: {
-            url: "/defaultCarousel/7.jpg",
+            url: "/defaultCarousel/new-livingroom.webp",
           },
         },
       },
-      // 8
+      //4
       {
         title: "Bathrooms",
         image: {
           asset: {
-            url: "/defaultCarousel/8.png",
+            url: "/defaultCarousel/new-bathroom.webp",
+          },
+        },
+      },
+      //5
+      {
+        title: "Exteriors",
+        image: {
+          asset: {
+            url: "/defaultCarousel/new-exterior.webp",
+          },
+        },
+      },
+      //6
+      {
+        title: "Family Rooms",
+        image: {
+          asset: {
+            url: "/defaultCarousel/new-familyroom.webp",
+          },
+        },
+      },
+      //7
+      {
+        title: "Backyards",
+        image: {
+          asset: {
+            url: "/defaultCarousel/new-backyard.webp",
+          },
+        },
+      },
+      //8
+      {
+        title: "Conversions",
+        image: {
+          asset: {
+            url: "/defaultCarousel/new-conversion.webp",
           },
         },
       },
