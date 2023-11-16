@@ -117,7 +117,14 @@ const ProjectDirector = ({ item, footer }) => {
         {/* Testimonials */}
         {item[0].testimonials && (
           <div className=" mb-12">
-            <QuoteSlider testimonials={item[0].testimonials} />
+            <QuoteSlider
+              testimonials={item[0].testimonials}
+              title={
+                item[0].testimonialTitle
+                  ? item[0].testimonialTitle
+                  : "Kudos from Clients"
+              }
+            />
           </div>
         )}
 
@@ -171,6 +178,7 @@ export const getServerSideProps = async ({ params }) => {
         name,
         slug
     },
+    testimonialTitle,
     testimonials[]->{
       _id,
       testimonialperson,

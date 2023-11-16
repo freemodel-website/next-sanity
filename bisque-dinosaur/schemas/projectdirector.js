@@ -73,6 +73,13 @@ export default {
       to: [{type: 'cities'}],
       validation: (Rule) => Rule.required(),
     },
+    //Testimonial title
+    {
+      name: 'testimonialTitle',
+      title: 'Testimonial Title',
+      type: 'string',
+      placeholder: 'Kudos from Clients',
+    },
     //Testimonials
     {
       name: 'testimonials',
