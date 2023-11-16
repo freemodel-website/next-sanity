@@ -112,7 +112,7 @@ export default function DesignServices({ data, footer }) {
           team={data.projectdirectors}
         />
 
-        <div className=" flex flex-col bg-FM-blue items-center justify-center py-40">
+        <div className=" flex flex-col bg-FM-blue items-center justify-center py-28">
           <h1 className="text-4xl text-center max-w-6xl text-white font-bold mb-10">
             {data.ctatitle}
           </h1>

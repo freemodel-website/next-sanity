@@ -163,7 +163,7 @@ const Brokerage = ({ data, footer }) => {
               {brokerage.sectionhead ? brokerage.sectionhead : "Why Freemodel?"}
             </h2>
 
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center px-4">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8">
                 {brokerage.imageArray.map((item) => (
                   <a
@@ -173,7 +173,7 @@ const Brokerage = ({ data, footer }) => {
                     className="group mx-auto w-full flex items-center"
                   >
                     <div className="flex flex-col w-full dark:text-gray-100">
-                      <div className="relative h-64 sm:h-64 sm:w-96 w-full">
+                      <div className="relative h-64 sm:h-64 sm:w-96 !w-full">
                         {!imageType && (
                           <Image
                             src={urlFor(item.image).url()}
