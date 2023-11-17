@@ -74,6 +74,16 @@ const nextConfig = {
         destination: "/team",
         permanent: true, // Set this to true if it's a permanent redirect (301)
       },
+      {
+        source: "/contractors",
+        destination: "/for-contractors",
+        permanent: true, // Set this to true if it's a permanent redirect (301)
+      },
+      {
+        source: "/form-lets-talk-homeowner",
+        destination: "/lets-talk",
+        permanent: true, // Set this to true if it's a permanent redirect (301)
+      },
 
       //
       //------Redirects to get.freemodel.com--------
