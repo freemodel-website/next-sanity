@@ -88,6 +88,12 @@ export default defineType({
                 hotspot: true,
               },
             },
+            //link
+            {
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+            },
             {
               name: 'title',
               title: 'Title',

@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         {/* Facebook Pixel */}
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
             !function(f,b,e,v,n,t,s)
@@ -63,17 +63,17 @@ export default function App({ Component, pageProps }) {
         {/* End Facebook Pixel */}
 
         {/* Hubspot */}
-        <script
+        <Script
           type="text/javascript"
           id="hs-script-loader"
           async
           defer
           src="//js.hs-scripts.com/6664059.js"
-        ></script>
+        ></Script>
         {/* End Hubspot */}
 
         {/* GetAmbassador */}
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
             (function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = '14b33be1-0fb5-4bdf-8f14-12e12f329861'; u[r].m = ['identify', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://cdn.getambassador.com', 'mbsy', true); 
@@ -81,9 +81,23 @@ export default function App({ Component, pageProps }) {
           }}
         />
         {/* End GetAmbassador */}
+        {/* Google Tag Manager */}
+        <Script
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TSFT6WGW');
+      `,
+          }}
+        />
+        {/* End Google Tag Manager */}
 
         {/* Google Analytics */}
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];

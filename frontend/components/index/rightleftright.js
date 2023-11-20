@@ -59,9 +59,19 @@ function Section({ section, index }) {
           <div
             className={index % 2 === 0 ? "lg:py-24" : "lg:py-24 sm:order-last"}
           >
-            <h2 className="text-3xl font-bold text-white underline underline-offset-4 decoration-1 sm:text-4xl">
-              {section.title}
-            </h2>
+            {section?.link && (
+              <a href={section?.link} rel="noopener noreferrer">
+                <h2 className="text-3xl font-bold text-white underline underline-offset-4 decoration-1 sm:text-4xl hover:text-FM-orange">
+                  {section.title}
+                </h2>
+              </a>
+            )}
+            {!section?.link && (
+              <h2 className="text-3xl font-bold text-white underline underline-offset-4 decoration-1 sm:text-4xl">
+                {section.title}
+              </h2>
+            )}
+
             <p className="mt-4 text-white font-light text-3xl">
               {section.text}
             </p>

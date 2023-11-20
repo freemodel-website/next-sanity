@@ -44,6 +44,13 @@ export default defineType({
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
     },
+    //Agent Body
+    {
+      name: 'notifybody',
+      title: 'Agent Body',
+      type: 'blockContent',
+      validation: (Rule) => Rule.required(),
+    },
     //Social Media
     {
       title: 'LinkedIn',

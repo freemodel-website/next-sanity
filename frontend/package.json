@@ -13,6 +13,7 @@
     "@portabletext/react": "^3.0.2",
     "@sanity/client": "^6.1.2",
     "@sanity/image-url": "^1.0.2",
+    "@vercel/analytics": "^1.1.1",
     "autoprefixer": "10.4.14",
     "framer-motion": "^10.16.0",
     "google-fonts-plugin": "^5.0.2",

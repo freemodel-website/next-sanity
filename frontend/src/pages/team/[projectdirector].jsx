@@ -128,7 +128,9 @@ const ProjectDirector = ({ item, footer }) => {
           </div>
         )}
 
-        <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-20 mb-10"></div>
+        {!item[0].testimonials && (
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-20 mb-10"></div>
+        )}
 
         <div className=" flex flex-col items-center justify-center pt-10 pb-24">
           <h1 className="text-4xl text-center max-w-6xl text-black font-bold mb-10">
