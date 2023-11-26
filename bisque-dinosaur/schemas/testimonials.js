@@ -21,6 +21,9 @@ export default {
       name: 'testimonialimage',
       title: 'Person Image',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'testimonialposition',
