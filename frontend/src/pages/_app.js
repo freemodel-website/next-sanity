@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { Noto_Serif, Pontano_Sans } from "next/font/google";
 import { LayoutPageRenderer } from "next-page-layout";
+//Import Vercel Analytics
+import { Analytics } from "@vercel/analytics/react";
 //Google Analytics
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -137,6 +139,8 @@ export default function App({ Component, pageProps }) {
         `}</style>
         {/* <Component {...pageProps} /> */}
         <LayoutPageRenderer page={Component} initialProps={pageProps} />
+        {/* Vercel Analytics */}
+        <Analytics />
       </main>
     </>
   );
