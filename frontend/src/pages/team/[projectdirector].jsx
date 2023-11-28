@@ -19,7 +19,6 @@ const ProjectDirector = ({ item, footer }) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
-  console.log("boi", item[0].bio.length);
   return (
     <div>
       <Head>
