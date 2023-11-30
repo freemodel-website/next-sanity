@@ -117,21 +117,21 @@ const Brokerage = ({ data, footer }) => {
 
         {/* Title */}
         <h1
-          className={`text-5xl font-bold text-center my-20 max-w-5xl mx-auto`}
+          className={`text-4xl font-bold text-center mt-20 max-w-5xl mx-auto`}
         >
           {brokerage.bodyTitle}
         </h1>
 
         {/* Body */}
         {brokerage.body && (
-          <div className="max-w-3xl mx-auto my-20">
+          <div className="max-w-3xl mx-auto mt-10 mb-10">
             <PortableText blocks={brokerage.body} />
           </div>
         )}
 
         {/* Projects */}
         {brokerage.projects && (
-          <div className="max-w-7xl mx-auto my-20">
+          <div className="max-w-7xl mx-auto mb-20">
             {/* <h2 className="text-4xl font-bold text-center my-20">
               {brokerage.title} Projects
             </h2> */}
@@ -143,7 +143,7 @@ const Brokerage = ({ data, footer }) => {
                     image={urlFor(project.mainImage.asset.url).url()}
                     beds={project.beds}
                     baths={project.baths}
-                    durationmonths={project.durationmonths}
+                    duration={project.durationmonths}
                     slug={project.slug.current}
                   />
                 </div>
@@ -159,7 +159,7 @@ const Brokerage = ({ data, footer }) => {
         {/* Image Array */}
         {brokerage.imageArray && (
           <div className="max-w-7xl mx-auto my-20">
-            <h2 className="text-5xl font-bold text-center my-20">
+            <h2 className="text-5xl font-bold text-center mt-20 mb-10">
               {brokerage.sectionhead ? brokerage.sectionhead : "Why Freemodel?"}
             </h2>
 
@@ -224,6 +224,7 @@ const Brokerage = ({ data, footer }) => {
                 {`
                   .custom-styling-broker {
                     font-size: 24px !important;
+                    margin-bottom: -20px;
                   }
                 `}
               </style>
