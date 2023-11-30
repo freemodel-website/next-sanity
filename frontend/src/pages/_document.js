@@ -5,6 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Google Tag Manager */}
         <Script
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{
@@ -17,6 +18,7 @@ export default function Document() {
       `,
           }}
         />
+        {/* End Google Tag Manager */}
       </Head>
 
       <body>
