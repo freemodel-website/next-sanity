@@ -19,12 +19,12 @@ export default function AboutUs({ data, footer }) {
     <div>
       <Head>
         <title>Freemodel</title>
-        <meta name="description" content={footer.description} />
+        <meta name="description" content={data.bluetitle} />
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
         <meta property="og:title" content="Freemodel" />
-        <meta property="og:description" content={footer.description} />
+        <meta property="og:description" content={data.bluetitle} />
         <meta property="og:image" content={urlFor(footer.footerimage).url()} />
         <meta
           property="og:url"

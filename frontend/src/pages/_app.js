@@ -10,8 +10,6 @@ import Script from "next/script";
 import { useEffect } from "react";
 import * as gtag from "../../lib/gtag";
 
-var test = parsedexternalID?.TABLE - US;
-
 const noto_serif = Noto_Serif({
   subsets: ["latin"],
   weight: "700",

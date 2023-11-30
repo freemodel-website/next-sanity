@@ -37,13 +37,15 @@ export default function Team({ team, teampage, statesList, footer }) {
     <div>
       <Head>
         <title>Freemodel</title>
-        <meta name="description" content={footer.description} />
+        <meta name="description" content={teampage?.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
-        <meta property="og:title" content="Freemodel" />
-        <meta property="og:description" content={footer.description} />
-        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta property="og:title" content={teampage?.seoTitle} />
+        <meta property="og:description" content={teampage?.seoDescription} />
+        {teampage?.seoImage && (
+          <meta property="og:image" content={urlFor(teampage.seoImage).url()} />
+        )}
         <meta
           property="og:url"
           content={`https://freemodel.com${currentURL}`}
@@ -157,6 +159,9 @@ export const getStaticProps = async () => {
       }
     },
     titlebutton,
+    seoTitle,
+  seoDescription,
+  seoImage,
   }`;
 
   //get states
