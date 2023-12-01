@@ -140,7 +140,7 @@ const Brokerage = ({ data, footer }) => {
                 <div key={project._id}>
                   <Projectcard
                     title={project.title}
-                    image={urlFor(project.mainImage.asset.url).url()}
+                    image={urlFor(project.mainImage).url()}
                     beds={project.beds}
                     baths={project.baths}
                     duration={project.durationmonths}

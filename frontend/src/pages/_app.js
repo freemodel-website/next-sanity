@@ -37,6 +37,10 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <meta
+          name="facebook-domain-verification"
+          content="5pc9nltxw34updxgju5hx3etg0917m"
+        />
         {/* Facebook Pixel */}
         <Script
           dangerouslySetInnerHTML={{
@@ -115,7 +119,7 @@ export default function App({ Component, pageProps }) {
         {/* End Google Analytics */}
 
         {/* Google Analytics 2 */}
-        <Script
+        {/* <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-F8409LCB3N"
         ></Script>
@@ -129,7 +133,7 @@ export default function App({ Component, pageProps }) {
             gtag('config', 'G-F8409LCB3N');
             `,
           }}
-        />
+        /> */}
         {/* End Google Analytics 2 */}
         {/* Facebook Pixel */}
         <Script
@@ -163,6 +167,7 @@ export default function App({ Component, pageProps }) {
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
+      {/* End Global Site Tag (gtag.js) - Google Analytics */}
       <main className={`${noto_serif.variable} ${pontano_sans.variable}`}>
         <style jsx global>{`
           h1,

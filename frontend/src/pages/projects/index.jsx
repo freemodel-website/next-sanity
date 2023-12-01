@@ -62,13 +62,15 @@ export default function Projects({
     <div>
       <Head>
         <title>Freemodel</title>
-        <meta name="description" content={footer.description} />
+        <meta name="description" content={page?.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
-        <meta property="og:title" content="Freemodel" />
-        <meta property="og:description" content={footer.description} />
-        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta property="og:title" content={page?.seoTitle} />
+        <meta property="og:description" content={page?.seoDescription} />
+        {page?.seoImage && (
+          <meta property="og:image" content={urlFor(page.seoImage).url()} />
+        )}
         <meta
           property="og:url"
           content={`https://freemodel.com${currentURL}`}
@@ -176,6 +178,9 @@ export async function getStaticProps() {
         bool,
         durationmonths,
   },
+  seoTitle,
+  seoDescription,
+  seoImage,
     }
   `;
   const query = ` *[_type == "caseStudy"] {

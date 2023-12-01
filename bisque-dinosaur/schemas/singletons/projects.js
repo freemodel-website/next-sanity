@@ -5,8 +5,17 @@ export default defineType({
   title: 'Projects',
   type: 'document',
 
-  // Uncomment below to have edits publish automatically as you type
-  // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,6 +23,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'mainImage',
@@ -22,6 +32,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      group: 'page',
     },
     {
       name: 'highlighttitle',
@@ -29,6 +40,7 @@ export default defineType({
       title: 'Highlights',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Select other case studies
     {
@@ -42,7 +54,12 @@ export default defineType({
         },
       ],
       validation: (Rule) => Rule.max(3),
+      group: 'page',
     },
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
   ],
   preview: {
     select: {
