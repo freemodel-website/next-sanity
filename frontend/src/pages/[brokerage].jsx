@@ -110,7 +110,7 @@ const Brokerage = ({ data, footer }) => {
       <main>
         <Hero
           hero={{ title: brokerage.title }}
-          image={urlFor(brokerage.mainImage.asset.url).url()}
+          image={urlFor(brokerage.mainImage).url()}
         />
 
         {brokerage.text && <Bluebar body={brokerage.text} />}
