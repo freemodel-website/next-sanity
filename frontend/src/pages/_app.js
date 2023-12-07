@@ -69,13 +69,13 @@ export default function App({ Component, pageProps }) {
         {/* End Facebook Pixel */}
 
         {/* Hubspot */}
-        <Script
+        {/* <Script
           type="text/javascript"
           id="hs-script-loader"
           async
           defer
           src="//js.hs-scripts.com/6664059.js"
-        ></Script>
+        ></Script> */}
         {/* End Hubspot */}
 
         {/* GetAmbassador */}

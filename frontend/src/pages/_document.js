@@ -19,6 +19,15 @@ export default function Document() {
           }}
         />
         {/* End Google Tag Manager */}
+        {/* Hubspot */}
+        <Script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/6664059.js"
+        ></Script>
+        {/* End Hubspot */}
         {/* Facebook Pixel */}
         <Script
           dangerouslySetInnerHTML={{
