@@ -136,18 +136,20 @@ const Brokerage = ({ data, footer }) => {
               {brokerage.title} Projects
             </h2> */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8">
-              {brokerage.projects.map((project) => (
-                <div key={project._id}>
-                  <Projectcard
-                    title={project.title}
-                    image={urlFor(project.mainImage).url()}
-                    beds={project.beds}
-                    baths={project.baths}
-                    duration={project.durationmonths}
-                    slug={project.slug.current}
-                  />
-                </div>
-              ))}
+              {brokerage.projects
+                .sort((a, b) => (a._updatedAt > b._updatedAt ? -1 : 1))
+                .map((project) => (
+                  <div key={project._id}>
+                    <Projectcard
+                      title={project.title}
+                      image={urlFor(project.mainImage).url()}
+                      beds={project.beds}
+                      baths={project.baths}
+                      duration={project.durationmonths}
+                      slug={project.slug.current}
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         )}
@@ -269,6 +271,7 @@ export const getServerSideProps = async (context) => {
     bodyTitle,
     "projects" : *[_type == "caseStudy" && references(^._id)]{
       _id,
+      _updatedAt,
       title,
       slug,
       mainImage {

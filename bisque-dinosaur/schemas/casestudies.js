@@ -34,6 +34,17 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    // Date Field with Initial Value
+    {
+      name: 'date',
+      title: 'Date Completed',
+      type: 'date',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+      },
+      validation: (Rule) => Rule.required(),
+      initialValue: () => new Date().toISOString().split('T')[0], // Set initial value to the current date
+    },
     //Profit
     {
       name: 'dollarprofit',
