@@ -1,12 +1,27 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
+import * as gtag from "../../lib/gtag";
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Google Analytics */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${gtag.GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
         {/* Google Tag Manager */}
-        <Script
+        <script
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
@@ -20,16 +35,16 @@ export default function Document() {
         />
         {/* End Google Tag Manager */}
         {/* Hubspot */}
-        <Script
+        <script
           type="text/javascript"
           id="hs-script-loader"
           async
           defer
           src="//js.hs-scripts.com/6664059.js"
-        ></Script>
+        ></script>
         {/* End Hubspot */}
         {/* Facebook Pixel */}
-        <Script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             !function(f,b,e,v,n,t,s)

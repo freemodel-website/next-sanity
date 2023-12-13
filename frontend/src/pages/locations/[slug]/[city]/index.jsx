@@ -28,7 +28,8 @@ const ProjectSlug = ({ item, footer }) => {
     ? item.projects.sort((a, b) => a.title.localeCompare(b.title))
     : item.projects.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 6);
 
-  console.log("item", item.projects);
+  console.log("item projects", item?.projects);
+  console.log("visible projects", item?.caseStudies);
 
   return (
     <div>
@@ -80,7 +81,8 @@ const ProjectSlug = ({ item, footer }) => {
           </div>
         )}
 
-        {!item.htmlform && (
+        {/* prettier-ignore */}
+        {(item.projects?.length > 0 || item.caseStudies?.length > 0) && (
           <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-16 mb-24"></div>
         )}
 
@@ -92,7 +94,10 @@ const ProjectSlug = ({ item, footer }) => {
         {/* Projects */}
 
         <div>
-          {(item.projects || item.caseStudies) && (
+          {/* {(item.projects || item.caseStudies) && (
+            <h1 className="text-5xl text-center font-bold  mt-28">Projects</h1>
+          )} */}
+          {(item.projects?.length > 0 || item.caseStudies?.length > 0) && (
             <h1 className="text-5xl text-center font-bold  mt-28">Projects</h1>
           )}
 
