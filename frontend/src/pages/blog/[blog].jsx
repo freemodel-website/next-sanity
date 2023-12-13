@@ -40,7 +40,9 @@ const Blog = ({ data, footer }) => {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>
+          {data.title} | {footer.title}
+        </title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

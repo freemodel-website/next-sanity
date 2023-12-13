@@ -16,7 +16,7 @@ export default function Media({ data, mediadata, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`Media | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

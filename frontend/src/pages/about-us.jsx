@@ -18,7 +18,7 @@ export default function AboutUs({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`${data.title} | Freemodel`}</title>
         <meta name="description" content={data.bluetitle} />
         <link rel="icon" href="/favicon.ico" />
 

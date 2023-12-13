@@ -16,7 +16,7 @@ export default function HowItWorks({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`How It Works | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

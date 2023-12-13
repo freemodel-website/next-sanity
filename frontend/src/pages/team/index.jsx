@@ -36,7 +36,7 @@ export default function Team({ team, teampage, statesList, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{"Meet The Team | Freemodel"}</title>
         <meta name="description" content={teampage?.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
 

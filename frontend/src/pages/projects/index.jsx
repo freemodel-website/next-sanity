@@ -61,7 +61,7 @@ export default function Projects({
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`Projects | Freemodel`}</title>
         <meta name="description" content={page?.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
 

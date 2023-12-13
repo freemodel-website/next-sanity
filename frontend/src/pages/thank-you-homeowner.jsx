@@ -21,7 +21,7 @@ export default function ThankYouAgent({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`Thank You | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

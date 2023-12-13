@@ -28,7 +28,7 @@ export default function Blog({ data, blogpage, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`Blog | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

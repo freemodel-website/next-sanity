@@ -17,7 +17,7 @@ export default function Locations({ data, states, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`Locations | Freemodel`}</title>
         <meta name="description" content={data.bluetitle} />
         <link rel="icon" href="/favicon.ico" />
 

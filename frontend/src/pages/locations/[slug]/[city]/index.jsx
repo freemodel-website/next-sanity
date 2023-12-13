@@ -34,7 +34,7 @@ const ProjectSlug = ({ item, footer }) => {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`${item.name} | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

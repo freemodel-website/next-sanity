@@ -17,7 +17,7 @@ export default function FAQ({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`FAQ | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

@@ -20,7 +20,7 @@ export default function ForContractors({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{`For Contractors | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 

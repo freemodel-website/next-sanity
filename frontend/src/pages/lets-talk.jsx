@@ -44,7 +44,7 @@ export default function LetsTalk({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>Freemodel</title>
+        <title>{"Let's Talk | Freemodel"}</title>
         <meta name="description" content={data?.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
 
