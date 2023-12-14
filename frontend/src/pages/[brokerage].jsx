@@ -95,8 +95,13 @@ const Brokerage = ({ data, footer }) => {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
-        <meta property="og:title" content="Freemodel" />
-        <meta property="og:description" content={footer.description} />
+        <meta property="og:title" content={`${brokerage.title} | Freemodel`} />
+        <meta
+          property="og:description"
+          content={`
+          ${brokerage.text ? brokerage.text : ""}
+        `}
+        />
         <meta property="og:image" content={urlFor(footer.footerimage).url()} />
         <meta
           property="og:url"
