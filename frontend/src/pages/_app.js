@@ -176,7 +176,7 @@ export default function App({ Component, pageProps }) {
           h4,
           h5,
           h6 {
-            font-family: "adonis-web", serif;
+            font-family: "Adonis", serif;
             font-weight: 700;
             font-style: normal;
           }
