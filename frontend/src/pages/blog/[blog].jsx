@@ -71,12 +71,18 @@ const Blog = ({ data, footer }) => {
               {data.projectdirector && (
                 <div className="text-white font-bold">
                   Written By: &nbsp;
-                  <a
-                    href={`/team/${data.projectdirector.slug.current}`}
-                    className="text-white hover:underline"
-                  >
-                    {data.projectdirector.name}
-                  </a>
+                  {data.projectdirector.bool ? (
+                    <a
+                      href={`/team/${data.projectdirector.slug.current}`}
+                      className="text-white hover:underline"
+                    >
+                      {data.projectdirector.name}
+                    </a>
+                  ) : (
+                    <span className="text-white">
+                      {data.projectdirector.name}
+                    </span>
+                  )}
                 </div>
               )}
             </div>
@@ -150,6 +156,7 @@ export const getServerSideProps = async (context) => {
         projectdirector->{
             name,
             slug,
+            bool,
             image,
             },
         relatedPosts[]->{
