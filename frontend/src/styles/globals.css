@@ -3,10 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Adonis", sans-serif;
-  src: url("../fonts/adonis/adonis_bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
+  font-family: "Adonis";
+  src: url("../fonts/adonis/adonis_regular.ttf") format("truetype");
 }
 
 /* :root {
