@@ -69,14 +69,13 @@ export default function ForContractors({ data, footer }) {
           {data.sec3title}
         </h1>
 
-        {/* <div className="bg-stone-500 h-96 flex items-center justify-center">
-          
+        <div className="bg-stone-500 h-96 flex items-center justify-center">
           <div
             dangerouslySetInnerHTML={{
               __html: data.sec3html,
             }}
           />
-        </div> */}
+        </div>
 
         <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold my-20">
           {data.sec4title}

@@ -58,6 +58,11 @@ export default function Projects({
   const router = useRouter();
   const currentURL = router.asPath;
 
+  //sort the casestudies by date
+  casestudies.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
+
   return (
     <div>
       <Head>
@@ -186,6 +191,7 @@ export async function getStaticProps() {
   const query = ` *[_type == "caseStudy"] {
       _id,
       title,
+      date,
       mainImage {
         crop, 
       hotspot,
