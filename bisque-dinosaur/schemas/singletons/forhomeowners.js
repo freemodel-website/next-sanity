@@ -37,6 +37,49 @@ export default defineType({
       title: 'BlueBar: Body',
       type: 'text',
     },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+    },
+    {
+      name: 'sec2imageArray',
+      title: 'Left Right Left',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            //link
+            {
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+      validation: (rule) => rule.required(),
+      validation: (Rule) => Rule.max(3),
+    },
 
     //END
   ],

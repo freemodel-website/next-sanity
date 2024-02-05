@@ -115,6 +115,12 @@ export const myStructure = (S, context) =>
         .icon(FaFileAlt)
         .child(S.document().schemaType('forcontractors').documentId('forcontractors')),
 
+      // For Homeowners
+      S.listItem()
+        .title('For Homeowners')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('forhomeowners').documentId('forhomeowners')),
+
       // Home Page
       S.listItem()
         .title('Home')
