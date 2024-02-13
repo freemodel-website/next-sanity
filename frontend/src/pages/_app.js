@@ -82,7 +82,7 @@ export default function App({ Component, pageProps }) {
         <Script
           dangerouslySetInnerHTML={{
             __html: `
-            (function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = '14b33be1-0fb5-4bdf-8f14-12e12f329861'; u[r].m = ['identify', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://cdn.getambassador.com', 'mbsy', true); 
+            (function (u, n, i, v, e, r, s, a, l) { u[r] = {}; u[r].uid = '14b33be1-0fb5-4bdf-8f14-12e12f329861'; u[r].m = ['identify', 'on', 'ready', 'track']; u[r].queue = []; u[r].f = function(t) { return function() { var l = Array.prototype.slice.call(arguments); l.unshift(t); u[r].queue.push(l); return u[r].queue; }; }; for (var t = 0; t < u[r].m.length; t++) { l = u[r].m[t]; u[r][l] = u[r].f(l); } a = n.createElement(v); a.src = e + '/us-' + u[r].uid + '.js'; a.async = s; n.getElementsByTagName(i)[0].appendChild(a); })(window, document, 'head', 'script', 'https://snippet.freemodel.com', 'mbsy', true); 
           `,
           }}
         />

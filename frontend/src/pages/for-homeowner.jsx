@@ -10,11 +10,17 @@ import { useRouter } from "next/router";
 import Paragraph from "../../components/paragraph";
 import Ctabutton from "../../components/atoms/ctabutton";
 import Iconrightleftright from "../../components/iconrightleftright";
+import { ImageBulletPoints } from "../../components/imagebulletpoints";
+import { FourByThreeWindy } from "../../components/fourbythreewindy";
+import ImageCaroucel from "../../components/imageCaroucel";
+import Caroucel from "../../components/caroucel";
 
 export default function ForHomeowners({ data, footer }) {
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
+
+  console.log("data", data);
 
   return (
     <div>
@@ -62,6 +68,25 @@ export default function ForHomeowners({ data, footer }) {
           title={data.title}
           imageArray={data.sec2imageArray}
         />
+        <ImageBulletPoints />
+        <FourByThreeWindy
+          data={data.windySection}
+          title={data.windySectionTitle}
+        />
+        <div className="text-center mt-20  py-20 bg-FM-blue">
+          <h1 className="text-5xl text-center text-white font-bold mb-14">
+            {data.sec3title}
+          </h1>
+          <Caroucel projects={data.projects} />
+        </div>
+
+        <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold my-20">
+          Interested in working with Freemodel? For starters, make sure we’re in
+          your area. If so, drop us a line:
+        </h1>
+        <div className="mb-24 text-center">
+          <Ctabutton text="Let's Talk" href="/lets-talk" className="mt-12" />
+        </div>
       </main>
 
       <Footer data={footer} />
@@ -84,6 +109,19 @@ export const getStaticProps = async () => {
       bluebarbody,
       body,
       sec2imageArray,
+      windySectionTitle,
+      windySection,
+      sec3title,
+      projects []-> {
+        _id,
+        title,
+        mainImage,
+        beds,
+        baths,
+        durationmonths,
+        slug,
+        bool
+      },
     }`);
 
   // Footer data
