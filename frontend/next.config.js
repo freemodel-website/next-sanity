@@ -228,11 +228,11 @@ const nextConfig = {
         destination: "https://get.freemodel.com/agent-appreciation",
         permanent: true,
       },
-      {
-        source: "/for-homeowners",
-        destination: "https://get.freemodel.com/for-homeowners",
-        permanent: true,
-      },
+      // {
+      //   source: "/for-homeowners",
+      //   destination: "https://get.freemodel.com/for-homeowners",
+      //   permanent: true,
+      // },
       // {
       //   source: "/design-services",
       //   destination: "/design-services",
