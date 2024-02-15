@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { urlFor } from "../client";
+import Image from "next/image";
 
 export const FourByThreeWindy = ({ data, title }) => {
   let stepsData = data;
@@ -25,7 +26,15 @@ export const FourByThreeWindy = ({ data, title }) => {
   }, []);
 
   return (
-    <div className="py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div
+      className="py-16 mx-auto sm:max-w-xl relative md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 lg:bg-[url('/windy.png')]"
+      style={{
+        backgroundSize: "contain",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "114% 103%",
+      }}
+    >
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <h2 className="max-w-lg mb-6 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
           {title}

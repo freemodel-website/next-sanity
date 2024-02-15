@@ -25,7 +25,6 @@ export default defineType({
       },
       validation: (rule) => rule.required(),
     },
-
     {
       name: 'titlebutton',
       title: 'Title: Button',
@@ -41,9 +40,31 @@ export default defineType({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      validation: (rule) => rule.required(),
     },
     {
-      name: 'sec2imageArray',
+      name: 'lowerbodytitle',
+      title: 'Lower Body: Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'bodytitlebutton',
+      title: 'Body: Button',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+
+    //Left Right Left
+    {
+      name: 'leftrightlefttitle',
+      title: 'Title: Left Right Left',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    //Left Right Left
+    {
+      name: 'leftrightleftbody',
       title: 'Left Right Left',
       type: 'array',
       of: [
@@ -80,6 +101,37 @@ export default defineType({
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(3),
     },
+
+    //Bullet Section
+    {
+      name: 'bullettitle',
+      title: 'Title: Bullets',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'bulletImage',
+      title: 'Main image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (rule) => rule.required(),
+    },
+    //Array of strings
+    {
+      name: 'bulletSection',
+      title: 'Bullet Section',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+      validation: (rule) => rule.required(),
+    },
+
+    //Windy Section
     {
       name: 'windySectionTitle',
       title: 'Windy Section Title',
@@ -138,6 +190,25 @@ export default defineType({
           to: [{type: 'caseStudy'}],
         },
       ],
+      validation: (rule) => rule.required().max(4),
+    },
+    //Bottom Section
+    {
+      name: 'bottomtitle',
+      title: 'Section 3: Title',
+      type: 'blockContent',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'bottomtitlebutton',
+      title: 'Title: Button',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'bottombody',
+      title: 'Section 3: Title',
+      type: 'text',
     },
 
     //END

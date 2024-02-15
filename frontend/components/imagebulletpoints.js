@@ -1,20 +1,8 @@
 import { useEffect } from "react";
+import Image from "next/image";
 
-export const ImageBulletPoints = () => {
-  const itemsList = [
-    "A slice of heaven",
-    "Disrupt inspire",
-    "Preliminary thinking",
-    "Flipboard curmudgeon",
-    "Storage shed",
-    "Satoshi Nakamoto",
-    " of heaven",
-    "Disrupt inspire",
-    "Prelim thinking",
-    "Flipbcurmudgeon",
-    "Storahed",
-    "Satoshimoto",
-  ];
+export const ImageBulletPoints = ({ title, image, data }) => {
+  const itemsList = data;
 
   const midpoint = Math.ceil(itemsList.length / 2);
   const firstHalf = itemsList.slice(0, midpoint);
@@ -24,15 +12,17 @@ export const ImageBulletPoints = () => {
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="max-w-xl mb-6">
         <h2 className="max-w-lg mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-          Freemodel can help you with:
+          {title}
         </h2>
       </div>
       <div className="grid gap-16 row-gap-10 lg:grid-cols-2">
         <div>
-          <img
-            className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-            src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-            alt=""
+          <Image
+            src={image}
+            alt={title}
+            width={800}
+            height={800}
+            className="object-cover w-full h-64 rounded shadow-lg sm:h-96"
           />
         </div>
 

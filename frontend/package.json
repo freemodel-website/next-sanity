@@ -19,6 +19,7 @@
     "autoprefixer": "10.4.14",
     "framer-motion": "^10.16.0",
     "google-fonts-plugin": "^5.0.2",
+    "graphql-tag": "^2.12.6",
     "isotope-layout": "^3.0.6",
     "jquery": "^3.7.0",
     "keen-slider": "^6.8.5",

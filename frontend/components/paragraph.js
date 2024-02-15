@@ -25,7 +25,7 @@ export default function Paragraph({ text }) {
           em: (props) => <em className="italic">{props.children}</em>,
           underline: (props) => <u className=" underline ">{props.children}</u>,
           h1: (props) => (
-            <h1 className="text-2xl font-bold">{props.children}</h1>
+            <h1 className="text-2xl font-bold pgh1custom">{props.children}</h1>
           ),
           h2: (props) => (
             <h2 className="text-xl font-bold">{props.children}</h2>

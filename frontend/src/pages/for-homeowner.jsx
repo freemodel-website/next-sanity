@@ -54,21 +54,25 @@ export default function ForHomeowners({ data, footer }) {
         <Paragraph text={data.body} />
 
         <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold mb-20">
-          If you are not selling your home but still interested in a fully
-          managed, custom renovation, check out our Renovation Services page:
+          {data.lowerbodytitle}
         </h1>
         <div className="mb-24 text-center">
           <Ctabutton
-            text="Renovation Services"
+            text={data.bodytitlebutton}
             href="/lets-talk"
             className="mt-12"
           />
         </div>
         <Iconrightleftright
-          title={data.title}
-          imageArray={data.sec2imageArray}
+          title={data.leftrightlefttitle}
+          imageArray={data.leftrightleftbody}
         />
-        <ImageBulletPoints />
+        <ImageBulletPoints
+          title={data.bullettitle}
+          image={urlFor(data.bulletImage).url()}
+          data={data.bulletSection}
+        />
+
         <FourByThreeWindy
           data={data.windySection}
           title={data.windySectionTitle}
@@ -80,13 +84,27 @@ export default function ForHomeowners({ data, footer }) {
           <Caroucel projects={data.projects} />
         </div>
 
-        <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold my-20">
-          Interested in working with Freemodel? For starters, make sure we’re in
-          your area. If so, drop us a line:
-        </h1>
-        <div className="mb-24 text-center">
-          <Ctabutton text="Let's Talk" href="/lets-talk" className="mt-12" />
+        <div className="text-center text-4xl mt-20">
+          <style jsx global>{`
+            .pgh1custom {
+              font-size: 2.5rem;
+              line-height: 1.2;
+              font-weight: 700;
+            }
+          `}</style>
+          <Paragraph text={data.bottomtitle} />
         </div>
+
+        <div className="mb-8 text-center">
+          <Ctabutton
+            text={data.bottomtitlebutton}
+            href="/lets-talk"
+            className="mt-12"
+          />
+        </div>
+        <p className="text-center text-2xl max-w-4xl mx-auto mb-20">
+          {data.bottombody}
+        </p>
       </main>
 
       <Footer data={footer} />
@@ -95,7 +113,7 @@ export default function ForHomeowners({ data, footer }) {
 }
 
 export const getStaticProps = async () => {
-  const mainquery = await client.fetch(`*[_type == "forhomeowners"][0]{
+  const mainquery = await client.fetch(` *[_type == "forhomeowners"][0]{ 
       title,
       mainImage {
         hotspot,
@@ -108,7 +126,17 @@ export const getStaticProps = async () => {
       titlebutton,
       bluebarbody,
       body,
-      sec2imageArray,
+      lowerbodytitle,
+      bodytitlebutton,
+      //----Icon Right Left Right
+      leftrightlefttitle,
+      bullettitle,
+      leftrightleftbody,
+      //----Bullet Points
+      bullettitle,
+      bulletImage,
+      bulletSection,
+      //----Windy Section
       windySectionTitle,
       windySection,
       sec3title,
@@ -122,6 +150,9 @@ export const getStaticProps = async () => {
         slug,
         bool
       },
+      bottomtitle,
+      bottomtitlebutton,
+      bottombody,
     }`);
 
   // Footer data
