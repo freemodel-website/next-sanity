@@ -69,6 +69,7 @@ export const myStructure = (S, context) =>
           item.getId() !== 'blogpage' &&
           item.getId() !== 'supportpage' &&
           item.getId() !== 'forhomeowners' &&
+          item.getId() !== 'renovationservices' &&
           item.getId() !== 'post' &&
           item.getId() !== 'media' &&
           item.getId() !== 'meettheteam'
@@ -168,6 +169,12 @@ export const myStructure = (S, context) =>
         .title('Projects')
         .icon(FaFileAlt)
         .child(S.document().schemaType('projects').documentId('projects')),
+
+      // Renovation Services
+      S.listItem()
+        .title('Renovation Services')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('renovationservices').documentId('renovationservices')),
 
       // Support
       S.listItem()
