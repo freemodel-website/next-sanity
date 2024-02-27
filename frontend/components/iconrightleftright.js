@@ -9,7 +9,7 @@ const MotionDiv = motion.div;
 
 export default function iconrightleftright({ title, imageArray }) {
   return (
-    <div className="bg-FM-blue py-16 mx-auto lg:py-20">
+    <div className="bg-FM-blue px-4 py-16 mx-auto lg:py-20">
       {/* Title */}
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-3xl md:mb-12">
         <h2 className="mb-10 text-5xl font-bold leading-none tracking-tight mx-auto text-center text-white sm:text-5xl">

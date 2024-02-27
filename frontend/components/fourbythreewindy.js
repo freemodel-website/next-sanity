@@ -6,12 +6,16 @@ export const FourByThreeWindy = ({ data, title }) => {
   let stepsData = data;
   let [list, setList] = useState([]);
 
-  console.log("title", title);
+  // Define the breakpoint for desktop
+  const DESKTOP_BREAKPOINT = 1024; // Adjust as needed
+
+  // Function to check if the device is a desktop
+  const isDesktop = () => {
+    return window.innerWidth >= DESKTOP_BREAKPOINT;
+  };
 
   useEffect(() => {
-    console.log("DEBUG useEffect");
     if (window.innerWidth > 640) {
-      console.log("DEBUG worked");
       // Assuming mobile width is considered as 768px
       // Filter odd and even numbered items
       const oddItems = stepsData.filter((item) => item.number % 2 !== 0);
@@ -36,12 +40,12 @@ export const FourByThreeWindy = ({ data, title }) => {
       }}
     >
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-6 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        <h2 className="max-w-lg mb-6 px-4 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
           {title}
         </h2>
       </div>
       {/* loop */}
-      <div className="grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 row-gap-5 pr-4 sm:grid-cols-2 lg:grid-cols-4">
         {list.map((step, index) => (
           <div key={index} className="flex flex-col justify-between">
             <li className="flex">
@@ -54,12 +58,31 @@ export const FourByThreeWindy = ({ data, title }) => {
                 <p className=" text-gray-500">{step.text}</p>
               </div>
             </li>
-            {step.windyimage && (
-              <img
-                src={urlFor(step.windyimage).url()}
-                alt=""
-                className="object-contain w-full h-56  sm:h-96"
-              />
+
+            {isDesktop() ? (
+              <>
+                {step.windyimage && (
+                  <>
+                    {step.number % 2 !== 0 && (
+                      <img
+                        src={urlFor(step.windyimage).url()}
+                        alt=""
+                        className="object-contain w-full h-56  sm:h-96"
+                      />
+                    )}
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                {step.windyimage && (
+                  <img
+                    src={urlFor(step.windyimage).url()}
+                    alt=""
+                    className="object-contain w-full h-56  sm:h-96"
+                  />
+                )}
+              </>
             )}
           </div>
         ))}

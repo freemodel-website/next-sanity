@@ -53,13 +53,13 @@ export default function ForHomeowners({ data, footer }) {
         {/* Text Block */}
         <Paragraph text={data.body} />
 
-        <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold mb-20">
+        <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold mb-20 px-8">
           {data.lowerbodytitle}
         </h1>
         <div className="mb-24 text-center">
           <Ctabutton
             text={data.bodytitlebutton}
-            href="/lets-talk"
+            href="/renovation-service"
             className="mt-12"
           />
         </div>
@@ -102,7 +102,7 @@ export default function ForHomeowners({ data, footer }) {
             className="mt-12"
           />
         </div>
-        <p className="text-center text-2xl max-w-4xl mx-auto mb-20">
+        <p className="text-center text-2xl max-w-4xl mx-auto px-4 mb-20">
           {data.bottombody}
         </p>
       </main>

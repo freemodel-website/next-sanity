@@ -42,20 +42,9 @@ export default ({ projects }) => {
           <div ref={sliderRef} className="keen-slider">
             {projects.map((project, index) => (
               <div className="keen-slider__slide" key={index}>
-                {/* <Projectcard
-                key={project.slug.current}
-                title={project.title}
-                image={urlFor(project.mainImage).url()}
-                beds={project.beds}
-                baths={project.baths}
-                duration={project.durationmonths}
-                slug={project.slug.current}
-                bool={project.bool}
-              /> */}
-
                 <Link
                   href={`/projects/${project.slug.current}`}
-                  className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 lg:w-[30vw] lg:max-w-[26rem] sm:mx-auto"
+                  className="block w-[74vw] md:w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 lg:w-[30vw] lg:max-w-[26rem] sm:mx-auto"
                 >
                   {/* Project Image */}
                   <div className="relative h-72 w-full object-cover">
