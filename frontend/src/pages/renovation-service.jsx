@@ -10,8 +10,10 @@ import Accordianlist from "../../components/atoms/accordianlist";
 import Ctabutton from "../../components/atoms/ctabutton";
 import Image from "next/image";
 import Sixgrid from "../../components/index/sixgrid";
+import Doublesection from "../../components/doublesection";
 
 export default function RenovationService({ data, footer }) {
+  console.log(`DEBUG ${JSON.stringify(data.media)}`);
   return (
     <div>
       <Head>
@@ -23,13 +25,8 @@ export default function RenovationService({ data, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero
-          hero={{ title: "Give your home the love it deserves." }}
-          buttontext={"Let's Talk"}
-        />
-        <Bluebar
-          body={"Fully managed. Hassle-free. Custom designs. Easy payments."}
-        />
+        <Hero hero={{ title: data.title }} buttontext={data.titlebutton} />
+        <Bluebar body={data.bluebarbody} />
         {/* Text Block */}
         <Paragraph text={data.body} />
 
@@ -64,7 +61,64 @@ export default function RenovationService({ data, footer }) {
             </div>
           </div>
         </div>
-        <Sixgrid title={""} imageArray={data.twosecimageArray} />
+
+        <Doublesection imageArray={data.twosecimageArray} />
+        <div className="mb-8 text-center">
+          <Ctabutton
+            text={data.doubletitlebutton}
+            href="/lets-talk"
+            className="mt-12"
+          />
+        </div>
+
+        {/* Media */}
+        {data.media && (
+          <div className="flex flex-col mx-auto items-center max-w-[85vw] my-28">
+            <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-8">
+              {/* map through casestudyselect */}
+              {data.media.map((item) => (
+                <a
+                  key={item._id}
+                  href={item.url}
+                  target="_blank"
+                  className="group"
+                >
+                  <div className="flex flex-col max-w-md p-6 dark:text-gray-100">
+                    <div className="relative h-64 sm:h-64">
+                      <Image
+                        src={urlFor(item.image).url()}
+                        alt=""
+                        fill
+                        className="flex-shrink-0 object-cover rounded-lg aspect-square"
+                      />
+                    </div>
+
+                    <div>
+                      <h2 className="text-xl text-black font-semibold mt-3 group-hover:underline">
+                        {item.name}
+                      </h2>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+        <div className="bg-gray-800">
+          <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+            <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
+              {data.bottombody}
+            </h2>
+
+            <div className="mb-8 mt-16 text-center">
+              <Ctabutton
+                text={data.bottomtitlebutton}
+                href="/lets-talk"
+                className="mt-12"
+              />
+            </div>
+          </div>
+        </div>
       </main>
       <Footer data={footer} />
     </div>
@@ -108,6 +162,25 @@ export const getStaticProps = async () => {
       questionsanswers,
       //----TwoSection
       twosecimageArray,
+      doubletitlebutton,
+      media[]->{
+        _id,
+        name,
+        url,
+        image {
+            crop,
+            hotspot,
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            },
+        },
+    },
       //----Bottom Section
       bottomtitle,
       bottomtitlebutton,

@@ -122,6 +122,25 @@ export default defineType({
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(2),
     },
+    {
+      name: 'doubletitlebutton',
+      title: 'Title: Button',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    //array of media
+    {
+      name: 'media',
+      title: 'Media',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'media'}],
+        },
+      ],
+      validation: (rule) => rule.required().max(2),
+    },
 
     //Bottom
     {
