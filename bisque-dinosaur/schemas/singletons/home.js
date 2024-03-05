@@ -5,6 +5,18 @@ export default defineType({
   title: 'Home',
   type: 'document',
 
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
+
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
   fields: [
@@ -14,6 +26,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     {
@@ -23,11 +36,13 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      group: 'page',
     },
     {
       name: 'sec1title',
       title: 'Section 1: Title',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'imageArray',
@@ -60,17 +75,20 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(6),
+      group: 'page',
     },
     {
       name: 'sec1button',
       title: 'Section 1: Button',
       type: 'string',
+      group: 'page',
     },
     // Section 3
     {
       name: 'sec2title',
       title: 'Section 2: Title',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'sec2imageArray',
@@ -109,17 +127,20 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(3),
+      group: 'page',
     },
     {
       name: 'sec2button',
       title: 'Section 2: Button',
       type: 'string',
+      group: 'page',
     },
     // Section 3
     {
       name: 'sec3title',
       title: 'Section 3: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'projects',
@@ -131,6 +152,7 @@ export default defineType({
           to: [{type: 'caseStudy'}],
         },
       ],
+      group: 'page',
     },
     //Testimonial title
     {
@@ -138,6 +160,7 @@ export default defineType({
       title: 'Testimonials Section: Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //testimonials
     {
@@ -150,29 +173,39 @@ export default defineType({
           to: [{type: 'testimonials'}],
         },
       ],
+      group: 'page',
     },
     {
       name: 'statesbutton',
       title: 'States Section: Button',
       type: 'string',
+      group: 'page',
     },
     //html
     {
       name: 'htmltitle',
       title: 'HTML Section: Title',
       type: 'string',
+      group: 'page',
     },
     // Section 3
     {
       name: 'htmlbody',
       title: 'HTML Section: Body',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'htmlform',
       title: 'HTML Form',
       type: 'text',
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
 
     //END
   ],
