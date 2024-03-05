@@ -25,8 +25,6 @@ export default function Home({ data, states, footer }) {
   const router = useRouter();
   const currentURL = router.asPath;
 
-  console.log(`DEBUG data: ${JSON.stringify(urlFor(data.seoImage).url())}`);
-
   return (
     <div>
       <Head>

@@ -238,11 +238,11 @@ const nextConfig = {
       //   destination: "/design-services",
       //   permanent: true,
       // },
-      {
-        source: "/renovation-services",
-        destination: "https://get.freemodel.com/renovation-services",
-        permanent: true,
-      },
+      // {
+      //   source: "/renovation-services",
+      //   destination: "https://get.freemodel.com/renovation-services",
+      //   permanent: true,
+      // },
       {
         source: "/for-designers",
         destination: "https://get.freemodel.com/for-designers",
