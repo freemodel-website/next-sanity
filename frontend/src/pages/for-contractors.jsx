@@ -89,7 +89,7 @@ export default function ForContractors({ data, footer }) {
         <h1 className="text-4xl text-center max-w-4xl mx-auto font-bold my-20">
           {data.sec4title}
         </h1>
-        <div className="flex items-center justify-center overflow-auto">
+        <div className="flex-auto max-w-3xl justify-center items-center mx-auto px-5">
           <div
             className="pb-10 overflow-auto"
             dangerouslySetInnerHTML={{

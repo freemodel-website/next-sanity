@@ -31,6 +31,7 @@ import blogpage from './singletons/blogpage'
 import supportpage from './singletons/supportpage'
 import forhomeowners from './singletons/forhomeowners'
 import renovationservices from './singletons/renovationservices'
+import fordesigners from './singletons/fordesigners'
 import meettheteam from './singletons/meettheteam'
 export const schemaTypes = [
   post,
@@ -64,5 +65,6 @@ export const schemaTypes = [
   supportpage,
   forhomeowners,
   renovationservices,
+  fordesigners,
   meettheteam,
 ]

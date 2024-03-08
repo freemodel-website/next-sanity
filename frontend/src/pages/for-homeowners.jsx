@@ -20,8 +20,6 @@ export default function ForHomeowners({ data, footer }) {
   const router = useRouter();
   const currentURL = router.asPath;
 
-  console.log("data", data);
-
   return (
     <div>
       <Head>

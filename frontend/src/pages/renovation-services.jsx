@@ -13,11 +13,10 @@ import Sixgrid from "../../components/index/sixgrid";
 import Doublesection from "../../components/doublesection";
 
 export default function RenovationService({ data, footer }) {
-  console.log(`DEBUG ${JSON.stringify(data.media)}`);
   return (
     <div>
       <Head>
-        <title>{`Renovation Service | Freemodel`}</title>
+        <title>{`Renovation Services | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>

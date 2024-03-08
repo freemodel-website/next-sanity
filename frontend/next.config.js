@@ -243,11 +243,11 @@ const nextConfig = {
       //   destination: "https://get.freemodel.com/renovation-services",
       //   permanent: true,
       // },
-      {
-        source: "/for-designers",
-        destination: "https://get.freemodel.com/for-designers",
-        permanent: true,
-      },
+      // {
+      //   source: "/for-designers",
+      //   destination: "https://get.freemodel.com/for-designers",
+      //   permanent: true,
+      // },
     ];
   },
 };

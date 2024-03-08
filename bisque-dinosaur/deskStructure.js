@@ -68,6 +68,7 @@ export const myStructure = (S, context) =>
           item.getId() !== 'thankyous' &&
           item.getId() !== 'blogpage' &&
           item.getId() !== 'supportpage' &&
+          item.getId() !== 'fordesigners' &&
           item.getId() !== 'forhomeowners' &&
           item.getId() !== 'renovationservices' &&
           item.getId() !== 'post' &&
@@ -115,6 +116,12 @@ export const myStructure = (S, context) =>
         .title('For Contractors')
         .icon(FaFileAlt)
         .child(S.document().schemaType('forcontractors').documentId('forcontractors')),
+
+      // For Designers
+      S.listItem()
+        .title('For Designers')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('fordesigners').documentId('fordesigners')),
 
       // For Homeowners
       S.listItem()
