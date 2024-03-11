@@ -7,6 +7,8 @@ import Bluebar from "../../components/bluebar";
 import Footer from "../../components/footer";
 import Paragraph from "../../components/paragraph";
 import DesignQA from "../../components/designqa";
+import ImageLeftTextRight from "../../components/imagelefttextright";
+import Testimonial from "../../components/atoms/testimonial";
 
 export default function ForDesigners({ data, footer }) {
   return (
@@ -29,10 +31,29 @@ export default function ForDesigners({ data, footer }) {
         {/* Text Block */}
         <Paragraph text={data.body} />
         <DesignQA
+          title={data.qatitle}
           image={data.questionimage}
           faqsList={data.questionsanswers}
           buttontitle={data.buttontitle}
         />
+
+        <ImageLeftTextRight
+          image={data.lirtimage}
+          title={data.lirttitle}
+          text={data.lirttext}
+        />
+
+        <div className="flex flex-col items-center pt-16 mt-12 bg-FM-blue">
+          <h1 className="text-4xl font-extrabold text-center text-white sm:text-5xl">
+            {data.pdtitle}
+          </h1>
+          <Testimonial
+            image={urlFor(data.pdimage).url()}
+            quote={data.pdquote}
+            name={data.pdname}
+            jobtitle={data.pdjobtitle}
+          />
+        </div>
       </main>
       <Footer data={footer} />
     </div>
@@ -54,9 +75,21 @@ export const getStaticProps = async () => {
         bluebarbody,
         bluebarimage,
         body,
-        //
+        //---QA
+        qatitle,
         questionimage,
         questionsanswers,
+        //----lirt
+        lirtimage,
+        lirttitle,
+        lirttext,
+        //--pd 
+        pdtitle,
+        pdimage,
+        pdquote,
+        pdname,
+        pdjobtitle,
+
       }`);
 
   // Footer data
