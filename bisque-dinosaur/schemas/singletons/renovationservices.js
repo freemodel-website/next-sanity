@@ -141,6 +141,24 @@ export default defineType({
       ],
       validation: (rule) => rule.required().max(2),
     },
+    //Projects
+    {
+      name: 'projecttitle',
+      title: 'Project Title',
+      type: 'string',
+    },
+    {
+      name: 'projects',
+      title: 'Projects',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'caseStudy'}],
+        },
+      ],
+      validation: (rule) => rule.required().max(3),
+    },
 
     //Bottom
     {

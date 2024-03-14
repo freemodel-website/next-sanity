@@ -9,6 +9,7 @@ import Paragraph from "../../components/paragraph";
 import DesignQA from "../../components/designqa";
 import ImageLeftTextRight from "../../components/imagelefttextright";
 import Testimonial from "../../components/atoms/testimonial";
+import { FourByThreeWindy } from "../../components/fourbythreewindy";
 
 export default function ForDesigners({ data, footer }) {
   return (
@@ -42,7 +43,7 @@ export default function ForDesigners({ data, footer }) {
           title={data.lirttitle}
           text={data.lirttext}
         />
-
+        {/* Testimonial Section */}
         <div className="flex flex-col items-center pt-16 mt-12 bg-FM-blue">
           <h1 className="text-4xl font-extrabold text-center text-white sm:text-5xl">
             {data.pdtitle}
@@ -54,6 +55,12 @@ export default function ForDesigners({ data, footer }) {
             jobtitle={data.pdjobtitle}
           />
         </div>
+
+        {/* Windy Section */}
+        <FourByThreeWindy
+          data={data.windySection}
+          title={data.windySectionTitle}
+        />
       </main>
       <Footer data={footer} />
     </div>
@@ -89,7 +96,9 @@ export const getStaticProps = async () => {
         pdquote,
         pdname,
         pdjobtitle,
-
+        //----Windy Section
+        windySectionTitle,
+        windySection,
       }`);
 
   // Footer data

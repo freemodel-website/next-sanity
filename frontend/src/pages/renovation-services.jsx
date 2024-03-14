@@ -6,13 +6,32 @@ import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
 import Footer from "../../components/footer";
 import Paragraph from "../../components/paragraph";
-import Accordianlist from "../../components/atoms/accordianlist";
+import AccordianListWhite from "../../components/atoms/accordianlistwhite";
 import Ctabutton from "../../components/atoms/ctabutton";
 import Image from "next/image";
 import Sixgrid from "../../components/index/sixgrid";
 import Doublesection from "../../components/doublesection";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Projectcard from "../../components/atoms/projectcard";
 
 export default function RenovationService({ data, footer }) {
+  const MotionDiv = motion.div;
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Animations will only trigger once when becoming visible
+    threshold: 0.2, // Adjust this threshold as needed
+  });
+
   return (
     <div>
       <Head>
@@ -24,19 +43,23 @@ export default function RenovationService({ data, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero hero={{ title: data.title }} buttontext={data.titlebutton} />
+        <Hero
+          hero={{ title: data.title }}
+          image={urlFor(data.mainImage).url()}
+          buttontext={data.titlebutton}
+        />
         <Bluebar body={data.bluebarbody} />
         {/* Text Block */}
         <Paragraph text={data.body} />
 
         {/* Q&A */}
-        <div className="flex flex-col items-center p-8 lg:p-0">
+        <div className="flex flex-col items-center p-8 lg:p-0 bg-FM-blue">
           <div className="mt-12">
-            <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">
               {data.qatitle}
             </h1>
           </div>
-          <div className="flex flex-col items-center mt-8 w-full sm:w-3/4 md:w-1/2 lg:flex-row lg:w-1/3 xl:w-3/4">
+          <div className="flex flex-col items-center my-8 w-full sm:w-3/4 md:w-1/2 lg:flex-row lg:w-1/3 xl:w-3/4">
             <div className="flex flex-col items-center">
               <Image
                 src={urlFor(data.leftImage).url()}
@@ -47,7 +70,7 @@ export default function RenovationService({ data, footer }) {
               />
             </div>
             <div className="mt-14 mb-20">
-              <Accordianlist faqsList={data.questionsanswers} />
+              <AccordianListWhite faqsList={data.questionsanswers} />
             </div>
             <div className="flex flex-col items-center">
               <Image
@@ -70,11 +93,11 @@ export default function RenovationService({ data, footer }) {
           />
         </div>
 
-        {/* Media */}
+        {/* Media 
         {data.media && (
           <div className="flex flex-col mx-auto items-center max-w-[85vw] my-28">
             <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-8">
-              {/* map through casestudyselect */}
+              {/* map through casestudyselect 
               {data.media.map((item) => (
                 <a
                   key={item._id}
@@ -103,7 +126,45 @@ export default function RenovationService({ data, footer }) {
             </div>
           </div>
         )}
-        <div className="bg-gray-800">
+        */}
+        {/* Featured Project */}
+        {/* Highlight studies */}
+        <div className="flex flex-col items-center py-20 bg-FM-blue">
+          <h2 className="text-4xl font-bold text-center sm:text-5xl text-white">
+            {data.projecttitle}
+          </h2>
+          <div className="flex flex-col lg:flex-row max-w-full gap-8 justify-center items-center mt-10">
+            <MotionDiv
+              ref={ref} // Attach the ref to the MotionDiv
+              className="grid gap-12 row-gap-8 lg:grid-cols-3"
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"} // Animate based on inView status
+            >
+              {data.projects.map((item, index) => (
+                <MotionDiv
+                  className="text-center "
+                  key={index}
+                  variants={itemVariants}
+                >
+                  <Projectcard
+                    key={Math.random() * 100000000000000}
+                    title={item.title}
+                    slug={item.slug.current}
+                    image={urlFor(item.mainImage).url()}
+                    beds={item.beds}
+                    baths={item.baths}
+                    duration={item.durationmonths}
+                    bool={item.bool}
+                  />
+                </MotionDiv>
+              ))}
+            </MotionDiv>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="bg-FM-blue">
           <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
             <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
               {data.bottombody}
@@ -180,6 +241,21 @@ export const getStaticProps = async () => {
             },
         },
     },
+    //----Featured Projects
+    projecttitle,
+    projects []-> {
+      _id,
+      title,
+      mainImage,
+      beds,
+      baths,
+      durationmonths,
+      bool,
+      slug {
+        current
+      }
+    },
+
       //----Bottom Section
       bottomtitle,
       bottomtitlebutton,

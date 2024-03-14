@@ -41,6 +41,7 @@ export default defineType({
       title: 'Description',
       type: 'blockContent',
     },
+
     {
       name: 'projects',
       title: 'Projects',

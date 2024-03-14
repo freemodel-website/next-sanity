@@ -175,6 +175,7 @@ export default defineType({
       ],
       validation: (rule) => rule.required().max(8),
     },
+    //Section 3
     {
       name: 'sec3title',
       title: 'Section 3: Title',

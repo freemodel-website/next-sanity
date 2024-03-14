@@ -13,7 +13,7 @@ export default defineType({
       name: 'navbar',
       title: 'NavBar Items',
       description:
-        'Add, edit, and reorder items for the navbar. Max 5 items. Example url format: /about',
+        'Add, edit, and reorder items for the navbar. Max 6 items. Example url format: /about',
       type: 'array',
       of: [
         {
@@ -34,7 +34,7 @@ export default defineType({
         //List of all pages
       ],
       validation: (Rule) => Rule.required(),
-      validation: (Rule) => Rule.min(1).max(5),
+      validation: (Rule) => Rule.min(1).max(6),
     },
 
     //START
@@ -104,7 +104,7 @@ export default defineType({
       name: 'leftItems',
       title: 'Left Items',
       description:
-        'Add, edit, and reorder items for the left side of the footer. Max 4 items. Example url format: /about',
+        'Add, edit, and reorder items for the left side of the footer. Max 5 items. Example url format: /about',
       type: 'array',
       of: [
         {
@@ -125,14 +125,14 @@ export default defineType({
         //List of all pages
       ],
       validation: (Rule) => Rule.required(),
-      validation: (Rule) => Rule.min(1).max(4),
+      validation: (Rule) => Rule.min(1).max(5),
     },
     //Array of strings and slugs
     {
       name: 'rightItems',
       title: 'Right Items',
       description:
-        'Add, edit, and reorder items for the left side of the footer. Max 4 items. Example url format: /about',
+        'Add, edit, and reorder items for the left side of the footer. Max 5 items. Example url format: /about',
       type: 'array',
       of: [
         {
@@ -152,7 +152,7 @@ export default defineType({
         },
       ],
       validation: (Rule) => Rule.required(),
-      validation: (Rule) => Rule.min(1).max(4),
+      validation: (Rule) => Rule.min(1).max(5),
     },
     //Description
     {

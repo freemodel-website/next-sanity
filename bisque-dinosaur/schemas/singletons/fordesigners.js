@@ -146,6 +146,51 @@ export default defineType({
       validation: (rule) => rule.required(),
     },
 
+    //Windy Section
+    {
+      name: 'windySectionTitle',
+      title: 'Windy Section Title',
+      type: 'string',
+    },
+    {
+      name: 'windySection',
+      title: 'Layout:Windy',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'windyimage',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'number',
+              title: 'Number',
+              type: 'number',
+            },
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'number', // Display 'number' field as title in the preview
+              subtitle: 'text', // Display 'text' field as subtitle in the preview
+              media: 'windyimage', // Selecting 'windyimage' field to display as media in the preview
+            },
+          },
+        },
+      ],
+      validation: (rule) => rule.required().max(8),
+    },
+
     //Bottom
     // {
     //   name: 'bottombody',
