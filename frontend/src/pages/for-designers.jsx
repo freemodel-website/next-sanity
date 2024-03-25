@@ -10,6 +10,8 @@ import DesignQA from "../../components/designqa";
 import ImageLeftTextRight from "../../components/imagelefttextright";
 import Testimonial from "../../components/atoms/testimonial";
 import { FourByThreeWindy } from "../../components/fourbythreewindy";
+import Becomeapd from "../../components/becomeapd";
+import Imageteamgrid from "../../components/imageteamgrid";
 
 export default function ForDesigners({ data, footer }) {
   return (
@@ -61,6 +63,20 @@ export default function ForDesigners({ data, footer }) {
           data={data.windySection}
           title={data.windySectionTitle}
         />
+        {/* Become a Project Director */}
+        <Becomeapd
+          title={data.becomepdtitle}
+          texth={data.becomepdec1}
+          button={data.becomepdbutton}
+          texth2={data.becomepdec2}
+          button2={data.becomepdbutton2}
+        />
+        {/* Team Image Grid */}
+        <Imageteamgrid
+          title={data.amazingtitle}
+          images={data.amazingteamimages}
+          button={data.amazingbutton}
+        />
       </main>
       <Footer data={footer} />
     </div>
@@ -99,6 +115,18 @@ export const getStaticProps = async () => {
         //----Windy Section
         windySectionTitle,
         windySection,
+        //--Become a PD
+        becomepdtitle,
+        becomepdec1,
+        becomepdtext,
+        becomepdbutton,
+        becomepdec2,
+        becomepdtext2,
+        becomepdbutton2,
+        //--Team
+        amazingtitle,
+        amazingteamimages,
+        amazingbutton,
       }`);
 
   // Footer data

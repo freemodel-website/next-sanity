@@ -44,7 +44,7 @@ export default ({ projects }) => {
               <div className="keen-slider__slide" key={index}>
                 <Link
                   href={`/projects/${project.slug.current}`}
-                  className="block w-[74vw] md:w-[90vw] lg:w-[30vw] lg:max-w-[23rem] xl:max-w-[23rem] 2xl:max-w-[26rem] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5  sm:mx-auto"
+                  className="block w-[74vw] md:w-[51vw] lg:w-[30vw] lg:max-w-[23rem] xl:max-w-[20rem] 2xl:max-w-[26rem] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5  sm:mx-auto"
                 >
                   {/* Project Image */}
                   <div className="relative h-72 w-full object-cover">

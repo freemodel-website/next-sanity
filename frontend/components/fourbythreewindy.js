@@ -51,7 +51,7 @@ export const FourByThreeWindy = ({ data, title }) => {
             {[1, 2, 5, 6].includes(step.number) ? (
               <div
                 key={index}
-                className="flex flex-col justify-between sm:-mt-5"
+                className="flex flex-col justify-between sm:justify-normal sm:-mt-7"
               >
                 <li className="flex">
                   <div className="pl-4 pr-2">
@@ -68,7 +68,7 @@ export const FourByThreeWindy = ({ data, title }) => {
                     <img
                       src={urlFor(step.windyimage).url()}
                       alt={step.windyimage.alt}
-                      className="object-contain w-full h-44 mb-8 sm:mb-0 sm:h-52"
+                      className="object-contain w-full h-44 mb-8 sm:mb-0 sm:h-44"
                     />
                   )}
                 </>
@@ -76,7 +76,7 @@ export const FourByThreeWindy = ({ data, title }) => {
             ) : (
               <div
                 key={index}
-                className="flex flex-col justify-between sm:mt-5"
+                className="flex flex-col justify-between sm:mt-7"
               >
                 <li className="flex">
                   <div className="pl-4 pr-2">
@@ -93,7 +93,7 @@ export const FourByThreeWindy = ({ data, title }) => {
                     <img
                       src={urlFor(step.windyimage).url()}
                       alt={step.windyimage.alt}
-                      className="object-contain w-full h-56 mb-8 sm:mb-0 sm:h-56"
+                      className="object-contain w-full h-56 mb-8 sm:mb-0 sm:h-44"
                     />
                   )}
                 </>

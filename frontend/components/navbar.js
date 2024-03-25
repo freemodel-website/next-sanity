@@ -9,18 +9,10 @@ export default ({ data }) => {
 
   const navigation = data;
 
-  // const navigation = [
-  //   { title: "How It Works", path: "/how-it-works" },
-  //   { title: "For Agents", path: "/for-agents" },
-  //   { title: "Projects", path: "/projects" },
-  //   { title: "Locations", path: "/locations" },
-  //   { title: "Our Team", path: "/team" },
-  // ];
-
   return (
-    <nav className="bg-white border-b w-full sticky top-0 md:sticky z-50 md:text-sm md:border-none">
-      <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
-        <div className="flex items-center justify-between py-3 md:py-5 md:block">
+    <nav className="bg-white border-b w-full sticky top-0 lg:sticky z-50 lg:text-sm lg:border-none">
+      <div className="items-center px-4 max-w-screen-xl mx-auto lg:flex lg:px-8">
+        <div className="flex items-center justify-between py-3 lg:py-5 lg:block">
           <a href="/">
             <Image
               src="/Freemodel-logo.png"
@@ -30,7 +22,7 @@ export default ({ data }) => {
               style={{ width: "auto", height: "auto" }}
             />
           </a>
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               className="text-gray-500 hover:text-gray-800"
               onClick={() => setState(!state)}
@@ -67,17 +59,18 @@ export default ({ data }) => {
             </button>
           </div>
         </div>
+        {/* List of items */}
         <div
-          className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+          className={`flex-1 pb-3 mt-8 lg:block lg:pb-0 lg:mt-0 ${
             state ? "block" : "hidden"
           }`}
         >
-          <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+          <ul className="justify-end items-center space-y-6 lg:flex lg:space-x-6 lg:space-y-0">
             {navigation.map((item, idx) => {
               return (
                 <li
                   key={idx}
-                  className="text-black hover:text-FM-orange md:text-base"
+                  className="text-black hover:text-FM-orange lg:text-base"
                 >
                   <a
                     href={item.path}
@@ -91,11 +84,11 @@ export default ({ data }) => {
               );
             })}
 
-            <div className="space-y-3 items-center gap-x-6 md:flex md:space-y-0">
+            <div className="space-y-3 items-center gap-x-6 lg:flex lg:space-y-0">
               <li>
                 <a
                   href="/lets-talk"
-                  className="block py-3 px-4 w-32 mx-auto font-medium text-center text-white bg-FM-orange hover:bg-orange-600 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                  className="block py-3 px-4 w-32 mx-auto font-medium text-center text-white bg-FM-orange hover:bg-orange-600 active:bg-indigo-700 active:shadow-none rounded-lg shadow lg:inline"
                 >
                   Let's Talk
                 </a>

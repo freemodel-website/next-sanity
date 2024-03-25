@@ -146,7 +146,9 @@ export default defineType({
       validation: (rule) => rule.required(),
     },
 
-    //Windy Section
+    /*
+     * Windy Section
+     */
     {
       name: 'windySectionTitle',
       title: 'Windy Section Title',
@@ -191,18 +193,116 @@ export default defineType({
       validation: (rule) => rule.required().max(8),
     },
 
-    //Bottom
-    // {
-    //   name: 'bottombody',
-    //   title: 'Section 3: Title',
-    //   type: 'string',
-    // },
-    // {
-    //   name: 'bottomtitlebutton',
-    //   title: 'Title: Button',
-    //   type: 'string',
-    //   validation: (rule) => rule.required(),
-    // },
+    /*
+     * Become a Project Director
+     */
+    {
+      name: 'becomepdtitle',
+      title: 'Become a Project Director Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    //Section 1
+    {
+      name: 'becomepdec1',
+      title: '#1 H2',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'becomepdtext',
+      title: '#1 Text',
+      type: 'text',
+    },
+    {
+      name: 'becomepdbutton',
+      title: '#1 Button',
+      type: 'object',
+      fields: [
+        {
+          name: 'button',
+          title: 'Button',
+          type: 'string',
+        },
+        {
+          name: 'url',
+          title: 'URL',
+          type: 'string',
+        },
+      ],
+      validation: (rule) => rule.required(),
+    },
+    //Section 2
+    {
+      name: 'becomepdec2',
+      title: '#2 H2',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    {
+      name: 'becomepdtext2',
+      title: '#2 Text',
+      type: 'text',
+    },
+    {
+      name: 'becomepdbutton2',
+      title: '#2 Button',
+      type: 'object',
+      fields: [
+        {
+          name: 'button',
+          title: 'Button',
+          type: 'string',
+        },
+        {
+          name: 'url',
+          title: 'URL',
+          type: 'string',
+        },
+      ],
+      validation: (rule) => rule.required(),
+    },
+
+    //Meet the Team
+    {
+      name: 'amazingtitle',
+      title: 'Amazing Team Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    },
+    //image array
+    {
+      name: 'amazingteamimages',
+      title: 'Team Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+      validation: (rule) => rule.required().min(6).max(6),
+    },
+    {
+      name: 'amazingbutton',
+      title: 'Amazing Team Button',
+      type: 'object',
+      fields: [
+        {
+          name: 'button',
+          title: 'Button',
+          type: 'string',
+        },
+        {
+          name: 'url',
+          title: 'URL',
+          type: 'string',
+        },
+      ],
+      validation: (rule) => rule.required(),
+    },
 
     //END
   ],
