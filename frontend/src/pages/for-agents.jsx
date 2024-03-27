@@ -29,7 +29,7 @@ export default function ForAgents({ data, footer }) {
         ) : (
           <meta
             property="og:image"
-            href="https://freemodel.com/SEODefaultLogo.png"
+            content="https://freemodel.com/SEODefaultLogo.png"
           />
         )}
         <meta
