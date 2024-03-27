@@ -25,7 +25,11 @@ export default function ForDesigners({ data, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero hero={{ title: data.title }} buttontext={data.titlebutton} />
+        <Hero
+          hero={{ title: data.title }}
+          image={urlFor(data.mainImage).url()}
+          buttontext={data.titlebutton}
+        />
         <Bluebar
           theme={"rightimg"}
           body={data.bluebarbody}
@@ -98,24 +102,24 @@ export const getStaticProps = async () => {
         bluebarbody,
         bluebarimage,
         body,
-        //---QA
+        //-----QA
         qatitle,
         questionimage,
         questionsanswers,
-        //----lirt
+        //-----lirt
         lirtimage,
         lirttitle,
         lirttext,
-        //--pd 
+        //-----pd 
         pdtitle,
         pdimage,
         pdquote,
         pdname,
         pdjobtitle,
-        //----Windy Section
+        //-----Windy Section
         windySectionTitle,
         windySection,
-        //--Become a PD
+        //-----Become a PD
         becomepdtitle,
         becomepdec1,
         becomepdtext,
@@ -123,7 +127,7 @@ export const getStaticProps = async () => {
         becomepdec2,
         becomepdtext2,
         becomepdbutton2,
-        //--Team
+        //-----Team
         amazingtitle,
         amazingteamimages,
         amazingbutton,

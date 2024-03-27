@@ -22,9 +22,16 @@ export default function ForAgents({ data, footer }) {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
-        <meta property="og:title" content="Freemodel" />
-        <meta property="og:description" content={footer.description} />
-        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta property="og:title" content={data?.seoTitle} />
+        <meta property="og:description" content={data?.seoDescription} />
+        {data?.seoImage ? (
+          <meta property="og:image" content={urlFor(data.seoImage).url()} />
+        ) : (
+          <meta
+            property="og:image"
+            href="https://freemodel.com/SEODefaultLogo.png"
+          />
+        )}
         <meta
           property="og:url"
           content={`https://freemodel.com${currentURL}`}
