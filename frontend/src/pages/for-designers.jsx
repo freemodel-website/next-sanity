@@ -12,14 +12,37 @@ import Testimonial from "../../components/atoms/testimonial";
 import { FourByThreeWindy } from "../../components/fourbythreewindy";
 import Becomeapd from "../../components/becomeapd";
 import Imageteamgrid from "../../components/imageteamgrid";
+import { useRouter } from "next/router";
 
 export default function ForDesigners({ data, footer }) {
+  // Get the current URL
+  const router = useRouter();
+  const currentURL = router.asPath;
+
   return (
     <div>
       <Head>
         <title>{`For Designers | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph meta tags for social media sharing */}
+        <meta property="og:title" content={data?.seoTitle} />
+        <meta property="og:description" content={data?.seoDescription} />
+        {data?.seoImage ? (
+          <meta property="og:image" content={urlFor(data.seoImage).url()} />
+        ) : (
+          <meta
+            property="og:image"
+            content="https://freemodel.com/SEODefaultLogo.png"
+          />
+        )}
+        <meta
+          property="og:url"
+          content={`https://freemodel.com${currentURL}`}
+        />
+        <meta property="og:type" content="website" />
+        {/* END: Open Graph */}
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -131,6 +154,10 @@ export const getStaticProps = async () => {
         amazingtitle,
         amazingteamimages,
         amazingbutton,
+        //----SEO
+        seoTitle,
+        seoDescription,
+        seoImage,
       }`);
 
   // Footer data

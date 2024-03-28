@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,8 +25,8 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
-
     {
       name: 'mainImage',
       title: 'Main image',
@@ -24,35 +35,41 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bluebarbody',
       title: 'BlueBar: Body',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'lowerbodytitle',
       title: 'Lower Body: Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bodytitlebutton',
       title: 'Body: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     //Left Right Left
@@ -61,6 +78,7 @@ export default defineType({
       title: 'Title: Left Right Left',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Left Right Left
     {
@@ -100,6 +118,7 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(3),
+      group: 'page',
     },
 
     //Bullet Section
@@ -108,6 +127,7 @@ export default defineType({
       title: 'Title: Bullets',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bulletImage',
@@ -117,6 +137,7 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Array of strings
     {
@@ -129,6 +150,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     //Windy Section
@@ -136,6 +158,7 @@ export default defineType({
       name: 'windySectionTitle',
       title: 'Windy Section Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'windySection',
@@ -174,12 +197,14 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().max(8),
+      group: 'page',
     },
     //Section 3
     {
       name: 'sec3title',
       title: 'Section 3: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'projects',
@@ -192,6 +217,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().max(4),
+      group: 'page',
     },
     //Bottom Section
     {
@@ -199,19 +225,26 @@ export default defineType({
       title: 'Section 3: Title',
       type: 'blockContent',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bottomtitlebutton',
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bottombody',
       title: 'Section 3: Title',
       type: 'text',
+      group: 'page',
     },
 
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
     //END
   ],
   preview: {

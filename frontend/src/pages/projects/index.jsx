@@ -73,9 +73,15 @@ export default function Projects({
         {/* Open Graph meta tags for social media sharing */}
         <meta property="og:title" content={page?.seoTitle} />
         <meta property="og:description" content={page?.seoDescription} />
-        {page?.seoImage && (
+        {page?.seoImage ? (
           <meta property="og:image" content={urlFor(page.seoImage).url()} />
+        ) : (
+          <meta
+            property="og:image"
+            content="https://freemodel.com/SEODefaultLogo.png"
+          />
         )}
+
         <meta
           property="og:url"
           content={`https://freemodel.com${currentURL}`}

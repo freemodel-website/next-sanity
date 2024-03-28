@@ -5,6 +5,18 @@ export default {
   title: 'Brokerage',
   type: 'document',
   icon: FaBriefcase,
+
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     // Title
     {
@@ -12,6 +24,7 @@ export default {
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     // Slug
     {
@@ -23,6 +36,7 @@ export default {
         maxLength: 50,
       },
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Hero Image
     {
@@ -33,18 +47,21 @@ export default {
         hotspot: true,
       },
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //text
     {
       name: 'text',
       title: 'Blue Bar Text',
       type: 'string',
+      group: 'page',
     },
     //Body title
     {
       name: 'bodyTitle',
       title: 'Body Title',
       type: 'string',
+      group: 'page',
     },
     //body
     {
@@ -52,18 +69,21 @@ export default {
       title: 'Body',
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Blue Call out section
     {
       name: 'callout',
       title: 'Blue Callout Text',
       type: 'string',
+      group: 'page',
     },
     //Array of image title and link
     {
       name: 'sectionhead',
       title: 'Section Head',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'imageArray',
@@ -99,17 +119,20 @@ export default {
           ],
         },
       ],
+      group: 'page',
     },
     {
       name: 'imageGallaryTitle',
       title: 'Image Gallary Title',
       type: 'string',
+      group: 'page',
     },
     //Image Gallary body
     {
       name: 'imageGallaryBody',
       title: 'Image Gallary Body',
       type: 'blockContent',
+      group: 'page',
     },
 
     {
@@ -158,7 +181,14 @@ export default {
           }
         },
       },
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+
+    //END
   ],
   preview: {
     select: {

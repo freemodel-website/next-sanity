@@ -5,6 +5,18 @@ export default {
   title: 'Case Studies',
   type: 'document',
   icon: AiOutlineHome,
+
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     // Title
     {
@@ -12,6 +24,7 @@ export default {
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     // Slug
     {
@@ -23,6 +36,7 @@ export default {
         maxLength: 50,
       },
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Hero Image
     {
@@ -33,6 +47,7 @@ export default {
         hotspot: true,
       },
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     // Date Field with Initial Value
     {
@@ -44,36 +59,42 @@ export default {
       },
       validation: (Rule) => Rule.required(),
       initialValue: () => new Date().toISOString().split('T')[0], // Set initial value to the current date
+      group: 'page',
     },
     //Profit
     {
       name: 'dollarprofit',
       title: 'Profit ($xxx,xxx)',
       type: 'string',
+      group: 'page',
     },
     //Return
     {
       name: 'percentreturn',
       title: 'Return (xxx%)',
       type: 'string',
+      group: 'page',
     },
     //Sold For
     {
       name: 'soldfor',
       title: 'Sold ($xxx,xxx)',
       type: 'string',
+      group: 'page',
     },
     //As-Is
     {
       name: 'asis',
       title: 'As-Is ($xxx,xxx)',
       type: 'string',
+      group: 'page',
     },
     //Renovation
     {
       name: 'renovationprice',
       title: 'Renovation ($xxx,xxx)',
       type: 'string',
+      group: 'page',
     },
     // Location
     {
@@ -82,6 +103,7 @@ export default {
       type: 'reference',
       to: [{type: 'cities'}],
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Location write-in
     {
@@ -89,6 +111,7 @@ export default {
       title: 'Location (write-in)',
       description: 'Replaces the location listed above on the case study page.',
       type: 'string',
+      group: 'page',
     },
     // Beds
     {
@@ -96,6 +119,7 @@ export default {
       title: 'Beds',
       type: 'number',
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     // Baths
     {
@@ -103,6 +127,7 @@ export default {
       title: 'Baths',
       type: 'number',
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Bool,
     {
@@ -112,6 +137,7 @@ export default {
       type: 'boolean',
       initialValue: false,
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Duration
     {
@@ -119,6 +145,7 @@ export default {
       title: 'Duration (months/weeks)',
       type: 'number',
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //filter types
     {
@@ -127,6 +154,7 @@ export default {
       type: 'reference',
       to: [{type: 'houseType'}],
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     {
       title: 'Architechtural Style',
@@ -134,6 +162,7 @@ export default {
       type: 'reference',
       to: [{type: 'architecturalStyle'}],
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     {
       name: 'spacetype',
@@ -147,6 +176,7 @@ export default {
       ],
 
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
 
     //Body of the page
@@ -154,6 +184,7 @@ export default {
       name: 'body',
       title: 'Description',
       type: 'blockContent',
+      group: 'page',
     },
 
     //Testimonials
@@ -167,6 +198,7 @@ export default {
           to: [{type: 'testimonials'}],
         },
       ],
+      group: 'page',
     },
     //array of project directors
     {
@@ -179,6 +211,7 @@ export default {
           to: [{type: 'projectdirector'}],
         },
       ],
+      group: 'page',
     },
     //Brokerage
     {
@@ -186,6 +219,7 @@ export default {
       title: 'Brokerage',
       type: 'reference',
       to: [{type: 'brokerage'}],
+      group: 'page',
     },
 
     //Before Image
@@ -222,6 +256,7 @@ export default {
           },
         },
       ],
+      group: 'page',
     },
     //After Image
     {
@@ -257,6 +292,7 @@ export default {
           },
         },
       ],
+      group: 'page',
     },
     //More Images
     {
@@ -292,18 +328,21 @@ export default {
           },
         },
       ],
+      group: 'page',
     },
     //Call to Action
     {
       name: 'casestudycalltoaction',
       title: 'Call to Action',
       type: 'string',
+      group: 'page',
     },
     //Call to Action
     {
       name: 'casestudybuttontext',
       title: 'Button Text',
       type: 'string',
+      group: 'page',
     },
     //Select other case studies
     {
@@ -317,6 +356,11 @@ export default {
         },
       ],
       validation: (Rule) => Rule.max(3),
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
   ], //Top level fields
 }

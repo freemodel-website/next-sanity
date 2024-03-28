@@ -37,6 +37,7 @@ export default function ForAgents({ data, footer }) {
           content={`https://freemodel.com${currentURL}`}
         />
         <meta property="og:type" content="website" />
+        {/* END: Open Graph */}
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -103,7 +104,10 @@ export const getStaticProps = async () => {
       }
     },
     questionsanswers,
-    buttontitle
+    buttontitle,
+    seoTitle,
+    seoDescription,
+    seoImage,
   }`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

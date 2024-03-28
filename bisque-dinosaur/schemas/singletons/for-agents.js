@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,6 +25,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     {
@@ -24,6 +36,7 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     {
@@ -31,12 +44,14 @@ export default defineType({
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Body
     {
       name: 'bluebartext',
       title: 'Blue Bar Text',
       type: 'text',
+      group: 'page',
     },
     //Image
     {
@@ -46,6 +61,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      group: 'page',
     },
 
     //title
@@ -53,6 +69,7 @@ export default defineType({
       name: 'title1',
       title: 'Section 1: Title',
       type: 'string',
+      group: 'page',
     },
     //html
     {
@@ -86,6 +103,7 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(6),
+      group: 'page',
     },
     {
       name: 'questionimage',
@@ -94,6 +112,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      group: 'page',
     },
     {
       name: 'questionsanswers',
@@ -117,12 +136,19 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'buttontitle',
       title: 'Button Title',
       type: 'string',
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
     //END
   ],
   preview: {

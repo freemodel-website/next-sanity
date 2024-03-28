@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,8 +25,8 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
-
     {
       name: 'mainImage',
       title: 'Main image',
@@ -24,29 +35,34 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bluebarbody',
       title: 'BlueBar: Body',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Q&A
     {
       name: 'qatitle',
       title: 'Q&Q: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'leftImage',
@@ -56,6 +72,7 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'rightImage',
@@ -65,6 +82,7 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'questionsanswers',
@@ -87,6 +105,7 @@ export default defineType({
           ],
         },
       ],
+      group: 'page',
     },
     //Two Section
 
@@ -121,12 +140,14 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(2),
+      group: 'page',
     },
     {
       name: 'doubletitlebutton',
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //array of media
     {
@@ -140,12 +161,14 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().max(2),
+      group: 'page',
     },
     //Projects
     {
       name: 'projecttitle',
       title: 'Project Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'projects',
@@ -158,6 +181,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().max(3),
+      group: 'page',
     },
 
     //Bottom
@@ -165,13 +189,20 @@ export default defineType({
       name: 'bottombody',
       title: 'Section 3: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'bottomtitlebutton',
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
 
     //END
   ],

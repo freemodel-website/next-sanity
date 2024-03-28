@@ -99,10 +99,10 @@ const Brokerage = ({ data, footer }) => {
         <meta
           property="og:description"
           content={`
-          ${brokerage.text ? brokerage.text : ""}
+          ${data?.seoDescription ? data?.seoDescription : brokerage.text}
         `}
         />
-        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta property="og:image" content={urlFor(brokerage.mainImage).url()} />
         <meta
           property="og:url"
           content={`https://freemodel.com${currentURL}`}
@@ -312,6 +312,9 @@ export const getServerSideProps = async (context) => {
       }
     }
     },
+    //----SEO
+    seoTitle,
+    seoDescription,
   }[0]`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

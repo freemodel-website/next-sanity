@@ -14,8 +14,13 @@ import Doublesection from "../../components/doublesection";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Projectcard from "../../components/atoms/projectcard";
+import { useRouter } from "next/router";
 
 export default function RenovationService({ data, footer }) {
+  // Get the current URL
+  const router = useRouter();
+  const currentURL = router.asPath;
+
   const MotionDiv = motion.div;
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,6 +43,24 @@ export default function RenovationService({ data, footer }) {
         <title>{`Renovation Services | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Open Graph meta tags for social media sharing */}
+        <meta property="og:title" content={data?.seoTitle} />
+        <meta property="og:description" content={data?.seoDescription} />
+        {data?.seoImage ? (
+          <meta property="og:image" content={urlFor(data.seoImage).url()} />
+        ) : (
+          <meta
+            property="og:image"
+            content="https://freemodel.com/SEODefaultLogo.png"
+          />
+        )}
+        <meta
+          property="og:url"
+          content={`https://freemodel.com${currentURL}`}
+        />
+        <meta property="og:type" content="website" />
+        {/* END: Open Graph */}
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -186,60 +209,60 @@ export default function RenovationService({ data, footer }) {
 }
 
 export const getStaticProps = async () => {
-  const mainquery = await client.fetch(` *[_type == "renovationservices"][0]{
-      title,
-      mainImage {
-        hotspot,
-        crop,
-        asset->{
-          _id,
-          url
-        }
-      },
-      titlebutton,
-      bluebarbody,
-      body,
-      lowerbodytitle,
-      bodytitlebutton,
-      //----Q&A
-      qatitle,
-      leftImage {
-        hotspot,
-        crop,
-        asset->{
-          _id,
-          url
-        }
-      },
-      rightImage {
-        hotspot,
-        crop,
-        asset->{
-          _id,
-          url
-        }
-      },
-      questionsanswers,
-      //----TwoSection
-      twosecimageArray,
-      doubletitlebutton,
-      media[]->{
+  const mainquery = await client.fetch(gql`*[_type == "renovationservices"][0]{
+    title,
+    mainImage {
+      hotspot,
+      crop,
+      asset->{
         _id,
-        name,
-        url,
-        image {
-            crop,
-            hotspot,
-            asset->{
-                _ref,
-                _type,
-                altText,
-                description,
-                "tags": opt.media.tags[]->name.current,
-                title,
-                url
-            },
+        url
+      }
+    },
+    titlebutton,
+    bluebarbody,
+    body,
+    lowerbodytitle,
+    bodytitlebutton,
+    //----Q&A
+    qatitle,
+    leftImage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    rightImage {
+      hotspot,
+      crop,
+      asset->{
+        _id,
+        url
+      }
+    },
+    questionsanswers,
+    //----TwoSection
+    twosecimageArray,
+    doubletitlebutton,
+    media[]->{
+      _id,
+      name,
+      url,
+      image {
+        crop,
+        hotspot,
+        asset->{
+          _ref,
+          _type,
+          altText,
+          description,
+          "tags": opt.media.tags[]->name.current,
+          title,
+          url
         },
+      },
     },
     //----Featured Projects
     projecttitle,
@@ -255,11 +278,14 @@ export const getStaticProps = async () => {
         current
       }
     },
-
-      //----Bottom Section
-      bottomtitle,
-      bottomtitlebutton,
-      bottombody,
+    //----Bottom Section
+    bottomtitle,
+    bottomtitlebutton,
+    bottombody,
+    //----SEO
+    seoTitle,
+    seoDescription,
+    seoImage,
     }`);
 
   // Footer data

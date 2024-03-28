@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,6 +25,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     {
@@ -24,17 +36,20 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bluebarbody',
       title: 'BlueBar: Body',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'bluebarimage',
@@ -44,12 +59,14 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Q&A
     {
@@ -59,12 +76,14 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      group: 'page',
     },
     {
       name: 'qatitle',
       title: 'Q&Q: Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'questionsanswers',
@@ -88,6 +107,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Left Image RightText
     {
@@ -98,18 +118,21 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'lirttitle',
       title: 'Section 4: Image Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'lirttext',
       title: 'Section 4: Text',
       type: 'text',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Project Director
     {
@@ -117,6 +140,7 @@ export default defineType({
       title: 'Project Director Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'pdimage',
@@ -126,24 +150,28 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'pdquote',
       title: 'Project Director Quote',
       type: 'text',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'pdname',
       title: 'Project Director Name',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'pdjobtitle',
       title: 'Project Director Job Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     /*
@@ -153,6 +181,7 @@ export default defineType({
       name: 'windySectionTitle',
       title: 'Windy Section Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'windySection',
@@ -191,6 +220,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().max(8),
+      group: 'page',
     },
 
     /*
@@ -201,6 +231,7 @@ export default defineType({
       title: 'Become a Project Director Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Section 1
     {
@@ -208,11 +239,13 @@ export default defineType({
       title: '#1 H2',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'becomepdtext',
       title: '#1 Text',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'becomepdbutton',
@@ -231,6 +264,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //Section 2
     {
@@ -238,11 +272,13 @@ export default defineType({
       title: '#2 H2',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'becomepdtext2',
       title: '#2 Text',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'becomepdbutton2',
@@ -261,6 +297,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     //Meet the Team
@@ -269,6 +306,7 @@ export default defineType({
       title: 'Amazing Team Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     //image array
     {
@@ -284,6 +322,7 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().min(6).max(6),
+      group: 'page',
     },
     {
       name: 'amazingbutton',
@@ -302,7 +341,13 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required(),
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
 
     //END
   ],

@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,6 +25,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     {
@@ -24,6 +36,7 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     {
@@ -31,22 +44,26 @@ export default defineType({
       title: 'Title: Button',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'bluebartitle',
       title: 'BlueBar: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'bluebarbody',
       title: 'BlueBar: Body',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'threesectiontitle',
       title: 'Section 3 Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'threeSecArray',
@@ -86,7 +103,13 @@ export default defineType({
           media: 'image',
         },
       },
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
 
     //END
   ],
