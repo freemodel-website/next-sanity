@@ -209,7 +209,7 @@ export default function RenovationService({ data, footer }) {
 }
 
 export const getStaticProps = async () => {
-  const mainquery = await client.fetch(gql`*[_type == "renovationservices"][0]{
+  const mainquery = await client.fetch(`*[_type == "renovationservices"][0]{
     title,
     mainImage {
       hotspot,

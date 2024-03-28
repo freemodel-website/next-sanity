@@ -5,12 +5,25 @@ export default {
   title: 'Project Directors',
   type: 'document',
   icon: FaHardHat,
+
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'name',
       title: 'Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     {
       name: 'slug',
@@ -21,6 +34,7 @@ export default {
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Toggle with default true
     {
@@ -29,6 +43,7 @@ export default {
       description: '(default/on link will show)',
       type: 'boolean',
       initialValue: true,
+      group: 'page',
     },
 
     //title
@@ -36,6 +51,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'image',
@@ -45,6 +61,7 @@ export default {
         hotspot: true,
       },
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     {
       name: 'bio',
@@ -58,11 +75,13 @@ export default {
           lists: [],
         },
       ],
+      group: 'page',
     },
     {
       name: 'quote',
       title: 'Quote',
       type: 'text',
+      group: 'page',
     },
     //location
     {
@@ -72,6 +91,7 @@ export default {
       type: 'reference',
       to: [{type: 'cities'}],
       validation: (Rule) => Rule.required(),
+      group: 'page',
     },
     //Testimonial title
     {
@@ -79,6 +99,7 @@ export default {
       title: 'Testimonial Title',
       type: 'string',
       placeholder: 'Kudos from Clients',
+      group: 'page',
     },
     //Testimonials
     {
@@ -91,6 +112,7 @@ export default {
           to: [{type: 'testimonials'}],
         },
       ],
+      group: 'page',
     },
 
     //array of projects
@@ -104,6 +126,7 @@ export default {
           to: [{type: 'caseStudy'}],
         },
       ],
+      group: 'page',
     },
     //array of media
     {
@@ -116,6 +139,7 @@ export default {
           to: [{type: 'media'}],
         },
       ],
+      group: 'page',
     },
     //LinkedIn field title
     {
@@ -134,6 +158,7 @@ export default {
           title: 'Link',
         },
       ],
+      group: 'page',
     },
     //Instagram
     {
@@ -152,6 +177,7 @@ export default {
           title: 'Link',
         },
       ],
+      group: 'page',
     },
     //Facebook
     {
@@ -170,6 +196,7 @@ export default {
           title: 'Link',
         },
       ],
+      group: 'page',
     },
     //Pinterest
     {
@@ -188,6 +215,7 @@ export default {
           title: 'Link',
         },
       ],
+      group: 'page',
     },
     //Website
     {
@@ -206,6 +234,7 @@ export default {
           title: 'Link',
         },
       ],
+      group: 'page',
     },
     //Email
     {
@@ -225,6 +254,7 @@ export default {
           title: 'Email',
         },
       ],
+      group: 'page',
     },
   ],
   preview: {
