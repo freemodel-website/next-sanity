@@ -21,14 +21,25 @@ export default function Media({ data, mediadata, footer }) {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
-        <meta property="og:title" content="Freemodel" />
-        <meta property="og:description" content={footer.description} />
-        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta property="og:title" content={mediadata?.seoTitle} />
+        <meta property="og:description" content={mediadata?.seoDescription} />
+        {mediadata?.seoImage ? (
+          <meta
+            property="og:image"
+            content={urlFor(mediadata.seoImage).url()}
+          />
+        ) : (
+          <meta
+            property="og:image"
+            content="https://freemodel.com/SEODefaultLogo.png"
+          />
+        )}
         <meta
           property="og:url"
           content={`https://freemodel.com${currentURL}`}
         />
         <meta property="og:type" content="website" />
+        {/* END: Open Graph */}
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -107,6 +118,10 @@ export const getStaticProps = async () => {
     },
     titlebutton,
     bluetitle,
+    //----SEO
+    seoTitle,
+    seoDescription,
+    seoImage,
   }
   `;
 

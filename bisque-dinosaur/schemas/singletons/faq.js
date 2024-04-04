@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,6 +25,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'mainImage',
@@ -22,16 +34,19 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      group: 'page',
     },
     {
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'bluetitle',
       title: 'Blue Bar Title',
       type: 'string',
+      group: 'page',
     },
 
     //Body of the page
@@ -58,6 +73,7 @@ export default defineType({
           ],
         },
       ],
+      group: 'page',
     },
     //Poject Directors
 
@@ -65,7 +81,13 @@ export default defineType({
       name: 'ctabutton',
       title: 'CTA Button',
       type: 'string',
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
 
     //END
   ],

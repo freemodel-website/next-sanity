@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,6 +25,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
 
     {
@@ -23,33 +35,39 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      group: 'page',
     },
 
     {
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
+      group: 'page',
     },
     //Body
     {
       name: 'bluebar',
       title: 'BlueBar: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      group: 'page',
     },
     {
       name: 'bluebar2',
       title: 'BlueBar2: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'sec2title',
       title: 'Section 2: Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'sec2imageArray',
@@ -82,6 +100,7 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(3),
+      group: 'page',
     },
     //Testimonial title
     {
@@ -89,6 +108,7 @@ export default defineType({
       title: 'Testimonials: Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'testimonials',
@@ -100,29 +120,39 @@ export default defineType({
           to: [{type: 'testimonials'}],
         },
       ],
+      group: 'page',
     },
     {
       name: 'sec3title',
       title: 'Section 3: Title',
       type: 'string',
+      group: 'page',
     },
     //html
     {
       name: 'sec3html',
       title: 'Section 3: HTML',
       type: 'text',
+      group: 'page',
     },
     {
       name: 'sec4title',
       title: 'Section 4: Title',
       type: 'string',
+      group: 'page',
     },
     //html
     {
       name: 'sec4html',
       title: 'Section 4: HTML',
       type: 'text',
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
     //END
   ],
   preview: {

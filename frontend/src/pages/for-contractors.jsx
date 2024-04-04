@@ -25,14 +25,22 @@ export default function ForContractors({ data, footer }) {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
-        <meta property="og:title" content="Freemodel" />
-        <meta property="og:description" content={footer.description} />
-        <meta property="og:image" content={urlFor(footer.footerimage).url()} />
+        <meta property="og:title" content={data?.seoTitle} />
+        <meta property="og:description" content={data?.seoDescription} />
+        {data?.seoImage ? (
+          <meta property="og:image" content={urlFor(data.seoImage).url()} />
+        ) : (
+          <meta
+            property="og:image"
+            content="https://freemodel.com/SEODefaultLogo.png"
+          />
+        )}
         <meta
           property="og:url"
           content={`https://freemodel.com${currentURL}`}
         />
         <meta property="og:type" content="website" />
+        {/* END: Open Graph */}
       </Head>
 
       <Navbar data={footer.navbar} />
@@ -126,7 +134,10 @@ export const getStaticProps = async () => {
     sec3html,
     sec4title,
     sec4html,
-    
+    //----SEO
+    seoTitle,
+    seoDescription,
+    seoImage,
   }`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

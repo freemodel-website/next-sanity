@@ -7,6 +7,17 @@ export default defineType({
 
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+    {
+      name: 'page',
+      title: 'Page',
+      default: true,
+    },
+  ],
   fields: [
     {
       name: 'title',
@@ -14,6 +25,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'mainImage',
@@ -23,16 +35,19 @@ export default defineType({
         hotspot: true,
       },
       validation: (rule) => rule.required(),
+      group: 'page',
     },
     {
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'bluetitle',
       title: 'Blue Bar Title',
       type: 'string',
+      group: 'page',
     },
 
     //Body of the page
@@ -40,6 +55,7 @@ export default defineType({
       name: 'body',
       title: 'Description',
       type: 'blockContent',
+      group: 'page',
     },
 
     {
@@ -52,6 +68,7 @@ export default defineType({
           to: [{type: 'caseStudy'}],
         },
       ],
+      group: 'page',
     },
     //Images
     {
@@ -59,12 +76,14 @@ export default defineType({
       title: 'Images gallery',
       type: 'array',
       of: [{type: 'image'}],
+      group: 'page',
     },
     //Project Director title
     {
       name: 'projectdirectortitle',
       title: 'Project Director Title',
       type: 'string',
+      group: 'page',
     },
     //Poject Directors
     {
@@ -77,17 +96,25 @@ export default defineType({
           to: [{type: 'projectdirector'}],
         },
       ],
+      group: 'page',
     },
     {
       name: 'ctatitle',
       title: 'CTA Title',
       type: 'string',
+      group: 'page',
     },
     {
       name: 'ctabutton',
       title: 'CTA Button',
       type: 'string',
+      group: 'page',
     },
+
+    //SEO
+    {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
+    {name: 'seoDescription', title: 'Description', type: 'string', group: 'seo'},
+    {name: 'seoImage', title: 'Image', type: 'image', group: 'seo'},
 
     //END
   ],
