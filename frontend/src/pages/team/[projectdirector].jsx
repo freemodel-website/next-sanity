@@ -29,12 +29,15 @@ const ProjectDirector = ({ item, footer }) => {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Open Graph meta tags for social media sharing */}
-        <meta property="og:title" content={item[0].seoTitle} />
+        <meta property="og:title" content={item[0].name} />
         <meta property="og:description" content={item[0].seoDescription} />
-        {item[0].seoImage ? (
-          <meta property="og:image" content={urlFor(item[0].seoImage).url()} />
-        ) : (
+        {item[0].image ? (
           <meta property="og:image" content={urlFor(item[0].image).url()} />
+        ) : (
+          <meta
+            property="og:image"
+            content="https://freemodel.com/SEODefaultLogo.png"
+          />
         )}
         <meta
           property="og:url"
