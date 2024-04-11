@@ -25,17 +25,17 @@ export default ({ title, images, button }) => {
             src={urlFor(images[3]).url()}
           />
           <img
-            class="w-full mb-5 aspect-square object-cover rounded-xl"
-            src={urlFor(images[4]).url()}
-          />
-          <img
             class="w-full mb-5 aspect-video object-cover rounded-xl"
             src={urlFor(images[5]).url()}
           />
+          <img
+            class="w-full mb-5 aspect-square object-cover rounded-xl"
+            src={urlFor(images[4]).url()}
+          />
         </div>
         <div class="mx-auto ">
-          <div class="mx-auto text-center mt-16 max-w-xl">
-            <h4 class="mt-2 text-2xl mb-5 font-extrabold max-w-xl text-center leading-8 text-gray-900  sm:text-3xl sm:leading-9">
+          <div class="mx-auto text-center mt-16 max-w-3xl">
+            <h4 class="mt-2 text-2xl mb-5 font-extrabold max-w-3xl text-center leading-10 text-gray-900  sm:text-5xl sm:leading-[3rem]">
               Check out our amazing team of project directors and their
               portfolios:
             </h4>

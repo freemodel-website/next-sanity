@@ -40,7 +40,7 @@ export const FourByThreeWindy = ({ data, title }) => {
       }}
     >
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-10 pb-10 px-4 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        <h2 className="max-w-lg mb-10 pb-10 px-4 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl md:mx-auto">
           {title}
         </h2>
       </div>

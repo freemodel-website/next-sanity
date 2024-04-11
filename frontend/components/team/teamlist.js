@@ -29,7 +29,7 @@ export default function TeamList({ title, team }) {
                 <li key={idx}>
                   {item.bool === false ? (
                     <div>
-                      <div className="relative w-28 h-28 md:w-28 md:h-28 mx-auto">
+                      <div className="relative w-28 h-28 md:w-36 md:h-36 mx-auto">
                         <Image
                           src={urlFor(item.image).url()}
                           className="w-full h-full rounded-full object-cover object-center shadow-md"
@@ -56,7 +56,7 @@ export default function TeamList({ title, team }) {
                     </div>
                   ) : (
                     <Link href={`/team/${item.slug.current}`} className="group">
-                      <div className="relative w-28 h-28 md:w-28 md:h-28 mx-auto">
+                      <div className="relative w-28 h-28 md:w-36 md:h-36 mx-auto">
                         <Image
                           src={urlFor(item.image).url()}
                           className="w-full h-full rounded-full object-cover object-center shadow-md"
