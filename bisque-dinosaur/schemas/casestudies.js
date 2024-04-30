@@ -296,6 +296,12 @@ export default {
     },
     //More Images
     {
+      name: 'moreimagestitle',
+      title: 'More Images Title',
+      type: 'string',
+      group: 'page',
+    },
+    {
       name: 'moreimages',
       title: 'More Images',
       type: 'array',

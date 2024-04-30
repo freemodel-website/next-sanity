@@ -79,12 +79,13 @@ const ProjectSlug = ({ item, footer }) => {
           beforeimages={item.beforeimages}
           afterimages={item.afterimages}
           moreimages={item.moreimages}
+          moreimagestitle={item.moreimagestitle}
         />
 
         {/* More case studies */}
         {item.casestudyselect && (
           <div className="flex flex-col items-center my-28">
-            <h2 className="text-4xl font-bold mb-10">More Case Studies</h2>
+            <h2 className="text-4xl font-bold mb-10">{"More Case Studies"}</h2>
             <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-8">
               {/* map through casestudyselect */}
               {item.casestudyselect.map((item) => (
@@ -184,6 +185,7 @@ export const getServerSideProps = async ({ params }) => {
         }
 
     },
+    moreimagestitle,
     moreimages[] {
         moreimage {
           crop,

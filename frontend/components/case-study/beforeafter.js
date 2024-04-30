@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { client, urlFor } from "../../client";
-export default function BeforeAfter({ beforeimages, afterimages, moreimages }) {
+export default function BeforeAfter({
+  beforeimages,
+  afterimages,
+  moreimages,
+  moreimagestitle,
+}) {
   return (
     <section className="pt-14 pb-24">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
@@ -71,7 +76,7 @@ export default function BeforeAfter({ beforeimages, afterimages, moreimages }) {
         <div className="mt-24">
           <div className="flex justify-start max-w-screen-xl mx-auto md:px-8 mb-10">
             <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl md:text-5xl">
-              More Photos
+              {moreimagestitle ? moreimagestitle : "More Photos"}
             </h1>
           </div>
           <div className="max-w-screen-xl mx-auto px-4 md:px-8">
