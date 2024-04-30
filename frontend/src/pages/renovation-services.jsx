@@ -82,7 +82,8 @@ export default function RenovationService({ data, footer }) {
               {data.qatitle}
             </h1>
           </div>
-          <div className="flex flex-col items-center my-8 w-full sm:w-3/4 md:w-1/2 lg:flex-row lg:w-1/3 xl:w-3/4">
+
+          <div className="flex flex-col items-center my-8 w-full sm:w-3/4 sm:flex-row md:w-5/6 lg:w-5/6 xl:w-3/4">
             <div className="flex flex-col items-center">
               <Image
                 src={urlFor(data.leftImage).url()}
@@ -101,7 +102,7 @@ export default function RenovationService({ data, footer }) {
                 alt="rightImage"
                 height={800}
                 width={800}
-                className="object-cover w-96 h-64 mb-6 rounded-2xl shadow-lg lg:h-80 xl:h-96 xl:mt-24"
+                className="object-cover w-96 h-64 mb-6 rounded-2xl shadow-lg lg:h-80 xl:h-96 lg:mt-24"
               />
             </div>
           </div>
