@@ -13,18 +13,34 @@ import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 
 export default () => {
   const videoData = [
+    // {
+    //   horizontalslider: false,
+    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
+    //   title: "Cumque cupiditate tempore eius error.",
+    //   description:
+    //     "Vero cupiditate sed delectus. Nobis velit autem. Repellendus pariatur dolorum commodi rerum assumenda nemo neque minima. Sit dolorem dolorum ab dolor cupiditate.",
+    // },
+    // {
+    //   horizontalslider: false,
+    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
+    //   title: "Title 2",
+    //   description: "Description 2",
+    // },
+    // {
+    //   horizontalslider: false,
+    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
+    //   title: "Title 3",
+    //   description: "Description 3",
+    // },
     {
-      videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
-      title: "Title 1",
-      description: "Description 1",
+      horizontalslider: true,
+      videourl: "https://player.vimeo.com/video/823489509?h=a68bf7750d",
+      title: "Title 3",
+      description: "Description 3",
     },
     {
-      videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
-      title: "Title 2",
-      description: "Description 2",
-    },
-    {
-      videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
+      horizontalslider: true,
+      videourl: "https://player.vimeo.com/video/823489509?h=a68bf7750d",
       title: "Title 3",
       description: "Description 3",
     },
@@ -46,52 +62,107 @@ export default () => {
         slides: { perView: 1, spacing: 10 },
       },
       "(min-width: 1000px)": {
-        slides: { perView: 3, spacing: 10 },
+        slides: { perView: 2, spacing: 10 },
+      },
+      "(min-width: 1300px)": {
+        slides: {
+          //if videodata.horizontalslider is true, then perView: 1, else perView: 2
+          perView: videoData.some((video) => video.horizontalslider) ? 2 : 3,
+          spacing: 10,
+        },
       },
     },
     slides: { perView: 1 },
     loop: true,
   });
 
-  // <iframe src="https://player.vimeo.com/video/903438744?h=d43eaf3756" width="400" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  //Array of objects, videourl, title, description
   return (
     <div className="text-center">
-      <div className="navigation-wrapper relative sm:mx-10">
+      <div
+        className="navigation-wrapper relative mx-auto 
+        w-full  sm:w-[65%] md:w-[65%] lg:w-[75%] xl:w-[95%] 2xl:w-[75%] "
+      >
         <div className="slider-container w-[85%] mx-auto">
           <div ref={sliderRef} className="keen-slider">
             {videoData.map((project, index) => (
-              <div
-                className="keen-slider__slide sm:w-[74vw] md:w-[51vw] lg:w-[30vw] lg:max-w-[23rem] xl:max-w-[20rem] 2xl:max-w-[26rem] max-w-lg rounded-lg border-2 bg-white border-stone-100   sm:mx-auto"
-                key={index}
-              >
-                {/* Project Image */}
-                <div className="relative w-full mx-auto object-cover mt-3">
-                  <iframe
-                    src={project.videourl}
-                    className="mx-auto rounded-lg"
-                    width="340"
-                    height="564"
-                    frameborder="0"
-                    allow="autoplay; fullscreen"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-
-                {/* Project Title */}
-                <div className="mt-2">
-                  <dl>
-                    <div className="projectcardtitle">
-                      <dt className="sr-only">{project.title}</dt>
-                      <h2 className="font-bold text-center text-2xl min-h-[65px] line-clamp-2">
-                        {project.title}
-                      </h2>
+              <>
+                {project.horizontalslider ? (
+                  <div
+                    className="keen-slider__slide rounded-lg border-2 bg-white border-stone-100"
+                    key={index}
+                    style={{ maxWidth: 500, minWidth: 500, height: "500px" }}
+                  >
+                    {/* Project Image */}
+                    <div className="relative w-full mx-auto object-cover mt-3">
+                      <iframe
+                        src={project.videourl}
+                        className="mx-auto rounded-lg"
+                        width="530"
+                        height="350"
+                        frameborder="0"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen
+                      ></iframe>
                     </div>
-                  </dl>
-                </div>
-              </div>
+
+                    {/* Project Title */}
+                    <div className="mt-2">
+                      <dl>
+                        <div className="projectcardtitle px-8">
+                          <h2 className="font-bold text-left text-xl min-h-[65px] line-clamp-2">
+                            {project.title}
+                          </h2>
+
+                          <p className="text-sm text-left mb-6">
+                            {project.description}
+                          </p>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    className="keen-slider__slide rounded-lg border-2 bg-white border-stone-100"
+                    key={index}
+                    style={{
+                      maxWidth: "360px",
+                      width: "360px !important",
+                      minWidth: "360px",
+                    }}
+                  >
+                    {/* Project Image */}
+                    <div className="relative w-full mx-auto object-cover mt-3">
+                      <iframe
+                        src={project.videourl}
+                        className="mx-auto rounded-lg"
+                        width="350"
+                        height="500"
+                        frameborder="0"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+
+                    {/* Project Title */}
+                    <div className="mt-2">
+                      <dl>
+                        <div className="projectcardtitle px-8">
+                          <h2 className="font-bold text-left text-xl min-h-[65px] line-clamp-2">
+                            {project.title}
+                          </h2>
+
+                          <p className="text-sm text-left mb-6">
+                            {project.description}
+                          </p>
+                        </div>
+                      </dl>
+                    </div>
+                  </div> //Slide end
+                )}
+              </>
             ))}
           </div>
+          {/* Arrows */}
           {loaded && instanceRef.current && (
             <>
               <Arrow
