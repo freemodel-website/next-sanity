@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import {
@@ -10,44 +10,32 @@ import { urlFor } from "../client";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
+import window from "global";
 
-export default () => {
-  const videoData = [
-    // {
-    //   horizontalslider: false,
-    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
-    //   title: "Cumque cupiditate tempore eius error.",
-    //   description:
-    //     "Vero cupiditate sed delectus. Nobis velit autem. Repellendus pariatur dolorum commodi rerum assumenda nemo neque minima. Sit dolorem dolorum ab dolor cupiditate.",
-    // },
-    // {
-    //   horizontalslider: false,
-    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
-    //   title: "Title 2",
-    //   description: "Description 2",
-    // },
-    // {
-    //   horizontalslider: false,
-    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
-    //   title: "Title 3",
-    //   description: "Description 3",
-    // },
-    {
-      horizontalslider: true,
-      videourl: "https://player.vimeo.com/video/823489509?h=a68bf7750d",
-      title: "Title 3",
-      description: "Description 3",
-    },
-    {
-      horizontalslider: true,
-      videourl: "https://player.vimeo.com/video/823489509?h=a68bf7750d",
-      title: "Title 3",
-      description: "Description 3",
-    },
-  ];
-
+export default ({ videoData }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+
+  //check if mobile or desktop
+  const useIsMobile = (breakpoint = 768) => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= breakpoint);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, [breakpoint]);
+
+    return isMobile;
+  };
+
+  console.log("DEBUG useIsMobile: ", JSON.stringify(useIsMobile()));
 
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
@@ -80,35 +68,60 @@ export default () => {
     <div className="text-center">
       <div
         className="navigation-wrapper relative mx-auto 
-        w-full  sm:w-[65%] md:w-[65%] lg:w-[75%] xl:w-[95%] 2xl:w-[75%] "
+        w-full  sm:w-[65%] md:w-[65%] lg:w-[75%] xl:w-[95%] 2xl:w-[65%] 3xl:w-[75%] 4xl:w-[75%]"
       >
         <div className="slider-container w-[85%] mx-auto">
           <div ref={sliderRef} className="keen-slider">
             {videoData.map((project, index) => (
               <>
                 {project.horizontalslider ? (
+                  // Horizontal Video
                   <div
-                    className="keen-slider__slide rounded-lg border-2 bg-white border-stone-100"
+                    className="keen-slider__slide h-[350px] md:h-[500px] rounded-lg border-2 bg-white border-stone-100"
                     key={index}
-                    style={{ maxWidth: 500, minWidth: 500, height: "500px" }}
+                    style={{ maxWidth: 500, minWidth: 500 }}
                   >
                     {/* Project Image */}
                     <div className="relative w-full mx-auto object-cover mt-3">
-                      <iframe
+                      {/* <iframe
                         src={project.videourl}
                         className="mx-auto rounded-lg"
-                        width="530"
+                        width={ "500"}
                         height="350"
                         frameborder="0"
                         allow="autoplay; fullscreen"
                         allowfullscreen
+                      ></iframe> */}
+                      <style jsx>
+                        {`
+                          .responsive-iframe {
+                            width: 90%; /* Takes full width on smaller screens */
+                            max-width: 500px; /* Limits the maximum width */
+                            height: 170px;
+                          }
+
+                          @media (min-width: 768px) {
+                            .responsive-iframe {
+                              width: 500px; /* Fixed width for larger screens */
+                              height: 300px;
+                            }
+                          }
+                        `}
+                      </style>
+
+                      <iframe
+                        src={project.videourl}
+                        className="mx-auto rounded-lg responsive-iframe"
+                        frameborder="0"
+                        allow="autoplay; fullscreen"
+                        allowFullScreen
                       ></iframe>
                     </div>
 
                     {/* Project Title */}
                     <div className="mt-2">
                       <dl>
-                        <div className="projectcardtitle px-8">
+                        <div className="projectcardtitle px-8 md:px-0 md:w-[500px] md:mx-auto">
                           <h2 className="font-bold text-left text-xl min-h-[65px] line-clamp-2">
                             {project.title}
                           </h2>
@@ -121,11 +134,12 @@ export default () => {
                     </div>
                   </div>
                 ) : (
+                  // Vertical Video
                   <div
                     className="keen-slider__slide rounded-lg border-2 bg-white border-stone-100"
                     key={index}
                     style={{
-                      maxWidth: "360px",
+                      maxWidth: 360,
                       width: "360px !important",
                       minWidth: "360px",
                     }}
@@ -146,7 +160,7 @@ export default () => {
                     {/* Project Title */}
                     <div className="mt-2">
                       <dl>
-                        <div className="projectcardtitle px-8">
+                        <div className="projectcardtitle px-9">
                           <h2 className="font-bold text-left text-xl min-h-[65px] line-clamp-2">
                             {project.title}
                           </h2>

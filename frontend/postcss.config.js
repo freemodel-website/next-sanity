@@ -20,6 +20,10 @@ module.exports = {
             "EN-ice": "#C8F7FF",
             "EN-darkblue": "#0059AA",
           },
+          screens: {
+            "3xl": "1600px",
+            "4xl": "1920px",
+          },
         },
       },
     },
