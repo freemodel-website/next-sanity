@@ -22,12 +22,15 @@ export default ({ videoData }) => {
 
   //check if mobile or desktop
   const useIsMobile = (breakpoint = 768) => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
+    const [isMobile, setIsMobile] = useState(false); // Default to false, as SSR won't have window information
 
     useEffect(() => {
       const handleResize = () => {
         setIsMobile(window.innerWidth <= breakpoint);
       };
+
+      // Check on component mount in case we're already at the correct size
+      handleResize();
 
       window.addEventListener("resize", handleResize);
 
