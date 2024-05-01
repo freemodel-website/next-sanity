@@ -13,6 +13,10 @@ import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 import window from "global";
 
 export default ({ videoData }) => {
+  if (typeof window === "undefined") {
+    return null; // Do not render anything on the server side
+  }
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
