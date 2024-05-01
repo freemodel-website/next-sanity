@@ -21,25 +21,42 @@ export default ({ videoData }) => {
   const [loaded, setLoaded] = useState(false);
 
   //check if mobile or desktop
+  const isClient = () => typeof window !== "undefined";
+
+  // Utility to check if the viewport width is less than or equal to a given breakpoint
+  const isMobile = (breakpoint = 768) => {
+    // If we're in a server-side context, return false by default
+    if (!isClient()) {
+      return false;
+    }
+
+    // Check the current window width against the breakpoint
+    return window.innerWidth <= breakpoint;
+  };
+
+  // Custom hook to use the mobile check with reactivity
   const useIsMobile = (breakpoint = 768) => {
-    const [isMobile, setIsMobile] = useState(false); // Default to false, as SSR won't have window information
+    const [isMobileState, setIsMobileState] = useState(() =>
+      isMobile(breakpoint)
+    );
 
     useEffect(() => {
       const handleResize = () => {
-        setIsMobile(window.innerWidth <= breakpoint);
+        setIsMobileState(isMobile(breakpoint));
       };
 
-      // Check on component mount in case we're already at the correct size
-      handleResize();
-
+      // Listen for changes in the window's size
       window.addEventListener("resize", handleResize);
+
+      // Check on component mount in case the state has changed since initial load
+      handleResize();
 
       return () => {
         window.removeEventListener("resize", handleResize);
       };
     }, [breakpoint]);
 
-    return isMobile;
+    return isMobileState;
   };
 
   console.log("DEBUG useIsMobile: ", JSON.stringify(useIsMobile()));
