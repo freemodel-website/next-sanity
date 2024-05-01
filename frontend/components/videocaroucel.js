@@ -10,7 +10,6 @@ import { urlFor } from "../client";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
-import window from "global";
 
 export default ({ videoData }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
