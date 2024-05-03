@@ -10,32 +10,10 @@ import { urlFor } from "../client";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
-import window from "global";
 
 export default ({ videoData, horizontalslider }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-
-  //check if mobile or desktop
-  const useIsMobile = (breakpoint = 768) => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
-
-    useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= breakpoint);
-      };
-
-      window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, [breakpoint]);
-
-    return isMobile;
-  };
-
-  console.log("DEBUG useIsMobile: ", JSON.stringify(useIsMobile()));
 
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
