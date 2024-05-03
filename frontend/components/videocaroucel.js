@@ -12,7 +12,7 @@ import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 import window from "global";
 
-export default ({ videoData }) => {
+export default ({ videoData, horizontalslider }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -55,7 +55,7 @@ export default ({ videoData }) => {
       "(min-width: 1300px)": {
         slides: {
           //if videodata.horizontalslider is true, then perView: 1, else perView: 2
-          perView: videoData.some((video) => video.horizontalslider) ? 2 : 3,
+          perView: horizontalslider ? 2 : 3,
           spacing: 10,
         },
       },
@@ -74,7 +74,7 @@ export default ({ videoData }) => {
           <div ref={sliderRef} className="keen-slider">
             {videoData.map((project, index) => (
               <>
-                {project.horizontalslider ? (
+                {horizontalslider ? (
                   // Horizontal Video
                   <div
                     className="keen-slider__slide h-[350px] md:h-[500px] rounded-lg border-2 bg-white border-stone-100"

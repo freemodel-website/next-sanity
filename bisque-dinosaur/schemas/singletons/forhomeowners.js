@@ -199,6 +199,45 @@ export default defineType({
       validation: (rule) => rule.required().max(8),
       group: 'page',
     },
+    //Video Caroucel Horizontal or Vertical
+    {
+      name: 'horizontalslider',
+      title: 'Horizontal Slider',
+      type: 'boolean',
+      group: 'page',
+      //set default false
+      initialValue: false,
+    },
+    //Video Caroucel
+    {
+      name: 'videoData',
+      title: 'Video Data',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'videourl',
+              title: 'Video URL',
+              type: 'string',
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+
+      group: 'page',
+    },
     //Section 3
     {
       name: 'sec3title',
