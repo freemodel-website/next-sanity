@@ -153,8 +153,10 @@ export const getStaticProps = async () => {
       windySectionTitle,
       windySection,
       sec3title,
+      //----Video Caroucel
       horizontalslider,
       videoData,
+      //----Projects
       projects []-> {
         _id,
         title,

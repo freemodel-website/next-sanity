@@ -9,6 +9,7 @@ import Carousel from "../../components/caroucel";
 import { client, urlFor } from "../../client";
 import ImageCaroucel from "../../components/imageCaroucel";
 import { useRouter } from "next/router";
+import Videocaroucel from "../../components/videocaroucel";
 
 export default function AboutUs({ data, footer }) {
   // Get the current URL
@@ -54,6 +55,13 @@ export default function AboutUs({ data, footer }) {
 
         <LearnSection faqsList={data.questionsanswers} />
 
+        {data.videoData && (
+          <Videocaroucel
+            videoData={data.videoData}
+            horizontalslider={data.horizontalslider}
+          />
+        )}
+
         <div className="text-center py-20 bg-FM-blue">
           <ImageCaroucel gallery={data.imagesGallery} />
         </div>
@@ -91,6 +99,9 @@ export const getStaticProps = async () => {
     bluetitle,
     questionsanswers,
     imagesGallery,
+    //----Video Caroucel
+      horizontalslider,
+      videoData,
     //----SEO
     seoTitle,
     seoDescription,

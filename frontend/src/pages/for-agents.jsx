@@ -8,6 +8,7 @@ import Footer from "../../components/footer";
 import { client, urlFor } from "../../client";
 import Sixgrid from "../../components/index/sixgrid";
 import { useRouter } from "next/router";
+import Videocaroucel from "../../components/videocaroucel";
 
 export default function ForAgents({ data, footer }) {
   // Get the current URL
@@ -63,6 +64,13 @@ export default function ForAgents({ data, footer }) {
           faqsList={data.questionsanswers}
           buttontitle={data.buttontitle}
         />
+
+        {data.videoData && (
+          <Videocaroucel
+            videoData={data.videoData}
+            horizontalslider={data.horizontalslider}
+          />
+        )}
       </main>
 
       <Footer data={footer} />
@@ -108,6 +116,9 @@ export const getStaticProps = async () => {
     seoTitle,
     seoDescription,
     seoImage,
+     //----Video Caroucel
+      horizontalslider,
+      videoData,
   }`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
