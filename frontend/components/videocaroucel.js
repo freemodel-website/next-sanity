@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 
-export default ({ videoData, horizontalslider }) => {
+export default ({ videoData, horizontalslider, title }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -44,6 +44,11 @@ export default ({ videoData, horizontalslider }) => {
 
   return (
     <div className="text-center">
+      {title && (
+        <h2 className="text-5xl text-center text-black font-bold mt-14 mb-10">
+          {title}
+        </h2>
+      )}
       <div
         className="navigation-wrapper relative mx-auto 
         w-full  sm:w-[65%] md:w-[65%] lg:w-[75%] xl:w-[95%] 2xl:w-[65%] 3xl:w-[75%] 4xl:w-[75%]"

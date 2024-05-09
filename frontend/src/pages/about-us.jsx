@@ -59,6 +59,7 @@ export default function AboutUs({ data, footer }) {
           <Videocaroucel
             videoData={data.videoData}
             horizontalslider={data.horizontalslider}
+            title={data.videotitle}
           />
         )}
 
@@ -100,6 +101,7 @@ export const getStaticProps = async () => {
     questionsanswers,
     imagesGallery,
     //----Video Caroucel
+    videotitle,
       horizontalslider,
       videoData,
     //----SEO

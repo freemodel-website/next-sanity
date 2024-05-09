@@ -69,6 +69,7 @@ export default function ForAgents({ data, footer }) {
           <Videocaroucel
             videoData={data.videoData}
             horizontalslider={data.horizontalslider}
+            title={data.videotitle}
           />
         )}
       </main>
@@ -117,6 +118,7 @@ export const getStaticProps = async () => {
     seoDescription,
     seoImage,
      //----Video Caroucel
+     videotitle,
       horizontalslider,
       videoData,
   }`;

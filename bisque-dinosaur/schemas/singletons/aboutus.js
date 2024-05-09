@@ -131,7 +131,12 @@ export default defineType({
       type: 'string',
       group: 'page',
     },
-
+    {
+      name: 'videotitle',
+      title: 'Video Title',
+      type: 'string',
+      group: 'page',
+    },
     //Video Caroucel Horizontal or Vertical
     {
       name: 'horizontalslider',

@@ -199,6 +199,13 @@ export default defineType({
       validation: (rule) => rule.required().max(8),
       group: 'page',
     },
+    //Video Caroucel Title
+    {
+      name: 'videotitle',
+      title: 'Video Title',
+      type: 'string',
+      group: 'page',
+    },
     //Video Caroucel Horizontal or Vertical
     {
       name: 'horizontalslider',

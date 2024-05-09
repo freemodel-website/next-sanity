@@ -88,6 +88,7 @@ export default function ForHomeowners({ data, footer }) {
           <Videocaroucel
             videoData={data.videoData}
             horizontalslider={data.horizontalslider}
+            title={data.videotitle}
           />
         )}
         <div className="text-center mt-20  py-20 bg-FM-blue">
@@ -154,6 +155,7 @@ export const getStaticProps = async () => {
       windySection,
       sec3title,
       //----Video Caroucel
+      videotitle,
       horizontalslider,
       videoData,
       //----Projects
