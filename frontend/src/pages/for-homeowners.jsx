@@ -66,7 +66,7 @@ export default function ForHomeowners({ data, footer }) {
         <div className="mb-24 text-center">
           <Ctabutton
             text={data.bodytitlebutton}
-            href="/renovation-service"
+            href="/renovation-services"
             className="mt-12"
           />
         </div>

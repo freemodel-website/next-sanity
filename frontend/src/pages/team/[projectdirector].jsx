@@ -14,10 +14,12 @@ import { BsInstagram } from "react-icons/bs";
 import QuoteSlider from "../../../components/quoteslider";
 import Ctabutton from "../../../components/atoms/ctabutton";
 
-const ProjectDirector = ({ item, footer }) => {
+const ProjectDirector = ({ item, footer, caseStudies }) => {
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
+
+  console.log("DEBUG caseStudy", caseStudies);
 
   return (
     <div>
@@ -79,6 +81,20 @@ const ProjectDirector = ({ item, footer }) => {
                   />
                 </div>
               ))}
+              {caseStudies.length > 0 &&
+                caseStudies.map((item) => (
+                  <div key={item._id} className="max-w-lg">
+                    <Projectcard
+                      title={item.title}
+                      slug={item.slug.current}
+                      image={urlFor(item.mainImage).url()}
+                      beds={item.beds}
+                      baths={item.baths}
+                      duration={item.durationmonths}
+                      bool={item.bool}
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         )}
@@ -246,6 +262,53 @@ export const getServerSideProps = async ({ params }) => {
     { projectdirector }
   );
 
+  const caseStudies = await client.fetch(
+    `*[_type == "caseStudy" && projectdirectors[0]->slug.current == $projectdirector] {
+    slug,
+    beds,
+    baths,
+    bool,
+    durationmonths,
+    _id,
+    title,
+    slug {
+        current
+    },
+    mainImage {
+      crop,
+      hotspot,
+      asset->{
+        _ref,
+        _id,
+        _type,
+        altText,
+        description,
+        "tags": opt.media.tags[]->name.current,
+        title,
+        url,
+        crop,
+      }
+    },
+    projectdirectors[]->{
+        _id,
+        name,
+        slug,
+        quote,
+        linkedin,
+        instagram,
+        facebook,
+        pinterest,
+        website,
+        email,
+        title,
+        bio,
+        testimonialTitle,
+    }
+}
+`,
+    { projectdirector }
+  );
+
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
     footerimage {
       hotspot,
@@ -269,6 +332,7 @@ export const getServerSideProps = async ({ params }) => {
     props: {
       item,
       footer,
+      caseStudies,
     },
   };
 };
