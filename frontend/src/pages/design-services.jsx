@@ -36,10 +36,15 @@ export default function DesignServices({ data, footer }) {
   const router = useRouter();
   const currentURL = router.asPath;
 
+  console.log(
+    "DEBUG: data.projectdirectors = ",
+    JSON.stringify(data.projectdirectors)
+  );
+
   return (
     <div>
       <Head>
-        <title>{`${data.title} | Freemodel`}</title>
+        <title>{`${data?.title} | Freemodel`}</title>
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 
@@ -66,7 +71,7 @@ export default function DesignServices({ data, footer }) {
 
       <main>
         <Hero
-          hero={{ title: data.title }}
+          hero={{ title: data?.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
         />
@@ -115,10 +120,17 @@ export default function DesignServices({ data, footer }) {
 
         <ImageCaroucel images={data.imagesGallery} />
 
-        <TeamList
+        {data.projectdirectors?.length > 0 && (
+          <TeamList
+            title={data.projectdirectortitle}
+            team={data.projectdirectors}
+          />
+        )}
+
+        {/* <TeamList
           title={data.projectdirectortitle}
           team={data.projectdirectors}
-        />
+        /> */}
 
         <div className=" flex flex-col bg-FM-blue items-center justify-center py-28">
           <h1 className="text-4xl text-center max-w-6xl text-white font-bold mb-10">
