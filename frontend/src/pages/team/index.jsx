@@ -33,6 +33,8 @@ export default function Team({ team, teampage, statesList, footer }) {
   const router = useRouter();
   const currentURL = router.asPath;
 
+  console.log("inHouseTeam", inHouseTeam);
+
   return (
     <div>
       <Head>
@@ -97,7 +99,7 @@ export default function Team({ team, teampage, statesList, footer }) {
           </div>
         )}
         {/* Sort by In-House */}
-        {inHouseTeam && (
+        {inHouseTeam.length < 0 && (
           <div className="mb-44">
             <TeamList title={"In-House Design Team"} team={inHouseTeam} />
           </div>
