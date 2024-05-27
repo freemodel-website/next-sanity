@@ -62,27 +62,14 @@ const ProjectDirector = ({ item, footer, caseStudies }) => {
         )} */}
 
         {/* Projects */}
-        {item[0].projects && (
-          <div className="flex flex-col items-center mx-auto my-12">
-            <h2 className="text-5xl font-bold mb-10 mt-10">Projects</h2>
+        <div className="flex flex-col items-center mx-auto my-12">
+          <h2 className="text-5xl font-bold mb-10 mt-10">Projects</h2>
 
-            <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap gap-8">
-              {/* map through casestudyselect */}
-              {item[0].projects.map((item) => (
-                <div key={item._id} className="max-w-lg">
-                  <Projectcard
-                    title={item.title}
-                    slug={item.slug.current}
-                    image={urlFor(item.mainImage).url()}
-                    beds={item.beds}
-                    baths={item.baths}
-                    duration={item.durationmonths}
-                    bool={item.bool}
-                  />
-                </div>
-              ))}
-              {caseStudies.length > 0 &&
-                caseStudies.map((item) => (
+          <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap gap-8">
+            {item[0].projects && (
+              <>
+                {/* map through casestudyselect */}
+                {item[0].projects.map((item) => (
                   <div key={item._id} className="max-w-lg">
                     <Projectcard
                       title={item.title}
@@ -95,9 +82,24 @@ const ProjectDirector = ({ item, footer, caseStudies }) => {
                     />
                   </div>
                 ))}
-            </div>
+              </>
+            )}
+            {caseStudies.length > 0 &&
+              caseStudies.map((item) => (
+                <div key={item._id} className="max-w-lg">
+                  <Projectcard
+                    title={item.title}
+                    slug={item.slug.current}
+                    image={urlFor(item.mainImage).url()}
+                    beds={item.beds}
+                    baths={item.baths}
+                    duration={item.durationmonths}
+                    bool={item.bool}
+                  />
+                </div>
+              ))}
           </div>
-        )}
+        </div>
 
         {/* divider line*/}
         {/* {item[0].media && (
