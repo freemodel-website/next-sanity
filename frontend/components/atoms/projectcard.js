@@ -15,10 +15,11 @@
  * @returns {JSX.Element} A React component displaying project information in a card format.
  */
 /** documentation here */
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
+import useIntersectionObserver from "../../lib/useIntersectionObserver";
 
 export default function Projectcard({
   title,
@@ -29,24 +30,28 @@ export default function Projectcard({
   slug,
   bool = false,
 }) {
+  const [ref, isIntersecting] = useIntersectionObserver();
+
   return (
     <Link
       href={`/projects/${slug}`}
       className="block w-[90vw] max-w-lg rounded-lg p-4 border-2 bg-white border-stone-100 mx-5 my-5 lg:w-[30vw] lg:max-w-[26rem] sm:mx-auto"
     >
       {/* Project Image */}
-      <div className="relative h-72 w-full object-cover">
-        <Image
-          alt={title}
-          src={image}
-          height={288}
-          width={380}
-          loading="lazy"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
-          placeholder="blur"
-          className="rounded-lg object-cover h-72"
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 30vw, 26rem"
-        />
+      <div className="relative h-72 w-full object-cover" ref={ref}>
+        {isIntersecting && (
+          <Image
+            alt={title}
+            src={image}
+            height={288}
+            width={380}
+            loading="lazy"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
+            placeholder="blur"
+            className="rounded-lg object-cover h-72"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 30vw, 26rem"
+          />
+        )}
       </div>
 
       {/* Project Title */}

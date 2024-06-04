@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { BsChevronDown } from "react-icons/bs";
 import dynamic from "next/dynamic";
 import Select from "./atoms/select";
 import $ from "jquery";
 import { urlFor } from "../client";
 import Image from "next/image";
+
 const Projectcard = dynamic(() => import("./atoms/projectcard"));
 
 const IsotopeReact = ({
