@@ -14,6 +14,7 @@ import { ImageBulletPoints } from "../../components/imagebulletpoints";
 import { FourByThreeWindy } from "../../components/fourbythreewindy";
 import ImageCaroucel from "../../components/imageCaroucel";
 import Caroucel from "../../components/caroucel";
+import Videocaroucel from "../../components/videocaroucel";
 
 export default function ForHomeowners({ data, footer }) {
   // Get the current URL
@@ -65,7 +66,7 @@ export default function ForHomeowners({ data, footer }) {
         <div className="mb-24 text-center">
           <Ctabutton
             text={data.bodytitlebutton}
-            href="/renovation-service"
+            href="/renovation-services"
             className="mt-12"
           />
         </div>
@@ -83,6 +84,13 @@ export default function ForHomeowners({ data, footer }) {
           data={data.windySection}
           title={data.windySectionTitle}
         />
+        {data.videoData && (
+          <Videocaroucel
+            videoData={data.videoData}
+            horizontalslider={data.horizontalslider}
+            title={data.videotitle}
+          />
+        )}
         <div className="text-center mt-20  py-20 bg-FM-blue">
           <h1 className="text-5xl text-center text-white font-bold mb-14">
             {data.sec3title}
@@ -146,6 +154,11 @@ export const getStaticProps = async () => {
       windySectionTitle,
       windySection,
       sec3title,
+      //----Video Caroucel
+      videotitle,
+      horizontalslider,
+      videoData,
+      //----Projects
       projects []-> {
         _id,
         title,

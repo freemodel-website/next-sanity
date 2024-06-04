@@ -65,7 +65,15 @@ const Accordianlist = ({ faqsList }) => {
       >
         <div>
           {lines.map((line, index) => (
-            <p key={index}>{line}</p>
+            <>
+              {line === "" ? (
+                <br />
+              ) : (
+                <p key={index} className="ddd">
+                  {line}
+                </p>
+              )}
+            </>
           ))}
         </div>
       </div>

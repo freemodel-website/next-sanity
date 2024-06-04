@@ -11,11 +11,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 
-export default ({ videoData }) => {
+export default ({ videoData, horizontalslider, title }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-
-  //check if mobile or desktop
 
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
@@ -35,7 +33,7 @@ export default ({ videoData }) => {
       "(min-width: 1300px)": {
         slides: {
           //if videodata.horizontalslider is true, then perView: 1, else perView: 2
-          perView: videoData.some((video) => video.horizontalslider) ? 2 : 3,
+          perView: horizontalslider ? 2 : 3,
           spacing: 10,
         },
       },
@@ -46,6 +44,11 @@ export default ({ videoData }) => {
 
   return (
     <div className="text-center">
+      {title && (
+        <h2 className="text-5xl text-center text-black font-bold mt-14 mb-10">
+          {title}
+        </h2>
+      )}
       <div
         className="navigation-wrapper relative mx-auto 
         w-full  sm:w-[65%] md:w-[65%] lg:w-[75%] xl:w-[95%] 2xl:w-[65%] 3xl:w-[75%] 4xl:w-[75%]"
@@ -54,7 +57,7 @@ export default ({ videoData }) => {
           <div ref={sliderRef} className="keen-slider">
             {videoData.map((project, index) => (
               <>
-                {project.horizontalslider ? (
+                {horizontalslider ? (
                   // Horizontal Video
                   <div
                     className="keen-slider__slide h-[350px] md:h-[500px] rounded-lg border-2 bg-white border-stone-100"

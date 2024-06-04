@@ -24,18 +24,18 @@ export default function Career({ data, footer }) {
       description:
         "Vero cupiditate sed delectus. Nobis velit autem. Repellendus pariatur dolorum commodi rerum assumenda nemo neque minima. Sit dolorem dolorum ab dolor cupiditate.",
     },
-    {
-      horizontalslider: false,
-      videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
-      title: "Title 2",
-      description: "Description 2",
-    },
-    {
-      horizontalslider: false,
-      videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
-      title: "Title 3",
-      description: "Description 3",
-    },
+    // {
+    //   horizontalslider: false,
+    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
+    //   title: "Title 2",
+    //   description: "Description 2",
+    // },
+    // {
+    //   horizontalslider: false,
+    //   videourl: "https://player.vimeo.com/video/903438744?h=d43eaf3756",
+    //   title: "Title 3",
+    //   description: "Description 3",
+    // },
   ];
 
   const videoData2 = [
@@ -71,14 +71,14 @@ export default function Career({ data, footer }) {
           TESTING
         </h1>
 
-        <Videocaroucel videoData={videoData1} />
+        <Videocaroucel videoData={videoData1} horizontalslider={false} />
         <br />
         <br />
 
         <h1 className="text-4xl text-center font-bold sm:text-5xl my-10 pt-10">
           TESTING
         </h1>
-        <Videocaroucel videoData={videoData2} />
+        <Videocaroucel videoData={videoData2} horizontalslider={true} />
 
         {/* Emtpy section */}
         <div className="h-20 "></div>
