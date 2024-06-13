@@ -6,6 +6,7 @@ import Footer from "../../../components/footer";
 import Hero from "../../../components/hero";
 import Bluebar from "../../../components/bluebar";
 import Paragraph from "../../../components/paragraph";
+import Sixgrid from "../../../components/index/sixgrid";
 
 const MarketingPage = ({ data, footer }) => {
   console.log("DEBUG data: ", JSON.stringify(data));
@@ -26,6 +27,9 @@ const MarketingPage = ({ data, footer }) => {
         <div className="max-w-3xl mx-auto mt-10 mb-10">
           <Paragraph text={data.body} />
         </div>
+        {data.sec2title && (
+          <Sixgrid title={data.sec2title} imageArray={data.sec2imageArray} />
+        )}
       </main>
       <Footer data={footer} />
     </div>
@@ -57,6 +61,8 @@ export const getServerSideProps = async (context) => {
         }
     },
     body,
+    sec2title,
+    sec2imageArray,
     //----SEO
     seoTitle,
     seoDescription,

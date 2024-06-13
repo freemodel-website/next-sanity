@@ -70,6 +70,46 @@ export default {
       type: 'blockContent',
       group: 'page',
     },
+    //SixGrid
+    {
+      name: 'sec2title',
+      title: 'Section 2: Title',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'sec2imageArray',
+      title: 'Section 2: 3 Layout',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+      validation: (rule) => rule.required(),
+      validation: (Rule) => Rule.max(3),
+      group: 'page',
+    },
 
     //SEO
     {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
