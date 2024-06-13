@@ -90,6 +90,16 @@ const nextConfig = {
         permanent: true, // Set this to true if it's a permanent redirect (301)
       },
 
+      {
+        source: "/contra-costa-county-east-bay",
+        destination: "/alameda-contra-costa-east-bay",
+        permanent: true, // Set this to true if it's a permanent redirect (301)
+      },
+      {
+        source: "/alameda-east-bay",
+        destination: "/alameda-contra-costa-east-bay",
+        permanent: true, // Set this to true if it's a permanent redirect (301)
+      },
       //
       //------Redirects to get.freemodel.com--------
       //
@@ -228,6 +238,7 @@ const nextConfig = {
         destination: "https://get.freemodel.com/agent-appreciation",
         permanent: true,
       },
+
       // {
       //   source: "/for-homeowners",
       //   destination: "https://get.freemodel.com/for-homeowners",
