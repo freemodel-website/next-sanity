@@ -107,7 +107,146 @@ export default {
         },
       ],
       validation: (rule) => rule.required(),
+      validation: (Rule) => Rule.max(6),
+      group: 'page',
+    },
+    //
+    {
+      name: 'sec3title',
+      title: 'Left Right Left: Title',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'sec3imageArray',
+      title: 'Left Right Left: 3 Layout',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            //link
+            {
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+      validation: (rule) => rule.required(),
       validation: (Rule) => Rule.max(3),
+      group: 'page',
+    },
+    //Array of image title and link
+    {
+      name: 'sectionhead',
+      title: 'Section Head',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'imageArray',
+      title: 'Linkable Section',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+            },
+            {
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+      group: 'page',
+    },
+
+    //Bottom Carousel
+    {
+      name: 'imagesGallery',
+      title: 'Images gallery(Optional bottom carousel)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            // {
+            //   name: 'link',
+            //   title: 'Link',
+            //   type: 'string',
+            // },
+          ],
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+      preview: {
+        select: {
+          imageUrl: 'image.asset.url',
+          altText: 'image.alt',
+          title: 'title',
+          file: 'image.asset.originalFilename',
+        },
+        prepare({imageUrl, altText, title}) {
+          return {
+            title: title || altText || 'No title',
+            imageUrl,
+          }
+        },
+      },
       group: 'page',
     },
 

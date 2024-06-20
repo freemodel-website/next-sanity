@@ -63,7 +63,7 @@ export default function AboutUs({ data, footer }) {
           />
         )}
 
-        <div className="text-center py-20 bg-FM-blue">
+        <div className="text-center py-20 mt-10 bg-FM-blue">
           <ImageCaroucel gallery={data.imagesGallery} />
         </div>
       </main>
