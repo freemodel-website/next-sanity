@@ -238,6 +238,11 @@ const nextConfig = {
         destination: "https://get.freemodel.com/agent-appreciation",
         permanent: true,
       },
+      {
+        source: "/warranty",
+        destination: "https://get.freemodel.com/warranty",
+        permanent: true,
+      },
 
       // {
       //   source: "/for-homeowners",
