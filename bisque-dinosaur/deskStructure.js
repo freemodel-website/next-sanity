@@ -73,7 +73,8 @@ export const myStructure = (S, context) =>
           item.getId() !== 'renovationservices' &&
           item.getId() !== 'post' &&
           item.getId() !== 'media' &&
-          item.getId() !== 'meettheteam'
+          item.getId() !== 'meettheteam' &&
+          item.getId() !== 'marketing'
       ),
       // About Us
       S.listItem()
@@ -152,6 +153,12 @@ export const myStructure = (S, context) =>
         .title('Locations Page')
         .icon(FaFileAlt)
         .child(S.document().schemaType('locationspage').documentId('locationspage')),
+
+      //Marketing
+      S.listItem()
+        .title('Marketing')
+        .icon(FaFileAlt)
+        .child(S.documentTypeList('marketing').title('Marketing')),
 
       // Media Page
       S.listItem()
