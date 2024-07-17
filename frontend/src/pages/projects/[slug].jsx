@@ -56,6 +56,7 @@ const ProjectSlug = ({ item, footer }) => {
             alt={item.mainImage.asset.altText}
             fill
             className="object-cover w-full h-full"
+            priority={true}
           />
         </div>
         <Stats

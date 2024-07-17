@@ -31,7 +31,9 @@ export default function BeforeAfter({
                         src={urlFor(item.beforeimage).url()}
                         alt={item.beforeimage.altText}
                         className="w-full h-full object-cover object-center shadow-md rounded-xl"
-                        fill
+                        fill={true}
+                        placeholder="blur"
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
                       />
                     </div>
                   </li>
@@ -59,7 +61,9 @@ export default function BeforeAfter({
                         src={urlFor(item.afterimage).url()}
                         alt={item.afterimage.altText}
                         className="w-full h-full object-cover object-center shadow-md rounded-xl"
-                        fill
+                        fill={true}
+                        placeholder="blur"
+                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
                       />
                     </div>
                   </li>
@@ -87,7 +91,7 @@ export default function BeforeAfter({
                     src={urlFor(item.moreimage).url()}
                     alt={item.moreimage.altText}
                     className="w-full h-full object-cover object-center shadow-md rounded-xl"
-                    fill
+                    fill={true}
                   />
                 </div>
               ))}

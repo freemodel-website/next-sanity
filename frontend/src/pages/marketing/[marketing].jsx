@@ -27,7 +27,7 @@ const MarketingPage = ({ data, footer }) => {
 
         {data.text && <Bluebar body={data.text} />}
 
-        <Paragraph text={data.body} />
+        {data.body && <Paragraph text={data.body} />}
 
         {data.sec2title && (
           <Sixgrid title={data.sec2title} imageArray={data.sec2imageArray} />
@@ -48,10 +48,16 @@ const MarketingPage = ({ data, footer }) => {
             </h2>
 
             <div className="flex justify-center items-center px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8">
+              <div
+                key={Math.random}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8"
+              >
                 {data.imageArray.map((item) => (
                   <a
-                    key={item._id}
+                    key={Math.random()
+                      .toString(36)
+                      .replace(/[^a-z]+/g, "")
+                      .substr(0, 5)}
                     href={item.link}
                     target="_blank"
                     className="group mx-auto w-full flex items-center"
@@ -98,6 +104,7 @@ const MarketingPage = ({ data, footer }) => {
           </div>
         )}
       </main>
+
       <div className="text-center py-20 mt-10 bg-FM-blue">
         <ImageCaroucel gallery={data.imagesGallery} />
       </div>
