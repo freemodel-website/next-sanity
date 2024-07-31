@@ -27,13 +27,20 @@ export default function BeforeAfter({
                     }
                   >
                     <div className="relative w-full h-60 sm:h-52 md:h-96">
-                      <Image
+                      <img
                         src={urlFor(item.beforeimage).url()}
                         alt={item.beforeimage.altText}
                         className="w-full h-full object-cover object-center shadow-md rounded-xl"
                         fill={true}
-                        placeholder="blur"
-                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
+                        //placeholder="blur"
+                        //blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
+                        style={{
+                          backdropFilter: "blur(10px)",
+                          WebkitBackdropFilter: "blur(10px)",
+
+                          background:
+                            "linear-gradient(126deg, rgba(0, 0, 0, 0.5) 0%, rgb(0 0 0 / 29%) 100%)",
+                        }}
                       />
                     </div>
                   </li>
@@ -57,13 +64,20 @@ export default function BeforeAfter({
                     }
                   >
                     <div className="relative w-full h-60 sm:h-52 md:h-96">
-                      <Image
+                      <img
                         src={urlFor(item.afterimage).url()}
                         alt={item.afterimage.altText}
                         className="w-full h-full object-cover object-center shadow-md rounded-xl"
                         fill={true}
-                        placeholder="blur"
-                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
+                        //placeholder="blur"
+                        //blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
+                        style={{
+                          backdropFilter: "blur(10px)",
+                          WebkitBackdropFilter: "blur(10px)",
+
+                          background:
+                            "linear-gradient(126deg, rgba(0, 0, 0, 0.5) 0%, rgb(0 0 0 / 29%) 100%)",
+                        }}
                       />
                     </div>
                   </li>
@@ -87,11 +101,18 @@ export default function BeforeAfter({
             <div className="grid gap-8 grid-cols-2 ">
               {moreimages.map((item, idx) => (
                 <div key={idx} className="relative w-full h-60 sm:h-52 md:h-96">
-                  <Image
+                  <img
                     src={urlFor(item.moreimage).url()}
                     alt={item.moreimage.altText}
                     className="w-full h-full object-cover object-center shadow-md rounded-xl"
                     fill={true}
+                    style={{
+                      backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
+
+                      background:
+                        "linear-gradient(126deg, rgba(0, 0, 0, 0.5) 0%, rgb(0 0 0 / 29%) 100%)",
+                    }}
                   />
                 </div>
               ))}

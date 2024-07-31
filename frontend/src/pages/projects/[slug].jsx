@@ -51,12 +51,19 @@ const ProjectSlug = ({ item, footer }) => {
 
       <main>
         <div className="relative w-full h-96 sm:h-[35vw]">
-          <Image
+          <img
             src={urlFor(item.mainImage).url()}
             alt={item.mainImage.asset.altText}
             fill
             className="object-cover w-full h-full"
             priority={true}
+            style={{
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+
+              background:
+                "linear-gradient(126deg, rgba(0, 0, 0, 0.5) 0%, rgb(0 0 0 / 29%) 100%)",
+            }}
           />
         </div>
         <Stats

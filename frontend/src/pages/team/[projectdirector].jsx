@@ -64,7 +64,7 @@ const ProjectDirector = ({ item, footer, caseStudies }) => {
         {/* Projects */}
         {item[0].projects ||
           (caseStudies.length > 0 && (
-            <div className="flex flex-col items-center mx-auto my-12">
+            <div className="flex flex-col items-center mx-auto mt-2 mb-12">
               <h2 className="text-5xl font-bold mb-10 mt-10">Projects</h2>
 
               <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap gap-8">
@@ -159,7 +159,7 @@ const ProjectDirector = ({ item, footer, caseStudies }) => {
         )}
 
         {!item[0].testimonials && (
-          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mt-20 mb-10"></div>
+          <div className="border-b-2 border-gray-300 w-1/2 mx-auto mb-10"></div>
         )}
 
         <div className=" flex flex-col items-center justify-center pt-10 pb-24">

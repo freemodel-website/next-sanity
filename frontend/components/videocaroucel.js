@@ -94,7 +94,7 @@ export default ({ videoData, horizontalslider, title }) => {
 
                       <iframe
                         src={project.videourl}
-                        className="mx-auto rounded-lg responsive-iframe"
+                        className="mx-auto rounded-lg responsive-iframe !max-w-[90%]"
                         frameborder="0"
                         allow="autoplay; fullscreen"
                         allowFullScreen
@@ -104,7 +104,7 @@ export default ({ videoData, horizontalslider, title }) => {
                     {/* Project Title */}
                     <div className="mt-2">
                       <dl>
-                        <div className="projectcardtitle px-8 md:px-0 md:w-[500px] md:mx-auto">
+                        <div className="projectcardtitle px-8 !max-w-[90%] md:px-0 md:w-[500px] md:mx-auto">
                           <h2 className="font-bold text-left text-xl min-h-[65px] line-clamp-2">
                             {project.title}
                           </h2>

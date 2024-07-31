@@ -40,14 +40,21 @@ export default function Projectcard({
       {/* Project Image */}
       <div className="relative h-72 w-full object-cover" ref={ref}>
         {isIntersecting && (
-          <Image
+          <img
+            style={{
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+
+              background:
+                "linear-gradient(126deg, rgba(0, 0, 0, 0.5) 0%, rgb(0 0 0 / 29%) 100%)",
+            }}
             alt={title}
             src={image}
             height={288}
             width={380}
             loading="lazy"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
-            placeholder="blur"
+            //blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0"
+            //placeholder="blur"
             className="rounded-lg object-cover h-72"
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 30vw, 26rem"
           />
