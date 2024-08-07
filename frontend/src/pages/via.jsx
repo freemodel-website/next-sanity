@@ -9,12 +9,6 @@ import WorkableEmbed from "../../components/careers/workableEmbed";
 import { useRouter } from "next/router";
 
 export default function Via({ data, footer }) {
-  let test;
-
-  useEffect(() => {
-    let test = data.scriptform;
-  }, []);
-
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
@@ -22,7 +16,7 @@ export default function Via({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>{`${data.title}`}</title>
+        {/* <title>{`${data.title}`}</title> */}
         <meta name="description" content={footer.description} />
         <link rel="icon" href="/favicon.ico" />
 
@@ -65,11 +59,8 @@ export const getStaticProps = async () => {
     navbar
   }`);
 
-  const data = await client.fetch(mainquery);
-
   return {
     props: {
-      data,
       footer,
     },
 
