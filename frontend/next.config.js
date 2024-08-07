@@ -191,11 +191,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/via",
-        destination: "https://get.freemodel.com/via",
-        permanent: true,
-      },
-      {
         source: "/agents/increase-your-sales-price-1023",
         destination:
           "https://get.freemodel.com/agents/increase-your-sales-price-1023",
