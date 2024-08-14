@@ -34,6 +34,7 @@ import renovationservices from './singletons/renovationservices'
 import fordesigners from './singletons/fordesigners'
 import meettheteam from './singletons/meettheteam'
 import marketing from './marketing'
+import viapage from './singletons/via'
 export const schemaTypes = [
   post,
   projectdirector,
@@ -69,4 +70,5 @@ export const schemaTypes = [
   fordesigners,
   meettheteam,
   marketing,
+  viapage,
 ]

@@ -74,7 +74,8 @@ export const myStructure = (S, context) =>
           item.getId() !== 'post' &&
           item.getId() !== 'media' &&
           item.getId() !== 'meettheteam' &&
-          item.getId() !== 'marketing'
+          item.getId() !== 'marketing' &&
+          item.getId() !== 'viapage'
       ),
       // About Us
       S.listItem()
@@ -293,6 +294,12 @@ export const myStructure = (S, context) =>
         .title('NavBar/Footer Settings')
         .icon(FaFileAlt)
         .child(S.document().schemaType('footersettings').documentId('footersettings')),
+
+      // Via
+      S.listItem()
+        .title('Via')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('viapage').documentId('viapage')),
 
       //END
     ])

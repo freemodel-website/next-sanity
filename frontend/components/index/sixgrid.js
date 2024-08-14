@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer"; // Import the library
 
 const MotionDiv = motion.div;
 
-export default function Sixgrid({ title, imageArray, buttontext }) {
+export default function Sixgrid({ title, text = "", imageArray, buttontext }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -29,6 +29,9 @@ export default function Sixgrid({ title, imageArray, buttontext }) {
           {title}
         </h2>
       </div>
+      <h3 className="max-w-xl mb-10 text-xl text-gray-900 sm:mx-auto">
+        {text}
+      </h3>
       <MotionDiv
         ref={ref} // Attach the ref to the MotionDiv
         className="grid gap-12 row-gap-8 lg:grid-cols-3"
