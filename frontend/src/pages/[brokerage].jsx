@@ -34,7 +34,7 @@ const Brokerage = ({ data, footer }) => {
           text: "A local project director to design, plan, and manage renovations.",
           image: {
             asset: {
-              url: "/defaultSixGrid/six-1.webp",
+              url: "/defaultSixGrid/six-1new.png",
             },
           },
         },
