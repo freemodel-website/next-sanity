@@ -92,7 +92,7 @@ export default function PartnerWithFreemodel({ data, footer }) {
         {/* Text Block */}
         <Paragraph text={data.bottombody} />
         <div className="text-center">
-          <Ctabutton text={data.bottomtitle2} href={data.buttonlink} />
+          <Ctabutton text={data.buttontitle2} href={data.buttonlink} />
         </div>
       </main>
       <Footer data={footer} />
