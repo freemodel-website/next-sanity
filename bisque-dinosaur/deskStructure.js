@@ -75,7 +75,8 @@ export const myStructure = (S, context) =>
           item.getId() !== 'media' &&
           item.getId() !== 'meettheteam' &&
           item.getId() !== 'marketing' &&
-          item.getId() !== 'viapage'
+          item.getId() !== 'viapage' &&
+          item.getId() !== 'partnerwithfreemodel'
       ),
       // About Us
       S.listItem()
@@ -172,6 +173,12 @@ export const myStructure = (S, context) =>
         .title('Meet the Team')
         .icon(FaFileAlt)
         .child(S.document().schemaType('meettheteam').documentId('meettheteam')),
+
+      // Partner with Freemodel
+      S.listItem()
+        .title('Partner with Freemodel')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('partnerwithfreemodel').documentId('partnerwithfreemodel')),
 
       // Privacy Policy
       S.listItem()

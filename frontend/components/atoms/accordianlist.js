@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-const Accordianlist = ({ faqsList }) => {
+const Accordianlist = ({ faqsList, dark = false }) => {
   const answerElRef = useRef();
   const [state, setState] = useState(false);
   const [answerH, setAnswerH] = useState("0px");
@@ -22,7 +22,7 @@ const Accordianlist = ({ faqsList }) => {
       <h4
         className={`cursor-pointer pb-5 flex items-center justify-between text-lg 
       ${
-        state ? "text-FM-orange" : "text-black"
+        state ? "text-FM-orange" : `${dark ? "text-white" : "text-black"}`
       } font-bold hover:text-FM-orange`}
       >
         {faqsList.q}
@@ -60,7 +60,7 @@ const Accordianlist = ({ faqsList }) => {
       </h4>
       <div
         ref={answerElRef}
-        className="duration-300"
+        className={`duration-300 ${dark ? "text-white" : "text-black"}`}
         style={state ? { height: answerH } : { height: "0px" }}
       >
         <div>
@@ -81,12 +81,12 @@ const Accordianlist = ({ faqsList }) => {
   );
 };
 
-export default function FaqSection({ faqsList }) {
+export default function FaqSection({ faqsList, dark = false }) {
   return (
     <section className="leading-relaxed max-w-screen-xl mx-auto px-4 md:px-8">
       <div className="max-w-2xl mx-auto">
         {faqsList.map((item) => (
-          <Accordianlist key={item.a} faqsList={item} />
+          <Accordianlist key={item.a} faqsList={item} dark={dark} />
         ))}
       </div>
     </section>

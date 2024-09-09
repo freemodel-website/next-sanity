@@ -35,6 +35,7 @@ import fordesigners from './singletons/fordesigners'
 import meettheteam from './singletons/meettheteam'
 import marketing from './marketing'
 import viapage from './singletons/via'
+import partnerwithfreemodel from './singletons/partnerwithfreemodel'
 export const schemaTypes = [
   post,
   projectdirector,
@@ -71,4 +72,5 @@ export const schemaTypes = [
   meettheteam,
   marketing,
   viapage,
+  partnerwithfreemodel,
 ]

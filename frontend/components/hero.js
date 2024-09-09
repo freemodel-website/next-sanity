@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Ctabutton from "./atoms/ctabutton";
 import Image from "next/image";
 
-const Hero = ({ hero, buttontext, image, pomp = false }) => {
+const Hero = ({ hero, buttontext, image, pomp = false, buttonurl = "" }) => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -48,7 +48,12 @@ const Hero = ({ hero, buttontext, image, pomp = false }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={pomp ? { delay: 1, duration: 0.5 } : null}
             >
-              {buttontext && <Ctabutton href="/lets-talk" text={buttontext} />}
+              {buttontext && (
+                <Ctabutton
+                  href={buttonurl ? buttonurl : "/lets-talk"}
+                  text={buttontext}
+                />
+              )}
             </motion.div>
           </motion.div>
         </div>
