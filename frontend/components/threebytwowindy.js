@@ -35,7 +35,7 @@ export const ThreeByTwoWindy = ({ data, title }) => {
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "107% 53%",
+        backgroundSize: "107% 78%",
       }}
     >
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
