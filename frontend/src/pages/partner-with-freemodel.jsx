@@ -54,9 +54,10 @@ export default function PartnerWithFreemodel({ data, footer }) {
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
           image={urlFor(data.mainImage).url()}
+          buttonurl="/careers"
         />
 
-        <Bluebar body={data.bluebartext} />
+        <Bluebar theme="titletext" title={data.bluebartext} />
 
         {/* Text Block */}
         <Paragraph text={data.body} />
@@ -79,7 +80,11 @@ export default function PartnerWithFreemodel({ data, footer }) {
         {/* line break */}
         <hr className="mt-20 w-96 mx-auto" />
         {/* Image Left Text Right */}
-        <ImageLeftTextRight image={data.leftimage} text={data.righttext} />
+        <ImageLeftTextRight
+          image={data.leftimage}
+          title={data.righttitle}
+          text={data.righttext}
+        />
         <QuoteSlider
           title={data.testimonialstitle}
           testimonials={data.testimonials}
@@ -159,6 +164,7 @@ export const getStaticProps = async () => {
     buttontitle2,
     buttonlink,
     leftimage,
+    righttitle,
     righttext
 
   }`;

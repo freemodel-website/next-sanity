@@ -161,6 +161,12 @@ export default defineType({
       group: 'page',
     },
     {
+      name: 'righttitle',
+      title: 'Right Title',
+      type: 'text',
+      group: 'page',
+    },
+    {
       name: 'righttext',
       title: 'Right Text',
       type: 'text',

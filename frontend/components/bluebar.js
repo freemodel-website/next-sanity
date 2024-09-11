@@ -9,9 +9,9 @@ import { client, urlFor } from "../client";
  */
 export default function Bluebar({ theme, title, body, img }) {
   let text;
-  const lines = body.split("\n");
+  const lines = body?.split("\n");
 
-  const textWithBreaks = body.split("\n").map((line, index) => {
+  const textWithBreaks = body?.split("\n").map((line, index) => {
     return (
       <React.Fragment key={index}>
         {line}
@@ -29,9 +29,11 @@ export default function Bluebar({ theme, title, body, img }) {
               {title}
             </h2>
 
-            <div className="text-3xl mt-4 max-w-5xl mx-auto text-white">
-              {body}
-            </div>
+            {body && (
+              <div className="text-3xl mt-4 max-w-5xl mx-auto text-white">
+                {body}
+              </div>
+            )}
           </div>
         </div>
       );

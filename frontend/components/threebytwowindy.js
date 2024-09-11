@@ -29,17 +29,9 @@ export const ThreeByTwoWindy = ({ data, title }) => {
   }, []);
 
   return (
-    <div
-      className="py-16 mx-auto sm:max-w-xl relative md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 lg:bg-[url('/windy3.png')]"
-      style={{
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "107% 78%",
-      }}
-    >
-      <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-10 pb-10 px-4 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl md:mx-auto">
+    <div className="py-16 mx-auto sm:max-w-xl relative md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+      <div className="max-w-xl mb-10 md:mx-auto sm:text-center md:max-w-3xl md:mb-12">
+        <h2 className="max-w-lg sm:max-w-3xl mb-10 pb-10 px-4 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl md:mx-auto">
           {title}
         </h2>
       </div>
@@ -50,6 +42,15 @@ export const ThreeByTwoWindy = ({ data, title }) => {
             key={index}
             className="flex flex-col justify-between sm:justify-normal sm:-mt-7"
           >
+            <>
+              {step.windyimage && (
+                <img
+                  src={urlFor(step.windyimage).url()}
+                  alt={step.windyimage.alt}
+                  className="object-contain w-full h-44 mb-8 sm:mb-0 sm:h-44"
+                />
+              )}
+            </>
             <li className="flex">
               <div className="pl-4 pr-2">
                 {/* <span className="flex items-center justify-center w-9 h-9 mx-auto text-2xl font-bold text-white rounded-full font-heading bg-FM-orange">
@@ -60,19 +61,10 @@ export const ThreeByTwoWindy = ({ data, title }) => {
                 <p className=" text-gray-500">{step.text}</p>
               </div>
             </li>
-            <>
-              {step.windyimage && (
-                <img
-                  src={urlFor(step.windyimage).url()}
-                  alt={step.windyimage.alt}
-                  className="object-contain w-full h-44 mb-8 sm:mb-0 sm:h-44"
-                />
-              )}
-            </>
           </div>
         ))}
       </div>
-      <div className="lg:col-start-2 lg:col-end-4 lg:max-w-xl lg:mx-auto grid gap-4 sm:grid-cols-2 mt-11">
+      <div className="lg:col-start-2 lg:col-end-4 lg:max-w-xl lg:mx-auto grid gap-4 sm:grid-cols-2 mt-20">
         {list.slice(3, 5).map((step, index) => (
           <div
             key={index}
