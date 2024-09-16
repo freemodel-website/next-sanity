@@ -79,12 +79,14 @@ export default function PartnerWithFreemodel({ data, footer }) {
         />
         {/* line break */}
         <hr className="mt-20 w-96 mx-auto" />
+
         {/* Image Left Text Right */}
         <ImageLeftTextRight
           image={data.leftimage}
           title={data.righttitle}
           text={data.righttext}
         />
+
         <QuoteSlider
           title={data.testimonialstitle}
           testimonials={data.testimonials}
