@@ -49,7 +49,7 @@ export default function ForDesigners({ data, footer }) {
 
       <main>
         <Hero
-          hero={{ title: data.title }}
+          hero={{ title: data?.title }}
           image={urlFor(data.mainImage).url()}
           buttontext={data.titlebutton}
         />

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { urlFor } from "../client";
 import Image from "next/image";
 
-export const FourByThreeWindy = ({ data, title = "" }) => {
+export const FourByThreeWindy = ({ data, title }) => {
   let stepsData = data;
   let [list, setList] = useState([]);
 
