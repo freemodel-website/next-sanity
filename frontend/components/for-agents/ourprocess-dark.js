@@ -23,6 +23,7 @@ export default function Ourprocessdark({
   image,
   buttontitle,
   title = "Our Process",
+  buttonurl,
 }) {
   return (
     <div className="px-4 py-16 mx-auto bg-FM-blue sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -42,7 +43,7 @@ export default function Ourprocessdark({
         </div>
       </div>
       <div className="text-center mt-12">
-        <Ctabutton text={buttontitle} href="/lets-talk" />
+        <Ctabutton text={buttontitle} href={buttonurl ?? "/lets-talk"} />
       </div>
     </div>
   );

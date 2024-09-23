@@ -69,6 +69,7 @@ export default function PartnerWithFreemodel({ data, footer }) {
             faqsList={data.questionsanswers}
             buttontitle={data.buttontitle}
             title={data.title1}
+            buttonurl={data.buttonurl}
           />
         </div>
 
@@ -119,6 +120,7 @@ export const getStaticProps = async () => {
       }
     },
     titlebutton,
+    buttonurl,
     bluebartext,
     bluebarimage {
       crop,

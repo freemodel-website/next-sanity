@@ -69,6 +69,12 @@ export default defineType({
       type: 'string',
       group: 'page',
     },
+    {
+      name: 'buttonurl',
+      title: 'Button URL',
+      type: 'string',
+      group: 'page',
+    },
     //Question Image
     {
       name: 'questionimage',

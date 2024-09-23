@@ -55,13 +55,13 @@ export const ThreeByTwoWindy = ({ data, title }) => {
             <h6 className="text-2xl mb-2 text-center font-semibold leading-5">
               {step.title}
             </h6>
-            <p className="max-w-md mb-3 text-base text-center text-gray-900 sm:mx-auto">
+            <p className="max-w-[15rem] mb-3 mx-auto text-base text-center text-gray-900 sm:mx-auto">
               {step.text}
             </p>
           </div>
         ))}
       </div>
-      <div className="lg:col-start-2 lg:col-end-4 lg:max-w-xl lg:mx-auto grid gap-4 sm:grid-cols-2 mt-20">
+      <div className="lg:col-start-2 lg:col-end-4 lg:max-w-xl lg:mx-auto grid gap-4 md:gap-28 sm:grid-cols-2 mt-4 md:mt-20">
         {list.slice(3, 5).map((step, index) => (
           <div
             key={index}
@@ -80,7 +80,7 @@ export const ThreeByTwoWindy = ({ data, title }) => {
             <h6 className="text-2xl mb-2 text-center font-semibold leading-5">
               {step.title}
             </h6>
-            <p className="max-w-md mb-3 text-base text-center text-gray-900 sm:mx-auto">
+            <p className="max-w-[15rem] mb-3 mx-auto text-base text-center text-gray-900 sm:mx-auto">
               {step.text}
             </p>
           </div>
