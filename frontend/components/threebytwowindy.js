@@ -52,10 +52,10 @@ export const ThreeByTwoWindy = ({ data, title }) => {
                 />
               </div>
             </div>
-            <h6 className="text-2xl mb-2 font-semibold leading-5">
+            <h6 className="text-2xl mb-2 text-center font-semibold leading-5">
               {step.title}
             </h6>
-            <p className="max-w-md mb-3 text-base text-gray-900 sm:mx-auto">
+            <p className="max-w-md mb-3 text-base text-center text-gray-900 sm:mx-auto">
               {step.text}
             </p>
           </div>
@@ -77,10 +77,10 @@ export const ThreeByTwoWindy = ({ data, title }) => {
                 />
               </div>
             </div>
-            <h6 className="text-2xl mb-2 font-semibold leading-5">
+            <h6 className="text-2xl mb-2 text-center font-semibold leading-5">
               {step.title}
             </h6>
-            <p className="max-w-md mb-3 text-base text-gray-900 sm:mx-auto">
+            <p className="max-w-md mb-3 text-base text-center text-gray-900 sm:mx-auto">
               {step.text}
             </p>
           </div>

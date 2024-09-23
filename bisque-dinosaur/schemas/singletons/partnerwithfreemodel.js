@@ -103,6 +103,12 @@ export default defineType({
       validation: (rule) => rule.required(),
       group: 'page',
     },
+    {
+      name: 'buttontitle',
+      title: 'Button Title',
+      type: 'string',
+      group: 'page',
+    },
     //Windy Section
     {
       name: 'windySectionTitle',
@@ -130,6 +136,11 @@ export default defineType({
               name: 'number',
               title: 'Number',
               type: 'number',
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
             },
             {
               name: 'text',
