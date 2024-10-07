@@ -41,6 +41,13 @@ export default defineType({
       type: 'string',
       group: 'page',
     },
+    {
+      name: 'bluebarbody',
+      title: 'Blue Bar Body',
+      type: 'string',
+      validation: (rule) => rule.required(),
+      group: 'page',
+    },
 
     //SEO
     {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},

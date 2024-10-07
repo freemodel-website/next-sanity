@@ -7,6 +7,17 @@ import TeamList from "../../../components/team/teamlist";
 import { MdLocationCity } from "react-icons/md";
 import Footer from "../../../components/footer";
 import { useRouter } from "next/router";
+import Bluebar from "../../../components/bluebar";
+
+/**
+ * 
+ * @param {object} team - Project Directors
+ * @param {object} teampage - Meet The Team Page
+ * @param {object} statesList - List of states
+ * @param {object} footer - Footer Data
+ * @returns
+ * 
+ */
 
 export default function Team({ team, teampage, statesList, footer }) {
   // First, sort the statesList alphabetically based on the statename
@@ -61,6 +72,10 @@ export default function Team({ team, teampage, statesList, footer }) {
         <Hero
           hero={{ title: teampage.title }}
           image={urlFor(teampage.mainImage).url()}
+          buttontext={teampage.titlebutton}
+        />
+        <Bluebar 
+          body={teampage.bluebarbody}
         />
         <div className="mb-6"></div>
         {/* Sort project directors by state */}
@@ -161,6 +176,7 @@ export const getStaticProps = async () => {
       }
     },
     titlebutton,
+    bluebarbody,
     seoTitle,
   seoDescription,
   seoImage,
