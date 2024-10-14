@@ -1,11 +1,12 @@
 import {FaFileAlt} from 'react-icons/fa'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
+import DocumentsPane from 'sanity-plugin-documents-pane'
 
 export const myStructure = (S, context) =>
   S.list()
     .title('Base')
     .items([
-      //Filtered Projects
+      // Filtered Projects
       S.listItem()
         .title('Filtered Projects')
         .child(
@@ -27,8 +28,35 @@ export const myStructure = (S, context) =>
             ])
         ),
 
+        // Testimonials
+      // S.listItem()
+      //   .title('Testimonialz')
+      //   .icon(FaFileAlt)
+      //   .child(
+      //     S.documentTypeList('testimonials')
+      //       .title('Testimonials')
+      //       .child((testimonialsId) =>
+      //         S.document()
+      //           .documentId(testimonialsId)
+      //           .schemaType('testimonials')
+      //           .views([
+      //             // Default form view
+      //             S.view.form().title('Default View'),
+      //             // Custom view for testimonials
+      //             S.view
+      //               .component(() => (
+      //                 <div>
+      //                   <h1>Custom Testimonial View</h1>
+      //                   <p>This is a custom view for the Testimonials section, tailored for each testimonial!</p>
+      //                 </div>
+      //               ))
+      //               .title('Custom View'),
+      //           ])
+      //       )
+      //   ),
+
       // Minimum required configuration
-      //orderableDocumentListDeskItem({type: 'post', S, context}),
+      // orderableDocumentListDeskItem({type: 'post', S, context}),
       orderableDocumentListDeskItem({
         type: 'post',
         title: 'Blog Post',
@@ -48,9 +76,10 @@ export const myStructure = (S, context) =>
         },
       }),
 
+  
+
       ...S.documentTypeListItems().filter(
         (item) =>
-          // item.getId() !== 'siteSettings' &&
           item.getId() !== 'home' &&
           item.getId() !== 'projects' &&
           item.getId() !== 'designservices' &&
@@ -78,6 +107,7 @@ export const myStructure = (S, context) =>
           item.getId() !== 'viapage' &&
           item.getId() !== 'partnerwithfreemodel'
       ),
+
       // About Us
       S.listItem()
         .title('About Us')
@@ -156,7 +186,7 @@ export const myStructure = (S, context) =>
         .icon(FaFileAlt)
         .child(S.document().schemaType('locationspage').documentId('locationspage')),
 
-      //Marketing
+      // Marketing
       S.listItem()
         .title('Marketing')
         .icon(FaFileAlt)
@@ -210,92 +240,6 @@ export const myStructure = (S, context) =>
         .icon(FaFileAlt)
         .child(S.document().schemaType('thankyous').documentId('thankyous')),
 
-      // // Home Page
-      // S.listItem()
-      //   .title('Home')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('home').documentId('home')),
-      // // Project Page
-      // S.listItem()
-      //   .title('Projects')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('projects').documentId('projects')),
-      // // Design Services
-      // S.listItem()
-      //   .title('Design Services')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('designservices').documentId('designservices')),
-      // // FAQ
-      // S.listItem()
-      //   .title('FAQ')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('faqpage').documentId('faqpage')),
-      // // Media
-      // S.listItem()
-      //   .title('Media Page')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('mediapage').documentId('mediapage')),
-      // // About Us
-      // S.listItem()
-      //   .title('About Us')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('aboutus').documentId('aboutus')),
-      // // Meet the Team
-      // S.listItem()
-      //   .title('Meet the Team')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('meettheteam').documentId('meettheteam')),
-      // // Careers
-      // S.listItem()
-      //   .title('Careers')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('careers').documentId('careers')),
-      // // Privacy Policy
-      // S.listItem()
-      //   .title('Privacy Policy')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('privacypolicy').documentId('privacypolicy')),
-      // // For Contractors
-      // S.listItem()
-      //   .title('For Contractors')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('forcontractors').documentId('forcontractors')),
-      // // Let's Talk
-      // S.listItem()
-      //   .title("Let's Talk")
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('letstalk').documentId('letstalk')),
-      // // For Agents
-      // S.listItem()
-      //   .title('For Agents')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('foragents').documentId('foragents')),
-      // // How It Works
-      // S.listItem()
-      //   .title('How It Works')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('howitworks').documentId('howitworks')),
-      // // Locations Page
-      // S.listItem()
-      //   .title('Locations Page')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('locationspage').documentId('locationspage')),
-      // // Blog Page
-      // S.listItem()
-      //   .title('Blog Page')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('blogpage').documentId('blogpage')),
-      // // Thank Yous
-      // S.listItem()
-      //   .title('Thank Yous')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('thankyous').documentId('thankyous')),
-      // // Support
-      // S.listItem()
-      //   .title('Support')
-      //   .icon(FaFileAlt)
-      //   .child(S.document().schemaType('supportpage').documentId('supportpage')),
-
       // Footer Settings
       S.listItem()
         .title('NavBar/Footer Settings')
@@ -307,6 +251,5 @@ export const myStructure = (S, context) =>
         .title('Via')
         .icon(FaFileAlt)
         .child(S.document().schemaType('viapage').documentId('viapage')),
-
-      //END
+      // END
     ])
