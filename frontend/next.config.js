@@ -238,12 +238,12 @@ const nextConfig = {
         destination: "https://get.freemodel.com/warranty",
         permanent: true,
       },
+      {
+        source: "/themls",
+        destination: "https://www.get.freemodel.com/the-mls",
+        permanent: true,
+      },
 
-      // {
-      //   source: "/for-homeowners",
-      //   destination: "https://get.freemodel.com/for-homeowners",
-      //   permanent: true,
-      // },
       // {
       //   source: "/design-services",
       //   destination: "/design-services",
