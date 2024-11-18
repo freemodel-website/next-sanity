@@ -40,10 +40,10 @@ export default {
     //Project Director
     {
       name: 'projectdirector',
-      title: 'Project Director (Depricated)',
+      title: "Project Director (Depricated) remove only don't add",
       type: 'reference',
       to: [{type: 'projectdirector'}],
-      readOnly: true,
+      //readOnly: true,
     },
     //Property Type
     {
