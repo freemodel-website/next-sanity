@@ -8,11 +8,18 @@ import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Sixgrid from "../../components/index/sixgrid";
 import Rightleftright from "../../components/index/rightleftright";
-import Carousel from "../../components/caroucel";
+import CarouselAlias from "../../components/caroucel";
 import Quoteslider from "../../components/quoteslider";
 import Homelocation from "../../components/index/homelocation";
 import Footer from "../../components/footer";
 import "keen-slider/keen-slider.min.css";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home({ data, states, footer }) {
   let [form, setForm] = useState(<script></script>);
@@ -68,7 +75,7 @@ export default function Home({ data, states, footer }) {
           <h1 className="text-5xl text-center text-black font-bold mb-14">
             {data.sec3title}
           </h1>
-          <Carousel projects={data.projects} />
+          <CarouselAlias projects={data.projects} />
         </div>
 
         <Quoteslider
