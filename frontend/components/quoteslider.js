@@ -71,7 +71,7 @@ export default function QuoteSlider({ title, testimonials }) {
                 <div className="p-1 m-5">
                   <div class="mb-8 text-center md:mb-0">
                     <img
-                      class="w-48 h-48 mx-auto -mb-24 rounded-full"
+                      class="w-48 h-48 mx-auto -mb-24 rounded-full object-cover shadow-lg"
                       src={urlFor(testimonial.testimonialimage).url()}
                       alt={testimonial.testimonialperson}
                     />
