@@ -67,7 +67,7 @@ export default function QuoteSlider({ title, testimonials }) {
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/3">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 m-5">
                   <div class="mb-8 text-center md:mb-0">
                     <img
@@ -75,12 +75,14 @@ export default function QuoteSlider({ title, testimonials }) {
                       src={urlFor(testimonial.testimonialimage).url()}
                       alt={testimonial.testimonialperson}
                     />
-                    <div class="px-8 pt-32 pb-10 text-gray-400 bg-white rounded-lg shadow-lg h-80">
-                      <h3 class="mb-3 text-xl text-gray-800 font-title">
+                    <div class="px-8 pt-28 text-gray-400 bg-white rounded-lg shadow-lg min-h-[400px]">
+                      <h3 class="text-xl text-gray-800 font-title">
                         {testimonial.testimonialperson}
                       </h3>
-                      <p class="font-body">{testimonial.testimonialposition}</p>
-                      <p class="mb-4 text-sm font-body line-clamp-4">
+                      <p class="font-body pb-8">
+                        {testimonial.testimonialposition}
+                      </p>
+                      <p class="mb-4 pb-4 text-sm font-body my-auto">
                         {testimonial.testimonialquote}
                       </p>
                     </div>
