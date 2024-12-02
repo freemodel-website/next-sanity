@@ -59,9 +59,9 @@ export default function QuoteSlider({ title, testimonials }) {
           ))}
         </div> */}
         <Carousel
-          className="mx-auto mt-20 w-3/4 md:w-10/12 lg:w-9/12"
+          className="mx-auto mt-20 w-3/4 md:w-10/12 lg:w-9/12 xl:w-10/12"
           opts={{
-            align: "start",
+            align: "center",
             loop: true,
           }}
         >
@@ -71,15 +71,15 @@ export default function QuoteSlider({ title, testimonials }) {
                 <div className="p-1 m-5">
                   <div class="mb-8 text-center md:mb-0">
                     <img
-                      class="w-48 h-48 mx-auto -mb-24 rounded-full object-cover shadow-lg"
+                      class="w-40 h-40 mx-auto -mb-24 rounded-full object-cover shadow-lg"
                       src={urlFor(testimonial.testimonialimage).url()}
                       alt={testimonial.testimonialperson}
                     />
-                    <div class="px-8 pt-28 text-gray-400 bg-white rounded-lg shadow-lg min-h-[400px]">
+                    <div class="px-8 pt-28 text-gray-400 bg-white rounded-lg shadow-lg min-h-[420px]">
                       <h3 class="text-xl text-gray-800 font-title">
                         {testimonial.testimonialperson}
                       </h3>
-                      <p class="font-body pb-8">
+                      <p class="text-base pb-4 leading-tight">
                         {testimonial.testimonialposition}
                       </p>
                       <p class="mb-4 pb-4 text-sm font-body my-auto">
