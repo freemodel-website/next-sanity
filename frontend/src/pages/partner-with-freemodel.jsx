@@ -3,7 +3,7 @@ import Head from "next/head";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import Bluebar from "../../components/bluebar";
-import Ourprocess from "../../components/for-agents/ourprocess-dark";
+import Ourprocess from "../../components/for-agents/ourprocess";
 import Footer from "../../components/footer";
 import { client, urlFor } from "../../client";
 import Sixgrid from "../../components/index/sixgrid";
@@ -57,21 +57,30 @@ export default function PartnerWithFreemodel({ data, footer }) {
           buttonurl="/careers"
         />
 
-        <Bluebar theme="titletext" title={data.bluebartext} />
-
         {/* Text Block */}
-        <Paragraph text={data.body} />
-
-        {/* QA with image */}
-        <div className="bg-FM-blue">
-          <Ourprocessdark
-            image={data.questionimage}
-            faqsList={data.questionsanswers}
-            buttontitle={data.buttontitle}
-            title={data.title1}
-            buttonurl={data.buttonurl}
+        <div className="bg-gray-800">
+          <Paragraph
+            text={data.body}
+            h1={"text-5xl font-extrabold"}
+            h2={"text-3xl font-extrabold pt-2"}
+            width={"md:max-w-fit"}
+            centerText={true}
+            whiteText={true}
           />
         </div>
+
+        {/* QA with image */}
+
+        <Ourprocess
+          image={data.questionimage}
+          faqsList={data.questionsanswers}
+          buttontitle={data.buttontitle}
+          title={data.title1}
+          buttonurl={data.buttonurl}
+        />
+
+        {/* line break */}
+        <hr className="w-96 mx-auto" />
 
         {/* For By Three */}
         <ThreeByTwoWindy
@@ -79,7 +88,7 @@ export default function PartnerWithFreemodel({ data, footer }) {
           title={data.windySectionTitle}
         />
         {/* line break */}
-        <hr className="mt-20 w-96 mx-auto" />
+        <hr className="mb-4 w-96 mx-auto" />
 
         {/* Image Left Text Right */}
         <ImageLeftTextRight

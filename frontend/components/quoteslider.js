@@ -35,29 +35,6 @@ export default function QuoteSlider({ title, testimonials }) {
         <h1 className="text-4xl sm:text-5xl text-center text-white font-bold mb-4">
           {title}
         </h1>
-        {/* <div ref={sliderRef} className="keen-slider">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`keen-slider__slide number-slide${index + 1}`}
-            >
-              {testimonial.testimonialimage ? (
-                <Testimonial
-                  image={urlFor(testimonial.testimonialimage).url()}
-                  quote={testimonial.testimonialquote}
-                  name={testimonial.testimonialperson}
-                  jobtitle={testimonial.testimonialposition}
-                />
-              ) : (
-                <Testimonial
-                  quote={testimonial.testimonialquote}
-                  name={testimonial.testimonialperson}
-                  jobtitle={testimonial.testimonialposition}
-                />
-              )}
-            </div>
-          ))}
-        </div> */}
         <Carousel
           className="mx-auto mt-20 w-3/4 md:w-10/12 lg:w-9/12 xl:w-10/12"
           opts={{
@@ -95,27 +72,6 @@ export default function QuoteSlider({ title, testimonials }) {
 
           <CarouselNext className="!bg-FM-orange !border-none text-white" />
         </Carousel>
-        {/* {loaded && instanceRef.current && (
-          <>
-            <Arrow
-              left
-              onClick={(e) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
-              disabled={currentSlide === 0}
-            />
-
-            <Arrow
-              onClick={(e) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
-              disabled={
-                currentSlide ===
-                instanceRef.current.track.details.slides.length - 1
-              }
-            />
-          </>
-        )} */}
       </div>
     </>
   );
