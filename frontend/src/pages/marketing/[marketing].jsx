@@ -33,7 +33,7 @@ const MarketingPage = ({ data, footer }) => {
           <Sixgrid title={data.sec2title} imageArray={data.sec2imageArray} />
         )}
         {/* Right Left Right Image Text */}
-        {data.sec3title && (
+        {data.sec3title && data.sec2imageArray && (
           <Rightleftright
             title={data.sec3title}
             imageArray={data.sec3imageArray}
