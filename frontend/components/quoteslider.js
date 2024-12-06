@@ -47,11 +47,21 @@ export default function QuoteSlider({ title, testimonials }) {
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 m-5">
                   <div class="mb-8 text-center md:mb-0">
-                    <img
-                      class="w-40 h-40 mx-auto -mb-24 rounded-full object-cover shadow-lg"
-                      src={urlFor(testimonial.testimonialimage).url()}
-                      alt={testimonial.testimonialperson}
-                    />
+                    {testimonial.testimonialimage && (
+                      <img
+                        class="w-40 h-40 mx-auto -mb-24 rounded-full object-cover shadow-lg"
+                        src={urlFor(testimonial.testimonialimage).url()}
+                        alt={testimonial.testimonialperson}
+                      />
+                    )}
+                    {!testimonial.testimonialimage && (
+                      <img
+                        class="w-40 h-40 mx-auto -mb-24 rounded-full object-cover shadow-lg"
+                        src={"/defaultCarousel/1.png"}
+                        alt={testimonial.testimonialperson}
+                      />
+                    )}
+
                     <div class="px-8 pt-28 text-gray-400 bg-white rounded-lg shadow-lg min-h-[420px]">
                       <h3 class="text-xl text-gray-800 font-title">
                         {testimonial.testimonialperson}
