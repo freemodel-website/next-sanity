@@ -244,11 +244,11 @@ const nextConfig = {
         permanent: true,
       },
 
-      // {
-      //   source: "/design-services",
-      //   destination: "/design-services",
-      //   permanent: true,
-      // },
+      {
+        source: "/corcoranicon",
+        destination: "/corcoran",
+        permanent: true,
+      },
       // {
       //   source: "/renovation-services",
       //   destination: "https://get.freemodel.com/renovation-services",
