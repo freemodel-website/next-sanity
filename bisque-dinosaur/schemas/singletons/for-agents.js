@@ -105,6 +105,7 @@ export default defineType({
       validation: (Rule) => Rule.max(6),
       group: 'page',
     },
+    //Q&A
     {
       name: 'questionimage',
       title: 'Question Image',

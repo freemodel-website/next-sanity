@@ -3,7 +3,14 @@ import { motion } from "framer-motion";
 import Ctabutton from "./atoms/ctabutton";
 import Image from "next/image";
 
-const Hero = ({ hero, buttontext, image, pomp = false, buttonurl = "" }) => {
+const Hero = ({
+  hero,
+  buttontext,
+  image,
+  pomp = false,
+  buttonurl = "",
+  logo,
+}) => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -32,16 +39,31 @@ const Hero = ({ hero, buttontext, image, pomp = false, buttonurl = "" }) => {
             initial="initial"
             animate="animate"
           >
-            <motion.h2
-              className={`text-center m-auto
+            {logo && (
+              <div className="relative h-40 w-96 mx-auto">
+                <Image
+                  src={logo ? logo : "/testhouse.jpg"}
+                  className="object-contain"
+                  fill
+                  alt="hero"
+                  loading="eager"
+                  //priority={true}
+                />
+              </div>
+            )}
+
+            {hero.title && (
+              <motion.h2
+                className={`text-center m-auto
                 ${pomp ? "my-10" : "my-6"}
                 text-6xl font-bold tracking-tight text-white sm:text-8xl sm:leading-none`}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={pomp ? { delay: 0.5, duration: 1 } : null}
-            >
-              {hero.title}
-            </motion.h2>
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={pomp ? { delay: 0.5, duration: 1 } : null}
+              >
+                {hero.title}
+              </motion.h2>
+            )}
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}

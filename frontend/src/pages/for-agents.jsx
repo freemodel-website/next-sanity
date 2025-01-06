@@ -15,6 +15,11 @@ export default function ForAgents({ data, footer }) {
   const router = useRouter();
   const currentURL = router.asPath;
 
+  console.log(
+    "DEBUG data.questionsanswers: ",
+    JSON.stringify(data.questionsanswers)
+  );
+
   return (
     <div>
       <Head>
