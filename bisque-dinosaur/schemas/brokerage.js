@@ -38,6 +38,16 @@ export default {
       validation: (Rule) => Rule.required(),
       group: 'page',
     },
+    //Logo Image
+    {
+      name: 'logoImage',
+      title: 'Logo image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'page',
+    },
     //Hero Image
     {
       name: 'mainImage',
@@ -75,6 +85,46 @@ export default {
     {
       name: 'callout',
       title: 'Blue Callout Text',
+      type: 'string',
+      group: 'page',
+    },
+    //Q&A Section
+    {
+      name: 'questionimage',
+      title: 'Question Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'page',
+    },
+    {
+      name: 'questionsanswers',
+      title: 'Questions Answers”',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'q',
+              title: 'Question',
+              type: 'string',
+            },
+            {
+              name: 'a',
+              title: 'Answer',
+              type: 'text',
+            },
+          ],
+        },
+      ],
+      validation: (rule) => rule.required(),
+      group: 'page',
+    },
+    {
+      name: 'buttontitle',
+      title: 'Button Title',
       type: 'string',
       group: 'page',
     },
@@ -121,6 +171,40 @@ export default {
       ],
       group: 'page',
     },
+    //MARK:Three button section
+    {
+      name: 'tbssection',
+      title: 'Three Button Title',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'tbsbody',
+      title: 'Three Buton Body',
+      type: 'string',
+      group: 'page',
+    },
+    //button title1
+    {
+      name: 'tbstitle1',
+      title: 'Title 1',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'tbstitle2',
+      title: 'Title 2',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'tbstitle3',
+      title: 'Title 3',
+      type: 'string',
+      group: 'page',
+    },
+
+    //Image Gallary title
     {
       name: 'imageGallaryTitle',
       title: 'Image Gallary Title',

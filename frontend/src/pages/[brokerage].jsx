@@ -12,6 +12,8 @@ import ImageCaroucel from "../../components/imageCaroucel";
 import { useRouter } from "next/router";
 import Paragraph from "../../components/paragraph";
 import { useState, useEffect } from "react";
+import Ourprocess from "../../components/for-agents/ourprocess";
+import Threebuttonsection from "../../components/brokerage/threebuttonsection";
 
 const Brokerage = ({ data, footer }) => {
   let brokerage = data;
@@ -116,8 +118,8 @@ const Brokerage = ({ data, footer }) => {
         <Hero
           hero={{ title: brokerage.title }}
           image={urlFor(brokerage.mainImage).url()}
+          logo={brokerage.logoImage ? urlFor(brokerage.logoImage).url() : null}
         />
-
         {brokerage.text && <Bluebar body={brokerage.text} />}
 
         {/* Title */}
@@ -163,8 +165,15 @@ const Brokerage = ({ data, footer }) => {
           <Bluebar body={brokerage.callout} className="mt-20" />
         )}
 
+        {data.questionimage && data.questionsanswers[0] && (
+          <Ourprocess
+            image={data.questionimage}
+            faqsList={data.questionsanswers}
+            buttontitle={data.buttontitle}
+          />
+        )}
         {/* Image Array */}
-        {brokerage.imageArray && (
+        {/* {brokerage.imageArray && (
           <div className="max-w-7xl mx-auto my-20">
             <h2 className="text-5xl font-bold text-center mt-20 mb-10">
               {brokerage.sectionhead ? brokerage.sectionhead : "Why Freemodel?"}
@@ -219,6 +228,17 @@ const Brokerage = ({ data, footer }) => {
               </div>
             </div>
           </div>
+        )} */}
+
+        {/* Three Button Section */}
+        {data.tbstitle1 && data.tbstitle2 && data.tbstitle3 && (
+          <Threebuttonsection
+            maintitle={data.tbssection}
+            body={data.tbsbody}
+            title1={data.tbstitle1}
+            title2={data.tbstitle2}
+            title3={data.tbstitle3}
+          />
         )}
         {/* Image Gallery */}
         <div className="text-center py-20 bg-FM-blue">
@@ -257,6 +277,19 @@ export const getServerSideProps = async (context) => {
     _id,
     title,
     slug,
+    logoImage {
+        crop,
+        hotspot,
+        asset->{
+          _ref,
+          _type,
+          altText,
+          description,
+          "tags": opt.media.tags[]->name.current,
+          title,
+          url
+        }
+      },
     text,
     sectionhead,
     mainImage {
@@ -298,6 +331,22 @@ export const getServerSideProps = async (context) => {
       bool
     },
     callout,
+    questionimage {
+      crop,
+      hotspot,
+      asset -> {
+        _id,
+        alt,
+        url
+      }
+    },
+    questionsanswers,
+    buttontitle,
+    tbssection,
+    tbsbody,
+    tbstitle1,
+    tbstitle2,
+    tbstitle3,
     imageArray,
     imageGallaryTitle,
     imageGallaryBody,

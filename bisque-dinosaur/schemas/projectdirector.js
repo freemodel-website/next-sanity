@@ -118,7 +118,7 @@ export default {
     //array of projects
     {
       name: 'projects',
-      title: 'Projects(Depricated)',
+      title: '(Depricated, please use the Projects tab) Projects',
       type: 'array',
       of: [
         {
@@ -127,7 +127,6 @@ export default {
         },
       ],
       group: 'page',
-      readOnly: true,
     },
     //array of media
     {

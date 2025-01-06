@@ -19,7 +19,7 @@ const ProjectDirector = ({ item, footer, caseStudies }) => {
   const router = useRouter();
   const currentURL = router.asPath;
 
-  console.log("DEBUG caseStudy", caseStudies);
+  console.log("DEBUG caseStudy", item[0].projects);
 
   return (
     <div>
