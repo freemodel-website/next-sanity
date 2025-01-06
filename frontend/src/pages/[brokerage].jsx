@@ -238,6 +238,9 @@ const Brokerage = ({ data, footer }) => {
             title1={data.tbstitle1}
             title2={data.tbstitle2}
             title3={data.tbstitle3}
+            link1={data.tbslink1}
+            link2={data.tbslink2}
+            link3={data.tbslink3}
           />
         )}
         {/* Image Gallery */}
@@ -347,6 +350,9 @@ export const getServerSideProps = async (context) => {
     tbstitle1,
     tbstitle2,
     tbstitle3,
+    tbslink1,
+    tbslink2,
+    tbslink3,
     imageArray,
     imageGallaryTitle,
     imageGallaryBody,

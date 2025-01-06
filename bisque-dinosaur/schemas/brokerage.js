@@ -137,7 +137,7 @@ export default {
     },
     {
       name: 'imageArray',
-      title: 'Linkable Section',
+      title: 'Linkable Section(Depricated)',
       type: 'array',
       of: [
         {
@@ -191,15 +191,38 @@ export default {
       type: 'string',
       group: 'page',
     },
+    //button link1
+    {
+      name: 'tbslink1',
+      title: 'Link 1',
+      type: 'string',
+      group: 'page',
+    },
+    //button title2
     {
       name: 'tbstitle2',
       title: 'Title 2',
       type: 'string',
       group: 'page',
     },
+    //button link2
+    {
+      name: 'tbslink2',
+      title: 'Link 2',
+      type: 'string',
+      group: 'page',
+    },
+    //button title3
     {
       name: 'tbstitle3',
       title: 'Title 3',
+      type: 'string',
+      group: 'page',
+    },
+    //button link3
+    {
+      name: 'tbslink3',
+      title: 'Link 3',
       type: 'string',
       group: 'page',
     },
