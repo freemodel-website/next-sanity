@@ -138,8 +138,7 @@ export default defineType({
           ],
         },
       ],
-      validation: (rule) => rule.required(),
-      validation: (Rule) => Rule.max(2),
+      validation: (rule) => rule.required().max(2),
       group: 'page',
     },
     {

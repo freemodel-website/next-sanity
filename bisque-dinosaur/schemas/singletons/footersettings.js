@@ -33,8 +33,7 @@ export default defineType({
         },
         //List of all pages
       ],
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) => Rule.min(1).max(6),
+      validation: (Rule) => Rule.required().min(1).max(6),
     },
 
     //START
@@ -124,8 +123,7 @@ export default defineType({
         },
         //List of all pages
       ],
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) => Rule.min(1).max(5),
+      validation: (Rule) => Rule.required().min(1).max(5),
     },
     //Array of strings and slugs
     {
@@ -151,8 +149,7 @@ export default defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) => Rule.min(1).max(5),
+      validation: (Rule) => Rule.required().min(1).max(5),
     },
     //Description
     {

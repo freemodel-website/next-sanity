@@ -89,6 +89,22 @@ const Brokerage = ({ data, footer }) => {
     }
   }, [brokerage.imageArray]);
 
+  //Slice up projects
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const toggleShowProjects = () => {
+    setShowAllProjects(!showAllProjects);
+  };
+  //sort alphabetically
+
+  const visibleProjects = showAllProjects
+    ? brokerage.projects.sort((a, b) => a.title.localeCompare(b.title))
+    : brokerage.projects
+        .sort((a, b) => a.title.localeCompare(b.title))
+        .slice(0, 6);
+
+  console.log("DEBUG item projects", brokerage?.projects);
+  console.log("DEBUG visible projects", brokerage?.caseStudies);
+
   return (
     <div>
       <Head>
@@ -143,7 +159,7 @@ const Brokerage = ({ data, footer }) => {
               {brokerage.title} Projects
             </h2> */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8">
-              {brokerage.projects
+              {visibleProjects
                 .sort((a, b) => (a._updatedAt > b._updatedAt ? -1 : 1))
                 .map((project) => (
                   <div key={project._id}>
@@ -158,6 +174,16 @@ const Brokerage = ({ data, footer }) => {
                   </div>
                 ))}
             </div>
+          </div>
+        )}
+        {brokerage.projects.length > 6 && (
+          <div className="text-center mt-16 mb-24">
+            <button
+              className="bg-FM-orange text-white font-semibold px-4 py-2 rounded-lg"
+              onClick={toggleShowProjects}
+            >
+              {showAllProjects ? "Show Less" : "Show More"}
+            </button>
           </div>
         )}
 
