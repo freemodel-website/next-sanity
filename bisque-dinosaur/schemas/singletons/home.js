@@ -39,6 +39,30 @@ export default defineType({
       group: 'page',
     },
     {
+      name: 'titlebutton',
+      title: 'Button 1: Text',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'buttonurl',
+      title: 'Button 1: URL',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'titlebutton2',
+      title: 'Button 2: Text',
+      type: 'string',
+      group: 'page',
+    },
+    {
+      name: 'buttonurl2',
+      title: 'Button 2: URL',
+      type: 'string',
+      group: 'page',
+    },
+    {
       name: 'sec1title',
       title: 'Section 1: Title',
       type: 'text',

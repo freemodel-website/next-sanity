@@ -6,9 +6,11 @@ import Image from "next/image";
 const Hero = ({
   hero,
   buttontext,
+  buttontext2,
   image,
   pomp = false,
   buttonurl = "",
+  buttonurl2 = "",
   logo,
 }) => {
   const fadeInUp = {
@@ -70,12 +72,20 @@ const Hero = ({
               animate={{ opacity: 1, y: 0 }}
               transition={pomp ? { delay: 1, duration: 0.5 } : null}
             >
-              {buttontext && (
-                <Ctabutton
-                  href={buttonurl ? buttonurl : "/lets-talk"}
-                  text={buttontext}
-                />
-              )}
+              <div className="flex flex-col md:flex-row gap-5 md:gap-10 items-center justify-center">
+                {buttontext && (
+                  <Ctabutton
+                    href={buttonurl ? buttonurl : "/lets-talk"}
+                    text={buttontext}
+                  />
+                )}
+                {buttontext2 && (
+                  <Ctabutton
+                    href={buttonurl2 ? buttonurl2 : "/lets-talk"}
+                    text={buttontext2}
+                  />
+                )}
+              </div>
             </motion.div>
           </motion.div>
         </div>

@@ -100,7 +100,7 @@ export default {
     },
     {
       name: 'questionsanswers',
-      title: 'Questions Answers”',
+      title: 'Questions Answers',
       type: 'array',
       of: [
         {
@@ -119,7 +119,7 @@ export default {
           ],
         },
       ],
-      validation: (rule) => rule.required(),
+      // validation: (rule) => rule.required(),
       group: 'page',
     },
     {
@@ -194,7 +194,7 @@ export default {
     //button link1
     {
       name: 'tbslink1',
-      title: 'Link 1',
+      title: 'Link 1 (use / for internal links)',
       type: 'string',
       group: 'page',
     },
@@ -208,7 +208,7 @@ export default {
     //button link2
     {
       name: 'tbslink2',
-      title: 'Link 2',
+      title: 'Link 2 (use / for internal links)',
       type: 'string',
       group: 'page',
     },
@@ -222,7 +222,7 @@ export default {
     //button link3
     {
       name: 'tbslink3',
-      title: 'Link 3',
+      title: 'Link 3 (use / for internal links)',
       type: 'string',
       group: 'page',
     },
