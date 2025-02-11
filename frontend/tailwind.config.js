@@ -22,7 +22,7 @@ module.exports = {
         pontano: ["var(--font-pontano-sans)"],
       },
       colors: {
-        "FM-orange": "#EA4325",
+        "FM-orange": "#EA4326",
         "FM-blue": "#292E3B",
         "EN-ice": "#C8F7FF",
         "EN-darkblue": "#0059AA",
