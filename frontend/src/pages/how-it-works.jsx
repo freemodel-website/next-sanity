@@ -53,6 +53,14 @@ export default function HowItWorks({ data, footer }) {
           body={data.bluebarbody}
         />
         <Steps title={data.threesectiontitle} data={data.threeSecArray} />
+
+        {data.videoData && (
+          <Videocaroucel
+            videoData={data.videoData}
+            horizontalslider={data.horizontalslider}
+            title={data.videotitle}
+          />
+        )}
       </main>
 
       <Footer data={footer} />
@@ -79,6 +87,10 @@ export const getStaticProps = async () => {
     seoTitle,
     seoDescription,
     seoImage,
+    //----Video Caroucel
+     videotitle,
+      horizontalslider,
+      videoData,
   }`);
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

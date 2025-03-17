@@ -4,8 +4,11 @@ import {
   BsLinkedin,
   BsFacebook,
   BsPinterest,
+  BsYoutube,
 } from "react-icons/bs";
 import { client, urlFor } from "../client";
+
+// Switched pinterest to youtube but need to update the data.pintrest to data.youtube
 
 export default function Footer({ data }) {
   return (
@@ -66,7 +69,7 @@ export default function Footer({ data }) {
                   target="_blank"
                   className="text-2xl text-white"
                 >
-                  <BsPinterest className="text-2xl text-white" />
+                  <BsYoutube className="text-2xl text-white" />
                 </a>
               )}
             </div>
@@ -105,17 +108,17 @@ export default function Footer({ data }) {
             </a>
           </p>
 
-          {/* <a
+          <a
             href="https://www.nickcancode.com"
             target="_blank"
-            className="text-white hover:underline float-right"
+            className="text-white hover:underline float-right hidden"
           >
             <img
               src="/nickcancode.svg"
               alt="Nick Can Code"
               className="w-6 inline-block ml-1"
             />
-          </a> */}
+          </a>
         </div>
       </div>
     </footer>

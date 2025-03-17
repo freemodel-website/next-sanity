@@ -64,6 +64,9 @@ export default function AboutUs({ data, footer }) {
         )}
 
         <div className="text-center py-20 mt-10 bg-FM-blue">
+          <h2 className="text-4xl text-white mb-6">
+            {data.imagesGalleryTitle}
+          </h2>
           <ImageCaroucel gallery={data.imagesGallery} />
         </div>
       </main>
@@ -99,6 +102,7 @@ export const getStaticProps = async () => {
     titlebutton,
     bluetitle,
     questionsanswers,
+    imagesGalleryTitle,
     imagesGallery,
     //----Video Caroucel
     videotitle,

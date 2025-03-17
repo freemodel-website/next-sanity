@@ -30,6 +30,11 @@ export default defineType({
       title: 'Title: Button',
       type: 'string',
     },
+    {
+      name: 'titlebuttonurl',
+      title: 'Title: Button URL',
+      type: 'url',
+    },
     //Homeowner Body
     {
       name: 'homeownerbody',
@@ -47,7 +52,7 @@ export default defineType({
     //Agent Body
     {
       name: 'notifybody',
-      title: 'Agent Body',
+      title: 'Notify Body',
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
     },

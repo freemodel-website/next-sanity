@@ -77,6 +77,13 @@ export default defineType({
       group: 'page',
     },
     {
+      name: 'imagesGalleryTitle',
+      title: 'Images gallery title',
+      type: 'string',
+      group: 'page',
+    },
+
+    {
       name: 'imagesGallery',
       title: 'Images gallery',
       type: 'array',

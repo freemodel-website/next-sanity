@@ -87,7 +87,7 @@ export default defineType({
     },
     //Pinterest
     {
-      title: 'Pinterest',
+      title: 'Youtube',
       name: 'pinterest',
       type: 'object',
       fields: [

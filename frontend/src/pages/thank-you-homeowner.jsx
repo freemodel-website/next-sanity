@@ -42,11 +42,15 @@ export default function ThankYouAgent({ data, footer }) {
         <Hero
           hero={{ title: data.title }}
           buttontext={data.titlebutton}
+          buttonurl={data.titlebuttonurl}
           image={urlFor(data.mainImage).url()}
         />
 
         <div className="text-center">
-          <Paragraph text={data.homeownerbody} />
+          <Paragraph
+            text={data.homeownerbody}
+            h1={"font-normal font-sans text-4xl"}
+          />
 
           <div className="flex flex-col items-center justify-center">
             <p className="text-xl">Follow us on:</p>
@@ -103,6 +107,7 @@ export const getStaticProps = async () => {
       title,
       mainImage,
       titlebutton,
+      titlebuttonurl,
       homeownerbody,
       agentbody,
         instagram,
