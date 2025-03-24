@@ -10,6 +10,7 @@ import { client, urlFor } from "../../client";
 import ImageCaroucel from "../../components/imageCaroucel";
 import { useRouter } from "next/router";
 import Videocaroucel from "../../components/videocaroucel";
+import Paragraph from "../../components/paragraph";
 
 export default function AboutUs({ data, footer }) {
   // Get the current URL
@@ -64,9 +65,23 @@ export default function AboutUs({ data, footer }) {
         )}
 
         <div className="text-center py-20 mt-10 bg-FM-blue">
-          <h2 className="text-4xl text-white mb-6">
+          <h2 className="text-5xl text-white mb-2">
             {data.imagesGalleryTitle}
           </h2>
+          {data.imageGallaryBody && (
+            <div className="max-w-3xl mx-auto !text-3xl text-white">
+              <style>
+                {`
+                            .custom-styling-broker {
+                              font-size: 24px !important;
+                              margin-bottom: -20px;
+                            }
+                          `}
+              </style>
+
+              <Paragraph text={data.imageGallaryBody} />
+            </div>
+          )}
           <ImageCaroucel gallery={data.imagesGallery} />
         </div>
       </main>
@@ -103,6 +118,7 @@ export const getStaticProps = async () => {
     bluetitle,
     questionsanswers,
     imagesGalleryTitle,
+    imageGallaryBody,
     imagesGallery,
     //----Video Caroucel
     videotitle,

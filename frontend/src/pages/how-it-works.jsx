@@ -7,6 +7,7 @@ import Steps from "../../components/steps";
 import Footer from "../../components/footer";
 import { client, urlFor } from "../../client";
 import { useRouter } from "next/router";
+import Videocaroucel from "../../components/videocaroucel";
 
 export default function HowItWorks({ data, footer }) {
   // Get the current URL
@@ -52,7 +53,6 @@ export default function HowItWorks({ data, footer }) {
           title={data.bluebartitle}
           body={data.bluebarbody}
         />
-        <Steps title={data.threesectiontitle} data={data.threeSecArray} />
 
         {data.videoData && (
           <Videocaroucel
@@ -61,6 +61,8 @@ export default function HowItWorks({ data, footer }) {
             title={data.videotitle}
           />
         )}
+
+        <Steps title={data.threesectiontitle} data={data.threeSecArray} />
       </main>
 
       <Footer data={footer} />

@@ -48,8 +48,12 @@ export default function ThankYouAgent({ data, footer }) {
 
         <div className="text-center">
           <Paragraph
-            text={data.homeownerbody}
+            text={data.agentbody}
             h1={"font-normal font-sans text-4xl"}
+            h2={"font-normal font-sans text-2xl"}
+            h3={"font-normal font-sans text-xl"}
+            h4={"font-normal font-sans text-lg"}
+            h5={"font-normal font-sans text-base"}
           />
 
           <div className="flex flex-col items-center justify-center">

@@ -82,6 +82,13 @@ export default defineType({
       type: 'string',
       group: 'page',
     },
+    //Image Gallary body
+    {
+      name: 'imageGallaryBody',
+      title: 'Image Gallary Body',
+      type: 'blockContent',
+      group: 'page',
+    },
 
     {
       name: 'imagesGallery',
