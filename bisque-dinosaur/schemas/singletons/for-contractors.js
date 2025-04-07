@@ -98,7 +98,7 @@ export default defineType({
           ],
         },
       ],
-      validation: (rule) => rule.required().max(6),
+      validation: (rule) => rule.required().max(4),
       group: 'page',
     },
     //Testimonial title

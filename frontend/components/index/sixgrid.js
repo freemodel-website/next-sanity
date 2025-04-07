@@ -41,7 +41,7 @@ export default function Sixgrid({ title, text = "", imageArray, buttontext }) {
       >
         {imageArray.map((section, index) => (
           <MotionDiv
-            className="text-center px-14"
+            className="text-center px-14 tortilla"
             key={index}
             variants={itemVariants}
           >

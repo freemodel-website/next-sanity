@@ -11,6 +11,7 @@ import Paragraph from "../../components/paragraph";
 import Sixgrid from "../../components/index/sixgrid";
 import ThreeSegment from "../../components/threesegment";
 import { useRouter } from "next/router";
+import TwoByTwo from "../../components/index/twobytwo";
 
 export default function ForContractors({ data, footer }) {
   // Get the current URL
@@ -61,7 +62,9 @@ export default function ForContractors({ data, footer }) {
 
         {/* <Threesegment /> */}
 
-        <Sixgrid title={data.sec2title} imageArray={data.sec2imageArray} />
+        {/* <Sixgrid title={data.sec2title} imageArray={data.sec2imageArray} /> */}
+
+        <TwoByTwo title={data.sec2title} items={data.sec2imageArray} />
 
         {/* <Quoteslider
           title="Kudos from clients"
