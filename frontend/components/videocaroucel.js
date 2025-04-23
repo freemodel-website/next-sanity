@@ -12,8 +12,14 @@ import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 
 export default ({ videoData, horizontalslider, title }) => {
+  console.log("DEBUG videoData: ", JSON.stringify(videoData));
+
+  videoData = videoData.slice(0, 1);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+
+  const basePerView = videoData.length === 1 ? 1 : 1;
 
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
@@ -25,20 +31,19 @@ export default ({ videoData, horizontalslider, title }) => {
     },
     breakpoints: {
       "(min-width: 400px)": {
-        slides: { perView: 1, spacing: 10 },
+        slides: { perView: videoData.length === 1 ? 1 : 1, spacing: 10 },
       },
       "(min-width: 1000px)": {
-        slides: { perView: 2, spacing: 10 },
+        slides: { perView: videoData.length === 1 ? 1 : 2, spacing: 10 },
       },
       "(min-width: 1300px)": {
         slides: {
-          //if videodata.horizontalslider is true, then perView: 1, else perView: 2
-          perView: horizontalslider ? 2 : 3,
+          perView: videoData.length === 1 ? 1 : horizontalslider ? 2 : 3,
           spacing: 10,
         },
       },
     },
-    slides: { perView: 1 },
+    slides: { perView: basePerView },
     loop: true,
   });
 
@@ -50,8 +55,12 @@ export default ({ videoData, horizontalslider, title }) => {
         </h2>
       )}
       <div
-        className="navigation-wrapper relative mx-auto 
-        w-full  sm:w-[65%] md:w-[65%] lg:w-[75%] xl:w-[95%] 2xl:w-[65%] 3xl:w-[75%] 4xl:w-[75%]"
+        className={`navigation-wrapper relative mx-auto 
+        w-full ${
+          videoData.length === 1
+            ? "sm:w-[65%] md:w-[65%] lg:w-[55%] xl:w-[45%] 2xl:w-[35%] 3xl:w-[35%] 4xl:w-[35%]"
+            : "sm:w-[65%] md:w-[65%] lg:w-[75%] xl:w-[95%] 2xl:w-[65%] 3xl:w-[75%] 4xl:w-[75%]"
+        } `}
       >
         <div className="slider-container w-[85%] mx-auto">
           <div ref={sliderRef} className="keen-slider">
@@ -160,7 +169,7 @@ export default ({ videoData, horizontalslider, title }) => {
             ))}
           </div>
           {/* Arrows */}
-          {loaded && instanceRef.current && (
+          {loaded && videoData.length !== 1 && instanceRef.current && (
             <>
               <Arrow
                 left
