@@ -19,7 +19,7 @@ export default ({
       href: link1 ? link1 : "",
     },
     {
-      image: "/svgstreet.png",
+      image: "/guyandscreen.svg",
       text: title2 ? title2 : "",
       href: link2 ? link2 : "",
     },
