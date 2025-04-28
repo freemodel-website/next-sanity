@@ -12,10 +12,6 @@ import Link from "next/link";
 import { FaBed, FaBath, FaCalendarAlt } from "react-icons/fa";
 
 export default ({ videoData, horizontalslider, title }) => {
-  console.log("DEBUG videoData: ", JSON.stringify(videoData));
-
-  videoData = videoData.slice(0, 1);
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
