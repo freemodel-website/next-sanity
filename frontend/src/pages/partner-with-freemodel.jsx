@@ -58,7 +58,7 @@ export default function PartnerWithFreemodel({ data, footer }) {
         />
 
         {/* Text Block */}
-        <div className="bg-gray-800 lg:px-48">
+        <div className="bg-gray-800 lg:px-20">
           <Paragraph
             text={data.body}
             h1={"text-5xl font-extrabold"}
