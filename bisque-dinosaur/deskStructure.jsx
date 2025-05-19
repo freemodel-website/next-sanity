@@ -28,7 +28,7 @@ export const myStructure = (S, context) =>
             ])
         ),
 
-        // Testimonials
+      // Testimonials
       // S.listItem()
       //   .title('Testimonialz')
       //   .icon(FaFileAlt)
@@ -76,8 +76,6 @@ export const myStructure = (S, context) =>
         },
       }),
 
-  
-
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() !== 'home' &&
@@ -105,7 +103,8 @@ export const myStructure = (S, context) =>
           item.getId() !== 'meettheteam' &&
           item.getId() !== 'marketing' &&
           item.getId() !== 'viapage' &&
-          item.getId() !== 'partnerwithfreemodel'
+          item.getId() !== 'partnerwithfreemodel' &&
+          item.getId() !== 'reviews'
       ),
 
       // About Us
@@ -227,6 +226,12 @@ export const myStructure = (S, context) =>
         .title('Renovation Services')
         .icon(FaFileAlt)
         .child(S.document().schemaType('renovationservices').documentId('renovationservices')),
+
+      // Reviews
+      S.listItem()
+        .title('Reviews')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('reviews').documentId('reviews')),
 
       // Support
       S.listItem()
