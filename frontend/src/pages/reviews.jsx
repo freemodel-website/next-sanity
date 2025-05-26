@@ -84,11 +84,15 @@ export default function Career({ data, footer }) {
           </div>
         )}
 
-        <ThreeSection imageArray={data.imageArray2} />
+        <ThreeSection
+          imageArray={data.imageArray2}
+          sec3title={data.sec3title}
+          sec3link={data.sec3link}
+        />
         {/* CTA button */}
-        <div className="flex justify-center pb-10 bg-FM-blue">
+        {/* <div className="flex justify-center pb-10 bg-FM-blue">
           <Ctabutton href={data.sec3link} text={data.sec3title} />
-        </div>
+        </div> */}
 
         {data.videoData && (
           <Videocaroucel
@@ -98,7 +102,11 @@ export default function Career({ data, footer }) {
           />
         )}
 
-        <Logogrid />
+        <Logogrid
+          logoArray={data.logoslist}
+          title={data.logostitle}
+          subtitle={data.logossubtitle}
+        />
 
         {/* CTA2 button */}
         <div className="flex justify-center pb-16">
@@ -152,6 +160,18 @@ export const getStaticProps = async () => {
     videotitle,
     horizontalslider,
     videoData,
+    logostitle,
+    logossubtitle,
+    logoslist []{
+      image {
+        crop, 
+        hotspot,
+        asset->{
+          _id,
+          url
+        }
+      }
+    },
   }[0]`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

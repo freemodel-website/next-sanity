@@ -173,6 +173,47 @@ export default defineType({
 
       group: 'page',
     },
+    //Logos title
+    {
+      name: 'logostitle',
+      title: 'Logos Title',
+      type: 'string',
+      group: 'page',
+    },
+    //subtitle
+    {
+      name: 'logossubtitle',
+      title: 'Logos Subtitle',
+      type: 'string',
+      group: 'page',
+    },
+
+    {
+      name: 'logoslist',
+      title: 'Logos',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'name',
+              title: 'name(internal use)',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+      group: 'page',
+    },
 
     //SEO
     {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},

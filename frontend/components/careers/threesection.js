@@ -2,8 +2,14 @@ import React from "react";
 import Image from "next/image";
 import PortableText from "react-portable-text";
 import { urlFor } from "../../client";
+import Ctabutton from "../atoms/ctabutton";
 
-export default function ThreeSection({ imageArray, reverseIndexBg = false }) {
+export default function ThreeSection({
+  imageArray,
+  reverseIndexBg = false,
+  sec3title,
+  sec3link,
+}) {
   return (
     <div className="mx-auto">
       <section>
@@ -96,6 +102,11 @@ export default function ThreeSection({ imageArray, reverseIndexBg = false }) {
                     className={`text-lg ${portableTextColor}`}
                     serializers={serializers}
                   />
+                  {sec3title && (
+                    <div className="mx-auto mt-8 flex justify-center">
+                      <Ctabutton href={sec3link} text={sec3title} />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
