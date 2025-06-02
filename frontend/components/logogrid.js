@@ -40,7 +40,7 @@ export default function LogoGrid({ logoArray = [], title, subtitle }) {
 
         return updated;
       });
-    }, 2000);
+    }, 500);
 
     return () => clearInterval(interval);
   }, [sourceArray, visibleLogos]);
@@ -60,7 +60,7 @@ export default function LogoGrid({ logoArray = [], title, subtitle }) {
                 ref={(el) => (imgRefs.current[i] = el)}
                 src={src}
                 alt={`Logo ${i + 1}`}
-                className="w-60 transition-opacity duration-1000"
+                className="w-32 sm:w-40 md:w-48 lg:w-60 transition-opacity duration-1000"
               />
             </li>
           );
