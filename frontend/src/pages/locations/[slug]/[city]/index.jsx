@@ -22,11 +22,18 @@ const ProjectSlug = ({ item, footer }) => {
   const toggleShowProjects = () => {
     setShowAllProjects(!showAllProjects);
   };
-  //sort alphabetically
 
+  //sort alphabetically
+  // const visibleProjects = showAllProjects
+  //   ? item.projects.sort((a, b) => a.title.localeCompare(b.title))
+  //   : item.projects.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 6);
   const visibleProjects = showAllProjects
-    ? item.projects.sort((a, b) => a.title.localeCompare(b.title))
-    : item.projects.sort((a, b) => a.title.localeCompare(b.title)).slice(0, 6);
+    ? item.projects.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      )
+    : item.projects
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        .slice(0, 6);
 
   console.log("item projects", item?.projects);
   console.log("visible projects", item?.caseStudies);
