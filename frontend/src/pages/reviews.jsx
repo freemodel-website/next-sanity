@@ -110,7 +110,7 @@ export default function Career({ data, footer }) {
 
         {/* CTA2 button */}
         <div className="flex justify-center pb-16">
-          <Ctabutton href={data.sec3link} text={data.sec3title} />
+          <Ctabutton href={data.lastbuttontitle} text={data.lastbuttonlink} />
         </div>
       </main>
 
@@ -172,6 +172,8 @@ export const getStaticProps = async () => {
         }
       }
     },
+    lastbuttontitle,
+    lastbuttonlink,
   }[0]`;
 
   const footer = await client.fetch(`*[_type == "footersettings"][0]{

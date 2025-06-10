@@ -214,6 +214,19 @@ export default defineType({
       ],
       group: 'page',
     },
+    {
+      name: 'lastbuttontitle',
+      title: 'Title: Bottom Button',
+      type: 'string',
+      group: 'page',
+    },
+    //section 3 button link
+    {
+      name: 'lastbuttonlink',
+      title: 'Link: Bottom Button',
+      type: 'string',
+      group: 'page',
+    },
 
     //SEO
     {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},
