@@ -9,6 +9,7 @@ export default function ThreeSection({
   reverseIndexBg = false,
   sec3title,
   sec3link,
+  newpage = false,
 }) {
   return (
     <div className="mx-auto">
@@ -104,7 +105,11 @@ export default function ThreeSection({
                   />
                   {sec3title && (
                     <div className="mx-auto mt-8 flex justify-center">
-                      <Ctabutton href={sec3link} text={sec3title} />
+                      <Ctabutton
+                        href={sec3link}
+                        text={sec3title}
+                        newpage={newpage}
+                      />
                     </div>
                   )}
                 </div>

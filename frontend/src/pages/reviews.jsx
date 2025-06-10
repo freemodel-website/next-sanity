@@ -88,6 +88,7 @@ export default function Career({ data, footer }) {
           imageArray={data.imageArray2}
           sec3title={data.sec3title}
           sec3link={data.sec3link}
+          newpage={true}
         />
         {/* CTA button */}
         {/* <div className="flex justify-center pb-10 bg-FM-blue">
