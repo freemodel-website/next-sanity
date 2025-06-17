@@ -111,7 +111,7 @@ export default function Career({ data, footer }) {
 
         {/* CTA2 button */}
         <div className="flex justify-center pb-16">
-          <Ctabutton href={data.lastbuttontitle} text={data.lastbuttonlink} />
+          <Ctabutton href={data.lastbuttonlink} text={data.lastbuttontitle} />
         </div>
       </main>
 
