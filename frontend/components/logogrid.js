@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { client, urlFor } from "../client";
 
-const NUM_VISIBLE_LOGOS = 9;
+const NUM_VISIBLE_LOGOS = 12;
 
 function getUniqueRandomIndices(count, max) {
   const indices = new Set();
@@ -55,12 +55,15 @@ export default function LogoGrid({ logoArray = [], title, subtitle }) {
           const src = logoArray?.length > 0 ? urlFor(logo.image).url() : logo;
 
           return (
-            <li key={i} className="flex justify-center items-center">
+            <li
+              key={i}
+              className="flex justify-center items-center min-h-[150px] bg-white"
+            >
               <img
                 ref={(el) => (imgRefs.current[i] = el)}
                 src={src}
                 alt={`Logo ${i + 1}`}
-                className="w-32 sm:w-40 md:w-48 lg:w-60 transition-opacity duration-1000"
+                className="h-24 w-auto object-contain transition-opacity duration-1000"
               />
             </li>
           );
