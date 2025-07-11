@@ -54,7 +54,7 @@ export default function Steps({ data, title }) {
         className="
         flex flex-col items-center justify-center w-full mt-32"
       >
-        <Ctabutton text="Let's Talk" href="/lets-talk" />
+        <Ctabutton text="Request Estimate" href="/request-estimate" />
       </div>
     </div>
   );

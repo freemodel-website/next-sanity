@@ -249,11 +249,11 @@ const nextConfig = {
         destination: "/corcoran",
         permanent: true,
       },
-      // {
-      //   source: "/renovation-services",
-      //   destination: "https://get.freemodel.com/renovation-services",
-      //   permanent: true,
-      // },
+      {
+        source: "/lets-talk",
+        destination: "/contact-us",
+        permanent: true,
+      },
       // {
       //   source: "/for-designers",
       //   destination: "https://get.freemodel.com/for-designers",

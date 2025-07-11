@@ -10,13 +10,13 @@ import { useRouter } from "next/router";
 import Bluebar from "../../../components/bluebar";
 
 /**
- * 
+ *
  * @param {object} team - Project Directors
  * @param {object} teampage - Meet The Team Page
  * @param {object} statesList - List of states
  * @param {object} footer - Footer Data
  * @returns
- * 
+ *
  */
 
 export default function Team({ team, teampage, statesList, footer }) {
@@ -72,11 +72,11 @@ export default function Team({ team, teampage, statesList, footer }) {
         <Hero
           hero={{ title: teampage.title }}
           image={urlFor(teampage.mainImage).url()}
-          buttontext={teampage.titlebutton}
+          //buttontext={teampage.titlebutton}
+          buttontext={"Request Estimate"}
+          buttonurl="/request-estimate"
         />
-        <Bluebar 
-          body={teampage.bluebarbody}
-        />
+        <Bluebar body={teampage.bluebarbody} />
         <div className="mb-6"></div>
         {/* Sort project directors by state */}
         {sortedStatesList.map((state, idx) => {

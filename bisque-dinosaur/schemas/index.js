@@ -37,6 +37,8 @@ import marketing from './marketing'
 import viapage from './singletons/via'
 import partnerwithfreemodel from './singletons/partnerwithfreemodel'
 import reviews from './singletons/reviews'
+import requestestimate from './singletons/requestestimate'
+
 export const schemaTypes = [
   post,
   projectdirector,
@@ -75,4 +77,5 @@ export const schemaTypes = [
   marketing,
   viapage,
   partnerwithfreemodel,
+  requestestimate,
 ]

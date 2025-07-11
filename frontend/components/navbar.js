@@ -87,10 +87,10 @@ export default ({ data }) => {
             <div className="space-y-3 items-center gap-x-6 lg:flex lg:space-y-0">
               <li>
                 <a
-                  href="/lets-talk"
-                  className="block py-3 px-4 w-32 mx-auto font-bold text-center text-FM-blue bg-white border-FM-blue border-2 hover:bg-FM-blue hover:text-white active:bg-indigo-700 active:shadow-none rounded-lg shadow lg:inline"
+                  href="/request-estimate"
+                  className="block py-2 px-2 w-40 mx-auto font-bold text-center text-FM-blue bg-white border-FM-blue border-2 hover:bg-FM-blue hover:text-white active:bg-indigo-700 active:shadow-none rounded-lg shadow lg:inline"
                 >
-                  Let's Talk
+                  Request Estimate
                 </a>
               </li>
             </div>

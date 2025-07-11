@@ -9,6 +9,7 @@ import { client, urlFor } from "../../client";
 import Sixgrid from "../../components/index/sixgrid";
 import { useRouter } from "next/router";
 import Videocaroucel from "../../components/videocaroucel";
+import Ctabutton from "../../components/atoms/ctabutton";
 
 export default function ForAgents({ data, footer }) {
   // Get the current URL
@@ -51,7 +52,9 @@ export default function ForAgents({ data, footer }) {
       <main className="mb-20">
         <Hero
           hero={{ title: data.title }}
-          buttontext={data.titlebutton}
+          //buttontext={data.titlebutton}
+          buttontext="Request Estimate"
+          buttonurl="/request-estimate"
           image={urlFor(data.mainImage).url()}
         />
 
@@ -60,6 +63,22 @@ export default function ForAgents({ data, footer }) {
           body={data.bluebartext}
           img={data.bluebarimage}
         />
+
+        <div className="flex flex-col items-center justify-center overflow-auto my-24">
+          <p className="text-xl font-semibold tracking-wide text-center sm:text-xl">
+            Resorces for Agents
+          </p>
+          <p className="text-lg text-center text-gray-600 sm:text-xl">
+            We have a variety of resources to help you succeed as an agent.
+          </p>
+          {/* line */}
+          <div className="w-16 h-1 mx-auto mt-4 mb-10 bg-FM-blue"></div>
+
+          <Ctabutton
+            text="Resorces"
+            href="https://www.get.freemodel.com/resources"
+          />
+        </div>
 
         {/* Temp, Re-add with Sanity data */}
         <Sixgrid title={data.title1} imageArray={data.imageArray} />

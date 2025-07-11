@@ -104,7 +104,8 @@ export const myStructure = (S, context) =>
           item.getId() !== 'marketing' &&
           item.getId() !== 'viapage' &&
           item.getId() !== 'partnerwithfreemodel' &&
-          item.getId() !== 'reviews'
+          item.getId() !== 'reviews' &&
+          item.getId() !== 'requestestimate'
       ),
 
       // About Us
@@ -226,6 +227,12 @@ export const myStructure = (S, context) =>
         .title('Renovation Services')
         .icon(FaFileAlt)
         .child(S.document().schemaType('renovationservices').documentId('renovationservices')),
+
+      // Request Estimate
+      S.listItem()
+        .title('Request Estimate')
+        .icon(FaFileAlt)
+        .child(S.document().schemaType('requestestimate').documentId('requestestimate')),
 
       // Reviews
       S.listItem()
