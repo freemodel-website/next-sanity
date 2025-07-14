@@ -116,7 +116,7 @@ const ProjectSlug = ({ item, footer }) => {
           <h2 className="text-4xl font-bold mb-10">
             {item.casestudycalltoaction}
           </h2>
-          <Ctabutton text={item.casestudybuttontext} href="/lets-talk" />
+          <Ctabutton text={item.casestudybuttontext} href="/request-estimate" />
         </div>
       </main>
       <Footer data={footer} />

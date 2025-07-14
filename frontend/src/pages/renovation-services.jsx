@@ -69,7 +69,9 @@ export default function RenovationService({ data, footer }) {
         <Hero
           hero={{ title: data.title }}
           image={urlFor(data.mainImage).url()}
-          buttontext={data.titlebutton}
+          //buttontext={data.titlebutton}
+          buttontext="Request Estimate"
+          buttonurl="/request-estimate"
         />
         <Bluebar body={data.bluebarbody} />
         {/* Text Block */}
@@ -111,8 +113,9 @@ export default function RenovationService({ data, footer }) {
         <Doublesection imageArray={data.twosecimageArray} />
         <div className="mb-8 text-center">
           <Ctabutton
-            text={data.doubletitlebutton}
-            href="/lets-talk"
+            // text={data.doubletitlebutton}
+            text="Request Estimate"
+            href="/request-estimate"
             className="mt-12"
           />
         </div>
@@ -196,8 +199,9 @@ export default function RenovationService({ data, footer }) {
 
             <div className="mb-8 mt-16 text-center">
               <Ctabutton
-                text={data.bottomtitlebutton}
-                href="/lets-talk"
+                //text={data.bottomtitlebutton}
+                text="Request Estimate"
+                href="/request-estimate"
                 className="mt-12"
               />
             </div>

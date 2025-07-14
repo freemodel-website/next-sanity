@@ -52,7 +52,8 @@ const ProjectSlug = ({ item, footer }) => {
       <main>
         <Hero
           hero={{ title: item.statename }}
-          buttontext={"Let's Talk"}
+          buttontext={"Request Estimate"}
+          buttonurl={"/request-estimate"}
           image={urlFor(item.image).url()}
         />
         <Bluebar theme={"Find your dream home"} body={description} />

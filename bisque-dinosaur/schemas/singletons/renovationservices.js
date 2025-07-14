@@ -41,7 +41,7 @@ export default defineType({
       name: 'titlebutton',
       title: 'Title: Button',
       type: 'string',
-      validation: (rule) => rule.required(),
+      // validation: (rule) => rule.required(),
       group: 'page',
     },
     {
@@ -145,7 +145,7 @@ export default defineType({
       name: 'doubletitlebutton',
       title: 'Title: Button',
       type: 'string',
-      validation: (rule) => rule.required(),
+      // validation: (rule) => rule.required(),
       group: 'page',
     },
     //array of media
@@ -194,7 +194,7 @@ export default defineType({
       name: 'bottomtitlebutton',
       title: 'Title: Button',
       type: 'string',
-      validation: (rule) => rule.required(),
+      // validation: (rule) => rule.required(),
       group: 'page',
     },
 

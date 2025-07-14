@@ -75,13 +75,13 @@ const Hero = ({
               <div className="flex flex-col md:flex-row gap-5 md:gap-10 items-center justify-center">
                 {buttontext && (
                   <Ctabutton
-                    href={buttonurl ? buttonurl : "/lets-talk"}
+                    href={buttonurl ? buttonurl : "/request-estimate"}
                     text={buttontext}
                   />
                 )}
                 {buttontext2 && (
                   <Ctabutton
-                    href={buttonurl2 ? buttonurl2 : "/lets-talk"}
+                    href={buttonurl2 ? buttonurl2 : "/request-estimate"}
                     text={buttontext2}
                   />
                 )}

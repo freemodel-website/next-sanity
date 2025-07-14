@@ -42,12 +42,12 @@ export default defineType({
       type: 'string',
       group: 'page',
     },
-    {
-      name: 'bluetitle',
-      title: 'Blue Bar Title',
-      type: 'string',
-      group: 'page',
-    },
+    // {
+    //   name: 'bluetitle',
+    //   title: 'Blue Bar Title',
+    //   type: 'string',
+    //   group: 'page',
+    // },
 
     //SEO
     {name: 'seoTitle', title: 'SEO title', type: 'string', group: 'seo'},

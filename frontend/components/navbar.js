@@ -88,7 +88,7 @@ export default ({ data }) => {
               <li>
                 <a
                   href="/request-estimate"
-                  className="block py-2 px-2 w-40 mx-auto font-bold text-center text-FM-blue bg-white border-FM-blue border-2 hover:bg-FM-blue hover:text-white active:bg-indigo-700 active:shadow-none rounded-lg shadow lg:inline"
+                  className="block py-2 px-2 w-40 mx-auto text-center text-black bg-white border-FM-blue border-2 hover:bg-FM-blue hover:text-white active:bg-indigo-700 active:shadow-none rounded-lg shadow lg:inline lg:text-base"
                 >
                   Request Estimate
                 </a>

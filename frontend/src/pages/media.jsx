@@ -51,7 +51,11 @@ export default function Media({ data, mediadata, footer }) {
           image={urlFor(mediadata.mainImage).url()}
         />
 
-        <Bluebar body={mediadata.bluetitle} />
+        <Bluebar
+          theme={"titleandbutton"}
+          title={"For any press inquiries please contact"}
+          buttontext="Contact Us"
+        />
 
         <MediaList media={data} />
       </main>

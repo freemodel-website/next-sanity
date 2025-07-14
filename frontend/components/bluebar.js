@@ -1,13 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import { client, urlFor } from "../client";
+import Ctabutton from "./atoms/ctabutton";
 
 /**
  *
  * @param theme - titletext, leftimg
  * @returns
  */
-export default function Bluebar({ theme, title, body, img }) {
+export default function Bluebar({ theme, title, body, img, buttontext }) {
   let text;
   const lines = body?.split("\n");
 
@@ -32,6 +33,24 @@ export default function Bluebar({ theme, title, body, img }) {
             {body && (
               <div className="text-3xl mt-4 max-w-5xl mx-auto text-white">
                 {body}
+              </div>
+            )}
+          </div>
+        </div>
+      );
+      break;
+
+    case "titleandbutton":
+      text = (
+        <div className="bg-gray-800">
+          <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+            <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
+              {title}
+            </h2>
+
+            {buttontext && (
+              <div className=" mt-4 mx-auto">
+                <Ctabutton text={buttontext} href="/contact-us" />
               </div>
             )}
           </div>

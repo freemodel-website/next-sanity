@@ -45,7 +45,9 @@ export default function FAQ({ data, footer }) {
       <main>
         <Hero
           hero={{ title: data.title }}
-          buttontext={data.titlebutton}
+          // buttontext={data.titlebutton}
+          buttontext="Contact Us"
+          buttonurl="/contact-us"
           image={urlFor(data.mainImage).url()}
         />
 
@@ -59,7 +61,11 @@ export default function FAQ({ data, footer }) {
           <AccordianList faqsList={data.questionsanswers} />
 
           <div className="my-20">
-            <Ctabutton text={data.ctabutton} href="/lets-talk" />
+            <Ctabutton
+              //text={data.ctabutton}
+              text="Contct Us"
+              href="/contact-us"
+            />
           </div>
         </div>
       </main>

@@ -48,7 +48,9 @@ export default function AboutUs({ data, footer }) {
       <main>
         <Hero
           hero={{ title: data.title }}
-          buttontext={data.titlebutton}
+          //buttontext={data.titlebutton}
+          buttontext="Request Estimate"
+          buttonurl={"/request-estimate"}
           image={urlFor(data.mainImage).url()}
         />
 

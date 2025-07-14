@@ -69,7 +69,8 @@ const ProjectSlug = ({ item, footer }) => {
       <main>
         <Hero
           hero={{ title: item.name }}
-          buttontext={"Let's Talk"}
+          buttontext={"Request Estimate"}
+          buttonurl={"/request-estimate"}
           image={urlFor(item.image).url()}
         />
         <Bluebar theme={"Find your dream home"} body={item.bluebartext} />
@@ -92,7 +93,11 @@ const ProjectSlug = ({ item, footer }) => {
         {/* CTA */}
         {!item.htmlform && (
           <div className="text-center mb-32">
-            <Ctabutton text={item.ctaText} href={"/lets-talk"} />
+            <Ctabutton
+              //text={item.ctaText}
+              text={"Request Estimate"}
+              href={"/request-estimate"}
+            />
           </div>
         )}
 
@@ -199,7 +204,11 @@ const ProjectSlug = ({ item, footer }) => {
           {item.ctaTitle}
         </h1>
         <div className="text-center mb-32">
-          <Ctabutton text={item.ctaText} href={"/lets-talk"} />
+          <Ctabutton
+            //text={item.ctaText}
+            text={"Request Estimate"}
+            href={"/request-estimate"}
+          />
         </div>
       </main>
       <Footer data={footer} />

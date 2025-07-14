@@ -15,7 +15,11 @@ export default function LearnSection({ faqsList }) {
       </div>
 
       <div className="mb-24">
-        <Ctabutton text="Let's Talk" href="/lets-talk" className="mt-12" />
+        <Ctabutton
+          text="Request Estimate"
+          href="/request-estimate"
+          className="mt-12"
+        />
       </div>
     </div>
   );

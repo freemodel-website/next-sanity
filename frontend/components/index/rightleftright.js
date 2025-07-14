@@ -19,7 +19,7 @@ export default function rightleftright({ title, imageArray }) {
         <Section key={index} section={section} index={index} />
       ))}
       <div className="flex justify-center mt-10">
-        <Ctabutton href="/lets-talk" text="Let's Talk" />
+        <Ctabutton href="/request-estimate" text="Get a Free Estimate" />
       </div>
     </div>
   );

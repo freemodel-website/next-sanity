@@ -15,7 +15,7 @@ export default function requestEstimate({ data, footer }) {
   return (
     <div>
       <Head>
-        <title>{"Let's Talk | Freemodel"}</title>
+        <title>{"Request Estimate | Freemodel"}</title>
         <meta name="description" content={data?.seoDescription} />
         <link rel="icon" href="/favicon.ico" />
 
@@ -42,7 +42,7 @@ export default function requestEstimate({ data, footer }) {
 
         <Bluebar body={data.bluetitle} />
 
-        <div className="flex items-center justify-center overflow-auto">
+        <div className="">
           <div
             className="p-16 overflow-auto"
             dangerouslySetInnerHTML={{

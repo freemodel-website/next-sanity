@@ -59,7 +59,8 @@ export default function Home({ data, states, footer }) {
           hero={data}
           buttontext={data.titlebutton}
           buttontext2={data.titlebutton2}
-          buttonurl={data.buttonurl}
+          //buttonurl={data.buttonurl}
+          buttonurl={"/request-estimate"}
           buttonurl2={data.buttonurl2}
           image={urlFor(data.mainImage).url()}
           pomp={true}

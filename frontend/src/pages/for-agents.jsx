@@ -66,7 +66,7 @@ export default function ForAgents({ data, footer }) {
 
         <div className="flex flex-col items-center justify-center overflow-auto my-24">
           <p className="text-xl font-semibold tracking-wide text-center sm:text-xl">
-            Resorces for Agents
+            Resources for Agents
           </p>
           <p className="text-lg text-center text-gray-600 sm:text-xl">
             We have a variety of resources to help you succeed as an agent.
@@ -75,7 +75,7 @@ export default function ForAgents({ data, footer }) {
           <div className="w-16 h-1 mx-auto mt-4 mb-10 bg-FM-blue"></div>
 
           <Ctabutton
-            text="Resorces"
+            text="Resources"
             href="https://www.get.freemodel.com/resources"
           />
         </div>

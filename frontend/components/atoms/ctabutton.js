@@ -17,7 +17,7 @@ export default function Ctabutton({ href, text, newpage = false }) {
         id="cta_contact_button"
         className="text-lg text-center text-white "
       >
-        {text ? text : "Let's Talk"}
+        {text ? text : "Request Estimate"}
       </a>
     </div>
   );
