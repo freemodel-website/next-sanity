@@ -41,7 +41,7 @@ export default function ContactUs({ data, footer }) {
 
         <div className="">
           <div
-            className="p-16 overflow-auto"
+            className="lg:p-16 overflow-auto"
             dangerouslySetInnerHTML={{
               __html:
                 '<script src="https://js.hsforms.net/forms/embed/6664059.js" defer></script><div class="hs-form-frame" data-region="na1" data-form-id="3ddf3cc9-2533-435e-b98a-76685bd6b1ee" data-portal-id="6664059"></div>',

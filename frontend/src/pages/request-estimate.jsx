@@ -44,7 +44,7 @@ export default function requestEstimate({ data, footer }) {
 
         <div className="">
           <div
-            className="p-16 overflow-auto"
+            className="lg:p-16 overflow-auto"
             dangerouslySetInnerHTML={{
               __html:
                 '<div data-paperform-id="g4aknysq"></div><script>(function() {var script = document.createElement("script"); script.src = "https://paperform.co/__embed.min.js"; document.body.appendChild(script); })()</script>',
