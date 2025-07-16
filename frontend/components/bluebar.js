@@ -22,6 +22,20 @@ export default function Bluebar({ theme, title, body, img, buttontext }) {
   });
 
   switch (theme) {
+    case "moretext":
+      text = (
+        <div className="bg-gray-800">
+          <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+            {body && (
+              <h3 className="text-2xl mt-4 max-w-5xl mx-auto text-white">
+                {body}
+              </h3>
+            )}
+          </div>
+        </div>
+      );
+      break;
+
     case "titletext":
       text = (
         <div className="bg-gray-800">

@@ -40,7 +40,7 @@ export default function requestEstimate({ data, footer }) {
           image={urlFor(data.mainImage).url()}
         />
 
-        <Bluebar body={data.bluetitle} />
+        <Bluebar theme={"moretext"} body={data.bluetitle} />
 
         <div className="">
           <div
