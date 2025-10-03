@@ -41,30 +41,41 @@ export default function Homelocation({ states, buttontext }) {
         {states
           .filter(
             (state) =>
-              state.statename != "Partnerships" &&
-              state.statename != "In-House Design Team" &&
-              state.statename != "Author"
+              state.name != "Partnerships" &&
+              state.name != "In-House Design Team" &&
+              state.name != "Author"
           )
-          .sort((a, b) => a.statename.localeCompare(b.statename))
+          .sort((a, b) => a.name.localeCompare(b.name))
           .map((state, index) => (
-            <a key={index + 1} href={`/locations/${state.slug.current}`}>
-              <MotionDiv className="group" key={index} variants={itemVariants}>
-                <div className="relative h-72 w-full">
-                  <Image
-                    alt={state.statename}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 640px"
-                    src={urlFor(state.image).url()}
-                    className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-3xl underline underline-offset-4 decoration-1 font-bold sm:text-3xl text-FM-orange group-hover:text-orange-600">
-                    {state.statename}
-                  </h3>
-                </div>
-              </MotionDiv>
-            </a>
+            <>
+              {!state?.hide && (
+                <a
+                  key={index + 1}
+                  href={`/locations/norcal/${state.slug.current}`}
+                >
+                  <MotionDiv
+                    className="group"
+                    key={index}
+                    variants={itemVariants}
+                  >
+                    <div className="relative h-72 w-full">
+                      <Image
+                        alt={state.name}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 640px"
+                        src={urlFor(state.image).url()}
+                        className="h-72 w-full rounded-xl object-cover shadow-xl transition group-hover:opacity-80"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="text-3xl underline underline-offset-4 decoration-1 font-bold sm:text-3xl text-FM-orange group-hover:text-orange-600">
+                        {state.name}
+                      </h3>
+                    </div>
+                  </MotionDiv>
+                </a>
+              )}
+            </>
           ))}
       </MotionDiv>
 

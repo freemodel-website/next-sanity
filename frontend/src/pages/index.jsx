@@ -21,7 +21,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function Home({ data, states, footer }) {
+export default function Home({ data, states, norcal, footer }) {
   let [form, setForm] = useState(<script></script>);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function Home({ data, states, footer }) {
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
+  
 
   return (
     <div>
@@ -87,7 +88,7 @@ export default function Home({ data, states, footer }) {
           testimonials={data.testimonials}
         />
 
-        <Homelocation states={states} buttontext={data.statesbutton} />
+        <Homelocation states={norcal} buttontext={data.statesbutton} />
 
         <div className="px-4 py-16 bg-FM-blue md:px-24 lg:px-8 lg:py-10">
           <div className="grid sm:gap-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:grid-cols-2">
@@ -178,6 +179,32 @@ export const getStaticProps = async () => {
   
 }`);
 
+const norcal = await client.fetch(`*[_type == "states" && slug.current == "norcal"] {
+  "cities": *[
+    _type == "cities" &&
+    references(^._id) &&
+    name != "Sacramento"
+  ] {
+        _id,
+        name,
+        slug,
+        hide,
+        image {
+          crop, 
+      hotspot,
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            }
+          },
+    }
+    }[0].cities`);
+
   const footer = await client.fetch(`*[_type == "footersettings"][0]{
   footerimage {
     hotspot,
@@ -203,6 +230,7 @@ export const getStaticProps = async () => {
     props: {
       data,
       states,
+      norcal,
       footer,
     },
 

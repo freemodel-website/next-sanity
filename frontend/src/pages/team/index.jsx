@@ -85,12 +85,17 @@ export default function Team({ team, teampage, statesList, footer }) {
             (item) => item.state[0].location.state.statename === state.statename
           );
 
+          console.log('DEBUG filteredTeam: ',filteredTeam);
+          
           // Exclude Partnerships and In-House Design Team
           const filteredAndExcludedTeam = filteredTeam.filter(
             (item) =>
               item.location?.name != "Partnerships" &&
               item.location?.name != "In-House Design Team" &&
-              item.location?.name != "Author"
+              item.location?.name != "Author" &&
+              item.state[0]?.location?.state?.statename != "Texas" &&
+              item.state[0]?.location?.state?.statename != "Florida" &&
+              item.state[0]?.location?.state?.statename != "Northern California" 
           );
 
           // check if there are any project directors in this state
@@ -108,17 +113,17 @@ export default function Team({ team, teampage, statesList, footer }) {
           return null;
         })}
         {/* Sort by Partnerships */}
-        {partnershipsTeam && (
+        {/* {partnershipsTeam && (
           <div>
             <TeamList title={"Partnerships"} team={sortedPartnershipsTeam} />
           </div>
-        )}
+        )} */}
         {/* Sort by In-House */}
-        {inHouseTeam.length < 0 && (
+        {/* {inHouseTeam.length < 0 && (
           <div className="mb-44">
             <TeamList title={"In-House Design Team"} team={inHouseTeam} />
           </div>
-        )}
+        )} */}
       </main>
       <Footer data={footer} />
     </div>

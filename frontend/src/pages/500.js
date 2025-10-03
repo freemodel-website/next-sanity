@@ -16,16 +16,16 @@ const Custom500 = () => {
 
   return (
     <div>
-      <div class="grid h-screen px-4 bg-white place-content-center">
-        <div class="text-center">
-          <h1 class="font-black text-gray-200 text-9xl">500</h1>
+      <div className="grid h-screen px-4 bg-white place-content-center">
+        <div className="text-center">
+          <h1 className="font-black text-gray-200 text-9xl">500</h1>
 
-          <p class="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Uh-oh!
           </p>
 
-          <p class="mt-4 text-gray-500">We can't find that page.</p>
-          <p class=" text-gray-500">Heading back home...</p>
+          <p className="mt-4 text-gray-500">We can't find that page.</p>
+          <p className=" text-gray-500">Heading back home...</p>
         </div>
       </div>
     </div>

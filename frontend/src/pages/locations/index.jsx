@@ -9,7 +9,7 @@ import Footer from "../../../components/footer";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Locations({ data, states, footer }) {
+export default function Locations({ data, states, norcal, footer }) {
   // Get the current URL
   const router = useRouter();
   const currentURL = router.asPath;
@@ -51,18 +51,20 @@ export default function Locations({ data, states, footer }) {
         <Bluebar theme={"Find your dream home"} body={data.bluetitle} />
       </main>
       <div className="flex flex-col sm:grid sm:grid-cols-2 justify-center items-center w-2/3 gap-10 my-28 mx-auto">
-        {states
+        {norcal
           .filter(
             (state) =>
               state.statename != "Partnerships" &&
               state.statename != "In-House Design Team" &&
               state.statename != "Author"
           )
-          .sort((a, b) => a.statename.localeCompare(b.statename))
+          .sort((a, b) => a.name.localeCompare(b.name))
           .map((state) => (
+            <>
+              {!state?.hide && (
             <div key={state._id} className="w-full">
               <Link
-                href={"/locations/" + state.slug.current}
+                href={"/locations/norcal/" + state.slug.current}
                 className="mx-auto w-5/6 md:w-[30vw]"
               >
                 <div className="relative h-52 md:h-[20vw]">
@@ -74,10 +76,12 @@ export default function Locations({ data, states, footer }) {
                   />
                 </div>
                 <div className="py-4">
-                  <h3 className="text-3xl text-FM-orange">{state.statename}</h3>
+                  <h3 className="text-3xl text-FM-orange">{state.name}</h3>
                 </div>
               </Link>
             </div>
+              )}
+            </>
           ))}
       </div>
       <Footer data={footer} />
@@ -102,6 +106,33 @@ export async function getStaticProps() {
     seoDescription,
     seoImage,
   }`);
+
+  const norcal =
+    await client.fetch(`*[_type == "states" && slug.current == "norcal"] {
+  "cities": *[
+    _type == "cities" &&
+    references(^._id) &&
+    name != "Sacramento"
+  ] {
+        _id,
+        name,
+        slug,
+        hide,
+        image {
+          crop, 
+      hotspot,
+            asset->{
+                _ref,
+                _type,
+                altText,
+                description,
+                "tags": opt.media.tags[]->name.current,
+                title,
+                url
+            }
+          },
+    }
+    }[0].cities`);
 
   const states = await client.fetch(`*[_type == "states"]{
     _id,
@@ -141,6 +172,7 @@ export async function getStaticProps() {
   return {
     props: {
       states,
+      norcal,
       footer,
       data: mainquery,
     },
