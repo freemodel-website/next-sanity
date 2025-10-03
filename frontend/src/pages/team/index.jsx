@@ -95,7 +95,8 @@ export default function Team({ team, teampage, statesList, footer }) {
               item.location?.name != "Author" &&
               item.state[0]?.location?.state?.statename != "Texas" &&
               item.state[0]?.location?.state?.statename != "Florida" &&
-              item.state[0]?.location?.state?.statename != "Northern California" 
+              item.state[0]?.location?.state?.statename != "Other" &&
+              item.state[0]?.location?.state?.statename != "Southern California"
           );
 
           // check if there are any project directors in this state
