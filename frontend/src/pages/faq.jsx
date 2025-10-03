@@ -63,7 +63,7 @@ export default function FAQ({ data, footer }) {
           <div className="my-20">
             <Ctabutton
               //text={data.ctabutton}
-              text="Contct Us"
+              text="Contact Us"
               href="/contact-us"
             />
           </div>
