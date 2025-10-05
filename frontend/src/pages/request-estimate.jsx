@@ -35,19 +35,19 @@ export default function requestEstimate({ data, footer }) {
       <Navbar data={footer.navbar} />
 
       <main>
-        <Hero
+        {/* <Hero
           hero={{ title: "Request Estimate" }}
           image={urlFor(data.mainImage).url()}
         />
 
-        <Bluebar theme={"moretext"} body={data.bluetitle} />
+        <Bluebar theme={"moretext"} body={data.bluetitle} /> */}
 
-        <div className="">
+        <div className="bg-[#F6F6F6]">
           <div
             className="lg:p-16 overflow-auto"
             dangerouslySetInnerHTML={{
               __html:
-                '<div data-paperform-id="g4aknysq"></div><script>(function() {var script = document.createElement("script"); script.src = "https://paperform.co/__embed.min.js"; document.body.appendChild(script); })()</script>',
+                '<div data-paperform-id="rvmv9mgv"></div><script>(function() {var script = document.createElement("script"); script.src = "https://paperform.co/__embed.min.js"; document.body.appendChild(script); })()</script>',
             }}
           />
         </div>
