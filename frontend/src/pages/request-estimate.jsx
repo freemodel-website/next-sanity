@@ -38,11 +38,15 @@ export default function requestEstimate({ data, footer }) {
         {/* <Hero
           hero={{ title: "Request Estimate" }}
           image={urlFor(data.mainImage).url()}
+        />*/}
+
+        <Bluebar
+          theme={"titletext"}
+          title={data.titlebutton}
+          body={data.bluetitle}
         />
 
-        <Bluebar theme={"moretext"} body={data.bluetitle} /> */}
-
-        <div className="bg-[#F6F6F6]">
+        <div className="bg-[#F6F6F6] min-h-[1172px]">
           <div
             className="lg:p-16 overflow-auto"
             dangerouslySetInnerHTML={{
